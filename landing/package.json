@@ -7,7 +7,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "dev": "parcel index.html",
-    "imagemin": "imagemin src/images src/tiny-images",
+    "imagemin": "imagemin src/assets src/images src/tiny-images",
     "build": "parcel build index.html",
     "watch": "yarn dev"
   },
@@ -16,6 +16,7 @@
     "parcel": "^1.12.3",
     "parcel-bundler": "^1.12.3",
     "rimraf": "^2.5.4",
+    "sass": "^1.23.0-module.beta.1",
     "stylelint": "^9.4.0"
   }
 }
