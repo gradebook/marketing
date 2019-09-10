@@ -1,14 +1,14 @@
-<svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="384" height="384" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs>
-    <path id="a" d="M0 0h32v8H0z"/>
-    <path id="b" d="M12 24h20v8H12z"/>
-    <path id="c" d="M0 12h8v8H0z"/>
-    <path id="d" d="M12 12h8v8h-8z"/>
+    <path id="stack" d="M225 13 L382 71 L359 81 v49 L382 139 L347 154 v44 L382 212 L359 222 v48 L382 278 L161 371 L33 317 Q5 299 16 246 Q-10 200 18 164 Q7 98 33 79 z"/>
+    <path id="book1" d="M38 113 L162 162 L342 89 v40 L163 202 L38 153 z"/>
+    <path id="book2" d="M27 184 L153 236 L329 162 v40 L149 274 L27 224 z"/>
+    <path id="book3" d="M38 259 L152 304 L342 228 v40 L162 342 L38 293 z"/>
   </defs>
   <g fill="none" fill-rule="evenodd">
-    <use fill="#A59AEE" xlink:href="#a"/>
-    <use fill="#7E6EE6" xlink:href="#b"/>
-    <use fill-opacity=".87" fill="#5AE0D2" xlink:href="#c"/>
-    <use fill="#85E8DE" xlink:href="#d"/>
+    <use fill="#600000" xlink:href="#stack"/>
+    <use fill="#FFFFFF" xlink:href="#book1"/>
+    <use fill="#FFFFFF" xlink:href="#book2"/>
+    <use fill="#FFFFFF" xlink:href="#book3"/>
   </g>
 </svg>
