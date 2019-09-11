@@ -12,11 +12,11 @@
     "watch": "yarn dev"
   },
   "devDependencies": {
-    "imagemin-cli": "^3.0.0",
+    "imagemin-cli": "^5.0.0",
     "parcel": "^1.12.3",
     "parcel-bundler": "^1.12.3",
-    "rimraf": "^2.5.4",
+    "rimraf": "^3.0.0",
     "sass": "^1.23.0-module.beta.1",
-    "stylelint": "^9.4.0"
+    "stylelint": "^10.1.0"
   }
 }
