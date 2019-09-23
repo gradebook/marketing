@@ -6,13 +6,15 @@
   "license": "GPLv3",
   "scripts": {
     "clean": "rimraf dist",
-    "dev": "parcel index.html",
+    "dev": "parcel *.html *.md",
     "imagemin": "imagemin src/assets src/images src/tiny-images",
-    "build": "parcel build index.html",
+    "build": "parcel build *.html *.md",
     "watch": "yarn dev"
   },
   "devDependencies": {
+    "axios": "^0.19.0",
     "imagemin-cli": "^5.0.0",
+    "marked": "^0.7.0",
     "parcel": "^1.12.3",
     "parcel-bundler": "^1.12.3",
     "rimraf": "^3.0.0",

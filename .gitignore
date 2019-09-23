@@ -32,3 +32,5 @@ node_modules/
 *.sublime-workspace
 
 dist/
+terms-of-service.md
+.cache

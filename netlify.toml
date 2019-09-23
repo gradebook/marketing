@@ -1,0 +1,3 @@
+[build]
+  command = "node pre-build.js && yarn build"
+  publish = "dist"
