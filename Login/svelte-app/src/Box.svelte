@@ -3,10 +3,10 @@
 		width: 300px;
 		border: 1px solid #aaa;
 		border-radius: 2px;
-		box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+		box-shadow: 0 4px 12px 0px #333;
 		padding: 1em;
 		margin: 0 0 1em 0;
-		background-color: rgba(255,255,255,0.7);
+		background-color: rgba(255,255,255,1);
 		height: 250px;
 	}
 	.centered {
