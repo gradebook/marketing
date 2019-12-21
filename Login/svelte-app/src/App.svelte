@@ -2,6 +2,7 @@
 	import Box from './Box.svelte';
 	import Buttons from './Buttons.svelte';
 	import Select from 'svelte-select';
+	import Background from './Background.svelte';
 
 	let items = [
 		{value: 'aggie', label: 'Texas A&M University'},
@@ -59,37 +60,39 @@
 	}
 </script>
 
-{#if state==0}
-	<Box>
-		<h2>Welcome to Gradebook!</h2>
-		<p>There is not yet an account associated with {email}. Would you like to create one?</p>
-		<Buttons>
-			<button on:click={back}>
-				Back
-			</button>
-			<button on:click={createAccount}>
-				Create Account
-			</button>
-		</Buttons>
-	</Box>
-{:else if state==1}
-	<Box>
-		<h2>Find Your School</h2>
-		<Select {items} isDisabled={notListed} bind:selectedValue></Select>
-		<div>
-			<input type="checkbox" bind:checked={notListed}>
-			My school isn't listed
-		</div>
-		{#if notListed}
-			My school: <input type=text bind:value={userInputName}>
-		{/if}
-		<Buttons>
-			<button on:click={back}>
-				Back
-			</button>
-			<button on:click={confirm}>
-				Confirm
-			</button>
-		</Buttons>
-	</Box>
-{/if}
+<Background>
+	{#if state==0}
+		<Box>
+			<h2>Welcome to Gradebook!</h2>
+			<p>There is not yet an account associated with {email}. Would you like to create one?</p>
+			<Buttons>
+				<button on:click={back}>
+					Back
+				</button>
+				<button on:click={createAccount}>
+					Create Account
+				</button>
+			</Buttons>
+		</Box>
+	{:else if state==1}
+		<Box>
+			<h2>Find Your School</h2>
+			<Select {items} isDisabled={notListed} bind:selectedValue></Select>
+			<div>
+				<input type="checkbox" bind:checked={notListed}>
+				My school isn't listed
+			</div>
+			{#if notListed}
+				My school: <input type=text bind:value={userInputName}>
+			{/if}
+			<Buttons>
+				<button on:click={back}>
+					Back
+				</button>
+				<button on:click={confirm}>
+					Confirm
+				</button>
+			</Buttons>
+		</Box>
+	{/if}
+</Background>
