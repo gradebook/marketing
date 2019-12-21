@@ -4,10 +4,25 @@
 	import Select from 'svelte-select';
 
 	let items = [
-		{value: 1, label: 'Texas A&M'},
-		{value: 2, label: 'Texas Tech'},
-		{value: 3, label: 'University of Texas'},
-		{value: 4, label: 'Ole Miss'}
+		{value: 'aggie', label: 'Texas A&M University'},
+		{value: 'lsu', label: 'LSU - Louisiana State University'},
+		{value: 'rebel', label: 'Ole Miss - University of Mississippi'},
+		{value: 'crimson', label: 'University of Alabama'},
+		{value: 'cajun', label: 'University of Louisiana at Lafayette'},
+		{value: 'latech', label: 'Louisiana Tech University'},
+		{value: 'gator', label: 'University of Florida'},
+		{value: 'colonial', label: 'GW - George Washington University'},
+		{value: 'vandy', label: 'Vanderbilt University'},
+		{value: 'tiger', label: 'Clemson University'},
+		{value: 'wolfpack', label: 'NC State University'},
+		{value: 'buckeye', label: 'The Ohio State University'},
+		{value: 'raider', label: 'Texas Tech University'},
+		{value: 'nittany', label: 'Penn State University'},
+		{value: 'bm', label: 'Purdue University'},
+		{value: 'wildcat', label: 'Kansas State University'},
+		{value: 'husker', label: 'University of Nebraska'},
+		{value: 'longhorn', label: 't.u. - University of Texas at Austin'},
+		{value: 'comet', label: 'UTD - University of Texas at Dallas'}
 	]
 
 	let selectedValue = undefined;
