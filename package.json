@@ -1,9 +1,16 @@
 {
-  "name": "aggie-gradebook-marketing-site",
+  "name": "@gradebook/marketing",
   "version": "0.1.0",
-  "description": "Aggie Gradebook Marketing Site",
-  "author": "Aggie Gradebook <hello@aggiegradebook.com>",
-  "license": "GPLv3",
+  "description": "Marketing site for Gradebook",
+  "alias": "gb",
+  "repository": "https://github.com/gradebook/marketing",
+  "authors": [
+    "Josh Costa <joshcosta38@tamu.edu>",
+    "Vikas Potluri <vikaspotluri123.github@gmail.com>",
+    "Ramsay Smith <ramsaysmith@outlook.com>"
+  ],
+  "license": "MIT",
+  "private": true,
   "scripts": {
     "clean": "rimraf dist",
     "dev": "parcel *.html",
