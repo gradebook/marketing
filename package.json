@@ -6,9 +6,9 @@
   "license": "GPLv3",
   "scripts": {
     "clean": "rimraf dist",
-    "dev": "parcel *.html *.md",
-    "imagemin": "imagemin src/assets src/images src/tiny-images",
-    "build": "parcel build *.html *.md",
+    "dev": "parcel home/*.html home/*.md",
+    "imagemin": "imagemin home/src/assets home/src/images home/src/tiny-images",
+    "build": "parcel build home/*.html home/*.md",
     "watch": "yarn dev"
   },
   "devDependencies": {
