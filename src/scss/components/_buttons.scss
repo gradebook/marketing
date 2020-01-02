@@ -80,10 +80,12 @@
 }
 
 .button-primary {
-    background: color(primary, 1);
+    background: color(typography, 2);
+    border: 1px solid color(primary, 1);
+    border-radius: 100px;
 
     &:hover {
-        background: lighten(color(primary, 1), 2%);
+        background: lighten(color(typography, 2), 5%);
     }
 
     &.button-shadow {

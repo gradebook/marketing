@@ -1,9 +1,14 @@
 <svg width="192" height="192" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <style>
-    path { fill: #DDDBF1; }
-    polyline { stroke: #DDDBF1;
+    path { fill: #5E3B4D; }
+    polyline { stroke: #5E3B4D;
         stroke-width: 4;
         stroke-linecap: round;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      path { fill: #FFFFFF; }
+      polyline { stroke: #FFFFFF; }
     }
   </style>
 
