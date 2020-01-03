@@ -1,14 +1,24 @@
 {
-  "name": "aggie-gradebook-marketing-site",
+  "name": "@gradebook/marketing",
   "version": "0.1.0",
-  "description": "Aggie Gradebook Marketing Site",
-  "author": "Aggie Gradebook <hello@aggiegradebook.com>",
-  "license": "GPLv3",
+  "description": "Marketing site for Gradebook",
+  "alias": "gb",
+  "repository": "https://github.com/gradebook/marketing",
+  "authors": [
+    "Josh Costa <joshcosta38@tamu.edu>",
+    "Vikas Potluri <vikaspotluri123.github@gmail.com>",
+    "Ramsay Smith <ramsaysmith@outlook.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "browserslist": [
+    "last 2 chrome versions"
+  ],
   "scripts": {
     "clean": "rimraf dist",
-    "dev": "parcel *.html *.md",
+    "dev": "parcel *.html *.md *.svelte",
     "imagemin": "imagemin src/assets src/images src/tiny-images",
-    "build": "parcel build *.html *.md",
+    "build": "parcel build *.html *.md *.svelte",
     "watch": "yarn dev"
   },
   "devDependencies": {
@@ -17,8 +27,13 @@
     "marked": "^0.8.0",
     "parcel": "^1.12.4",
     "parcel-bundler": "^1.12.4",
+    "parcel-plugin-svelte": "^4.0.5",
     "rimraf": "^3.0.0",
     "sass": "^1.23.7",
-    "stylelint": "^12.0.0"
+    "stylelint": "^12.0.0",
+    "svelte": "^3.16.7"
+  },
+  "dependencies": {
+    "svelte-select": "^3.3.0"
   }
 }
