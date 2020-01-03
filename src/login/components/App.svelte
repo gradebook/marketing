@@ -2,10 +2,9 @@
 	import Select from 'svelte-select';
 	import Box from './Box.svelte';
 	import Buttons from './Buttons.svelte';
-
 	import items from './schools.json';
 
-	let selectedValue = undefined;
+	let school;
 	let notListed = false;
 	let userInputName = '';
 
@@ -17,9 +16,9 @@
 	}
 
 	function back() {
-		state -= 1;
+		state--;
 
-		if(state<0) {
+		if(state < 0) {
 			window.location.href = "http://gradebook.app";
 		}
 	}
@@ -28,9 +27,9 @@
 		let schoolValue = -1;
 		let schoolName = '';
 
-		if(!notListed & selectedValue !== undefined) {
-			schoolValue = selectedValue.value;
-			schoolName = selectedValue.label;
+		if(!notListed & school !== undefined) {
+			schoolValue = school.value;
+			schoolName = school.label;
 		} else if (notListed) {
 			schoolName = userInputName;
 		}
@@ -55,7 +54,7 @@
 {:else if state==1}
 	<Box>
 		<h2>Find Your School</h2>
-		<Select {items} isDisabled={notListed} bind:selectedValue></Select>
+		<Select {items} isDisabled={notListed} on:select={e => school = e.detail}></Select>
 		<div>
 			<input type="checkbox" bind:checked={notListed}>
 			My school isn't listed
