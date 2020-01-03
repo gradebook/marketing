@@ -1,7 +1,7 @@
 <script>
+	import Select from 'svelte-select';
 	import Box from './Box.svelte';
 	import Buttons from './Buttons.svelte';
-	import Select from 'svelte-select';
 	import Background from './Background.svelte';
 
 	let items = [
