@@ -1,5 +1,5 @@
 {
-  fetch('https://gradebook.app/api/v0/session', {credentials: true}).then(r => r.json()).then(user => {
+  fetch('https://gradebook.app/api/v0/session', {credentials: 'include'}).then(r => r.json()).then(user => {
     const cta = document.querySelector('.hero-cta .button');
     let updatedText;
     let updatedLink;
