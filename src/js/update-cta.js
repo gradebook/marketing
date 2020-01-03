@@ -1,9 +1,8 @@
 {
-  fetch('https://gradebook.app/api/v0/session').then(r => r.json()).then(user => {
+  fetch('https://gradebook.app/api/v0/session', {credentials: true}).then(r => r.json()).then(user => {
     const cta = document.querySelector('.hero-cta .button');
     let updatedText;
     let updatedLink;
-    console.log({user})
 
     if (user.isNew) {
       updatedText = 'Create Your Account';
