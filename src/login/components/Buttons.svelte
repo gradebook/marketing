@@ -1,7 +1,7 @@
 <style>
 .buttons {
 	right: 16px;
-	bottom: 8px;
+	bottom: 16px;
 	position: fixed;
 }
 </style>

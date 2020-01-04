@@ -86,7 +86,8 @@
 	<Box>
 		<h2>Find Your School</h2>
 		<Select {items} isDisabled={notListed} on:select={e => school = e.detail}></Select>
-		<div>
+		<br>
+		<div class="space">
 			<input type="checkbox" bind:checked={notListed}>
 			My school isn't listed
 		</div>

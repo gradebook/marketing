@@ -10,7 +10,7 @@
 		padding-top: 0px;
 		margin: 0 0 1em 0;
 		background-color: rgba(255,255,255,1);
-		height: 270px;
+		height: 280px;
 	}
 	.centered {
 		position: fixed;
