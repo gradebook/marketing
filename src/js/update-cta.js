@@ -6,7 +6,7 @@
 
     if (user.isNew) {
       updatedText = 'Create Your Account';
-      updatedLink = '/login';
+      updatedLink = '/signup';
     } else if (user.school) {
       updatedText = 'Go to Dashboard';
       updatedLink = 'https://gradebook.app/api/v0/redirect';
