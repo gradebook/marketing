@@ -20,7 +20,7 @@
 
 		fetch('https://gradebook.app/api/v0/session', {credentials: 'include'}).then(r => r.json()).then(user => {
 			email = user.email;
-		}).catch(error => console.error(`__updateEmail::${error.message}`));
+		}).catch(error => console.error(`__getUser::${error.message}`));
 	})
 
 	function createAccount() {
@@ -31,7 +31,7 @@
 		state--;
 
 		if(state < 0) {
-			window.location.href = "http://gradebook.app";
+			window.history.go(-1);
 		}
 	}
 
