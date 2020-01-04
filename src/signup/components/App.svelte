@@ -15,7 +15,7 @@
 	let showMessage = false;
 	let userInputName = '';
 
-	let email = '';
+	let email = 'your email';
 	let state = 0;
 
 	let focusElem;
