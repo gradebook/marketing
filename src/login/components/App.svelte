@@ -10,13 +10,17 @@
 	let showMessage = false;
 	let userInputName = '';
 
-	let email = 'email@email.com';
+	let email = '';
 	let state = 0;
 
 	let focusElem;
 
 	onMount(function() {
 		focusElem.focus();
+
+		fetch('https://gradebook.app/api/v0/session', {credentials: 'include'}).then(r => r.json()).then(user => {
+			email = user.email;
+		}).catch(error => console.error(`__updateEmail::${error.message}`));
 	})
 
 	function createAccount() {
@@ -68,7 +72,7 @@
 {#if state==0}
 	<Box>
 		<h2>Welcome to Gradebook!</h2>
-		<p>There is not yet an account associated with {email}. Would you like to create one?</p>
+		<p style="margin-top: 45px;">There is not yet an account associated with {email}. Would you like to create one?</p>
 		<Buttons>
 			<button on:click={back}>
 				Back
