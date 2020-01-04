@@ -53,9 +53,33 @@ input[type="range"] {
 }
 
 button {
-	color: #333;
-	background-color: #f4f4f4;
-	outline: none;
+	box-sizing: border-box;
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    outline: 0;
+    border: none;
+    -webkit-tap-highlight-color: transparent;
+    display: inline-block;
+    white-space: nowrap;
+    text-decoration: none;
+    vertical-align: baseline;
+    text-align: center;
+    margin: 0;
+    min-width: 64px;
+    line-height: 40px;
+    padding: 0px 16px 2px 16px;
+    border-radius: 4px;
+	overflow: visible;
+	font-weight: 500;
+	background-color: #ffffff;
+}
+
+button:hover {
+	background-color: #eee;
 }
 
 button:disabled {
@@ -67,5 +91,13 @@ button:not(:disabled):active {
 }
 
 button:focus {
-	border-color: #666;
+	background-color: #ddd;
+}
+
+.warn {
+	color: darkred;
+}
+
+div {
+	margin-bottom: 8px;
 }

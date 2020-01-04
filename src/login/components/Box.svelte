@@ -1,13 +1,16 @@
 <style>
 	.box {
-		width: 300px;
-		border: 1px solid #aaa;
-		border-radius: 2px;
-		box-shadow: 0 4px 12px 0px #333;
-		padding: 1em;
+		width: 400px;
+		border-radius: 4px;
+		box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 
+			0px 24px 38px 3px rgba(0, 0, 0, 0.14), 
+			0px 9px 46px 8px rgba(0, 0, 0, 0.12);
+		padding: 24px;
+		padding-bottom: 0px;
+		padding-top: 0px;
 		margin: 0 0 1em 0;
 		background-color: rgba(255,255,255,1);
-		height: 250px;
+		height: 270px;
 	}
 	.centered {
 		position: fixed;
