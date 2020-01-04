@@ -1,3 +1,8 @@
+<style>
+.inline {
+	display: inline;
+}
+</style>
 <script>
 	import Select from 'svelte-select';
 	import Box from './Box.svelte';
@@ -88,8 +93,8 @@
 		<Select {items} isDisabled={notListed} on:select={e => school = e.detail}></Select>
 		<br>
 		<div class="space">
-			<input type="checkbox" bind:checked={notListed}>
-			My school isn't listed
+			<input type="checkbox" id="not-listed" bind:checked={notListed}>
+			<label for="not-listed" class="inline">My school isn't listed</label>
 		</div>
 		{#if notListed}
 			My school: <input type=text bind:value={userInputName}>
