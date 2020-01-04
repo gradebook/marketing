@@ -3,13 +3,21 @@
 	import Box from './Box.svelte';
 	import Buttons from './Buttons.svelte';
 	import items from './schools.json';
+	import {onMount} from 'svelte'
 
 	let school;
 	let notListed = false;
+	let showMessage = false;
 	let userInputName = '';
 
 	let email = 'email@email.com';
 	let state = 0;
+
+	let focusElem;
+
+	onMount(function() {
+		focusElem.focus();
+	})
 
 	function createAccount() {
 		state = 1;
@@ -23,7 +31,26 @@
 		}
 	}
 
+	function canConfirm() {
+		if(!notListed && !school) {
+			return false;
+		}
+
+		if(notListed && !userInputName) {
+			return false;
+		}
+
+		return true;
+	}
+
 	function confirm() {
+		if(!canConfirm()) {
+			showMessage = true;
+			return false;
+		} else {
+			showMessage = false;
+		}
+
 		let schoolValue = -1;
 		let schoolName = '';
 
@@ -46,7 +73,7 @@
 			<button on:click={back}>
 				Back
 			</button>
-			<button on:click={createAccount}>
+			<button bind:this={focusElem} on:click={createAccount}>
 				Create Account
 			</button>
 		</Buttons>
@@ -61,6 +88,9 @@
 		</div>
 		{#if notListed}
 			My school: <input type=text bind:value={userInputName}>
+		{/if}
+		{#if showMessage}
+			<p class="warn" style="bottom: 12px; position: absolute;">Please select or type a school.</p>
 		{/if}
 		<Buttons>
 			<button on:click={back}>
