@@ -1,6 +1,7 @@
 {
   fetch('https://gradebook.app/api/v0/session', {credentials: 'include'}).then(r => r.json()).then(user => {
-    const cta = document.querySelector('.hero-cta .button');
+    const topCta = document.querySelector('.hero-cta .button');
+    const bottomCta = document.querySelector('.cta-cta .button');
     let updatedText;
     let updatedLink;
 
@@ -13,8 +14,10 @@
     }
 
     if (updatedText && updatedLink) {
-      cta.setAttribute('href', updatedLink);
-      cta.textContent = updatedText;
+      topCta.setAttribute('href', updatedLink);
+      bottomCta.setAttribute('href', updatedLink);
+      topCta.textContent = updatedText;
+      bottomCta.textContent = updatedText;
     }
   }).catch(error => console.error(`__updateCTA::${error.message}`));
 }
