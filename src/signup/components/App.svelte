@@ -2,7 +2,6 @@
 .inline {
 	display: inline;
 }
-.red {color: red}
 </style>
 <script>
 	import Select from 'svelte-select';
@@ -13,8 +12,7 @@
 
 	let school;
 	let notListed = false;
-	let showMessage = false;
-	let reqError = new Error('testing is important');
+	let message = '';
 	let userInputName = '';
 
 	let email = 'your email';
@@ -56,14 +54,13 @@
 
 	function confirm() {
 		if(!canConfirm()) {
-			showMessage = true;
+			message = 'Please select or type a school.';
 			return false;
-		} else {
-			showMessage = false;
 		}
 
 		let schoolValue = -1;
 		let schoolName = '';
+		message = '';
 
 		if(!notListed & school !== undefined) {
 			schoolValue = school.value;
@@ -90,7 +87,7 @@
 		</Buttons>
 	</Box>
 {:else if state==1}
-	<Box big={reqError && notListed}>
+	<Box>
 		<h2>Find Your School</h2>
 		<Select {items} isDisabled={notListed} on:select={e => school = e.detail}></Select>
 		<br>
@@ -101,13 +98,8 @@
 		{#if notListed}
 			My school: <input class="school" type="text" bind:value={userInputName}>
 		{/if}
-		{#if showMessage}
-			<p class="warn" style="bottom: 12px; position: absolute;">Please select or type a school.</p>
-		{/if}
-		{#if reqError}
-			<div>
-				An error occurred: <span class="red">{reqError}</span>
-			</div>
+		{#if message}
+			<p class="warn" style="bottom: 12px; position: absolute;">{message}</p>
 		{/if}
 		<Buttons>
 			<button on:click={back}>

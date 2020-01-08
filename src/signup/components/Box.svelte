@@ -14,9 +14,6 @@
 		background-color: rgba(255,255,255,1);
 	}
 
-	.big {
-		height: 320px;
-	}
 	.centered {
 		position: fixed;
 		top: 50%;
@@ -24,11 +21,8 @@
 		transform: translate(-50%, -50%);
 	}
 </style>
-<script>
-	export let big;
-</script>
 
-<div class="box centered" class:big={big}>
+<div class="box centered">
 	<slot>
 		<em>no content was provided</em>
 	</slot>
