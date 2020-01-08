@@ -2,6 +2,7 @@
 .inline {
 	display: inline;
 }
+.red {color: red}
 </style>
 <script>
 	import Select from 'svelte-select';
@@ -13,6 +14,7 @@
 	let school;
 	let notListed = false;
 	let showMessage = false;
+	let reqError = new Error('testing is important');
 	let userInputName = '';
 
 	let email = 'your email';
@@ -88,7 +90,7 @@
 		</Buttons>
 	</Box>
 {:else if state==1}
-	<Box>
+	<Box big={reqError && notListed}>
 		<h2>Find Your School</h2>
 		<Select {items} isDisabled={notListed} on:select={e => school = e.detail}></Select>
 		<br>
@@ -101,6 +103,11 @@
 		{/if}
 		{#if showMessage}
 			<p class="warn" style="bottom: 12px; position: absolute;">Please select or type a school.</p>
+		{/if}
+		{#if reqError}
+			<div>
+				An error occurred: <span class="red">{reqError}</span>
+			</div>
 		{/if}
 		<Buttons>
 			<button on:click={back}>
