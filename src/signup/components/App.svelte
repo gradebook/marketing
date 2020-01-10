@@ -9,6 +9,7 @@
 	import Buttons from './Buttons.svelte';
 	import items from './schools.json';
 	import {onMount} from 'svelte'
+	import getUrl from './get-url';
 
 	let school;
 	let notListed = false;
@@ -23,10 +24,10 @@
 	onMount(function() {
 		focusElem.focus();
 
-		fetch('https://gradebook.app/api/v0/session', {credentials: 'include'}).then(r => r.json()).then(user => {
+		fetch(getUrl('/api/v0/session'), {credentials: 'include'}).then(r => r.json()).then(user => {
 			email = user.email;
 			if (!user.isNew) {
-				window.location.href = 'http://gbdev.cf:7787/api/v0/redirect';
+				window.location.href = getUrl('/api/v0/redirect');
 			}
 		}).catch(error => console.error(`__getUser::${error.message}`));
 	})
@@ -80,10 +81,10 @@
 			credentials: 'include'
 		};
 
-		fetch('https://gradebook.app/api/v0/approve', params).then(r => r.json()).then((r) => {
+		fetch(getUrl('/api/v0/approve'), params).then(r => r.json()).then((r) => {
 			if (r.message) {
 				if (r.message === 'You are already approved') {
-					return window.location.href = 'http://gbdev.cf:7787/api/v0/redirect';
+					return window.location.href = getUrl('/api/v0/redirect');
 				}
 
 				message = r.message;
