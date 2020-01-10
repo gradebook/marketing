@@ -25,6 +25,9 @@
 
 		fetch('https://gradebook.app/api/v0/session', {credentials: 'include'}).then(r => r.json()).then(user => {
 			email = user.email;
+			if (!user.isNew) {
+				window.location.href = 'http://gbdev.cf:7787/api/v0/redirect';
+			}
 		}).catch(error => console.error(`__getUser::${error.message}`));
 	})
 
