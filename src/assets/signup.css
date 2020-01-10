@@ -52,6 +52,10 @@ input[type="range"] {
 	height: 0;
 }
 
+input.school {
+	margin-left: 0.5em;
+}
+
 button {
 	box-sizing: border-box;
     position: relative;
@@ -96,6 +100,7 @@ button:focus {
 
 .warn {
 	color: darkred;
+	max-width: 50%;
 }
 
 .space {

@@ -97,7 +97,7 @@
 			<label for="not-listed" class="inline">My school isn't listed</label>
 		</div>
 		{#if notListed}
-			My school: <input type=text bind:value={userInputName}>
+			My school: <input class="school" type="text" bind:value={userInputName}>
 		{/if}
 		{#if showMessage}
 			<p class="warn" style="bottom: 12px; position: absolute;">Please select or type a school.</p>
