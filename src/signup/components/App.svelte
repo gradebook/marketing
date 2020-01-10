@@ -58,18 +58,46 @@
 			return false;
 		}
 
-		let schoolValue = -1;
-		let schoolName = '';
 		message = '';
+		let payload = {};
 
 		if(!notListed & school !== undefined) {
-			schoolValue = school.value;
-			schoolName = school.label;
+			payload.school = school.value;
 		} else if (notListed) {
-			schoolName = userInputName;
+			payload.school = 'default';
+			payload.suggestion = userInputName;
 		}
 
-		console.log('CREATE ACCOUNT', schoolValue, schoolName);
+		const params = {
+			method: 'PUT',
+			body: JSON.stringify(payload),
+			headers: {
+				'content-type': 'application/json'
+			},
+			credentials: 'include'
+		};
+
+		fetch('https://gradebook.app/api/v0/approve', params).then(r => r.json()).then((r) => {
+			if (r.message) {
+				if (r.message === 'You are already approved') {
+					return window.location.href = 'http://gbdev.cf:7787/api/v0/redirect';
+				}
+
+				message = r.message;
+				return;
+			}
+
+			if (r.domain) {
+				const domain = r.domain.replace(/\/$/, '');
+				window.location.href = `${domain}/api/v0/me/approve`;
+			} else {
+				console.log(r);
+				message = 'Unable to process response. Please contact support if this issue persists.';
+			}
+		}).catch(error => {
+			console.log(error);
+			message = error;
+		});
 	}
 </script>
 
