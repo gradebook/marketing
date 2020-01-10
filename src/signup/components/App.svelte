@@ -117,10 +117,10 @@
 {:else if state==1}
 	<Box>
 		<h2>Find Your School</h2>
-		<Select {items} isDisabled={notListed} on:select={e => school = e.detail}></Select>
+		<Select {items} isDisabled={notListed} on:select={e => {school = e.detail; message = ''}}></Select>
 		<br>
 		<div class="space">
-			<input type="checkbox" id="not-listed" bind:checked={notListed}>
+			<input type="checkbox" id="not-listed" bind:checked={notListed} on:change={e => message = ''}>
 			<label for="not-listed" class="inline">My school isn't listed</label>
 		</div>
 		{#if notListed}
