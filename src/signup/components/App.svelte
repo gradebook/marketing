@@ -21,6 +21,7 @@
 	let state = 0;
 
 	let focusElem;
+	let guessedSchool;
 
 	onMount(function() {
 		focusElem.focus();
@@ -33,12 +34,7 @@
 		}).catch(error => console.error(`__getUser::${error.message}`));
 
 		const domain = email.substring(email.lastIndexOf('@') + 1);
-		const schoolInfo = items.find(o => o.domain === domain);
-
-		if(schoolInfo) {
-			school = schoolInfo.value;
-			startingLabel = schoolInfo.label;
-		}
+		guessedSchool = items.find(school => school.domain === domain);
 	})
 
 	function createAccount() {
@@ -130,7 +126,7 @@
 {:else if state==1}
 	<Box>
 		<h2>Find Your School</h2>
-		<Select {items} placeholder={startingLabel} isDisabled={notListed} on:select={e => {school = e.detail; message = ''}}></Select>
+		<Select {items} selectedValue={guessedSchool} isDisabled={notListed} on:select={e => {school = e.detail; message = ''}}></Select>
 		<br>
 		<div class="space">
 			<input type="checkbox" id="not-listed" bind:checked={notListed} on:change={e => message = ''}>
