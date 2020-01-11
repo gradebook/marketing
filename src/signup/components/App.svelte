@@ -41,12 +41,14 @@
 		state = 1;
 	}
 
-	function back() {
-		state--;
+	function cancel() {
+		fetch(getUrl('/api/v0/session/end'), {credentials: 'include'}).then(r => {
+			if (r.status === 204) {
+				window.location.href = `https://www.gradebook.app/`;
+			}
+		}).catch(error => console.error(`__getUser::${error.message}`));
 
-		if(state < 0) {
-			window.history.go(-1);
-		}
+		message = 'ERROR: Please refresh the page and try again.';
 	}
 
 	function canConfirm() {
@@ -115,8 +117,8 @@
 		<h2>Welcome to Gradebook!</h2>
 		<p style="margin-top: 45px;">There is not yet an account associated with {email}. Would you like to create one?</p>
 		<Buttons>
-			<button on:click={back}>
-				Back
+			<button on:click={cancel}>
+				Cancel
 			</button>
 			<button bind:this={focusElem} on:click={createAccount}>
 				Create Account
@@ -139,8 +141,8 @@
 			<p class="warn" style="bottom: 12px; position: absolute;">{message}</p>
 		{/if}
 		<Buttons>
-			<button on:click={back}>
-				Back
+			<button on:click={cancel}>
+				Cancel
 			</button>
 			<button on:click={confirm}>
 				Confirm
