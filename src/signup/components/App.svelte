@@ -9,10 +9,11 @@
 	import Buttons from './Buttons.svelte';
 	import items from './schools.json';
 	import {onMount} from 'svelte'
+	import getUrl from './get-url';
 
 	let school;
 	let notListed = false;
-	let showMessage = false;
+	let message = '';
 	let userInputName = '';
 
 	let email = 'your email';
@@ -23,8 +24,11 @@
 	onMount(function() {
 		focusElem.focus();
 
-		fetch('https://gradebook.app/api/v0/session', {credentials: 'include'}).then(r => r.json()).then(user => {
+		fetch(getUrl('/api/v0/session'), {credentials: 'include'}).then(r => r.json()).then(user => {
 			email = user.email;
+			if (!user.isNew) {
+				window.location.href = getUrl('/api/v0/redirect');
+			}
 		}).catch(error => console.error(`__getUser::${error.message}`));
 	})
 
@@ -54,23 +58,50 @@
 
 	function confirm() {
 		if(!canConfirm()) {
-			showMessage = true;
+			message = 'Please select or type a school.';
 			return false;
-		} else {
-			showMessage = false;
 		}
 
-		let schoolValue = -1;
-		let schoolName = '';
+		message = '';
+		let payload = {};
 
 		if(!notListed & school !== undefined) {
-			schoolValue = school.value;
-			schoolName = school.label;
+			payload.school = school.value;
 		} else if (notListed) {
-			schoolName = userInputName;
+			payload.school = 'default';
+			payload.suggestion = userInputName;
 		}
 
-		console.log('CREATE ACCOUNT', schoolValue, schoolName);
+		const params = {
+			method: 'PUT',
+			body: JSON.stringify(payload),
+			headers: {
+				'content-type': 'application/json'
+			},
+			credentials: 'include'
+		};
+
+		fetch(getUrl('/api/v0/approve'), params).then(r => r.json()).then((r) => {
+			if (r.message) {
+				if (r.message === 'You are already approved') {
+					return window.location.href = getUrl('/api/v0/redirect');
+				}
+
+				message = r.message;
+				return;
+			}
+
+			if (r.domain) {
+				const domain = r.domain.replace(/\/$/, '');
+				window.location.href = `${domain}/api/v0/me/approve`;
+			} else {
+				console.log(r);
+				message = 'Unable to process response. Please contact support if this issue persists.';
+			}
+		}).catch(error => {
+			console.log(error);
+			message = error;
+		});
 	}
 </script>
 
@@ -90,17 +121,17 @@
 {:else if state==1}
 	<Box>
 		<h2>Find Your School</h2>
-		<Select {items} isDisabled={notListed} on:select={e => school = e.detail}></Select>
+		<Select {items} isDisabled={notListed} on:select={e => {school = e.detail; message = ''}}></Select>
 		<br>
 		<div class="space">
-			<input type="checkbox" id="not-listed" bind:checked={notListed}>
+			<input type="checkbox" id="not-listed" bind:checked={notListed} on:change={e => message = ''}>
 			<label for="not-listed" class="inline">My school isn't listed</label>
 		</div>
 		{#if notListed}
-			My school: <input type=text bind:value={userInputName}>
+			My school: <input class="school" type="text" bind:value={userInputName}>
 		{/if}
-		{#if showMessage}
-			<p class="warn" style="bottom: 12px; position: absolute;">Please select or type a school.</p>
+		{#if message}
+			<p class="warn" style="bottom: 12px; position: absolute;">{message}</p>
 		{/if}
 		<Buttons>
 			<button on:click={back}>
