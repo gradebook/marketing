@@ -44,7 +44,7 @@
 	function cancel() {
 		fetch(getUrl('/api/v0/session/end'), {credentials: 'include'}).then(r => {
 			if (r.status === 204) {
-				window.location.href = `https://www.gradebook.app/`;
+				window.location.href = getUrl('');
 			}
 		}).catch(error => console.error(`__getUser::${error.message}`));
 
