@@ -31,10 +31,10 @@
 			if (!user.isNew) {
 				window.location.href = getUrl('/api/v0/redirect');
 			}
-		}).catch(error => console.error(`__getUser::${error.message}`));
 
-		const domain = email.substring(email.lastIndexOf('@') + 1);
-		guessedSchool = items.find(school => school.domain === domain);
+			const domain = email.substring(email.lastIndexOf('@') + 1);
+			guessedSchool = items.find(school => school.domain === domain);
+		}).catch(error => console.error(`__getUser::${error.message}`));
 	})
 
 	function createAccount() {
