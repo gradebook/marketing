@@ -14,6 +14,15 @@
     align-items: center;
 }
 
+.header-link {
+    display: flex;
+}
+
+.header-link img {
+    display: inline-block;
+    max-height: 48px;
+}
+
 .header-links {
     display: inline-flex;
 
