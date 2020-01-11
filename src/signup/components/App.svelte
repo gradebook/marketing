@@ -68,7 +68,7 @@
 		if(!notListed & school !== undefined) {
 			payload.school = school.value;
 		} else if (notListed) {
-			payload.school = 'default';
+			payload.school = 'www';
 			payload.suggestion = userInputName;
 		}
 
