@@ -12,7 +12,7 @@
 	import getUrl from './get-url';
 
 	let school;
-	let startingLabel = '';
+	let startingLabel = 'Select...';
 	let notListed = false;
 	let message = '';
 	let userInputName = '';
