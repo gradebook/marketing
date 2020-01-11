@@ -3,7 +3,8 @@ const {URL} = require('url');
 const axios = require('axios');
 
 const resources = [
-  ['tos.md', './terms-of-service.md']
+  ['tos.md', './terms-of-service.md'],
+  ['privacy.md', './privacy-policy.md']
 ]
 
 function saveResource(path, destination) {
