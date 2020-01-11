@@ -4,12 +4,12 @@ const axios = require('axios');
 const marked = require('marked');
 
 const resources = [
-  ['tos', './terms-of-service'],
-  ['privacy', './privacy-policy'],
-  ['SECURITY', './security']
+  ['Terms of Service', 'tos', './terms-of-service'],
+  ['Privacy Policy', 'privacy', './privacy-policy'],
+  ['Security', 'SECURITY', './security']
 ]
 
-function buildResource(path, destination) {
+function buildResource(title, path, destination) {
   fs.unlink(destination + '.html', () => {});
   const stream = fs.createWriteStream(destination + '.html');
 
@@ -22,6 +22,7 @@ function buildResource(path, destination) {
     return axios({method: 'GET', responseType: 'text', url})
     .then(response => {
       let template = data.toString();
+      template = template.replace('{{title}}', title);
       template = template.replace('{{body}}', marked(response.data));
       stream.write(template);
     });
@@ -29,7 +30,7 @@ function buildResource(path, destination) {
 }
 
 function buildResources() {
-  return Promise.all(resources.map(([remote, local]) => buildResource(remote, local)));
+  return Promise.all(resources.map(([name, remote, local]) => buildResource(name, remote, local)));
 }
 
 buildResources()
