@@ -1,3 +1,7 @@
 [build]
   command = "node pre-build.js && yarn build"
   publish = "dist"
+
+[[redirects]]
+  from = "/login"
+  to = "https://gradebook.app/api/v0/session/begin"
