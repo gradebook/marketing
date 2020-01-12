@@ -14,7 +14,7 @@
 
   // Reveal animations
   function revealAnimations () {
-    sr.reveal('.features .section-title, .features-illustration, .feature', {
+    sr.reveal('.features .section-title, .features-illustration, .feature, .general', {
       delay: 300,
       duration: 600,
       distance: '60px',
