@@ -5,8 +5,3 @@
 [[redirects]]
   from = "/login"
   to = "https://gradebook.app/api/v0/session/begin"
-
-[[redirects]]
-  from = "/*"
-  to = "/not-found.html"
-  status = 404
