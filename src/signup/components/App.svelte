@@ -34,6 +34,7 @@
 
 			const domain = email.substring(email.lastIndexOf('@') + 1);
 			guessedSchool = items.find(school => school.domain === domain);
+			school = guessedSchool;
 		}).catch(error => console.error(`__getUser::${error.message}`));
 	})
 
