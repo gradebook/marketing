@@ -16,10 +16,10 @@
   ],
   "scripts": {
     "clean": "rimraf dist",
-    "dev": "parcel *.html *.svelte",
+    "dev": "parcel *.html *.svelte *.txt",
     "imagemin": "imagemin src/assets src/images src/tiny-images",
     "prebuild": "node pre-build.js",
-    "build": "parcel build *.html *.svelte",
+    "build": "parcel build *.html *.svelte *.txt",
     "watch": "yarn dev"
   },
   "devDependencies": {
