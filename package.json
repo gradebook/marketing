@@ -23,18 +23,18 @@
     "watch": "yarn dev"
   },
   "devDependencies": {
-    "axios": "^0.19.0",
-    "imagemin-cli": "^5.0.0",
-    "marked": "^0.8.0",
-    "parcel": "^1.12.4",
-    "parcel-bundler": "^1.12.4",
-    "parcel-plugin-svelte": "^4.0.5",
-    "rimraf": "^3.0.0",
-    "sass": "^1.23.7",
-    "stylelint": "^12.0.0",
-    "svelte": "^3.16.7"
+    "axios": "0.19.0",
+    "imagemin-cli": "5.1.0",
+    "marked": "0.8.0",
+    "parcel": "1.12.4",
+    "parcel-bundler": "1.12.4",
+    "parcel-plugin-svelte": "4.0.5",
+    "rimraf": "3.0.0",
+    "sass": "1.24.0",
+    "stylelint": "12.0.0",
+    "svelte": "3.16.7"
   },
   "dependencies": {
-    "svelte-select": "^3.3.0"
+    "svelte-select": "3.3.0"
   }
 }
