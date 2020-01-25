@@ -35,6 +35,6 @@
     "svelte": "3.16.7"
   },
   "dependencies": {
-    "svelte-select": "3.3.0"
+    "svelte-select": "3.3.7"
   }
 }
