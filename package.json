@@ -30,7 +30,7 @@
     "parcel-bundler": "1.12.4",
     "parcel-plugin-svelte": "4.0.5",
     "rimraf": "3.0.0",
-    "sass": "1.24.0",
+    "sass": "1.25.0",
     "stylelint": "13.0.0",
     "svelte": "3.18.0"
   },
