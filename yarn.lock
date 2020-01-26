@@ -7269,10 +7269,10 @@ svelte-select@3.3.7:
   resolved "https://registry.yarnpkg.com/svelte-select/-/svelte-select-3.3.7.tgz#f9735b065cc50f62e04d3e2c99671bbdef8a8b19"
   integrity sha512-CToILcyegxnK1EmuI6GhMHr2zHbDyJ+wDREpKC1U8tDQrp4KiJtVXPvyDomlKHu4/RZPAdxXkeHHdhYrh/YbkQ==
 
-svelte@3.16.7:
-  version "3.16.7"
-  resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.16.7.tgz#9ade80a4bbbac95595c676dd817222f632fa2c07"
-  integrity sha512-egrva1UklB1n7KAv179IhDpQzMGAvubJUlOQ9PitmmZmAfrCUEgrQnx2vPxn2s+mGV3aYegXvJ/yQ35N2SfnYQ==
+svelte@3.18.0:
+  version "3.18.0"
+  resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.18.0.tgz#39dc8314e3b0f660b945fe0e23abf65bba20a0ef"
+  integrity sha512-p3V6wcxkkKbWhCwty1tZ8nh9zXNKg/fUWwdzzh38ERUDnhCodiLzIFcp8LVSBPXy1JS4qfAZfjjujobHGt6AWQ==
 
 svg-tags@^1.0.0:
   version "1.0.0"
