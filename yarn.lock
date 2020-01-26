@@ -7264,10 +7264,10 @@ svelte-dev-helper@^1.1.7:
   resolved "https://registry.yarnpkg.com/svelte-dev-helper/-/svelte-dev-helper-1.1.9.tgz#7d187db5c6cdbbd64d75a32f91b8998bde3273c3"
   integrity sha1-fRh9tcbNu9ZNdaMvkbiZi94yc8M=
 
-svelte-select@3.3.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/svelte-select/-/svelte-select-3.3.0.tgz#a6dcababfc7ca80fbe1db5164356cd928e0bd126"
-  integrity sha512-P/cB94d2YWmYF/QOsobGHmyK4fzZBaIRV+jcMyJhuVKBfPs6JrqMOUe4RQvsercv0VIFKadjsgiFhCfw1guyyw==
+svelte-select@3.3.7:
+  version "3.3.7"
+  resolved "https://registry.yarnpkg.com/svelte-select/-/svelte-select-3.3.7.tgz#f9735b065cc50f62e04d3e2c99671bbdef8a8b19"
+  integrity sha512-CToILcyegxnK1EmuI6GhMHr2zHbDyJ+wDREpKC1U8tDQrp4KiJtVXPvyDomlKHu4/RZPAdxXkeHHdhYrh/YbkQ==
 
 svelte@3.16.7:
   version "3.16.7"
