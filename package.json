@@ -32,7 +32,7 @@
     "rimraf": "3.0.0",
     "sass": "1.25.0",
     "stylelint": "13.0.0",
-    "svelte": "3.18.0"
+    "svelte": "3.18.1"
   },
   "dependencies": {
     "svelte-select": "3.3.7"
