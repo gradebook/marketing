@@ -1,0 +1,42 @@
+// @ts-check
+import ExternalWindow from '@gradebook/external-window';
+
+/** @type {ExternalWindow} */
+let externalWindowMutex = null;
+
+const AUTH_URL = 'https://gradebook.app/api/v0/session/begin?gb-login=frame';
+const DASHBOARD_URL = 'https://gradebook.app/api/v0/redirect';
+const SESSION_STATUS_URL = 'https://gradebook.app/api/v0/session';
+
+document.querySelectorAll('.login-button').forEach(node => {
+  node.addEventListener('click', event => {
+    event.preventDefault();
+
+    if (externalWindowMutex) {
+      return externalWindowMutex.requestFocus();
+    }
+
+    externalWindowMutex = new ExternalWindow(AUTH_URL);
+    externalWindowMutex.promise.then(() => {
+      externalWindowMutex = null;
+      return fetch(SESSION_STATUS_URL)
+    }).then(response => {
+      if (response.ok) {
+        return response.json();
+      }
+
+      return {
+        isNew: false,
+        school: false
+      };
+    }).then(user => {
+      if (user.isNew) {
+        window.location.href = '/signup';
+      } else if (user.school) {
+        window.location.href = DASHBOARD_URL;
+      }
+
+      console.log('Not sure what is up with user');
+    });
+  });
+});
