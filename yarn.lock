@@ -696,6 +696,11 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
+"@gradebook/external-window@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@gradebook/external-window/-/external-window-0.1.0.tgz#8f1a83baabc94c9b16d27a081821a4e91d9fe352"
+  integrity sha512-8DJsYvu2IMk9FUJ3Lh4yp5iuZCsnCWMgNwdRnRFuwGg6FtI4wZKDR6VdeP9t+fFCdDIEw48XrChPwvdO5EzhXw==
+
 "@iarna/toml@^2.2.0":
   version "2.2.3"
   resolved "https://registry.yarnpkg.com/@iarna/toml/-/toml-2.2.3.tgz#f060bf6eaafae4d56a7dac618980838b0696e2ab"

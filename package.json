@@ -35,6 +35,7 @@
     "svelte": "3.18.1"
   },
   "dependencies": {
+    "@gradebook/external-window": "^0.1.0",
     "svelte-select": "3.3.7"
   }
 }
