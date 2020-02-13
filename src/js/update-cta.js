@@ -14,6 +14,12 @@
     }
 
     if (updatedText && updatedLink) {
+      window.externalWindowMutex = {
+        requestFocus() {
+          window.location.href = updatedLink;
+        }
+      };
+
       topCta.setAttribute('href', updatedLink);
       bottomCta.setAttribute('href', updatedLink);
       topCta.textContent = updatedText;

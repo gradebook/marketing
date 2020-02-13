@@ -2,7 +2,7 @@
 import ExternalWindow from '@gradebook/external-window';
 
 /** @type {ExternalWindow} */
-let externalWindowMutex = null;
+window.externalWindowMutex = null;
 
 const AUTH_URL = 'https://gradebook.app/api/v0/session/begin?gb-login=frame';
 const DASHBOARD_URL = 'https://gradebook.app/api/v0/redirect';
@@ -12,14 +12,14 @@ document.querySelectorAll('.login-button').forEach(node => {
   node.addEventListener('click', event => {
     event.preventDefault();
 
-    if (externalWindowMutex) {
-      return externalWindowMutex.requestFocus();
+    if (window.externalWindowMutex) {
+      return window.externalWindowMutex.requestFocus();
     }
 
-    externalWindowMutex = new ExternalWindow(AUTH_URL);
-    externalWindowMutex.promise.then(() => {
-      externalWindowMutex = null;
-      return fetch(SESSION_STATUS_URL)
+    window.externalWindowMutex = new ExternalWindow(AUTH_URL);
+    window.externalWindowMutex.promise.then(() => {
+      window.externalWindowMutex = null;
+      return fetch(SESSION_STATUS_URL);
     }).then(response => {
       if (response.ok) {
         return response.json();
