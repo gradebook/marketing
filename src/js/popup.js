@@ -19,7 +19,7 @@ document.querySelectorAll('.login-button').forEach(node => {
     window.externalWindowMutex = new ExternalWindow(AUTH_URL);
     window.externalWindowMutex.promise.then(() => {
       window.externalWindowMutex = null;
-      return fetch(SESSION_STATUS_URL);
+      return fetch(SESSION_STATUS_URL, {credentials: 'include'});
     }).then(response => {
       if (response.ok) {
         return response.json();
