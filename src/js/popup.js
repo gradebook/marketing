@@ -37,6 +37,9 @@ document.querySelectorAll('.login-button').forEach(node => {
       }
 
       console.log('Not sure what is up with user');
+    }).catch(error => {
+      console.error(error);
+      window.location.href = DASHBOARD_URL;
     });
   });
 });
