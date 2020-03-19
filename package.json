@@ -25,7 +25,7 @@
   "devDependencies": {
     "axios": "0.19.2",
     "imagemin-cli": "5.1.0",
-    "marked": "0.8.0",
+    "marked": "0.8.1",
     "parcel": "1.12.4",
     "parcel-bundler": "1.12.4",
     "parcel-plugin-svelte": "4.0.6",
