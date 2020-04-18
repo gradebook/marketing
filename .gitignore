@@ -39,3 +39,6 @@ dist/
 terms-of-service.html
 privacy-policy.html
 security.html
+
+_site
+11ty-dist
