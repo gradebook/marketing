@@ -1,0 +1,14 @@
+---
+pagination:
+  data: collections.posts
+  size: 1
+  alias: post
+  addAllPagesToCollections: true
+permalink: '{{ post.url }}'
+---
+
+{{#if post.html}}
+	{{{post.html}}}
+{{else}}
+	Post content not found
+{{/if}}
