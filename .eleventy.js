@@ -36,6 +36,22 @@ module.exports = function(config) {
     return new cleanCSS({}).minify(code).styles;
 	});
 
+	config.addPairedShortcode('block', (content, context, blockName) => {
+		if (!context._blockData) {
+			context._blockData = {};
+		}
+
+		if (context._blockData[blockName]) {
+			console.warn('Warning: Duplicate block "%s" used for %s', blockName, context.permalink);
+		}
+
+		context._blockData[blockName] = content;
+	});
+
+	config.addFilter('blockContent', (context, blockName) => {
+		return context._blockData && context._blockData[blockName] || '';
+	});
+
 	config.addFilter('sass', file => {
 		if (process.env.ELEVENTY_ENV === 'dev') {
 			return file.replace('scss', 'css');
