@@ -6,6 +6,7 @@ const pluginRSS = require('@11ty/eleventy-plugin-rss');
 // const localImages = require('eleventy-plugin-local-images');
 // const lazyImages = require('eleventy-plugin-lazyimages');
 const ghost = require('./data-fetchers/ghost');
+const time = require('./data-fetchers/timer');
 
 const htmlMinTransform = require('./transformers/html-min-transform.js');
 
@@ -51,10 +52,10 @@ module.exports = function(config) {
   config.setUseGitIgnore(false);
 
   // Get all pages, called 'docs' to prevent conflicting the eleventy page object
-  config.addCollection('docs', ghost.getPages);
-  config.addCollection('posts', ghost.getPosts);
-  config.addCollection('authors', ghost.getAuthors);
-  config.addCollection('tags', ghost.getTags);
+  config.addCollection('docs', time(ghost.getPages, 'Fetch Pages', false));
+  config.addCollection('posts', time(ghost.getPosts, 'Fetch Posts', false));
+  config.addCollection('authors', time(ghost.getAuthors, 'Fetch Authors', false));
+  config.addCollection('tags', time(ghost.getTags, 'Fetch Tags', false));
 
 	config.addPassthroughCopy('static');
 
