@@ -1,7 +1,30 @@
+const qs = require('querystring');
 const {api, stripDomain} = require('./ghost-api');
 
+const cache = {};
+
+function makeAPIRequest(resource, options, useCache = true) {
+	let cacheKey;
+
+	if (useCache) {
+		cacheKey = `${resource}:${qs.stringify(options)}`;
+
+		if (cacheKey in cache) {
+			return JSON.parse(cache[cacheKey]);
+		}
+	}
+
+	return api[resource].browse(options).then(response => {
+		if (cacheKey) {
+			cache[cacheKey] = JSON.stringify(response);
+		}
+
+		return response;
+	}).catch(console.error);
+}
+
 module.exports.getPages = async () => {
-	const collection = await api.pages.browse({include: 'authors', limit: 'all'}).catch(console.error);
+	const collection = await makeAPIRequest('pages', {include: 'authors', limit: 'all'});
 
 	collection.forEach(doc => {
 		doc.url = stripDomain(doc.url);
@@ -16,7 +39,7 @@ module.exports.getPages = async () => {
 };
 
 module.exports.getPosts = async () => {
-	const collection = await api.posts.browse({include: 'tags,authors', limit: 'all'}).catch(console.error);
+	const collection = await makeAPIRequest('posts', {include: 'tags,authors', limit: 'all'});
 
 	collection.forEach(post => {
 		post.url = stripDomain(post.url);
@@ -34,10 +57,10 @@ module.exports.getPosts = async () => {
 };
 
 module.exports.getAuthors = async () => {
-	const collection = await api.authors.browse({limit: 'all'}).catch(console.error);
+	const collection = await makeAPIRequest('authors', {limit: 'all'});
 
 	// Get all posts with their authors attached
-	const posts = await api.posts.browse({include: 'authors', limit: 'all'}).catch(console.error);
+	const posts = await makeAPIRequest('posts', {include: 'authors', limit: 'all'});
 
 	// Attach posts to their respective authors
 	collection.forEach(author => {
@@ -57,10 +80,10 @@ module.exports.getAuthors = async () => {
 };
 
 module.exports.getTags = async () => {
-	const collection = await api.tags.browse({include: 'count.posts', limit: 'all'}).catch(console.error);
+	const collection = await makeAPIRequest('tags', {include: 'count.posts', limit: 'all'});
 
 	// Get all posts with their tags attached
-	const posts = await api.posts.browse({include: 'tags,authors', limit: 'all'}).catch(console.error);
+	const posts = await makeAPIRequest('posts', {include: 'tags,authors', limit: 'all'});
 
 	// Attach posts to their respective tags
 	collection.forEach(tag => {
