@@ -56,7 +56,7 @@ module.exports.getAuthors = async () => {
 	return collection;
 };
 
-module.exports.getTags = async () => async () => {
+module.exports.getTags = async () => {
 	const collection = await api.tags.browse({include: 'count.posts', limit: 'all'}).catch(console.error);
 
 	// Get all posts with their tags attached
