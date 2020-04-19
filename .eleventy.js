@@ -5,6 +5,7 @@ const pluginRSS = require('@11ty/eleventy-plugin-rss');
 // const lazyImages = require('eleventy-plugin-lazyimages');
 const ghost = require('./data-fetchers/ghost');
 const time = require('./data-fetchers/timer');
+const helpers = require('./helpers');
 
 const htmlMinTransform = require('./transformers/html-min-transform.js');
 
@@ -29,52 +30,13 @@ module.exports = function(config) {
     verbose: false
   }); */
 
-	config.addPairedShortcode('block', (content, context, blockName) => {
-		if (!context._blockData) {
-			context._blockData = {};
-		}
+	config.addPairedShortcode('block', helpers.block);
+	config.addHandlebarsHelper('pagination', helpers.pagination);
+	config.addFilter('sass', helpers.sass);
+	config.addFilter('reading_time', helpers.readingTime);
+	config.addFilter('date', helpers.date);
+	config.addFilter('blockContent', helpers.block.content);
 
-		if (context._blockData[blockName]) {
-			console.warn('Warning: Duplicate block "%s" used for %s', blockName, context.permalink);
-		}
-
-		context._blockData[blockName] = content;
-	});
-
-	config.addHandlebarsHelper('pagination', function (options) {
-		const {pagination, page} = this;
-		if (!pagination.previousPageHref && !pagination.nextPageHref) {
-			return options.inverse(this);
-		}
-
-		const previous = (page.permalink === pagination.previousPageHref) ? null : pagination.previousPageHref;
-		const next = (page.permalink === pagination.nextPageHref) ? null : pagination.nextPageHref;
-
-		return options.fn({previous, next});
-	});
-
-	config.addFilter('blockContent', (context, blockName) => {
-		return context._blockData && context._blockData[blockName] || '';
-	});
-
-	config.addFilter('sass', file => {
-		if (process.env.ELEVENTY_ENV === 'dev') {
-			return file.replace('scss', 'css');
-		}
-
-		throw new Error('sass conversion in prod has not been implemented yet');
-	});
-
-  config.addFilter('getReadingTime', text => {
-    const wordsPerMinute = 200;
-    const numberOfWords = text.split(/\s/g).length;
-    return Math.ceil(numberOfWords / wordsPerMinute);
-  });
-
-  // Date formatting filter
-  config.addFilter('htmlDateString', dateObj => {
-    return new Date(dateObj).toISOString().split('T')[0];
-  });
 
   // Don't ignore the same files ignored in the git repo
   config.setUseGitIgnore(false);
