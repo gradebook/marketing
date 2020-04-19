@@ -1,7 +1,5 @@
 require('dotenv').config();
 
-const cleanCSS = require('clean-css');
-const fs = require('fs');
 const pluginRSS = require('@11ty/eleventy-plugin-rss');
 // const localImages = require('eleventy-plugin-local-images');
 // const lazyImages = require('eleventy-plugin-lazyimages');
@@ -30,11 +28,6 @@ module.exports = function(config) {
     attribute: 'data-src', // Lazy images attribute
     verbose: false
   }); */
-
-  // Inline CSS
-  config.addFilter('cssmin', code => {
-    return new cleanCSS({}).minify(code).styles;
-	});
 
 	config.addPairedShortcode('block', (content, context, blockName) => {
 		if (!context._blockData) {
@@ -94,7 +87,7 @@ module.exports = function(config) {
 
 	config.addPassthroughCopy('static');
 
-  // Display 404 page in BrowserSnyc
+  /* // Display 404 page in BrowserSnyc
   config.setBrowserSyncConfig({
     callbacks: {
       ready: (err, bs) => {
@@ -107,7 +100,7 @@ module.exports = function(config) {
         });
       }
     }
-  });
+  }); */
 
   // Eleventy configuration
   return {

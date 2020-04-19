@@ -41,7 +41,6 @@
     "@gradebook/external-window": "0.1.0",
     "@tryghost/content-api": "^1.4.1",
     "@tryghost/helpers": "^1.1.27",
-    "clean-css": "^4.2.3",
     "dotenv": "^8.2.0",
     "html-minifier": "^4.0.0",
     "svelte-select": "3.3.7"
