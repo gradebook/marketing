@@ -4,10 +4,17 @@ pagination:
   size: 2
   alias: posts
 ---
-<section class="post-feed">
-	{{#each posts}}
-		{{> "post-card"}}
-	{{/each}}
-</section>
+{{> "ghost"}}
+<div class="gh-page">
+	<div class="gh-container">
+		<h1 class="gb-header">{{site.title}}</h1>
+		<div class="gh-postfeed">
+			{{#each posts}}
+				{{> "post-card"}}
+			{{/each}}
+		</div>
+
+	</div>
+</div>
 
 {{> "pagination" }}

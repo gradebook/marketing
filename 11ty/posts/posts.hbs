@@ -6,12 +6,61 @@ pagination:
   addAllPagesToCollections: true
 permalink: '/blog/{{ post.url }}'
 ---
+{{> "ghost"}}
 
-{{#if post.html}}
-	{{{post.html}}}
-{{else}}
-	Post content not found
-{{/if}}
+{{#with post}}
+
+<article class="gh-article">
+	<header class="gh-header gh-canvas">
+		{{!-- <span class="gh-post-meta"><time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time> <span
+				class="bull">&bull;</span> {{reading_time}}</span> --}}
+		<h1 class="gh-title">{{title}}</h1>
+
+		{{#if custom_excerpt}}
+		<p class="gh-excerpt">{{custom_excerpt}}</p>
+		{{/if}}
+
+		{{#if feature_image}}
+		<img class="gh-feature-image" src="{{feature_image}}" alt="{{title}}" />
+		{{/if}}
+	</header>
+
+	<div class="gh-content gh-canvas">
+		{{{html}}}
+	</div>
+
+	<footer class="gh-footer gh-canvas">
+		{{#primary_author}}
+		<div class="gb-author-wrap">
+			<div class="gb-author-avatar">
+				<img src="{{profile_image}}" class="gb-author-avatar-img" height="100" width="100">
+			</div>
+			<div class="gb-author-name">
+				<a href="{{url url}}">{{name}}</a>
+			</div>
+			<div class="gb-author-bio">
+				<p>{{bio}}</p>
+			</div>
+		</div>
+		{{/primary_author}}
+	</footer>
+
+</article>
+
+{{!-- <aside class="gh-readmore">
+	<div class="gh-readmore-inner gh-container">
+		<div class="gh-readmore-next">
+			{{#next_post}}<a href="{{url}}">{{> "icons/arrow-left"}} <h4>{{title}}</h4></a>{{/next_post}}
+		</div>
+		<div class="gh-readmore-prev">
+			{{#prev_post}}<a href="{{url}}">
+				<h4>{{title}}</h4> {{> "icons/arrow-right"}}
+			</a>{{/prev_post}}
+		</div>
+	</div>
+</aside>
+ --}}
+{{/with}}
 
 {{#block this "seo"}}
 	<!--Twitter Card-->
