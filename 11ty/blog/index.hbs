@@ -1,0 +1,13 @@
+---
+pagination:
+  data: collections.posts
+  size: 2
+  alias: posts
+---
+<section class="post-feed">
+	{{#each posts}}
+		{{> "post-card"}}
+	{{/each}}
+</section>
+
+{{> "pagination" }}

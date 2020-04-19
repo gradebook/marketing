@@ -48,6 +48,18 @@ module.exports = function(config) {
 		context._blockData[blockName] = content;
 	});
 
+	config.addHandlebarsHelper('pagination', function (options) {
+		const {pagination, page} = this;
+		if (!pagination.previousPageHref && !pagination.nextPageHref) {
+			return options.inverse(this);
+		}
+
+		const previous = (page.permalink === pagination.previousPageHref) ? null : pagination.previousPageHref;
+		const next = (page.permalink === pagination.nextPageHref) ? null : pagination.nextPageHref;
+
+		return options.fn({previous, next});
+	});
+
 	config.addFilter('blockContent', (context, blockName) => {
 		return context._blockData && context._blockData[blockName] || '';
 	});
