@@ -9,19 +9,20 @@ production stylesheet in assets/built/screen.css using: gulp dev
 /* ---------------------------------------------------------- */
 
 /* Base components */
-@import "vars.css";
-@import "components/global.css";
-@import "components/forms.css";
-@import "components/buttons.css";
+/** @todo: Add `.css` extension when switching to postcss  */
+@import "vars";
+@import "components/global";
+@import "components/forms";
+@import "components/buttons";
 
 /* Ghost components */
-@import "ghost/header.css";
-@import "ghost/content.css";
-@import "ghost/readmore.css";
-@import "ghost/members.css";
-@import "ghost/errors.css";
-@import "ghost/footer.css";
-@import "ghost/badge.css";
+@import "ghost/header";
+@import "ghost/content";
+@import "ghost/readmore";
+@import "ghost/members";
+@import "ghost/errors";
+@import "ghost/footer";
+@import "ghost/badge";
 
 
 
