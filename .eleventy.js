@@ -32,6 +32,7 @@ module.exports = function(config) {
 
 	config.addPairedShortcode('block', helpers.block);
 	config.addHandlebarsHelper('pagination', helpers.pagination);
+	config.addHandlebarsHelper('absolute_url', helpers.absoluteURL);
 	config.addFilter('sass', helpers.sass);
 	config.addFilter('reading_time', helpers.readingTime);
 	config.addFilter('date', helpers.date);

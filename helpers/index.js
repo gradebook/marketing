@@ -1,4 +1,5 @@
 module.exports = {
+	absoluteURL: require('./absolute-url'),
 	block: require('./block'),
 	date: require('./date'),
 	pagination: require('./pagination'),
