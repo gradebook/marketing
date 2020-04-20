@@ -11,7 +11,9 @@ const htmlMinTransform = require('./transformers/html-min-transform.js');
 
 module.exports = function(config) {
   // Minify HTML
+	if (process.env.ELEVENTY_ENV !== 'dev') {
   config.addTransform('htmlmin', htmlMinTransform);
+	}
 
   // Assist RSS feed template
   config.addPlugin(pluginRSS);
