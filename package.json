@@ -32,7 +32,7 @@
     "rimraf": "3.0.2",
     "sass": "1.26.3",
     "stylelint": "13.0.0",
-    "svelte": "3.18.1"
+    "svelte": "3.21.0"
   },
   "dependencies": {
     "@gradebook/external-window": "0.1.0",
