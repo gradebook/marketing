@@ -7,10 +7,46 @@ function createAuthorContext(author) {
 	return {
 		name: first(author.meta_title, author.name),
 		url: author.website,
+		// @todo: socialURLs
 		sameAs: [author.facebook, author.twitter].filter(Boolean),
 		image: author.profile_image,
 		description: first(author.meta_description, author.bio).replace(/\n/g, ' ')
 	};
+}
+
+function _generateOpenGraphTags(context) {
+	const relativePath = context.page.url;
+
+	const metaOverrides = context.__meta || {};
+	const postData = context.post || {};
+	const tags = new Map([['type', 'website'], ['locale', 'en']]);
+
+	tags.set('url', absolute(relativePath));
+	tags.set('description', first(
+		metaOverrides.description,
+		context.description,
+		postData.twitter_description,
+		postData.custom_excerpt,
+		postData.excerpt
+	).replace(/\n/g, ' '));
+
+	tags.set('image', first(metaOverrides.image, postData.twitter_image, postData.feature_image));
+	tags.set('title', first(metaOverrides.title, postData.twitter_title, postData.title) + ' - ' + context.site.title);
+	tags.set('site_name', context.site.title);
+
+	let output = '';
+	for (const [key, value] of tags.entries()) {
+		//@TODO @VERY_IMPORTANT Escape!
+		if (value) {
+			output += `<meta name="og:${key}" content="${value}" />\n`;
+		}
+	}
+
+	if (context.site.url) {
+		output += `<meta name="article:author" content="${context.site.url}">\n`;
+	}
+
+	return output;
 }
 
 function _generateTwitterTags(context) {
@@ -98,7 +134,7 @@ function _generateJSONLD(context) {
 }
 
 function _generateMeta(context, handlebars) {
-	return _generateTwitterTags(context) + _generateJSONLD(context);
+	return _generateTwitterTags(context) + _generateOpenGraphTags(context) + _generateJSONLD(context);
 }
 
 function _storeMeta(context, name, handlebars) {
