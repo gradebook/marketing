@@ -10,9 +10,9 @@ const helpers = require('./helpers');
 const htmlMinTransform = require('./transformers/html-min-transform.js');
 
 module.exports = function(config) {
-  // Minify HTML
+	// Minify HTML
 	if (process.env.ELEVENTY_ENV !== 'dev') {
-  config.addTransform('htmlmin', htmlMinTransform);
+		config.addTransform('htmlmin', htmlMinTransform);
 	}
 
   // Assist RSS feed template
@@ -33,6 +33,7 @@ module.exports = function(config) {
   }); */
 
 	config.addPairedShortcode('block', helpers.block);
+	config.addHandlebarsHelper('meta', helpers.meta);
 	config.addHandlebarsHelper('offset', helpers.offset);
 	config.addHandlebarsHelper('pagination', helpers.pagination);
 	config.addHandlebarsHelper('absolute_url', helpers.absoluteURL);
