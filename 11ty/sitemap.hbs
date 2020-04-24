@@ -6,10 +6,9 @@ layout: null
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	{{#each collections.all as |page|}}
-{{!-- 	{% set absoluteUrl %}{{ page.url | url | absoluteUrl(site.url) }}{% endset %} --}}
 	<url>
 		{{!-- @todo: image support --}}
-		<loc>{{ absolute_url page.url }}</loc>
+		<loc>{{ absolute_url (url page.url) }}</loc>
 		<lastmod>{{ date page.date }}</lastmod>
 	</url>
 	{{/each}}
