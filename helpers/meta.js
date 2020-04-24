@@ -1,14 +1,54 @@
 const schema = new (require('@tryghost/schema-org'))();
 const absolute = require('./absolute-url');
 
+const first = (...args) => args.find(arg => Boolean(arg)) || '';
+
 function createAuthorContext(author) {
 	return {
-		name: author.meta_title || author.name,
+		name: first(author.meta_title, author.name),
 		url: author.website,
 		sameAs: [author.facebook, author.twitter].filter(Boolean),
 		image: author.profile_image,
-		description: (author.meta_description || author.bio).replace(/\n/g, ' ')
+		description: first(author.meta_description, author.bio).replace(/\n/g, ' ')
 	};
+}
+
+function _generateTwitterTags(context) {
+	const relativePath = context.page.url;
+
+	const metaOverrides = context.__meta || {};
+	const postData = context.post || {};
+	const tags = new Map([['card', 'summary_large_image']]);
+
+	if (context.site.twitter) {
+		tags.set('site', context.twitter.site);
+	}
+
+	if (postData.primary_author && postData.primary_author.twitter) {
+		tags.set('creator', postData.primary_author.twitter);
+	}
+
+	tags.set('url', absolute(relativePath));
+	tags.set('description', first(
+		metaOverrides.description,
+		context.description,
+		postData.twitter_description,
+		postData.custom_excerpt,
+		postData.excerpt
+	).replace(/\n/g, ' '));
+
+	tags.set('image', first(metaOverrides.image, postData.twitter_image, postData.feature_image));
+	tags.set('title', first(metaOverrides.title, postData.twitter_title, postData.title) + ' - ' + context.site.title);
+
+	let output = '';
+	for (const [key, value] of tags.entries()) {
+		//@TODO @VERY_IMPORTANT Escape!
+		if (value) {
+			output += `<meta name="twitter:${key}" content="${value}" />\n`;
+		}
+	}
+
+	return output;
 }
 
 function _generateJSONLD(context) {
@@ -27,8 +67,8 @@ function _generateJSONLD(context) {
 
 	const meta = {
 		image: metaOverrides.image,
-		description: (metaOverrides.description || context.description || '').replace(/\n/g, ' '),
-		title: metaOverrides.title || context.title,
+		description: first(metaOverrides.description, context.description).replace(/\n/g, ' '),
+		title: first(metaOverrides.title, context.title),
 		url: absolute(relativePath)
 	};
 
@@ -44,11 +84,11 @@ function _generateJSONLD(context) {
 			schemaType = 'home';
 		} else {
 			schemaType = 'post'
-			author = createAuthorContext(postData.authors[0]);
+			author = createAuthorContext(postData.primary_author);
 			meta.datePublished = postData.published_at;
 			meta.dateModified = postData.updated_at;
-			meta.description = meta.description || (postData.custom_excerpt || postData.excerpt).replace(/\n/g, ' ');
-			meta.title = meta.title || postData.title;
+			meta.description = first(meta.description, postData.custom_excerpt, postData.excerpt).replace(/\n/g, ' ');
+			meta.title = first(meta.title, postData.title);
 			meta.keywords = postData.tags.map(({name}) => name);
 		}
 	}
@@ -58,7 +98,7 @@ function _generateJSONLD(context) {
 }
 
 function _generateMeta(context, handlebars) {
-	return _generateJSONLD(context);
+	return _generateTwitterTags(context) + _generateJSONLD(context);
 }
 
 function _storeMeta(context, name, handlebars) {
