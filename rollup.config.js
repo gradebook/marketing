@@ -8,7 +8,7 @@ import {terser} from 'rollup-plugin-terser';
 
 const production = !process.env.ROLLUP_WATCH;
 
-const ENTRYPOINTS = ['popup'];
+const ENTRYPOINTS = ['popup', 'update-cta', 'main'];
 const entrypointCompilers = [];
 
 const plugins = [
@@ -27,7 +27,7 @@ for (const entrypoint of ENTRYPOINTS) {
 		output: {
 			sourcemap: false,
 			format: 'iife',
-			name: entrypoint,
+			name: entrypoint.replace(/-(.)/, (_, t) => t.toUpperCase()),
 			file: `static/js/${entrypoint}.js`
 		},
 		plugins
