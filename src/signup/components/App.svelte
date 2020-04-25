@@ -7,7 +7,7 @@
 	import Select from 'svelte-select';
 	import Box from './Box.svelte';
 	import Buttons from './Buttons.svelte';
-	import items from './schools.json';
+	import items from './schools';
 	import {onMount} from 'svelte'
 	import getUrl from './get-url';
 

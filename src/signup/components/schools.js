@@ -1,4 +1,4 @@
-[
+export default [
   {"value": "aggie", "label": "TAMU - Texas A&M University", "domain": "tamu.edu"},
   {"value": "rebel", "label": "Ole Miss - University of Mississippi", "domain": "olemiss.edu"},
   {"value": "gator", "label": "University of Florida", "domain": "ufl.edu"},

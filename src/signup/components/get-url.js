@@ -1,4 +1,4 @@
-import {url as _url} from './config';
+const {SITE_URL: _url} = env;
 
 const url = _url.replace(/\/$/, '');
 
