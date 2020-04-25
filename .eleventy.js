@@ -4,6 +4,7 @@ const pluginRSS = require('@11ty/eleventy-plugin-rss');
 // const localImages = require('eleventy-plugin-local-images');
 // const lazyImages = require('eleventy-plugin-lazyimages');
 const ghost = require('./11ty/data-fetchers/ghost');
+const github = require('./11ty/data-fetchers/github');
 const time = require('./11ty/data-fetchers/timer');
 const helpers = require('./11ty/helpers');
 
@@ -51,7 +52,8 @@ module.exports = function(config) {
   config.addCollection('docs', time(ghost.getPages, 'Fetch Pages', false));
   config.addCollection('posts', time(ghost.getPosts, 'Fetch Posts', false));
   config.addCollection('authors', time(ghost.getAuthors, 'Fetch Authors', false));
-  config.addCollection('tags', time(ghost.getTags, 'Fetch Tags', false));
+	config.addCollection('tags', time(ghost.getTags, 'Fetch Tags', false));
+	config.addCollection('github', time(github, 'Fetch Legal', false));
 
 	config.addPassthroughCopy('static');
 
