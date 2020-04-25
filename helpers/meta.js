@@ -65,12 +65,14 @@ function _generateMetaTags(context) {
 	tags.set('og:url', computedProps.url);
 	tags.set('twitter:url', computedProps.url);
 
+	tags.set('description', computedProps.description);
 	tags.set('og:description', first(post.og_description, computedProps.description).replace(/\n/g, ' '));
 	tags.set('twitter:description', first(post.twitter_description, computedProps.description).replace(/\n/g, ' '));
 
 	tags.set('og:image', first(post.og_image, computedProps.image));
 	tags.set('twitter:image', first(post.twitter_image, computedProps.image));
 
+	tags.set('application-name', context.site.title);
 	tags.set('og:site_name', context.site.title);
 	tags.set('article:author', context.site.url);
 
