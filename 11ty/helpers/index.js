@@ -1,4 +1,5 @@
 module.exports = {
+	asset: require('./asset'),
 	absoluteURL: require('./absolute-url'),
 	block: require('./block'),
 	date: require('./date'),
@@ -6,6 +7,5 @@ module.exports = {
 	meta: require('./meta'),
 	offset: require('./offset'),
 	pagination: require('./pagination'),
-	readingTime: require('./reading-time'),
-	sass: require('./sass')
+	readingTime: require('./reading-time')
 };
