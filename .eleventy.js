@@ -73,8 +73,8 @@ module.exports = function(config) {
   // Eleventy configuration
   return {
     dir: {
-      input: '11ty',
-			output: '11ty-dist',
+      input: 'src',
+			output: 'dist',
 			layouts: 'layouts'
     },
 
