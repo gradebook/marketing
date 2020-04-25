@@ -32,13 +32,8 @@ build/
 # Workspace files are user-specific
 *.sublime-workspace
 
-dist/
-.cache
-
 # Static built files
-terms-of-service.html
-privacy-policy.html
-security.html
-
-_site
-11ty-dist
+dist/
+.cache-manifest
+static/css
+static/js
