@@ -120,10 +120,10 @@ li:not([class]) + li:not([class]) {
     margin-top: 1em;
 }
 
-a:not([class]) {
+/* a:not([class]) {
     color: color(var(--color-primary) l(-5%));
     text-decoration-skip-ink: auto;
-}
+} */
 
 a[class] {
     color: inherit;
