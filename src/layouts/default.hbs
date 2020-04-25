@@ -18,7 +18,7 @@
 
 	<link href="https://fonts.googleapis.com/css?family=Heebo:400,700|Playfair+Display:700" rel="stylesheet">
 	<link rel="stylesheet" href="/static/{{sass "style.scss"}}">
-	{{{blockContent this "head"}}}
+	{{{blockContent "head"}}}
 	<script src="https://unpkg.com/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
 </head>
 
@@ -40,7 +40,13 @@
 		</header>
 
 		<main>
-			<section class="hero text-center text-light" style="padding: 50px;"></section>
+			{{#blockContent "hero"}}
+				<section class="hero text-center text-light">
+					{{{content}}}
+				</section>
+			{{else}}
+			<section class="hero text-center text-light" style="padding: 50px"></section>
+			{{/blockContent}}
 			{{{content}}}
 		</main>
 
