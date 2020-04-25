@@ -2,6 +2,13 @@ const schema = new (require('@tryghost/schema-org'))();
 const absolute = require('./absolute-url');
 
 const first = (...args) => args.find(arg => Boolean(arg)) || '';
+const dateToString = date => {
+	if (date.constructor === Date) {
+		return date.toISOString();
+	}
+
+	return date.replace('+00:00', 'Z');
+};
 
 function createAuthorContext(author) {
 	const facebook = author.facebook ? `https://facebook.com/${author.facebook.replace(/^\//, '')}` : '';
@@ -137,8 +144,8 @@ function _generateJSONLD(context) {
 		} else {
 			schemaType = 'post'
 			author = createAuthorContext(post.primary_author);
-			meta.datePublished = post.published_at;
-			meta.dateModified = post.updated_at;
+			meta.datePublished = dateToString(post.published_at);
+			meta.dateModified = dateToString(post.updated_at);
 			meta.keywords = post.tags.map(({name}) => name);
 		}
 	}
