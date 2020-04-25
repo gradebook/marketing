@@ -2,7 +2,6 @@ const schema = new (require('@tryghost/schema-org'))();
 const absolute = require('./absolute-url');
 
 const first = (...args) => args.find(arg => Boolean(arg)) || '';
-const OG_AND_TWITTER = ['title', 'url']
 
 function createAuthorContext(author) {
 	return {
@@ -40,7 +39,7 @@ function computeProperties(context) {
 	context.__computedMeta = {
 		url: absolute(relativePath),
 		image: first(metaOverrides.image, context.image, postData.feature_image),
-		title: first(metaOverrides.title, context.title, postData.meta_title, postData.title),
+		title: first(context.fullTitle, metaOverrides.title, context.title, postData.meta_title, postData.title),
 		description: first(
 			metaOverrides.description,
 			context.description,
@@ -49,6 +48,15 @@ function computeProperties(context) {
 			postData.excerpt
 		).replace(/\n/g, ' ')
 	};
+
+	if (!context.fullTitle) {
+		if (context.__computedMeta.title) {
+			context.__computedMeta.title = context.__computedMeta.title + ' - ' + context.site.title;
+		} else {
+			console.warn('⚠ This page has no title: %s', relativePath);
+			context.__computedMeta.title = context.site.title;
+		}
+	}
 }
 
 function _generateMetaTags(context) {
@@ -76,8 +84,8 @@ function _generateMetaTags(context) {
 	tags.set('og:site_name', context.site.title);
 	tags.set('article:author', context.site.url);
 
-	tags.set('og:title', computedProps.title + ' - ' + context.site.title);
-	tags.set('twitter:title', computedProps.title + ' - ' + context.site.title);
+	tags.set('og:title', computedProps.title);
+	tags.set('twitter:title', computedProps.title);
 
 	// @todo: remove once optional chaining is available
 	// @todo: node 14 node v14
@@ -92,6 +100,8 @@ function _generateMetaTags(context) {
 			output += `<meta name="${key}" content="${value}" />\n`;
 		}
 	}
+
+	output += `<title>${computedProps.title}</title>`
 
 	return output;
 }
