@@ -8,6 +8,10 @@ permalink: 'blog/{{ tag.url }}'
 ---
 {{> "ghost"}}
 
+{{#meta "title"}}
+	{{tag.name}}
+{{/meta}}
+
 <div class="gh-page">
 	<div class="gh-container">
 		{{#with tag}}
