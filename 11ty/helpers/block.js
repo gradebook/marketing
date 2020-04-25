@@ -1,15 +1,27 @@
-module.exports = (content, context, blockName) => {
-	if (!context._blockData) {
-		context._blockData = {};
+module.exports = function captureBlockContent(blockName, options) {
+	if (!this._blockData) {
+		this._blockData = {};
 	}
 
-	if (context._blockData[blockName]) {
-		console.warn('Warning: Duplicate block "%s" used for %s', blockName, context.permalink);
+	if (this._blockData[blockName]) {
+		console.warn('Warning: Duplicate block "%s" used for %s', blockName, this.permalink);
 	}
 
-	context._blockData[blockName] = content;
+	this._blockData[blockName] = options.fn(this);
 };
 
-module.exports.content = (context, blockName) => {
-	return context._blockData && context._blockData[blockName] || '';
+module.exports.content = function renderBlockContent(blockName, options) {
+	if (this._blockData && blockName in this._blockData && Boolean(this._blockData[blockName])) {
+		if (options.fn) {
+			return options.fn({content: this._blockData[blockName]});
+		}
+
+		return this._blockData[blockName];
+	}
+
+	if (options.inverse) {
+		return options.inverse(this);
+	}
+
+	return '';
 };

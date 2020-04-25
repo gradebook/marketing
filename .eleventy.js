@@ -32,7 +32,8 @@ module.exports = function(config) {
     verbose: false
   }); */
 
-	config.addPairedShortcode('block', helpers.block);
+	config.addHandlebarsHelper('block', helpers.block);
+	config.addHandlebarsHelper('blockContent', helpers.block.content);
 	config.addHandlebarsHelper('meta', helpers.meta);
 	config.addHandlebarsHelper('offset', helpers.offset);
 	config.addHandlebarsHelper('pagination', helpers.pagination);
@@ -41,7 +42,6 @@ module.exports = function(config) {
 	config.addFilter('sass', helpers.sass);
 	config.addFilter('reading_time', helpers.readingTime);
 	config.addFilter('date', helpers.date);
-	config.addFilter('blockContent', helpers.block.content);
 
 
   // Don't ignore the same files ignored in the git repo
