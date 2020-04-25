@@ -8,15 +8,26 @@ pagination:
 permalink: "/blog{{#if pagination.pageNumber}}/page/{{offset pagination.pageNumber}}{{/if}}/index.html"
 ---
 {{> "ghost"}}
+
+{{#block "hero"}}
+	<div class="container-sm">
+		<div class="hero-inner">
+			<div class="hero-copy">
+				<h1 class="gb-header hero-paragraph">{{fullTitle}}</h1>
+				{{!-- @todo: no inline styles! --}}
+				<p class="hero-paragraph" style="font-size: 20px">{{description}}</p>
+			</div>
+		</div>
+	</div>
+{{/block}}
+
 <div class="gh-page">
 	<div class="gh-container">
-		<h1 class="gb-header">{{site.title}}</h1>
 		<div class="gh-postfeed">
 			{{#each posts}}
 				{{> "post-card"}}
 			{{/each}}
 		</div>
-
 	</div>
 </div>
 

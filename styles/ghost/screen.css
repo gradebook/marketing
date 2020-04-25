@@ -273,3 +273,9 @@ html,
     font-size: 14px;
     line-height: 21px;
 }
+
+.hero {
+	padding-top: 64px;
+	padding-bottom: 64px;
+	margin-bottom: 64px;
+}
