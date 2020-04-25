@@ -60,7 +60,7 @@ function _generateMetaTags(context) {
 	tags.set('og:locale', 'en');
 
 	tags.set('twitter:card', 'summary_large_image');
-	tags.set('twitter:site', context.twitter.site);
+	tags.set('twitter:site', context.site.twitter);
 
 	tags.set('og:url', computedProps.url);
 	tags.set('twitter:url', computedProps.url);
@@ -83,12 +83,15 @@ function _generateMetaTags(context) {
 		tags.set('creator', post.primary_author.twitter);
 	}
 
+	let output = '';
 	for (const [key, value] of tags.entries()) {
 		//@TODO @VERY_IMPORTANT Escape!
 		if (value) {
 			output += `<meta name="${key}" content="${value}" />\n`;
 		}
 	}
+
+	return output;
 }
 
 function _generateJSONLD(context) {
