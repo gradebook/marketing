@@ -16,10 +16,10 @@
   ],
   "scripts": {
     "clean": "rimraf dist",
-    "dev": "parcel *.html *.svelte *.txt",
+    "dev": "eleventy --serve",
     "imagemin": "imagemin src/assets src/images src/tiny-images",
-    "prebuild": "node pre-build.js",
-    "build": "parcel build *.html *.svelte *.txt",
+    "prebuild": "rollup -c",
+    "build": "eleventy",
     "watch": "yarn dev"
   },
   "devDependencies": {

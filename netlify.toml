@@ -1,5 +1,5 @@
 [build]
-  command = "node pre-build.js && yarn build"
+  command = "yarn build"
   publish = "dist"
 
 [[redirects]]
