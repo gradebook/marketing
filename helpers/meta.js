@@ -65,6 +65,12 @@ function _generateMetaTags(context) {
 	const {post} = context;
 	const tags = new Map();
 
+	let output = `<title>${computedProps.title}</title>`
+
+	if (context.noMeta) {
+		return output;
+	}
+
 	tags.set('og:type', 'website');
 	tags.set('og:locale', 'en');
 
@@ -94,7 +100,6 @@ function _generateMetaTags(context) {
 		tags.set('creator', post.primary_author.twitter);
 	}
 
-	let output = '';
 	for (const [key, value] of tags.entries()) {
 		//@TODO @VERY_IMPORTANT Escape!
 		if (value) {
@@ -102,12 +107,14 @@ function _generateMetaTags(context) {
 		}
 	}
 
-	output += `<title>${computedProps.title}</title>`
-
 	return output;
 }
 
 function _generateJSONLD(context) {
+	if (context.noMeta) {
+		return '';
+	}
+
 	const relativePath = context.page.url
 
 	let schemaType = 'home';
