@@ -4,11 +4,12 @@ const absolute = require('./absolute-url');
 const first = (...args) => args.find(arg => Boolean(arg)) || '';
 
 function createAuthorContext(author) {
+	const facebook = author.facebook ? `https://facebook.com/${author.facebook.replace(/^\//, '')}` : '';
+	const twitter = author.twitter ? `https://twitter.com/${author.twitter.replace('@', '')}` : '';
 	return {
 		name: first(author.meta_title, author.name),
 		url: author.website,
-		// @todo: socialURLs
-		sameAs: [author.facebook, author.twitter].filter(Boolean),
+		sameAs: [facebook, twitter].filter(Boolean),
 		image: author.profile_image,
 		description: first(author.meta_description, author.bio).replace(/\n/g, ' ')
 	};
