@@ -7,5 +7,6 @@ module.exports = {
 	meta: require('./meta'),
 	offset: require('./offset'),
 	pagination: require('./pagination'),
+	plural: require('./plural'),
 	readingTime: require('./reading-time')
 };

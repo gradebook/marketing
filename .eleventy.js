@@ -38,6 +38,7 @@ module.exports = function(config) {
 	config.addHandlebarsHelper('meta', helpers.meta);
 	config.addHandlebarsHelper('offset', helpers.offset);
 	config.addHandlebarsHelper('pagination', helpers.pagination);
+	config.addHandlebarsHelper('plural', helpers.plural);
 	config.addHandlebarsHelper('absolute_url', helpers.absoluteURL);
 	config.addHandlebarsHelper('img_url', helpers.imageURL);
 	config.addFilter('asset', helpers.asset);
