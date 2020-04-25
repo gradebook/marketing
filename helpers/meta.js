@@ -2,6 +2,7 @@ const schema = new (require('@tryghost/schema-org'))();
 const absolute = require('./absolute-url');
 
 const first = (...args) => args.find(arg => Boolean(arg)) || '';
+const OG_AND_TWITTER = ['title', 'url']
 
 function createAuthorContext(author) {
 	return {
@@ -50,59 +51,44 @@ function computeProperties(context) {
 	};
 }
 
-function _generateOpenGraphTags(context) {
+function _generateMetaTags(context) {
 	const computedProps = context.__computedMeta;
 	const {post} = context;
-	const tags = new Map([['type', 'website'], ['locale', 'en']]);
+	const tags = new Map();
 
-	tags.set('url', computedProps.url);
-	tags.set('description', first(post.og_description, computedProps.description).replace(/\n/g, ' '));
-	tags.set('image', first(post.og_image, computedProps.image));
-	tags.set('title', computedProps.title + ' - ' + context.site.title);
-	tags.set('site_name', context.site.title);
+	tags.set('og:type', 'website');
+	tags.set('og:locale', 'en');
 
-	let output = '';
-	for (const [key, value] of tags.entries()) {
-		//@TODO @VERY_IMPORTANT Escape!
-		if (value) {
-			output += `<meta name="og:${key}" content="${value}" />\n`;
-		}
-	}
+	tags.set('twitter:card', 'summary_large_image');
+	tags.set('twitter:site', context.twitter.site);
 
-	if (context.site.url) {
-		output += `<meta name="article:author" content="${context.site.url}">\n`;
-	}
+	tags.set('og:url', computedProps.url);
+	tags.set('twitter:url', computedProps.url);
 
-	return output;
-}
+	tags.set('og:description', first(post.og_description, computedProps.description).replace(/\n/g, ' '));
+	tags.set('twitter:description', first(post.twitter_description, computedProps.description).replace(/\n/g, ' '));
 
-function _generateTwitterTags(context) {
-	const computedProps = context.__computedMeta;
-	const {post} = context;
-	const tags = new Map([['card', 'summary_large_image']]);
+	tags.set('og:image', first(post.og_image, computedProps.image));
+	tags.set('twitter:image', first(post.twitter_image, computedProps.image));
 
-	if (context.site.twitter) {
-		tags.set('site', context.twitter.site);
-	}
+	tags.set('og:site_name', context.site.title);
+	tags.set('article:author', context.site.url);
 
+	tags.set('og:title', computedProps.title + ' - ' + context.site.title);
+	tags.set('twitter:title', computedProps.title + ' - ' + context.site.title);
+
+	// @todo: remove once optional chaining is available
+	// @todo: node 14 node v14
 	if (post.primary_author && post.primary_author.twitter) {
 		tags.set('creator', post.primary_author.twitter);
 	}
 
-	tags.set('url', computedProps.url);
-	tags.set('description', first(post.twitter_description, computedProps.description).replace(/\n/g, ' '));
-	tags.set('image', first(post.twitter_image, computedProps.image));
-	tags.set('title', computedProps.title + ' - ' + context.site.title);
-
-	let output = '';
 	for (const [key, value] of tags.entries()) {
 		//@TODO @VERY_IMPORTANT Escape!
 		if (value) {
-			output += `<meta name="twitter:${key}" content="${value}" />\n`;
+			output += `<meta name="${key}" content="${value}" />\n`;
 		}
 	}
-
-	return output;
 }
 
 function _generateJSONLD(context) {
@@ -140,7 +126,7 @@ function _generateJSONLD(context) {
 
 function _generateMeta(context, handlebars) {
 	computeProperties(context);
-	return _generateTwitterTags(context) + _generateOpenGraphTags(context) + _generateJSONLD(context);
+	return _generateMetaTags(context) + _generateJSONLD(context);
 }
 
 function _storeMeta(context, name, handlebars) {
