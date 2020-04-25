@@ -14,24 +14,51 @@ function createAuthorContext(author) {
 	};
 }
 
-function _generateOpenGraphTags(context) {
+function computeProperties(context) {
 	const relativePath = context.page.url;
-
 	const metaOverrides = context.__meta || {};
 	const postData = context.post || {};
+
+	context.post = postData;
+
+	let contextMutex = false;
+
+	if (!relativePath) {
+		console.log('⚠ No relative path!');
+		console.log(context);
+		contextMutex = true;
+	}
+
+	if (context.__computedMeta) {
+		console.log('⚠ computeProperties was already run');
+		if (!contextMutex) {
+			console.log(context);
+		}
+	}
+
+	context.__computedMeta = {
+		url: absolute(relativePath),
+		image: first(metaOverrides.image, context.image, postData.feature_image),
+		title: first(metaOverrides.title, context.title, postData.meta_title, postData.title),
+		description: first(
+			metaOverrides.description,
+			context.description,
+			postData.meta_description,
+			postData.custom_excerpt,
+			postData.excerpt
+		).replace(/\n/g, ' ')
+	};
+}
+
+function _generateOpenGraphTags(context) {
+	const computedProps = context.__computedMeta;
+	const {post} = context;
 	const tags = new Map([['type', 'website'], ['locale', 'en']]);
 
-	tags.set('url', absolute(relativePath));
-	tags.set('description', first(
-		metaOverrides.description,
-		context.description,
-		postData.twitter_description,
-		postData.custom_excerpt,
-		postData.excerpt
-	).replace(/\n/g, ' '));
-
-	tags.set('image', first(metaOverrides.image, postData.twitter_image, postData.feature_image));
-	tags.set('title', first(metaOverrides.title, postData.twitter_title, postData.title) + ' - ' + context.site.title);
+	tags.set('url', computedProps.url);
+	tags.set('description', first(post.og_description, computedProps.description).replace(/\n/g, ' '));
+	tags.set('image', first(post.og_image, computedProps.image));
+	tags.set('title', computedProps.title + ' - ' + context.site.title);
 	tags.set('site_name', context.site.title);
 
 	let output = '';
@@ -50,31 +77,22 @@ function _generateOpenGraphTags(context) {
 }
 
 function _generateTwitterTags(context) {
-	const relativePath = context.page.url;
-
-	const metaOverrides = context.__meta || {};
-	const postData = context.post || {};
+	const computedProps = context.__computedMeta;
+	const {post} = context;
 	const tags = new Map([['card', 'summary_large_image']]);
 
 	if (context.site.twitter) {
 		tags.set('site', context.twitter.site);
 	}
 
-	if (postData.primary_author && postData.primary_author.twitter) {
-		tags.set('creator', postData.primary_author.twitter);
+	if (post.primary_author && post.primary_author.twitter) {
+		tags.set('creator', post.primary_author.twitter);
 	}
 
-	tags.set('url', absolute(relativePath));
-	tags.set('description', first(
-		metaOverrides.description,
-		context.description,
-		postData.twitter_description,
-		postData.custom_excerpt,
-		postData.excerpt
-	).replace(/\n/g, ' '));
-
-	tags.set('image', first(metaOverrides.image, postData.twitter_image, postData.feature_image));
-	tags.set('title', first(metaOverrides.title, postData.twitter_title, postData.title) + ' - ' + context.site.title);
+	tags.set('url', computedProps.url);
+	tags.set('description', first(post.twitter_description, computedProps.description).replace(/\n/g, ' '));
+	tags.set('image', first(post.twitter_image, computedProps.image));
+	tags.set('title', computedProps.title + ' - ' + context.site.title);
 
 	let output = '';
 	for (const [key, value] of tags.entries()) {
@@ -92,21 +110,10 @@ function _generateJSONLD(context) {
 
 	let schemaType = 'home';
 
-	if (!relativePath) {
-		console.log('⚠ No relative path!');
-		console.log(context);
-	}
-
-	const metaOverrides = context.__meta || {};
-	const postData = context.post || {};
+	const {post} = context;
 	let author = {};
 
-	const meta = {
-		image: metaOverrides.image,
-		description: first(metaOverrides.description, context.description).replace(/\n/g, ' '),
-		title: first(metaOverrides.title, context.title),
-		url: absolute(relativePath)
-	};
+	const meta = {...context.__computedMeta};
 
 	if (relativePath.startsWith('/blog')) {
 		if (relativePath.startsWith('/blog/author')) {
@@ -120,12 +127,10 @@ function _generateJSONLD(context) {
 			schemaType = 'home';
 		} else {
 			schemaType = 'post'
-			author = createAuthorContext(postData.primary_author);
-			meta.datePublished = postData.published_at;
-			meta.dateModified = postData.updated_at;
-			meta.description = first(meta.description, postData.custom_excerpt, postData.excerpt).replace(/\n/g, ' ');
-			meta.title = first(meta.title, postData.title);
-			meta.keywords = postData.tags.map(({name}) => name);
+			author = createAuthorContext(post.primary_author);
+			meta.datePublished = post.published_at;
+			meta.dateModified = post.updated_at;
+			meta.keywords = post.tags.map(({name}) => name);
 		}
 	}
 
@@ -134,6 +139,7 @@ function _generateJSONLD(context) {
 }
 
 function _generateMeta(context, handlebars) {
+	computeProperties(context);
 	return _generateTwitterTags(context) + _generateOpenGraphTags(context) + _generateJSONLD(context);
 }
 
