@@ -8,7 +8,32 @@ import {terser} from 'rollup-plugin-terser';
 
 const production = !process.env.ROLLUP_WATCH;
 
-export default {
+const ENTRYPOINTS = ['popup'];
+const entrypointCompilers = [];
+
+const plugins = [
+	resolve({
+		browser: true,
+		dedupe: ['svelte']
+	}),
+	commonjs(),
+	production && terser()
+];
+
+for (const entrypoint of ENTRYPOINTS) {
+	entrypointCompilers.push({
+		input: `scripts/${entrypoint}.js`,
+		output: {
+			sourcemap: false,
+			format: 'iife',
+			name: entrypoint,
+			file: `static/js/${entrypoint}.js`
+		},
+		plugins
+	})
+}
+
+export default [...entrypointCompilers, {
 	input: 'scripts/signup/main.js',
 	output: {
 		sourcemap: true,
@@ -58,7 +83,7 @@ export default {
 	watch: {
 		clearScreen: false
 	}
-};
+}];
 
 function serve() {
 	let started = false;
