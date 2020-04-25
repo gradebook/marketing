@@ -17,7 +17,8 @@ const plugins = [
 		dedupe: ['svelte']
 	}),
 	commonjs(),
-	production && terser()
+	production && terser(),
+	require('./rollup-hash')
 ];
 
 for (const entrypoint of ENTRYPOINTS) {
@@ -78,7 +79,8 @@ export default [...entrypointCompilers, {
 
 		// If we're building for production (npm run build
 		// instead of npm run dev), minify
-		production && terser()
+		production && terser(),
+		require('./rollup-hash')
 	],
 	watch: {
 		clearScreen: false
