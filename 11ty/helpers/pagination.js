@@ -7,5 +7,5 @@ module.exports = function (options) {
 	const previous = (page.permalink === pagination.previousPageHref) ? null : pagination.previousPageHref;
 	const next = (page.permalink === pagination.nextPageHref) ? null : pagination.nextPageHref;
 
-	return options.fn({previous, next});
+	return options.fn({previous, next, current: pagination.pageNumber + 1});
 };

@@ -5,7 +5,7 @@ pagination:
   data: collections.posts
   size: 2
   alias: posts
-permalink: "/blog{{#if pagination.pageNumber}}/page/{{offset pagination.pageNumber}}{{/if}}/index.html"
+permalink: "blog{{#if pagination.pageNumber}}/page/{{offset pagination.pageNumber}}{{/if}}/index.html"
 ---
 {{> "ghost"}}
 
@@ -28,7 +28,7 @@ permalink: "/blog{{#if pagination.pageNumber}}/page/{{offset pagination.pageNumb
 				{{> "post-card"}}
 			{{/each}}
 		</div>
+		{{> "pagination" }}
 	</div>
 </div>
 
-{{> "pagination" }}

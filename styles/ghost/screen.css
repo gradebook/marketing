@@ -51,11 +51,26 @@ html,
 }
 
 .gh-postfeed {
-    padding-bottom: 8vmin;
+    /* padding-bottom: 8vmin; */
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     grid-gap: 2.5rem;
     justify-content: center;
+}
+
+.pagination {
+    padding: 8vmin 0;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.pagination a {
+    padding: 0 1rem;
+    font-size: 2.25rem;
+}
+
+.pagination a:hover {
+    text-decoration: none;
 }
 
 .gh-head-actions a {
@@ -275,7 +290,7 @@ html,
 }
 
 .hero {
-	padding-top: 64px;
-	padding-bottom: 64px;
-	margin-bottom: 64px;
+    padding-top: 64px;
+    padding-bottom: 64px;
+    margin-bottom: 64px;
 }
