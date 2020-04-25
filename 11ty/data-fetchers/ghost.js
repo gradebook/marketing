@@ -99,5 +99,5 @@ module.exports.getTags = async () => {
 		tag.url = stripDomain(tag.url);
 	});
 
-	return collection;
+	return collection.filter(({slug}) => !slug.startsWith('hash'));
 };
