@@ -3,11 +3,11 @@ require('dotenv').config();
 const pluginRSS = require('@11ty/eleventy-plugin-rss');
 // const localImages = require('eleventy-plugin-local-images');
 // const lazyImages = require('eleventy-plugin-lazyimages');
-const ghost = require('./data-fetchers/ghost');
-const time = require('./data-fetchers/timer');
-const helpers = require('./helpers');
+const ghost = require('./11ty/data-fetchers/ghost');
+const time = require('./11ty/data-fetchers/timer');
+const helpers = require('./11ty/helpers');
 
-const htmlMinTransform = require('./transformers/html-min-transform.js');
+const htmlMinTransform = require('./11ty/transformers/html-min-transform.js');
 
 module.exports = function(config) {
 	// Minify HTML
