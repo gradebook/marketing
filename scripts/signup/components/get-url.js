@@ -1,4 +1,4 @@
-const {SITE_URL: _url} = env;
+const {AUTH_URL: _url} = env;
 
 const url = _url.replace(/\/$/, '');
 

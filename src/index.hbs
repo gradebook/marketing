@@ -2,6 +2,7 @@
 fullTitle: Gradebook - The better Grade Tracker
 description: Gradebook is a service designed by students to make grade tracking easy. Let's all get a little better at keeping track of our grades, together.
 ---
+
 {{#block "hero"}}
 	<div class="container-sm">
 		<div class="hero-inner">
@@ -10,7 +11,7 @@ description: Gradebook is a service designed by students to make grade tracking 
 				<p class="hero-paragraph">Let's all get a little better at keeping track of our grades, together.</p>
 				<div class="hero-cta">
 					<a class="button button-primary button-wide-mobile login-button"
-						href="https://gradebook.app/api/v0/session/begin?gb-login">Sign in with Google</a>
+						href="{{site.auth}}/api/v0/session/begin?gb-login">Sign in with Google</a>
 				</div>
 			</div>
 		</div>
@@ -267,7 +268,7 @@ description: Gradebook is a service designed by students to make grade tracking 
 			<h3 class="section-title mt-0">What are you waiting for?</h3>
 			<div class="cta-cta">
 				<a class="button button-primary button-wide-mobile login-button"
-					href="https://gradebook.app/api/v0/session/begin?gb-login">Sign in with Google</a>
+					href="{{site.auth}}/api/v0/session/begin?gb-login">Sign in with Google</a>
 			</div>
 		</div>
 	</div>
