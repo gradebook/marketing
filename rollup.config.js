@@ -12,6 +12,12 @@ const ENTRYPOINTS = ['popup', 'update-cta', 'main'];
 const entrypointCompilers = [];
 
 const plugins = [
+	replace({
+		env: JSON.stringify({
+			SITE_URL: process.env.SITE_URL,
+			AUTH_URL: process.env.AUTH_URL
+		})
+	}),
 	resolve({
 		browser: true,
 		dedupe: ['svelte']
@@ -43,11 +49,6 @@ export default [...entrypointCompilers, {
 		file: 'static/js/signup.js'
 	},
 	plugins: [
-		replace({
-			env: JSON.stringify({
-				SITE_URL: process.env.SITE_URL
-			})
-		}),
 		svelte({
 			// enable run-time checks when not in production
 			dev: !production,

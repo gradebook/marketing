@@ -1,12 +1,14 @@
 // @ts-check
 import ExternalWindow from '@gradebook/external-window';
 
+const {AUTH_URL} = env;
+
 /** @type {ExternalWindow} */
 window.externalWindowMutex = null;
 
-const AUTH_URL = 'https://gradebook.app/api/v0/session/begin?gb-login=frame';
-const DASHBOARD_URL = 'https://gradebook.app/api/v0/redirect';
-const SESSION_STATUS_URL = 'https://gradebook.app/api/v0/session';
+const AUTH_URL = `${AUTH_URL}/api/v0/session/begin?gb-login=frame`;
+const DASHBOARD_URL = `${AUTH_URL}/api/v0/redirect`;
+const SESSION_STATUS_URL = `${AUTH_URL}/api/v0/session`;
 
 document.querySelectorAll('.login-button').forEach(node => {
   node.addEventListener('click', event => {
