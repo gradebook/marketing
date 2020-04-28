@@ -22,6 +22,8 @@ build/
 # dotenv environment variables file
 .env
 
+# rollup artifacts
+.cache-manifest
 
 ### Sass ###
 .sass-cache/

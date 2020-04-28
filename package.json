@@ -18,7 +18,7 @@
     "clean": "rimraf dist",
     "dev": "eleventy --serve",
     "imagemin": "imagemin src/assets src/images src/tiny-images",
-    "prebuild": "fsutil file createnew .cache-manifest 0 & rollup -c",
+    "prebuild": "rollup -c",
     "build": "eleventy",
     "watch": "yarn dev"
   },
