@@ -22,6 +22,8 @@ build/
 # dotenv environment variables file
 .env
 
+# rollup artifacts
+.cache-manifest
 
 ### Sass ###
 .sass-cache/
@@ -32,10 +34,8 @@ build/
 # Workspace files are user-specific
 *.sublime-workspace
 
-dist/
-.cache
-
 # Static built files
-terms-of-service.html
-privacy-policy.html
-security.html
+dist/
+.cache-manifest
+static/css
+static/js

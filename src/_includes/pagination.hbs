@@ -1,0 +1,15 @@
+{{#pagination}}
+	<nav class="pagination" role="pagination">
+		{{#if previous}}
+			<a href="{{previous}}">&laquo;</a>
+		{{/if}}
+
+		{{current}}
+
+		{{#if next}}
+			<a href="{{next}}">&raquo;</a>
+		{{/if}}
+	</nav>
+{{else}}
+<div class="pagination"></div>
+{{/pagination}}
