@@ -6,4 +6,4 @@ module.exports.api = new ghostContentAPI({
   version: 'v2'
 });
 
-module.exports.stripDomain = url => url.replace(process.env.GHOST_API_URL, '');
+module.exports.stripDomain = url => url.replace(process.env.GHOST_SITE_URL || process.env.GHOST_API_URL, '');
