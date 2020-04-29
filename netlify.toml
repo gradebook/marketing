@@ -5,3 +5,7 @@
 [[redirects]]
   from = "/login"
   to = "https://gradebook.app/api/v0/session/begin"
+
+[[redirects]]
+  from = "/blog/content/*"
+  to = "https://blog.gradebook.app/content/:splat"
