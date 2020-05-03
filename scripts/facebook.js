@@ -1,6 +1,6 @@
 const utmSource = new URLSearchParams(window.location.search).get('utm_source') || '';
 
-if (true || utmSource.toLowerCase() === 'facebook') {
+if (utmSource.toLowerCase() === 'facebook') {
 	!function(f,b,e,v,n,t,s)
 	{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 	n.callMethod.apply(n,arguments):n.queue.push(arguments)};
