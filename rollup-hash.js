@@ -1,4 +1,5 @@
 const revHash = require('rev-hash');
+const fs = require('fs');
 const manifest = require('./get-cache') || {};
 
 const transform = (fileName, hash) => {
