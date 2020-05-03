@@ -17,6 +17,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "dev": "eleventy --serve",
+    "start": "echo started",
     "imagemin": "imagemin src/assets src/images src/tiny-images",
     "prebuild": "rollup -c",
     "build": "eleventy",
