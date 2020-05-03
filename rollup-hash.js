@@ -1,7 +1,5 @@
 const revHash = require('rev-hash');
-const fs = require('fs');
-
-const manifest = JSON.parse(fs.readFileSync('.cache-manifest', 'utf8') || '{}');
+const manifest = require('./get-cache') || {};
 
 const transform = (fileName, hash) => {
 	const newFile = fileName.replace('.js', `-${hash}.js`);

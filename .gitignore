@@ -39,3 +39,4 @@ dist/
 .cache-manifest
 static/css
 static/js
+.cache-manifest

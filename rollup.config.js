@@ -8,7 +8,7 @@ import {terser} from 'rollup-plugin-terser';
 
 const production = !process.env.ROLLUP_WATCH;
 
-const ENTRYPOINTS = ['popup', 'update-cta', 'main'];
+const ENTRYPOINTS = ['popup', 'update-cta', 'main', 'facebook'];
 const entrypointCompilers = [];
 
 const plugins = [
@@ -24,7 +24,7 @@ const plugins = [
 	}),
 	commonjs(),
 	production && terser(),
-	require('./rollup-hash')
+	production && require('./rollup-hash')
 ];
 
 for (const entrypoint of ENTRYPOINTS) {
@@ -87,7 +87,7 @@ export default [...entrypointCompilers, {
 		// If we're building for production (npm run build
 		// instead of npm run dev), minify
 		production && terser(),
-		require('./rollup-hash')
+		production && require('./rollup-hash')
 	],
 	watch: {
 		clearScreen: false
