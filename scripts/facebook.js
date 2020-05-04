@@ -1,6 +1,7 @@
 const utmSource = new URLSearchParams(window.location.search).get('utm_source') || '';
+const possibleSources = ['fb', 'ig', 'msg', 'an'];
 
-if (utmSource.toLowerCase() === 'facebook') {
+if (possibleSources.includes(utmSource.toLowerCase())) {
 	!function(f,b,e,v,n,t,s)
 	{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 	n.callMethod.apply(n,arguments):n.queue.push(arguments)};
