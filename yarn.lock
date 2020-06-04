@@ -6680,10 +6680,10 @@ supports-color@^7.1.0:
   dependencies:
     has-flag "^4.0.0"
 
-svelte-select@3.3.7:
-  version "3.3.7"
-  resolved "https://registry.yarnpkg.com/svelte-select/-/svelte-select-3.3.7.tgz#f9735b065cc50f62e04d3e2c99671bbdef8a8b19"
-  integrity sha512-CToILcyegxnK1EmuI6GhMHr2zHbDyJ+wDREpKC1U8tDQrp4KiJtVXPvyDomlKHu4/RZPAdxXkeHHdhYrh/YbkQ==
+svelte-select@3.8.1:
+  version "3.8.1"
+  resolved "https://registry.yarnpkg.com/svelte-select/-/svelte-select-3.8.1.tgz#f93b4fc3824109c6c3e158897d3df0d922f6da9a"
+  integrity sha512-yzwPxayhxJv1fQ/7b0NZgrDrmSN32curWmBbzzQcdzeVmCo12X7S6Jda22I+o4+XPIRrtKeCum484VeU2AUewQ==
 
 svelte@^3.21.0:
   version "3.21.0"
