@@ -11,10 +11,10 @@ const helpers = require('./11ty/helpers');
 const htmlMinTransform = require('./11ty/transformers/html-min-transform.js');
 
 module.exports = function(config) {
-	// Minify HTML
-	if (process.env.ELEVENTY_ENV !== 'dev') {
-		config.addTransform('htmlmin', htmlMinTransform);
-	}
+  // Minify HTML
+  if (process.env.ELEVENTY_ENV !== 'dev') {
+    config.addTransform('htmlmin', htmlMinTransform);
+  }
 
   // Assist RSS feed template
   config.addPlugin(pluginRSS);
@@ -33,30 +33,33 @@ module.exports = function(config) {
     verbose: false
   }); */
 
-	config.addHandlebarsHelper('block', helpers.block);
-	config.addHandlebarsHelper('blockContent', helpers.block.content);
-	config.addHandlebarsHelper('meta', helpers.meta);
-	config.addHandlebarsHelper('offset', helpers.offset);
-	config.addHandlebarsHelper('pagination', helpers.pagination);
-	config.addHandlebarsHelper('plural', helpers.plural);
-	config.addHandlebarsHelper('absolute_url', helpers.absoluteURL);
-	config.addHandlebarsHelper('img_url', helpers.imageURL);
-	config.addFilter('asset', helpers.asset);
-	config.addFilter('reading_time', helpers.readingTime);
-	config.addFilter('date', helpers.date);
+  config.addHandlebarsHelper('block', helpers.block);
+  config.addHandlebarsHelper('blockContent', helpers.block.content);
+  config.addHandlebarsHelper('meta', helpers.meta);
+  config.addHandlebarsHelper('offset', helpers.offset);
+  config.addHandlebarsHelper('pagination', helpers.pagination);
+  config.addHandlebarsHelper('plural', helpers.plural);
+  config.addHandlebarsHelper('absolute_url', helpers.absoluteURL);
+  config.addHandlebarsHelper('img_url', helpers.imageURL);
+  config.addFilter('asset', helpers.asset);
+  config.addFilter('reading_time', helpers.readingTime);
+  config.addFilter('date', helpers.date);
 
 
   // Don't ignore the same files ignored in the git repo
   config.setUseGitIgnore(false);
 
-  // Get all pages, called 'docs' to prevent conflicting the eleventy page object
-  config.addCollection('docs', time(ghost.getPages, 'Fetch Pages', false));
-  config.addCollection('posts', time(ghost.getPosts, 'Fetch Posts', false));
-  config.addCollection('authors', time(ghost.getAuthors, 'Fetch Authors', false));
-	config.addCollection('tags', time(ghost.getTags, 'Fetch Tags', false));
-	config.addCollection('github', time(github, 'Fetch Legal', false));
+  if (process.env.NO_FETCH !== 'true') {
+    // Get all pages, called 'docs' to prevent conflicting the eleventy page object
+    config.addCollection('docs', time(ghost.getPages, 'Fetch Pages', false));
+    config.addCollection('posts', time(ghost.getPosts, 'Fetch Posts', false));
+    config.addCollection('authors', time(ghost.getAuthors, 'Fetch Authors', false));
+    config.addCollection('tags', time(ghost.getTags, 'Fetch Tags', false));
+    config.addCollection('github', time(github, 'Fetch Legal', false));
+  }
 
-	config.addPassthroughCopy('static');
+
+  config.addPassthroughCopy('static');
 
   /* // Display 404 page in BrowserSnyc
   config.setBrowserSyncConfig({
@@ -77,8 +80,8 @@ module.exports = function(config) {
   return {
     dir: {
       input: 'src',
-			output: 'dist',
-			layouts: 'layouts'
+      output: 'dist',
+      layouts: 'layouts'
     },
 
     // Files read by Eleventy, add as needed
