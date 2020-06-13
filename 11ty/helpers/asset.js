@@ -1,7 +1,7 @@
 const manifest = require('../../get-cache');
 
 module.exports = file => {
-	if (!manifest) {
+	if (!manifest || process.env.NODE_ENV !== 'production') {
 		return file.replace('scss', 'css');
 	}
 
