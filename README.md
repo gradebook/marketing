@@ -1,12 +1,24 @@
-# Ruby
+# Gradebook Marketing
 
-A landing page template.
+This is the code that powers the Gradebook Marketing site.
 
-* [Getting started](#getting-started)
+We ask that you don't clone the content of the site, but you are free to get inspiration from the project - if you find the project architecture, design, etc. interesting, we welcome you to use it!
 
-## Getting started
-* First, ensure that node.js & npm are both installed. If not, choose your OS and installation method from [this page](https://nodejs.org/en/download/package-manager/) and follow the instructions.
-* Next, use your command line to enter your project directory.
-* This template comes with a ready-to-use package file called `package-sample.json`. You just need to rename it to `package.json`, then run `npm install` to install all of the dependencies into your project.
+## Getting Started
 
-You're ready to go! Run any task by typing `npm run task` (where "task" is the name of the task in the `"scripts"` object). The most useful task for rapid development is `watch`. It will start a new server, open up a browser and watch for any SCSS or JS changes in the `src` directory; once it compiles those changes, the browser will automatically inject the changed file(s)!
+Gradebook uses the latest version of Node LTS. Please ensure you have this installed to ensure maximum compatibility
+
+1. Clone the repository
+
+1. Install dependencies - run `yarn install`
+
+1. Copy `.env.example` to `.env` and update the environment variables as needed
+
+
+## Development
+
+The commands you need to run are dependent on what you're trying to do.
+
+ - For all tasks, you need eleventy to run - `yarn dev`
+
+ - For *js* and *css* tasks (e.g. svelte or styling), you also need to have rollup running - `yarn rollup -c -w`
