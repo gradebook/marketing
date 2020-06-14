@@ -2,6 +2,43 @@
 // Colors -------------------------------------
 // Usage example: color(primary, main)
 // --------------------------------------------
+:root {
+	// COLOR TYPOGRAPHY
+	--color--typography-1: #1a202c;
+	--color--typography-2: #272c38;
+	--color--typography-3: #8A95A5;
+	--color--typography-4: #9EABC0;
+	--color--typography-1i: #DDDBF1;
+	--color--typography-12i: rgba( #DDDBF1, .8 );
+	// COLOR BG
+	--color-bg-1: #FFFFFF;
+	--color-bg-2: #F3F5F8;
+	--color-bg-3: #E4E8EE;
+	// PRIMARY COLORS
+	--color-primary-1: #7E6EE6;
+	--color-primary-1: #5E3B4D;
+	--color-primary-2: #A59AEE;
+	--color-primary-3: #5743DF;
+	--color-primary-4: #E5E1FF;
+	// SECONDARY COLORS
+	--color-secondary-1: #5AE0D2;
+	--color-secondary-2: #85E8DE;
+	--color-secondary-3: #2FD8C6;
+	--color-secondary-4: #BDFDF6;
+
+	//FONT FAMILIES
+	--font-family--base: "Heebo", sans-serif;
+	--font-family--heading: "PLayfair Display", sans-serif;
+	--font-family--code: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+	--font-family--pre: "Courier 10 Pitch", Courier, monospace;
+
+	// FONT WEIGHTS
+	--font-weight---regular: 400,;
+	--font-weight---medium: 500;
+	--font-weight---semibold: 600;
+	--font-weight---bold: 700;
+}
+
 $color: (
 	typography: (
 		1: #1a202c,
