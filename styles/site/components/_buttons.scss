@@ -1,10 +1,10 @@
 .button {
 	display: inline-flex;
-	@include font-size(8, mobile, true, false, true);
-	@if ( get-font-size(8, desktop) != get-font-size(8, mobile) ) {
-		@include media( '>medium' ) {
-			@include font-size(8, desktop, true, false, true);
-		}
+	font-size: var(--font-scale-8--size------mobile);
+	letter-spacing: var(--font-scale-8--kerning------mobile);
+	@include media( '>medium' ) {
+		font-size: var(--font-scale-8--size------desktop);
+		letter-spacing: var(--font-scale-8--kerning------desktop);
 	}
 	font-weight: var(--font-weight--bold);
 	line-height: 16px;

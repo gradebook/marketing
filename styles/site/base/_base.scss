@@ -65,7 +65,8 @@ figure {
 }
 
 figcaption {
-	@include font-size(7, mobile, true, true);
+	font-size: var(--font-scale-7--size------mobile);
+	line-height: var(--font-scale-7--height------mobile);
 	padding: 8px 0;
 }
 
