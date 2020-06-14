@@ -46,7 +46,7 @@ dl {
 }
 
 dt {
-	@include font-weight(semibold);
+	font-weight: var(--font-weight--semibold);
 }
 
 dd {

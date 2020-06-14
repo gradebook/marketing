@@ -37,7 +37,7 @@
 				@include font-size(7, desktop, true, true, true);
 			}
 		}
-		@include font-weight(semibold);
+		font-weight: (--font-weight--semibold);
 		@include anchor-aspect(header);
 		line-height: 16px;
 		padding: 8px 24px;

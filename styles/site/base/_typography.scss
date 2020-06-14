@@ -29,7 +29,7 @@ h1, h2, h3, h4, h5, h6,
 	clear: both;
 	color: var(--color--typography-1);
 	font-family: var(--font-family--heading);
-	@include font-weight(semibold);
+	font-weight: var(--font-weight--semibold);
 }
 
 h1,
@@ -238,7 +238,7 @@ small {
 
 b,
 strong {
-	@include font-weight(semibold);
+	font-weight: var(--font-weight--semibold);
 }
 
 button,

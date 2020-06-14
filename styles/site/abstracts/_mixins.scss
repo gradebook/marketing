@@ -16,11 +16,6 @@
 	}
 }
 
-// Font Weight
-@mixin font-weight($elem) {
-	font-weight: get-font-weight($elem);
-}
-
 // Anchor aspect
 @mixin anchor-aspect($type: 'main') {
 	@if ($type == 'main') { // Base

@@ -57,7 +57,7 @@
 
 .footer-title {
 	color: var(--color-typography-1i);
-	@include font-weight(bold);
+	font-weight: var(--font-weight--bold);
 	text-transform: uppercase;
 }
 

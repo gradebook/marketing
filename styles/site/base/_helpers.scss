@@ -47,7 +47,7 @@
 						@include font-size(8, desktop, true, false, true);
 				}
 		}
-		@include font-weight(semibold);
+		font-weight: var(--font-weight--semibold);
 		line-height: 16px;
 		text-decoration: none;
 		text-transform: uppercase;
