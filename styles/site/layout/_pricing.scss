@@ -1,6 +1,6 @@
 .pricing {
-	background: color(typography, 1);
-	color: color(typography, 4);
+	background: var(--color--typography-1);
+	color: var(--color--typography-4);
 
 	.section-title {
 		margin-bottom: 48px;
@@ -35,7 +35,7 @@
 	position: relative;
 	display: flex;
 	flex-wrap: wrap;
-	background: color(typography, 2);
+	background: var(--color--typography-2);
 	padding: 24px;
 	height: 100%;
 
@@ -45,27 +45,27 @@
 }
 
 .pricing-table-header {
-	border-bottom: 1px dashed color(typography, 3);
+	border-bottom: 1px dashed var(--color--typography-3);
 }
 
 .pricing-table-price {
-	@if ( get-font-family(heading) != get-font-family(base) ) {
-		@include font-family(heading);
-	}
-	color: color(bg, 1);
+	font-family: var(--font-family--heading);
+	color: var(--color--bg-1);
 }
 
 .pricing-table-price-currency {
-	@include font-size(3, mobile, true, true, true);
-	@if ( get-font-size(3, desktop) != get-font-size(3, mobile) ) {
-		@include media( '>medium' ) {
-			@include font-size(3, desktop, true, true, true);
-		}
+	font-size: var(--font-scale-3--size------mobile);
+	line-height: var(--font-scale-3--height------mobile);
+	letter-spacing: var(--font-scale-3--kerning------mobile);
+	@include media( '>medium' ) {
+		font-size: var(--font-scale-3--size------desktop);
+		line-height: var(--font-scale-3--height------desktop);
+		letter-spacing: var(--font-scale-3--kerning------desktop);
 	}
 }
 
 .pricing-table-features-title {
-	color: color(typography, 1i);
+	color: var(--color--typography-1i);
 }
 
 .pricing-table-features {

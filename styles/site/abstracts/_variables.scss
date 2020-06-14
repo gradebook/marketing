@@ -1,93 +1,160 @@
-// --------------------------------------------
-// Colors -------------------------------------
-// Usage example: color(primary, main)
-// --------------------------------------------
-$color: (
-	typography: (
-		1: #1a202c,
-		2: #272c38,
-		3: #8A95A5,
-		4: #9EABC0,
-		1i: #DDDBF1,
-		2i: rgba( #DDDBF1, .8 )
-	),
-	bg: (
-		1: #FFFFFF,
-		2: #F3F5F8,
-		3: #E4E8EE
-	),
-	primary: (
-//		1: #7E6EE6,
-		1: #5E3B4D,
-		2: #A59AEE,
-		3: #5743DF,
-		4: #E5E1FF
- 	),
-	secondary: (
-		1: #5AE0D2,
-		2: #85E8DE,
-		3: #2FD8C6,
-		4: #BDFDF6
-	)
-);
+$color--typography-1:#1a202c;
+$color--typography-2:#272c38;
+$color--primary-1:#5E3B4D;
+$color--secondary-1:#5AE0D2;
 
-// --------------------------------------------
-// Typography ---------------------------------
-// --------------------------------------------
-$font__family: (
-	base: '"Heebo", sans-serif', // font-family(base)
-	heading: '"PLayfair Display", sans-serif', // font-family(heading)
-	code: 'Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace', // font-family(code)
-	pre: '"Courier 10 Pitch", Courier, monospace' // font-family(pre)
-);
+$content-padding--mobile: 16px;
+$content-padding--desktop: 24px;
+$container-width: 1080px;
+$container-width--sm: 800px;
 
-$font__sizes: (
-	alpha:   ( 44px, 54px, 0px ),    // font-size, line-height, kerning (use '0' if don't want to output any kerning)
-	beta:    ( 34px, 44px, 0px ),
-	gamma:   ( 30px, 40px, 0px ),
-	delta:   ( 24px, 34px, 0px ),
-	epsilon: ( 20px, 30px, -0.1px ),
-	zeta:    ( 18px, 28px, -0.1px ),
-	eta:     ( 16px, 24px, -0.1px ),
-	theta:   ( 14px, 20px, 0px )
-);
+:root {
+	// COLOR TYPOGRAPHY
+	--color--typography-1: #{$color--typography-1};
+	--color--typography-2: #{$color--typography-2};
+	--color--typography-3: #8A95A5;
+	--color--typography-4: #9EABC0;
+	--color--typography-1i: #DDDBF1;
+	--color--typography-2i: rgba( #DDDBF1, .8 );
+	// COLOR BG
+	--color--bg-1: #FFFFFF;
+	--color--bg-2: #F3F5F8;
+	--color--bg-3: #E4E8EE;
+	// PRIMARY COLORS
+	--color--primary-1: #7E6EE6;
+	--color--primary-1: #{$color--primary-1};
+	--color--primary-2: #A59AEE;
+	--color--primary-3: #5743DF;
+	--color--primary-4: #E5E1FF;
+	// SECONDARY COLORS
+	--color--secondary-1: #{$color--secondary-1};
+	--color--secondary-2: #85E8DE;
+	--color--secondary-3: #2FD8C6;
+	--color--secondary-4: #BDFDF6;
 
-$font__scale: (
-	desktop: (                             // i.e. $breakpoint__m + $breakpoint__l (600 - 1024)
-		1: map-get($font__sizes, alpha),   // H1
-		2: map-get($font__sizes, beta),    // H2
-		3: map-get($font__sizes, gamma),   // H3
-		4: map-get($font__sizes, delta),   // H4
-		5: map-get($font__sizes, epsilon), // Body, H5, H6
-		6: map-get($font__sizes, zeta),    // Text small
-		7: map-get($font__sizes, eta),     // Text smaller
-		8: map-get($font__sizes, theta)    // Footer area
-	),
-	mobile: (                              // i.e. $breakpoint__xs + $breakpoint__s (up to 600)
-		1: map-get($font__sizes, beta),    // H1
-		2: map-get($font__sizes, gamma),   // H2
-		3: map-get($font__sizes, delta),   // H3
-		4: map-get($font__sizes, delta),   // H4
-		5: map-get($font__sizes, epsilon), // Body, H5, H6
-		6: map-get($font__sizes, zeta),    // Text small
-		7: map-get($font__sizes, eta),     // Text smaller
-		8: map-get($font__sizes, theta)    // Footer area
-	)
-);
+	//FONT FAMILIES
+	--font-family--base: "Heebo", sans-serif;
+	--font-family--heading: "PLayfair Display", sans-serif;
+	--font-family--code: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+	--font-family--pre: "Courier 10 Pitch", Courier, monospace;
 
-$font__weight: (
-	regular: 400, 	// font__weight(regular)
-	medium: 500,	// font__weight(medium)
-	semibold: 600,	// font__weight(semibold)
-	bold: 700		// font__weight(bold)
-);
+	// FONT WEIGHTS
+	--font-weight--regular: 400,;
+	--font-weight--medium: 500;
+	--font-weight--semibold: 600;
+	--font-weight--bold: 700;
 
-// --------------------------------------------
-// Structure ----------------------------------
-// --------------------------------------------
-$content__padding: (
-	mobile: 16px,
-	desktop:  24px
-);
-$container__width: 1080px;
-$container__width-sm: 800px;
+	// STRUCTURE
+	--content-padding--mobile: #{$content-padding--mobile};
+	--content-padding--desktop: #{$content-padding--desktop};
+	--container-width: #{$container-width};
+	--container-width--sm: #{$container-width--sm};
+}
+
+$font--alpha-size: 44px;
+$font--alpha-height: 54px;
+$font--alpha-kerning: 0;
+
+$font--beta-size: 34px;
+$font--beta-height: 44px;
+$font--beta-kerning: 0;
+
+$font--gamma-size: 30px;
+$font--gamma-height: 40px;
+$font--gamma-kerning: 0;
+
+$font--delta-size: 24px;
+$font--delta-height: 34px;
+$font--delta-kerning: 0;
+
+$font--epsilon-size: 20px;
+$font--epsilon-height: 30px;
+$font--epsilon-kerning: -0.1px;
+
+$font--zeta-size: 18px;
+$font--zeta-height: 28px;
+$font--zeta-kerning: -0.1px;
+
+$font--eta-size: 16px;
+$font--eta-height: 24px;
+$font--eta-kerning: -0.1px;
+
+$font--theta-size: 14px;
+$font--theta-height: 20px;
+$font--theta-kerning: 0;
+
+:root {
+	//Desktop: $breakpoint__m + $breakpoint__l (600 - 1024)
+	//Mobile: $breakpoint__xs + $breakpoint__s (up to 600)
+
+	// H1
+	--font-scale-1--size------mobile: #{$font--beta-size};
+	--font-scale-1--height------mobile: #{$font--beta-height};
+	--font-scale-1--kerning------mobile: #{$font--beta-kerning};
+
+	--font-scale-1--size------desktop: #{$font--alpha-size};
+	--font-scale-1--height------desktop: #{$font--alpha-height};
+	--font-scale-1--kerning------desktop: #{$font--alpha-kerning};
+
+	// H2
+	--font-scale-2--size------mobile: #{$font--gamma-size};
+	--font-scale-2--height------mobile: #{$font--gamma-height};
+	--font-scale-2--kerning------mobile: #{$font--gamma-kerning};
+
+	--font-scale-2--size------desktop: #{$font--beta-size};
+	--font-scale-2--height------desktop: #{$font--beta-height};
+	--font-scale-2--kerning------desktop: #{$font--beta-kerning};
+	// H3
+	--font-scale-3--size------mobile: #{$font--gamma-size};
+	--font-scale-3--height------mobile: #{$font--gamma-height};
+	--font-scale-3--kerning------mobile: #{$font--gamma-kerning};
+
+	--font-scale-3--size------desktop: #{$font--delta-size};
+	--font-scale-3--height------desktop: #{$font--delta-height};
+	--font-scale-3--kerning------desktop: #{$font--delta-kerning};
+
+	// H4
+	--font-scale-4--size------mobile: #{$font--delta-size};
+	--font-scale-4--height------mobile: #{$font--delta-height};
+	--font-scale-4--kerning------mobile: #{$font--delta-kerning};
+
+	--font-scale-4--size------desktop: #{$font--delta-size};
+	--font-scale-4--height------desktop: #{$font--delta-height};
+	--font-scale-4--kerning------desktop: #{$font--delta-kerning};
+
+	// Body, H5, H6
+	--font-scale-5--size------mobile: #{$font--epsilon-size};
+	--font-scale-5--height------mobile: #{$font--epsilon-height};
+	--font-scale-5--kerning------mobile: #{$font--epsilon-kerning};
+
+	--font-scale-5--size------desktop: #{$font--epsilon-size};
+	--font-scale-5--height------desktop: #{$font--epsilon-height};
+	--font-scale-5--kerning------desktop: #{$font--epsilon-kerning};
+
+	// Small
+	--font-scale-6--size------mobile: #{$font--zeta-size};
+	--font-scale-6--height------mobile: #{$font--zeta-height};
+	--font-scale-6--kerning------mobile: #{$font--zeta-kerning};
+
+	--font-scale-6--size------desktop: #{$font--zeta-size};
+	--font-scale-6--height------desktop: #{$font--zeta-height};
+	--font-scale-6--kerning------desktop: #{$font--zeta-kerning};
+
+	// Smaller
+	--font-scale-7--size------mobile: #{$font--eta-size};
+	--font-scale-7--height------mobile: #{$font--eta-height};
+	--font-scale-7--kerning------mobile: #{$font--eta-kerning};
+
+	--font-scale-7--size------desktop: #{$font--eta-size};
+	--font-scale-7--height------desktop: #{$font--eta-height};
+	--font-scale-7--kerning------desktop: #{$font--eta-kerning};
+
+	// Footer Area
+	--font-scale-8--size------mobile: #{$font--theta-size};
+	--font-scale-8--height------mobile: #{$font--theta-height};
+	--font-scale-8--kerning------mobile: #{$font--theta-kerning};
+
+	--font-scale-8--size------desktop: #{$font--theta-size};
+	--font-scale-8--height------desktop: #{$font--theta-height};
+	--font-scale-8--kerning------desktop: #{$font--theta-kerning};
+}

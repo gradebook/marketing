@@ -1,18 +1,18 @@
 .button {
 	display: inline-flex;
-	@include font-size(8, mobile, true, false, true);
-	@if ( get-font-size(8, desktop) != get-font-size(8, mobile) ) {
-		@include media( '>medium' ) {
-			@include font-size(8, desktop, true, false, true);
-		}
+	font-size: var(--font-scale-8--size------mobile);
+	letter-spacing: var(--font-scale-8--kerning------mobile);
+	@include media( '>medium' ) {
+		font-size: var(--font-scale-8--size------desktop);
+		letter-spacing: var(--font-scale-8--kerning------desktop);
 	}
-	@include font-weight(bold);
+	font-weight: var(--font-weight--bold);
 	line-height: 16px;
 	text-decoration: none !important;
 	text-transform: uppercase;
-	background-color: color(bg, 1);
-	background: color(bg, 1);
-	color: color(primary, 1) !important;
+	background-color: var(--color--bg-1);
+	background: var(--color--bg-1);
+	color: var(--color--primary-1) !important;
 	border: none;
 	border-radius: 2px;
 	cursor: pointer;
@@ -41,13 +41,13 @@
 		right: 0;
 		bottom: 0;
 		left: 0;
-		box-shadow: 0 8px 16px rgba(color(typography, 1), .12);
+		box-shadow: 0 8px 16px rgba(var(--color--typography-1), .12);
 		mix-blend-mode: multiply;
 		transition: box-shadow .15s ease;
 	}
 
 	&:hover::before {
-		box-shadow: 0 8px 16px rgba(color(typography, 1), .16);
+		box-shadow: 0 8px 16px rgba(var(--color--typography-1), .16);
 	}
 }
 
@@ -57,38 +57,38 @@
 
 	&.button-shadow {
 		&::before {
-			box-shadow: 0 4px 16px rgba(color(typography, 1), .12);
+			box-shadow: 0 4px 16px rgba(var(--color--typography-1), .12);
 		}
 
 		&:hover::before {
-			box-shadow: 0 4px 16px rgba(color(typography, 1), .16);
+			box-shadow: 0 4px 16px rgba(var(--color--typography-1), .16);
 		}
 	}
 }
 
 .button-primary,
 .button-secondary {
-	color: color(typography, 1i) !important;
+	color: var(--color--typography-1i) !important;
 	transition: background .15s ease;
 }
 
 .button-primary {
-	background: color(typography, 2);
-	border: 1px solid color(primary, 1);
+	background: var(--color--typography-2);
+	border: 1px solid var(--color--primary-1);
 	border-radius: 100px;
 
 	&:hover {
-		background: lighten(color(typography, 2), 5%);
+		background: lighten($color--typography-2, 5%);
 	}
 
 	&.button-shadow {
 		&::before {
-			box-shadow: 0 8px 16px rgba(color(primary, 1), .24);
+			box-shadow: 0 8px 16px rgba(var(--color--primary-1), .24);
 		}
 
 		&:hover {
 			&::before {
-				box-shadow: 0 8px 16px rgba(color(primary, 1), .32);
+				box-shadow: 0 8px 16px rgba(var(--color--primary-1), .32);
 			}
 		}
 	}
@@ -96,40 +96,40 @@
 	.button-sm {
 		&.button-shadow {
 			&::before {
-				box-shadow: 0 4px 16px rgba(color(primary, 1), .24);
+				box-shadow: 0 4px 16px rgba(var(--color--primary-1), .24);
 			}
 
 			&:hover::before {
-				box-shadow: 0 4px 16px rgba(color(primary, 1), .32);
+				box-shadow: 0 4px 16px rgba(var(--color--primary-1), .32);
 			}
 		}
 	}
 }
 
 .button-secondary {
-	background: color(secondary, 1);
+	background: var(--color--secondary-1);
 
 	&:hover {
-		background: lighten(color(secondary, 1), 3%);
+		background: lighten($color--secondary-1, 3%);
 	}
 
 	&.button-shadow {
 		&::before {
-			box-shadow: 0 8px 16px rgba(color(secondary, 1), .24);
+			box-shadow: 0 8px 16px rgba(var(--color--secondary-1), .24);
 		}
 
 		&:hover::before {
-			box-shadow: 0 8px 16px rgba(color(secondary, 1), .32);
+			box-shadow: 0 8px 16px rgba(var(--color--secondary-1), .32);
 		}
 	}
 
 	.button-sm.button-shadow {
 		&::before {
-			box-shadow: 0 4px 16px rgba(color(secondary, 1), .24);
+			box-shadow: 0 4px 16px rgba(var(--color--secondary-1), .24);
 		}
 
 		&:hover::before {
-			box-shadow: 0 4px 16px rgba(color(secondary, 1), .32);
+			box-shadow: 0 4px 16px rgba(var(--color--secondary-1), .32);
 		}
 	}
 }

@@ -1,14 +1,15 @@
 html {
-	@include font-size(5, mobile, true, true);
-	@if ( get-font-size(5, desktop) != get-font-size(5, mobile) ) {
-		@include media( '>medium' ) {
-			@include font-size(5, desktop, true, true, true);
-		}
+	font-size: var(--font-scale-5--size------mobile);
+	line-height: var(--font-scale-5--height------mobile);
+	@include media( '>medium' ) {
+		font-size: var(--font-scale-5--size------desktop);
+		line-height: var(--font-scale-5--height------desktop);
+		line-height: var(--font-scale-5--kerning------desktop);
 	}
 }
 
 body {
-	color: color(typography, 3);
+	color: var(--color--typography-3);
 	font-size: 1rem;
 }
 
@@ -17,51 +18,62 @@ button,
 input,
 select,
 textarea {
-	@include font-family(base);
+	font-family: var(--font-family--base);
 }
 
 a {
-	@include anchor-aspect(main);
+	color: var(--color--primary-1);
+	text-decoration: none;
+
+	&:hover,
+	&:active {
+		outline: 0;
+		text-decoration: underline;
+	}
 }
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
 	clear: both;
-	color: color(typography, 1);
-	@if ( get-font-family(heading) != get-font-family(base) ) {
-		@include font-family(heading);
-	}
-	@include font-weight(semibold);
+	color: var(--color--typography-1);
+	font-family: var(--font-family--heading);
+	font-weight: var(--font-weight--semibold);
 }
 
 h1,
 .h1 {
-	@include font-size(1, mobile, true, true, true);
-	@if ( get-font-size(1, desktop) != get-font-size(1, mobile) ) {
-		@include media( '>medium' ) {
-			@include font-size(1, desktop, true, true, true);
-		}
+	font-size: var(--font-scale-1--size------mobile);
+	line-height: var(--font-scale-1--height------mobile);
+	letter-spacing: var(--font-scale-1--kerning------mobile);
+	@include media( '>medium' ) {
+		font-size: var(--font-scale-1--size------desktop);
+		line-height: var(--font-scale-1--height------desktop);
+		letter-spacing: var(--font-scale-1--kerning------desktop);
 	}
 }
 
 h2,
 .h2 {
-	@include font-size(2, mobile, true, true, true);
-	@if ( get-font-size(2, desktop) != get-font-size(2, mobile) ) {
-		@include media( '>medium' ) {
-			@include font-size(2, desktop, true, true, true);
-		}
+	font-size: var(--font-scale-2--size------mobile);
+	line-height: var(--font-scale-2--height------mobile);
+	letter-spacing: var(--font-scale-2--kerning------mobile);
+	@include media( '>medium' ) {
+		font-size: var(--font-scale-2--size------desktop);
+		line-height: var(--font-scale-2--height------desktop);
+		letter-spacing: var(--font-scale-2--kerning------desktop);
 	}
 }
 
 h3,
 .h3,
 blockquote {
-	@include font-size(3, mobile, true, true, true);
-	@if ( get-font-size(3, desktop) != get-font-size(3, mobile) ) {
-		@include media( '>medium' ) {
-			@include font-size(3, desktop, true, true, true);
-		}
+	font-size: var(--font-scale-3--size------mobile);
+	line-height: var(--font-scale-3--height------mobile);
+	letter-spacing: var(--font-scale-3--kerning------mobile);
+	@include media( '>medium' ) {
+		font-size: var(--font-scale-3--size------desktop);
+		line-height: var(--font-scale-3--height------desktop);
+		letter-spacing: var(--font-scale-3--kerning------desktop);
 	}
 }
 
@@ -71,66 +83,79 @@ h6,
 .h4,
 .h5,
 .h6 {
-	@include font-size(4, mobile, true, true, true);
-	@if ( get-font-size(4, desktop) != get-font-size(4, mobile) ) {
-		@include media( '>medium' ) {
-			@include font-size(4, desktop, true, true, true);
-		}
+	font-size: var(--font-scale-4--size------mobile);
+	line-height: var(--font-scale-4--height------mobile);
+	letter-spacing: var(--font-scale-4--kerning------mobile);
+	@include media( '>medium' ) {
+		font-size: var(--font-scale-4--size------desktop);
+		line-height: var(--font-scale-4--height------desktop);
+		letter-spacing: var(--font-scale-4--kerning------desktop);
 	}
 }
 
 @include media( '<=medium' ) {
 
 	.h1-mobile {
-		@include font-size(1, mobile, true, true, true);
+		font-size: var(--font-scale-1--size------mobile);
+		line-height: var(--font-scale-1--height------mobile);
+		letter-spacing: var(--font-scale-1--kerning------mobile);
 	}
 
 	.h2-mobile {
-		@include font-size(2, mobile, true, true, true);
+		font-size: var(--font-scale-2--size------mobile);
+		line-height: var(--font-scale-2--height------mobile);
+		letter-spacing: var(--font-scale-2--kerning------mobile);
 	}
 
 	.h3-mobile {
-		@include font-size(3, mobile, true, true, true);
+		font-size: var(--font-scale-3--size------mobile);
+		line-height: var(--font-scale-3--height------mobile);
+		letter-spacing: var(--font-scale-3--kerning------mobile);
 	}
 
 	.h4-mobile,
 	.h5-mobile,
 	.h6-mobile {
-		@include font-size(4, mobile, true, true, true);
+		font-size: var(--font-scale-4--size------mobile);
+		line-height: var(--font-scale-4--height------mobile);
+		letter-spacing: var(--font-scale-4--kerning------mobile);
 	}
 }
 
 .text-light {
-	color: color(typography, 3);
+	color: var(--color--typography-3);
 
 	a {
-		color: color(typography, 3);
+		color: var(--color--typography-3);
 	}
 }
 
 .text-light {
-
 	h1, h2, h3, h4, h5, h6,
 	.h1, .h2, .h3, .h4, .h5, .h6 {
-		color: color(typography, 1i) !important;
+		color: var(--color--typography-1i) !important;
 	}
 }
 
 .text-sm {
-	@include font-size(6, mobile, true, true, true);
-	@if ( get-font-size(6, desktop) != get-font-size(6, mobile) ) {
-		@include media( '>medium' ) {
-			@include font-size(6, desktop, true, true, true);
-		}
+	font-size: var(--font-scale-6--size------mobile);
+	line-height: var(--font-scale-6--height------mobile);
+	letter-spacing: var(--font-scale-6--kerning------mobile);
+	@include media( '>medium' ) {
+		font-size: var(--font-scale-6--size------desktop);
+		line-height: var(--font-scale-6--height------desktop);
+		letter-spacing: var(--font-scale-6--kerning------desktop);
 	}
 }
 
 .text-xs {
-	@include font-size(7, mobile, true, true, true);
-	@if ( get-font-size(7, desktop) != get-font-size(7, mobile) ) {
-		@include media( '>medium' ) {
-			@include font-size(7, desktop, true, true, true);
-		}
+	font-size: var(--font-scale-7--size------mobile);
+	line-height: var(--font-scale-7--height------mobile);
+	letter-spacing: var(--font-scale-7--kerning------mobile);
+	@include media( '>medium' ) {
+		font-size: var(--font-scale-7--size------desktop);
+		line-height: var(--font-scale-7--height------desktop);
+		letter-spacing: var(--font-scale-7--kerning------desktop);
 	}
 }
 
@@ -162,7 +187,7 @@ dfn, cite, em, i {
 }
 
 blockquote {
-	color: color(typography, 2);
+	color: var(--color--typography-2);
 	font-style: italic;
 	margin-top: 24px;
 	margin-bottom: 24px;
@@ -182,10 +207,10 @@ blockquote {
 }
 
 address {
-	color: color(typography, 2);
+	color: var(--color--typography-2);
 	border-width: 1px 0;
 	border-style: solid;
-	border-color: color(bg, 3);
+	border-color: var(--color--bg-3);
 	padding: 24px 0;
 	margin: 0 0 24px;
 }
@@ -203,15 +228,16 @@ pre .h3,
 pre .h4,
 pre .h5,
 pre .h6 {
-	@include font-family(pre);
+	font-family: var(--font-family--pre);
 }
 
 pre, code, kbd, tt, var {
-	background: color(bg, 2);
+	background: var(--color--bg-2);
 }
 
 pre {
-	@include font-size(7, mobile, true, true);
+	font-size: var(--font-scale-7--size------mobile);
+	line-height: var(--font-scale-7--height------mobile);
 	margin-bottom: 1.6em;
 	max-width: 100%;
 	overflow: auto;
@@ -221,8 +247,8 @@ pre {
 }
 
 code, kbd, tt, var {
-	@include font-family(code);
-	@include font-size(7, mobile, true);
+	font-family: var(--font-family--code);
+	font-size: var(--font-scale-7--size------mobile);
 	padding: 2px 4px;
 }
 
@@ -235,12 +261,14 @@ mark, ins {
 }
 
 small {
-	@include font-size(6, mobile, true, true, true);
+	font-size: var(--font-scale-6--size------mobile);
+	line-height: var(--font-scale-6--height------mobile);
+	letter-spacing: var(--font-scale-6--kerning------mobile);
 }
 
 b,
 strong {
-	@include font-weight(semibold);
+	font-weight: var(--font-weight--semibold);
 }
 
 button,
@@ -248,5 +276,6 @@ input,
 select,
 textarea,
 label {
-	@include font-size(5, mobile, true, true);
+		font-size: var(--font-scale-5--size------mobile);
+	line-height: var(--font-scale-5--height------mobile);
 }

@@ -1,15 +1,23 @@
 .site-footer {
-	@include font-size(8, mobile, true, true, true);
-	@if ( get-font-size(8, desktop) != get-font-size(8, mobile) ) {
-		@include media( '>medium' ) {
-			@include font-size(8, desktop, true, true, true);
-		}
+	font-size: var(--font-scale-8--size------mobile);
+	line-height: var(--font-scale-8--height------mobile);
+	letter-spacing: var(--font-scale-8--kerning------mobile);
+	@include media( '>medium' ) {
+		font-size: var(--font-scale-8--size------desktop);
+		line-height: var(--font-scale-8--height------desktop);
+		letter-spacing: var(--font-scale-8--kerning------desktop);
 	}
-	background: color(typography, 1);
-	//color: color(typography, 2);
+	background: var(--color--typography-1);
+	//color: var(--color--typography-2);
 
 	a {
-		@include anchor-aspect(footer);
+		color: var(--color--typography-3);
+		text-decoration: none;
+
+		&:hover,
+		&:active {
+			text-decoration: underline;
+		}
 	}
 }
 
@@ -52,17 +60,16 @@
 
 .site-footer-unit-inner {
 	padding-top: 32px;
-	border-top: 2px solid color(typography, 2);
+	border-top: 2px solid var(--color--typography-2);
 }
 
 .footer-title {
-	color: color(typography, 1i);
-	@include font-weight(bold);
+	color: var(--color--typography-1i);
+	font-weight: var(--font-weight--bold);
 	text-transform: uppercase;
 }
 
 .footer-top-links {
-
 	ul {
 		margin-bottom: 32px;
 	}
@@ -72,7 +79,7 @@
 	}
 
 	a {
-		color: color(typography, 4);
+		color: var(--color--typography-4);
 	}
 }
 
