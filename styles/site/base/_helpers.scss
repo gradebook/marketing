@@ -2,26 +2,26 @@
 .container-sm {
 	width: 100%;
 	margin: 0 auto;
-	padding-left: get-content-padding(mobile);
-	padding-right: get-content-padding(mobile);
+	padding-left: var(--content-padding--mobile);
+	padding-right: var(--content-padding--mobile);
 
 	@include media( '>small' ) {
-		padding-left: get-content-padding(desktop);
-		padding-right: get-content-padding(desktop);
+		padding-left: var(--content-padding--desktop);
+		padding-right: var(--content-padding--desktop);
 	}
 }
 
 .container {
-	max-width: $container__width + ( get-content-padding(desktop) * 2 );
+	max-width: $container-width + ( $content-padding--desktop * 2 );
 }
 
 .container-sm {
-	max-width: $container__width-sm + ( get-content-padding(desktop) * 2 );
+	max-width: $container-width--sm + ( $content-padding--desktop * 2 );
 }
 
 .container {
 	.container-sm {
-		max-width: $container__width-sm;
+		max-width: var(--container-width--sm);
 		padding-left: 0;
 		padding-right: 0;
 	}

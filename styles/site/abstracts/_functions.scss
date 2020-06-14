@@ -21,11 +21,3 @@
 @function get-kerning($size, $elem) {
 	@return nth(map-get(map-get($font__scale, $elem), $size), 3);
 }
-
-// --------------------------------------------------------------------
-// Retrieve Padding of Content Area Elements --------------------------
-// Used in _mixins.scss [@mixin font-size] ----------------------------
-// --------------------------------------------------------------------
-@function get-content-padding($elem) {
-	@return map-get($content__padding, $elem);
-}

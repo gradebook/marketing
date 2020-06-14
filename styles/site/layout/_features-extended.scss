@@ -43,7 +43,7 @@
 	.features-extended {
 		.container {
 			/* image width (360) + padding (48) + text width (360) = 828 */
-			max-width: 828px + ( get-content-padding(desktop) * 2 );
+			max-width: 828px + ( $content-padding--desktop * 2 );
 		}
 
 		.section-inner {
@@ -125,7 +125,7 @@
 	.features-extended {
 		.container {
 			/* image width (420) + padding (48) + text width (480) = 828 */
-			max-width: 948px + ( get-content-padding(desktop) * 2 );
+			max-width: 948px + ( $content-padding--desktop * 2 );
 		}
 	}
 
