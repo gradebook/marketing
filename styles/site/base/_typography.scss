@@ -22,7 +22,14 @@ textarea {
 }
 
 a {
-	@include anchor-aspect(main);
+	color: var(--color--primary-1);
+	text-decoration: none;
+
+	&:hover,
+	&:active {
+		outline: 0;
+		text-decoration: underline;
+	}
 }
 
 h1, h2, h3, h4, h5, h6,

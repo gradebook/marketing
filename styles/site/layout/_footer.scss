@@ -11,7 +11,13 @@
 	//color: var(--color--typography-2);
 
 	a {
-		@include anchor-aspect(footer);
+		color: var(--color--typography-3);
+		text-decoration: none;
+
+		&:hover,
+		&:active {
+			text-decoration: underline;
+		}
 	}
 }
 

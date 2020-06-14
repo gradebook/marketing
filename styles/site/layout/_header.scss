@@ -40,7 +40,14 @@
 			letter-spacing: var(--font-scale-7--kerning------desktop);
 		}
 		font-weight: (--font-weight--semibold);
-		@include anchor-aspect(header);
+		color: var(--color--typography-2i);
+		text-transform: uppercase;
+		text-decoration: none;
+
+		&:hover,
+		&:active {
+			color: var(--color--typography-1i);
+		}
 		line-height: 16px;
 		padding: 8px 24px;
 	}

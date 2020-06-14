@@ -1,34 +1,3 @@
-// Anchor aspect
-@mixin anchor-aspect($type: 'main') {
-	@if ($type == 'main') { // Base
-		color: var(--color--primary-1);
-		text-decoration: none;
-
-		&:hover,
-		&:active {
-			outline: 0;
-			text-decoration: underline;
-		}
-	} @else if ($type == 'header') {
-		color: var(--color--typography-2i);
-		text-transform: uppercase;
-		text-decoration: none;
-
-		&:hover,
-		&:active {
-			color: var(--color--typography-1i);
-		}
-	} @else if ($type == 'footer') {
-		color: var(--color--typography-3);
-		text-decoration: none;
-
-		&:hover,
-		&:active {
-			text-decoration: underline;
-		}
-	}
-}
-
 @mixin shadow($layout: false) {
 	@if ( $layout == 'dark' ) {
 		box-shadow: 0 20px 48px rgba(darken($color--bg-1, 35%), .2);
