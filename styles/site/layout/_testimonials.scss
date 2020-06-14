@@ -35,7 +35,9 @@
 	background: var(--color--bg-1);
 	padding: 32px 24px;
 	height: 100%;
-	@include shadow;
+	// Dark Mode!
+	// box-shadow: 0 20px 48px rgba(darken($color--bg-1, 35%), .2);
+	box-shadow: 0 20px 48px rgba($color--typography-1, .16);
 
 	> * {
 		width: 100%;
