@@ -19,7 +19,7 @@
 			color: var(--color--typography-1i);
 		}
 	} @else if ($type == 'footer') {
-		color: --color--(--color--typography-3);
+		color: var(--color--typography-3);
 		text-decoration: none;
 
 		&:hover,
