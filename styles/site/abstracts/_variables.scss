@@ -1,11 +1,12 @@
-// --------------------------------------------
-// Colors -------------------------------------
-// Usage example: color(primary, main)
-// --------------------------------------------
+$color--typography-1:#1a202c;
+$color--typography-2:#272c38;
+$color--primary-1:#5E3B4D;
+$color--secondary-1:#5AE0D2;
+
 :root {
 	// COLOR TYPOGRAPHY
-	--color--typography-1: #1a202c;
-	--color--typography-2: #272c38;
+	--color--typography-1: $color--typography-1;
+	--color--typography-2: $color--typography-2;
 	--color--typography-3: #8A95A5;
 	--color--typography-4: #9EABC0;
 	--color--typography-1i: #DDDBF1;
@@ -16,12 +17,12 @@
 	--color-bg-3: #E4E8EE;
 	// PRIMARY COLORS
 	--color-primary-1: #7E6EE6;
-	--color-primary-1: #5E3B4D;
+	--color-primary-1: $color--primary-1;
 	--color-primary-2: #A59AEE;
 	--color-primary-3: #5743DF;
 	--color-primary-4: #E5E1FF;
 	// SECONDARY COLORS
-	--color-secondary-1: #5AE0D2;
+	--color-secondary-1: $color--secondary-1;
 	--color-secondary-2: #85E8DE;
 	--color-secondary-3: #2FD8C6;
 	--color-secondary-4: #BDFDF6;
@@ -38,35 +39,6 @@
 	--font-weight---semibold: 600;
 	--font-weight---bold: 700;
 }
-
-$color: (
-	typography: (
-		1: #1a202c,
-		2: #272c38,
-		3: #8A95A5,
-		4: #9EABC0,
-		1i: #DDDBF1,
-		2i: rgba( #DDDBF1, .8 )
-	),
-	bg: (
-		1: #FFFFFF,
-		2: #F3F5F8,
-		3: #E4E8EE
-	),
-	primary: (
-//		1: #7E6EE6,
-		1: #5E3B4D,
-		2: #A59AEE,
-		3: #5743DF,
-		4: #E5E1FF
- 	),
-	secondary: (
-		1: #5AE0D2,
-		2: #85E8DE,
-		3: #2FD8C6,
-		4: #BDFDF6
-	)
-);
 
 // --------------------------------------------
 // Typography ---------------------------------

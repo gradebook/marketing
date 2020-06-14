@@ -8,7 +8,7 @@
 
 	.section-title {
 		margin-bottom: 48px;
-		color: color(primary, 4) !important;
+		color: var(--color-primary-4) !important;
 	}
 
 	&::before {
@@ -18,13 +18,13 @@
 		position: absolute;
 		left: 0;
 		bottom: 0;
-		background: color(typography, 1);
+		background: var(--color-typography-1);
 	}
 }
 
 .cta-inner {
 	position: relative;
-	background: color(primary, 1);
+	background: var(--color-primary-1);
 	overflow: hidden;
 
 	&::before {

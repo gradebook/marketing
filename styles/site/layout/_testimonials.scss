@@ -32,7 +32,7 @@
 	position: relative;
 	display: flex;
 	flex-wrap: wrap;
-	background: color(bg, 1);
+	background: var(--color--bg-1);
 	padding: 32px 24px;
 	height: 100%;
 	@include shadow;
@@ -59,7 +59,7 @@
 }
 
 .testimonial-name {
-	color: color(typography, 1);
+	color: var(--color--typography-1);
 }
 
 @include media( '>medium' ) {

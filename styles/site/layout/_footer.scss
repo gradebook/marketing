@@ -5,8 +5,8 @@
 			@include font-size(8, desktop, true, true, true);
 		}
 	}
-	background: color(typography, 1);
-	//color: color(typography, 2);
+	background: var(--color-typography-1);
+	//color: var(--color-typography-2);
 
 	a {
 		@include anchor-aspect(footer);
@@ -52,17 +52,16 @@
 
 .site-footer-unit-inner {
 	padding-top: 32px;
-	border-top: 2px solid color(typography, 2);
+	border-top: 2px solid var(--color-typography-2);
 }
 
 .footer-title {
-	color: color(typography, 1i);
+	color: var(--color-typography-1i);
 	@include font-weight(bold);
 	text-transform: uppercase;
 }
 
 .footer-top-links {
-
 	ul {
 		margin-bottom: 32px;
 	}
@@ -72,7 +71,7 @@
 	}
 
 	a {
-		color: color(typography, 4);
+		color: var(--color-typography-4);
 	}
 }
 

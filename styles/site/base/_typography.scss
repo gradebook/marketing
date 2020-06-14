@@ -8,7 +8,7 @@ html {
 }
 
 body {
-	color: color(typography, 3);
+	color: var(--color--typography-3);
 	font-size: 1rem;
 }
 
@@ -27,7 +27,7 @@ a {
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
 	clear: both;
-	color: color(typography, 1);
+	color: var(--color--typography-1);
 	font-family: var(--font-family--heading);
 	@include font-weight(semibold);
 }
@@ -99,10 +99,10 @@ h6,
 }
 
 .text-light {
-	color: color(typography, 3);
+	color: var(--color--typography-3);
 
 	a {
-		color: color(typography, 3);
+		color: var(--color--typography-3);
 	}
 }
 
@@ -110,7 +110,7 @@ h6,
 
 	h1, h2, h3, h4, h5, h6,
 	.h1, .h2, .h3, .h4, .h5, .h6 {
-		color: color(typography, 1i) !important;
+		color: var(--color--typography-1i) !important;
 	}
 }
 
@@ -160,7 +160,7 @@ dfn, cite, em, i {
 }
 
 blockquote {
-	color: color(typography, 2);
+	color: var(--color--typography-2);
 	font-style: italic;
 	margin-top: 24px;
 	margin-bottom: 24px;
@@ -180,10 +180,10 @@ blockquote {
 }
 
 address {
-	color: color(typography, 2);
+	color: var(--color--typography-2);
 	border-width: 1px 0;
 	border-style: solid;
-	border-color: color(bg, 3);
+	border-color: var(--color--bg-3);
 	padding: 24px 0;
 	margin: 0 0 24px;
 }
@@ -205,7 +205,7 @@ pre .h6 {
 }
 
 pre, code, kbd, tt, var {
-	background: color(bg, 2);
+	background: var(--color--bg-2);
 }
 
 pre {

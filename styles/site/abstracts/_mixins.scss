@@ -24,7 +24,7 @@
 // Anchor aspect
 @mixin anchor-aspect($type: 'main') {
 	@if ($type == 'main') { // Base
-		color: color(primary, 1);
+		color: var(--color--primary-1);
 		text-decoration: none;
 
 		&:hover,
@@ -33,16 +33,16 @@
 			text-decoration: underline;
 		}
 	} @else if ($type == 'header') {
-		color: color(typography, 2i);
+		color: var(--color--typography-2i);
 		text-transform: uppercase;
 		text-decoration: none;
 
 		&:hover,
 		&:active {
-			color: color(typography, 1i);
+			color: var(--color--typography-1i);
 		}
 	} @else if ($type == 'footer') {
-		color: color(typography, 3);
+		color: --color--(--color--typography-3);
 		text-decoration: none;
 
 		&:hover,
@@ -54,17 +54,17 @@
 
 @mixin shadow($layout: false) {
 	@if ( $layout == 'dark' ) {
-		box-shadow: 0 20px 48px rgba(darken(color(bg, 1), 35%), .2);
+		box-shadow: 0 20px 48px rgba(darken($color--bg-1, 35%), .2);
 	} @else {
-		box-shadow: 0 20px 48px rgba(color(typography, 1), .16);
+		box-shadow: 0 20px 48px rgba($color--typography-1, .16);
 	}
 }
 
 @mixin shadow-sm($layout: false) {
 	@if ( $layout == 'dark' ) {
-		box-shadow: 0 16px 24px rgba(darken(color(bg, 1), 35%), .2);
+		box-shadow: 0 16px 24px rgba(darken($color--bg-1, 35%), .2);
 	} @else {
-		box-shadow: 0 16px 24px rgba(color(typography, 1), .16);
+		box-shadow: 0 16px 24px rgba($color--typography-1, .16);
 	}
 }
 
@@ -72,9 +72,9 @@
 	display: block;
 	height: 1px;
 	@if ( $layout == 'dark' ) {
-		background: color(bg, 3i);
+		background: var(--color--bg-3i);
 	} @else {
-		background: color(bg, 3);
+		background: var(--color--bg-3);
 	}
 }
 

@@ -9,7 +9,7 @@ html {
 }
 
 body {
-	background: color(bg, 1); /* Fallback for when there is no custom background color defined. */
+	background: var(--color--bg-1); /* Fallback for when there is no custom background color defined. */
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
 }
@@ -82,7 +82,7 @@ table {
 }
 
 tr {
-	border-bottom: 1px solid color(bg, 3);
+	border-bottom: 1px solid var(--color--bg-3);
 }
 
 th {

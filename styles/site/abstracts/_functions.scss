@@ -37,11 +37,3 @@
 @function get-content-padding($elem) {
 	@return map-get($content__padding, $elem);
 }
-
-// --------------------------------------------------------------------
-// Retrieve Colors ----------------------------------------------------
-// Usage: color(typography, 1) ----------------------------------------------
-// --------------------------------------------------------------------
-@function color($elem, $variant) {
-	@return map-get(map-get($color, $elem), $variant);
-}

@@ -51,8 +51,8 @@
 		line-height: 16px;
 		text-decoration: none;
 		text-transform: uppercase;
-		background-color: color(bg, 1);
-		color: color(primary, 1) !important;
+		background-color: var(--color--bg-1);
+		color: var(--color--primary--1) !important;
 		border: none;
 		height: auto;
 		left: 8px;
@@ -81,11 +81,11 @@
 }
 
 .text-primary {
-	color: color(primary, 1);
+	color: var(--color--primary-1);
 }
 
 .text-secondary {
-	color: color(secondary, 1);
+	color: var(--color--secondary-1);
 }
 
 .has-top-divider {
