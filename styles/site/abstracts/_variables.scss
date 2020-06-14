@@ -15,22 +15,22 @@ $container-width--sm: 800px;
 	--color--typography-3: #8A95A5;
 	--color--typography-4: #9EABC0;
 	--color--typography-1i: #DDDBF1;
-	--color--typography-12i: rgba( #DDDBF1, .8 );
+	--color--typography-2i: rgba( #DDDBF1, .8 );
 	// COLOR BG
-	--color-bg-1: #FFFFFF;
-	--color-bg-2: #F3F5F8;
-	--color-bg-3: #E4E8EE;
+	--color--bg-1: #FFFFFF;
+	--color--bg-2: #F3F5F8;
+	--color--bg-3: #E4E8EE;
 	// PRIMARY COLORS
-	--color-primary-1: #7E6EE6;
-	--color-primary-1: $color--primary-1;
-	--color-primary-2: #A59AEE;
-	--color-primary-3: #5743DF;
-	--color-primary-4: #E5E1FF;
+	--color--primary-1: #7E6EE6;
+	--color--primary-1: $color--primary-1;
+	--color--primary-2: #A59AEE;
+	--color--primary-3: #5743DF;
+	--color--primary-4: #E5E1FF;
 	// SECONDARY COLORS
-	--color-secondary-1: $color--secondary-1;
-	--color-secondary-2: #85E8DE;
-	--color-secondary-3: #2FD8C6;
-	--color-secondary-4: #BDFDF6;
+	--color--secondary-1: $color--secondary-1;
+	--color--secondary-2: #85E8DE;
+	--color--secondary-3: #2FD8C6;
+	--color--secondary-4: #BDFDF6;
 
 	//FONT FAMILIES
 	--font-family--base: "Heebo", sans-serif;
@@ -45,8 +45,8 @@ $container-width--sm: 800px;
 	--font-weight--bold: 700;
 
 	// STRUCTURE
-	--content-padding-mobile: $content-padding--mobile;
-	--content-padding-desktop: $content-padding--desktop;
+	--content-padding--mobile: $content-padding--mobile;
+	--content-padding--desktop: $content-padding--desktop;
 	--container-width: $container-width;
 	--container-width--sm: $container-width--sm;
 }

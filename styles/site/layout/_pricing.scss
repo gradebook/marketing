@@ -1,6 +1,6 @@
 .pricing {
-	background: var(--color-typography-1);
-	color: var(--color-typography-4);
+	background: var(--color--typography-1);
+	color: var(--color--typography-4);
 
 	.section-title {
 		margin-bottom: 48px;
@@ -35,7 +35,7 @@
 	position: relative;
 	display: flex;
 	flex-wrap: wrap;
-	background: var(--color-typography-2);
+	background: var(--color--typography-2);
 	padding: 24px;
 	height: 100%;
 
@@ -63,7 +63,7 @@
 }
 
 .pricing-table-features-title {
-	color: var(--color-typography-1i);
+	color: var(--color--typography-1i);
 }
 
 .pricing-table-features {
