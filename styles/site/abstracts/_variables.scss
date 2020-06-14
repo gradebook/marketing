@@ -51,40 +51,58 @@ $container-width--sm: 800px;
 	--container-width--sm: $container-width--sm;
 }
 
-// --------------------------------------------
-// Typography ---------------------------------
-// --------------------------------------------
-$font__sizes: (
-	alpha:   ( 44px, 54px, 0px ),    // font-size, line-height, kerning (use '0' if don't want to output any kerning)
-	beta:    ( 34px, 44px, 0px ),
-	gamma:   ( 30px, 40px, 0px ),
-	delta:   ( 24px, 34px, 0px ),
-	epsilon: ( 20px, 30px, -0.1px ),
-	zeta:    ( 18px, 28px, -0.1px ),
-	eta:     ( 16px, 24px, -0.1px ),
-	theta:   ( 14px, 20px, 0px )
-);
+$font--alpha-size: 44px;
+$font--alpha-height: 54px;
+$font--alpha-kerning: 0;
+
+$font--beta-size: 34px;
+$font--beta-height: 44px;
+$font--beta-kerning: 0;
+
+$font--gamma-size: 30px;
+$font--gamma-height: 40px;
+$font--gamma-kerning: 0;
+
+$font--delta-size: 24px;
+$font--delta-height: 34px;
+$font--delta-kerning: 0;
+
+$font--epsilon-size: 20px;
+$font--epsilon-height: 30px;
+$font--epsilon-kerning: -0.1px;
+
+$font--zeta-size: 18px;
+$font--zeta-height: 28px;
+$font--zeta-kerning: -0.1px;
+
+$font--eta-size: 16px;
+$font--eta-height: 24px;
+$font--eta-kerning: -0.1px;
+
+$font--theta-size: 14px;
+$font--theta-height: 20px;
+$font--theta-kerning: 0;
 
 $font__scale: (
 	desktop: (                             // i.e. $breakpoint__m + $breakpoint__l (600 - 1024)
-		1: map-get($font__sizes, alpha),   // H1
-		2: map-get($font__sizes, beta),    // H2
-		3: map-get($font__sizes, gamma),   // H3
-		4: map-get($font__sizes, delta),   // H4
-		5: map-get($font__sizes, epsilon), // Body, H5, H6
-		6: map-get($font__sizes, zeta),    // Text small
-		7: map-get($font__sizes, eta),     // Text smaller
-		8: map-get($font__sizes, theta)    // Footer area
+		1: ($font--alpha-size, $font--alpha-height, $font--alpha-kerning),   // H1
+		2: ($font--beta-size, $font--beta-height, $font--beta-kerning),    // H2
+		3: ($font--gamma-size, $font--gamma-height, $font--gamma-kerning),   // H3
+		4: ($font--delta-size, $font--delta-height, $font--delta-kerning),   // H4
+		5: ($font--epsilon-size, $font--epsilon-height, $font--epsilon-kerning), // Body, H5, H6
+		6: ($font--zeta-size, $font--zeta-height, $font--zeta-kerning),    // Text small
+		7: ($font--eta-size, $font--eta-height, $font--eta-kerning),     // Text smaller
+		8: ($font--theta-size, $font--theta-height, $font--theta-kerning)    // Footer area
 	),
 	mobile: (                              // i.e. $breakpoint__xs + $breakpoint__s (up to 600)
-		1: map-get($font__sizes, beta),    // H1
-		2: map-get($font__sizes, gamma),   // H2
-		3: map-get($font__sizes, delta),   // H3
-		4: map-get($font__sizes, delta),   // H4
-		5: map-get($font__sizes, epsilon), // Body, H5, H6
-		6: map-get($font__sizes, zeta),    // Text small
-		7: map-get($font__sizes, eta),     // Text smaller
-		8: map-get($font__sizes, theta)    // Footer area
+		1: ($font--beta-size, $font--beta-height, $font--beta-kerning),    // H1
+		2: ($font--gamma-size, $font--gamma-height, $font--gamma-kerning),   // H2
+		3: ($font--delta-size, $font--delta-height, $font--delta-kerning),   // H3
+		4: ($font--delta-size, $font--delta-height, $font--delta-kerning),   // H4
+		5: ($font--epsilon-size, $font--epsilon-height, $font--epsilon-kerning), // Body, H5, H6
+		6: ($font--zeta-size, $font--zeta-height, $font--zeta-kerning),    // Text small
+		7: ($font--eta-size, $font--eta-height, $font--eta-kerning),     // Text smaller
+		8: ($font--theta-size, $font--theta-height, $font--theta-kerning)    // Footer area
 	)
 );
 
