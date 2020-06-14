@@ -89,11 +89,33 @@
 }
 
 .has-top-divider {
-	@include divider(before);
+	position: relative;
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		display: block;
+		height: 1px;
+		background: var(--color--bg-3);
+	}
 }
 
 .has-bottom-divider {
-	@include divider(after);
+	position: relative;
+
+	&::after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		display: block;
+		height: 1px;
+		background: var(--color--bg-3);
+	}
 }
 
 .m-0 {

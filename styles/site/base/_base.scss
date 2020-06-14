@@ -16,7 +16,10 @@ body {
 
 hr {
 	border: 0;
-	@include divider();
+	display: block;
+	height: 1px;
+	background: var(--color--bg-3i); // Use this for dark theme!
+	background: var(--color--bg-3);
 	margin-top: 24px;
 	margin-bottom: 24px;
 }
