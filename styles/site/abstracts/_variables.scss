@@ -10,8 +10,8 @@ $container-width--sm: 800px;
 
 :root {
 	// COLOR TYPOGRAPHY
-	--color--typography-1: $color--typography-1;
-	--color--typography-2: $color--typography-2;
+	--color--typography-1: #{$color--typography-1};
+	--color--typography-2: #{$color--typography-2};
 	--color--typography-3: #8A95A5;
 	--color--typography-4: #9EABC0;
 	--color--typography-1i: #DDDBF1;
@@ -22,12 +22,12 @@ $container-width--sm: 800px;
 	--color--bg-3: #E4E8EE;
 	// PRIMARY COLORS
 	--color--primary-1: #7E6EE6;
-	--color--primary-1: $color--primary-1;
+	--color--primary-1: #{$color--primary-1};
 	--color--primary-2: #A59AEE;
 	--color--primary-3: #5743DF;
 	--color--primary-4: #E5E1FF;
 	// SECONDARY COLORS
-	--color--secondary-1: $color--secondary-1;
+	--color--secondary-1: #{$color--secondary-1};
 	--color--secondary-2: #85E8DE;
 	--color--secondary-3: #2FD8C6;
 	--color--secondary-4: #BDFDF6;
@@ -45,10 +45,10 @@ $container-width--sm: 800px;
 	--font-weight--bold: 700;
 
 	// STRUCTURE
-	--content-padding--mobile: $content-padding--mobile;
-	--content-padding--desktop: $content-padding--desktop;
-	--container-width: $container-width;
-	--container-width--sm: $container-width--sm;
+	--content-padding--mobile: #{$content-padding--mobile};
+	--content-padding--desktop: #{$content-padding--desktop};
+	--container-width: #{$container-width};
+	--container-width--sm: #{$container-width--sm};
 }
 
 $font--alpha-size: 44px;
@@ -88,73 +88,73 @@ $font--theta-kerning: 0;
 	//Mobile: $breakpoint__xs + $breakpoint__s (up to 600)
 
 	// H1
-	--font-scale-1--size------mobile: $font--beta-size;
-	--font-scale-1--height------mobile: $font--beta-height;
-	--font-scale-1--kerning------mobile: $font--beta-kerning;
+	--font-scale-1--size------mobile: #{$font--beta-size};
+	--font-scale-1--height------mobile: #{$font--beta-height};
+	--font-scale-1--kerning------mobile: #{$font--beta-kerning};
 
-	--font-scale-1--size------desktop: $font--alpha-size;
-	--font-scale-1--height------desktop: $font--alpha-height;
-	--font-scale-1--kerning------desktop: $font--alpha-kerning;
+	--font-scale-1--size------desktop: #{$font--alpha-size};
+	--font-scale-1--height------desktop: #{$font--alpha-height};
+	--font-scale-1--kerning------desktop: #{$font--alpha-kerning};
 
 	// H2
-	--font-scale-2--size------mobile: $font--gamma-size;
-	--font-scale-2--height------mobile: $font--gamma-height;
-	--font-scale-2--kerning------mobile: $font--gamma-kerning;
+	--font-scale-2--size------mobile: #{$font--gamma-size};
+	--font-scale-2--height------mobile: #{$font--gamma-height};
+	--font-scale-2--kerning------mobile: #{$font--gamma-kerning};
 
-	--font-scale-2--size------desktop: $font--beta-size;
-	--font-scale-2--height------desktop: $font--beta-height;
-	--font-scale-2--kerning------desktop: $font--beta-kerning;
+	--font-scale-2--size------desktop: #{$font--beta-size};
+	--font-scale-2--height------desktop: #{$font--beta-height};
+	--font-scale-2--kerning------desktop: #{$font--beta-kerning};
 	// H3
-	--font-scale-3--size------mobile: $font--gamma-size;
-	--font-scale-3--height------mobile: $font--gamma-height;
-	--font-scale-3--kerning------mobile: $font--gamma-kerning;
+	--font-scale-3--size------mobile: #{$font--gamma-size};
+	--font-scale-3--height------mobile: #{$font--gamma-height};
+	--font-scale-3--kerning------mobile: #{$font--gamma-kerning};
 
-	--font-scale-3--size------desktop: $font--delta-size;
-	--font-scale-3--height------desktop: $font--delta-height;
-	--font-scale-3--kerning------desktop: $font--delta-kerning;
+	--font-scale-3--size------desktop: #{$font--delta-size};
+	--font-scale-3--height------desktop: #{$font--delta-height};
+	--font-scale-3--kerning------desktop: #{$font--delta-kerning};
 
 	// H4
-	--font-scale-4--size------mobile: $font--delta-size;
-	--font-scale-4--height------mobile: $font--delta-height;
-	--font-scale-4--kerning------mobile: $font--delta-kerning;
+	--font-scale-4--size------mobile: #{$font--delta-size};
+	--font-scale-4--height------mobile: #{$font--delta-height};
+	--font-scale-4--kerning------mobile: #{$font--delta-kerning};
 
-	--font-scale-4--size------desktop: $font--delta-size;
-	--font-scale-4--height------desktop: $font--delta-height;
-	--font-scale-4--kerning------desktop: $font--delta-kerning;
+	--font-scale-4--size------desktop: #{$font--delta-size};
+	--font-scale-4--height------desktop: #{$font--delta-height};
+	--font-scale-4--kerning------desktop: #{$font--delta-kerning};
 
 	// Body, H5, H6
-	--font-scale-5--size------mobile: $font--epsilon-size;
-	--font-scale-5--height------mobile: $font--epsilon-height;
-	--font-scale-5--kerning------mobile: $font--epsilon-kerning;
+	--font-scale-5--size------mobile: #{$font--epsilon-size};
+	--font-scale-5--height------mobile: #{$font--epsilon-height};
+	--font-scale-5--kerning------mobile: #{$font--epsilon-kerning};
 
-	--font-scale-5--size------desktop: $font--epsilon-size;
-	--font-scale-5--height------desktop: $font--epsilon-height;
-	--font-scale-5--kerning------desktop: $font--epsilon-kerning;
+	--font-scale-5--size------desktop: #{$font--epsilon-size};
+	--font-scale-5--height------desktop: #{$font--epsilon-height};
+	--font-scale-5--kerning------desktop: #{$font--epsilon-kerning};
 
 	// Small
-	--font-scale-6--size------mobile: $font--zeta-size;
-	--font-scale-6--height------mobile: $font--zeta-height;
-	--font-scale-6--kerning------mobile: $font--zeta-kerning;
+	--font-scale-6--size------mobile: #{$font--zeta-size};
+	--font-scale-6--height------mobile: #{$font--zeta-height};
+	--font-scale-6--kerning------mobile: #{$font--zeta-kerning};
 
-	--font-scale-6--size------desktop: $font--zeta-size;
-	--font-scale-6--height------desktop: $font--zeta-height;
-	--font-scale-6--kerning------desktop: $font--zeta-kerning;
+	--font-scale-6--size------desktop: #{$font--zeta-size};
+	--font-scale-6--height------desktop: #{$font--zeta-height};
+	--font-scale-6--kerning------desktop: #{$font--zeta-kerning};
 
 	// Smaller
-	--font-scale-7--size------mobile: $font--eta-size;
-	--font-scale-7--height------mobile: $font--eta-height;
-	--font-scale-7--kerning------mobile: $font--eta-kerning;
+	--font-scale-7--size------mobile: #{$font--eta-size};
+	--font-scale-7--height------mobile: #{$font--eta-height};
+	--font-scale-7--kerning------mobile: #{$font--eta-kerning};
 
-	--font-scale-7--size------desktop: $font--eta-size;
-	--font-scale-7--height------desktop: $font--eta-height;
-	--font-scale-7--kerning------desktop: $font--eta-kerning;
+	--font-scale-7--size------desktop: #{$font--eta-size};
+	--font-scale-7--height------desktop: #{$font--eta-height};
+	--font-scale-7--kerning------desktop: #{$font--eta-kerning};
 
 	// Footer Area
-	--font-scale-8--size------mobile: $font--theta-size;
-	--font-scale-8--height------mobile: $font--theta-height;
-	--font-scale-8--kerning------mobile: $font--theta-kerning;
+	--font-scale-8--size------mobile: #{$font--theta-size};
+	--font-scale-8--height------mobile: #{$font--theta-height};
+	--font-scale-8--kerning------mobile: #{$font--theta-kerning};
 
-	--font-scale-8--size------desktop: $font--theta-size;
-	--font-scale-8--height------desktop: $font--theta-height;
-	--font-scale-8--kerning------desktop: $font--theta-kerning;
+	--font-scale-8--size------desktop: #{$font--theta-size};
+	--font-scale-8--height------desktop: #{$font--theta-height};
+	--font-scale-8--kerning------desktop: #{$font--theta-kerning};
 }
