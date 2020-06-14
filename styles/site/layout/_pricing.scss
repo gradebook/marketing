@@ -49,9 +49,7 @@
 }
 
 .pricing-table-price {
-	@if ( get-font-family(heading) != get-font-family(base) ) {
-		@include font-family(heading);
-	}
+	font-family: var(--font-family--heading);
 	color: color(bg, 1);
 }
 

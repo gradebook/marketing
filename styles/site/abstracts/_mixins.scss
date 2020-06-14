@@ -16,11 +16,6 @@
 	}
 }
 
-// Font Family
-@mixin font-family($elem) {
-	font-family: unquote(get-font-family($elem));
-}
-
 // Font Weight
 @mixin font-weight($elem) {
 	font-weight: get-font-weight($elem);

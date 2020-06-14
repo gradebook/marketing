@@ -17,7 +17,7 @@ button,
 input,
 select,
 textarea {
-	@include font-family(base);
+	font-family: var(--font-family--base);
 }
 
 a {
@@ -28,9 +28,7 @@ h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
 	clear: both;
 	color: color(typography, 1);
-	@if ( get-font-family(heading) != get-font-family(base) ) {
-		@include font-family(heading);
-	}
+	font-family: var(--font-family--heading);
 	@include font-weight(semibold);
 }
 
@@ -203,7 +201,7 @@ pre .h3,
 pre .h4,
 pre .h5,
 pre .h6 {
-	@include font-family(pre);
+	font-family: var(--font-family--pre);
 }
 
 pre, code, kbd, tt, var {
@@ -221,7 +219,7 @@ pre {
 }
 
 code, kbd, tt, var {
-	@include font-family(code);
+	font-family: var(--font-family--code);
 	@include font-size(7, mobile, true);
 	padding: 2px 4px;
 }

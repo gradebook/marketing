@@ -71,13 +71,6 @@ $color: (
 // --------------------------------------------
 // Typography ---------------------------------
 // --------------------------------------------
-$font__family: (
-	base: '"Heebo", sans-serif', // font-family(base)
-	heading: '"PLayfair Display", sans-serif', // font-family(heading)
-	code: 'Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace', // font-family(code)
-	pre: '"Courier 10 Pitch", Courier, monospace' // font-family(pre)
-);
-
 $font__sizes: (
 	alpha:   ( 44px, 54px, 0px ),    // font-size, line-height, kerning (use '0' if don't want to output any kerning)
 	beta:    ( 34px, 44px, 0px ),
