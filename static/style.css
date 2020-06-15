@@ -69,12 +69,9 @@
   --font-scale-7--size: 16px;
   --font-scale-7--height: 24px;
   --font-scale-7--kerning: -0.1px;
-  --font-scale-8--size------mobile: 14px;
-  --font-scale-8--height------mobile: 20px;
-  --font-scale-8--kerning------mobile: 0;
-  --font-scale-8--size------desktop: 14px;
-  --font-scale-8--height------desktop: 20px;
-  --font-scale-8--kerning------desktop: 0; }
+  --font-scale-8--size: 14px;
+  --font-scale-8--height: 20px;
+  --font-scale-8--kerning: 0; }
 
 @media (min-width: 641px) {
   :root {
@@ -98,7 +95,10 @@
     --font-scale-6--kerning: -0.1px;
     --font-scale-7--size: 16px;
     --font-scale-7--height: 24px;
-    --font-scale-7--kerning: -0.1px; } }
+    --font-scale-7--kerning: -0.1px;
+    --font-scale-8--size: 14px;
+    --font-scale-8--height: 20px;
+    --font-scale-8--kerning: 0; } }
 
 /*--------------------------------------------------------------
 1.0 Normalize
@@ -614,8 +614,8 @@ label {
   box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
   clip: auto !important;
   display: block;
-  font-size: var(--font-scale-8--size------mobile);
-  letter-spacing: var(--font-scale-8--kerning------mobile);
+  font-size: var(--font-scale-8--size);
+  letter-spacing: var(--font-scale-8--kerning);
   font-weight: var(--font-weight--semibold);
   line-height: 16px;
   text-decoration: none;
@@ -629,11 +629,6 @@ label {
   top: 8px;
   width: auto;
   z-index: 100000; }
-
-@media (min-width: 641px) {
-  .screen-reader-text:focus {
-    font-size: var(--font-scale-8--size------desktop);
-    letter-spacing: var(--font-scale-8--kerning------desktop); } }
 
 .list-reset {
   list-style: none;
@@ -959,8 +954,8 @@ label {
 --------------------------------------------------------------*/
 .button {
   display: inline-flex;
-  font-size: var(--font-scale-8--size------mobile);
-  letter-spacing: var(--font-scale-8--kerning------mobile);
+  font-size: var(--font-scale-8--size);
+  letter-spacing: var(--font-scale-8--kerning);
   font-weight: var(--font-weight--bold);
   line-height: 16px;
   text-decoration: none !important;
@@ -976,11 +971,6 @@ label {
   height: 48px;
   text-align: center;
   white-space: nowrap; }
-
-@media (min-width: 641px) {
-  .button {
-    font-size: var(--font-scale-8--size------desktop);
-    letter-spacing: var(--font-scale-8--kerning------desktop); } }
 
 .button:active {
   outline: 0; }
@@ -1581,16 +1571,10 @@ main {
 # Footer
 --------------------------------------------------------------*/
 .site-footer {
-  font-size: var(--font-scale-8--size------mobile);
-  line-height: var(--font-scale-8--height------mobile);
-  letter-spacing: var(--font-scale-8--kerning------mobile);
+  font-size: var(--font-scale-8--size);
+  line-height: var(--font-scale-8--height);
+  letter-spacing: var(--font-scale-8--kerning);
   background: var(--color--typography-1); }
-
-@media (min-width: 641px) {
-  .site-footer {
-    font-size: var(--font-scale-8--size------desktop);
-    line-height: var(--font-scale-8--height------desktop);
-    letter-spacing: var(--font-scale-8--kerning------desktop); } }
 
 .site-footer a {
   color: var(--color--typography-3);

@@ -1,18 +1,9 @@
 .site-footer {
-	font-size: var(--font-scale-8--size------mobile);
-	line-height: var(--font-scale-8--height------mobile);
-	letter-spacing: var(--font-scale-8--kerning------mobile);
+	font-size: var(--font-scale-8--size);
+	line-height: var(--font-scale-8--height);
+	letter-spacing: var(--font-scale-8--kerning);
 	background: var(--color--typography-1);
 	//color: var(--color--typography-2);
-}
-
-// media::>medium
-@media (min-width: 641px) {
-	.site-footer {
-		font-size: var(--font-scale-8--size------desktop);
-		line-height: var(--font-scale-8--height------desktop);
-		letter-spacing: var(--font-scale-8--kerning------desktop);
-	}
 }
 
 .site-footer a {

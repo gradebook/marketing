@@ -1,7 +1,7 @@
 .button {
 	display: inline-flex;
-	font-size: var(--font-scale-8--size------mobile);
-	letter-spacing: var(--font-scale-8--kerning------mobile);
+	font-size: var(--font-scale-8--size);
+	letter-spacing: var(--font-scale-8--kerning);
 	font-weight: var(--font-weight--bold);
 	line-height: 16px;
 	text-decoration: none !important;
@@ -17,14 +17,6 @@
 	height: 48px;
 	text-align: center;
 	white-space: nowrap;
-}
-
-// media::>medium
-@media (min-width: 641px ) {
-	.button {
-		font-size: var(--font-scale-8--size------desktop);
-		letter-spacing: var(--font-scale-8--kerning------desktop);
-	}
 }
 
 .button:active {
