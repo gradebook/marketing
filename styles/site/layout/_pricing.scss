@@ -54,18 +54,9 @@
 }
 
 .pricing-table-price-currency {
-	font-size: var(--font-scale-3--size------mobile);
-	line-height: var(--font-scale-3--height------mobile);
-	letter-spacing: var(--font-scale-3--kerning------mobile);
-}
-
-// media::>medium
-@media (min-width: 641px) {
-	.pricing-table-price-currency {
-		font-size: var(--font-scale-3--size------desktop);
-		line-height: var(--font-scale-3--height------desktop);
-		letter-spacing: var(--font-scale-3--kerning------desktop);
-	}
+	font-size: var(--font-scale-3--size);
+	line-height: var(--font-scale-3--height);
+	letter-spacing: var(--font-scale-3--kerning);
 }
 
 .pricing-table-features-title {

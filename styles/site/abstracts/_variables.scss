@@ -113,13 +113,9 @@ $font--theta-kerning: 0;
 	--font-scale-2--kerning: #{$font--gamma-kerning};
 
 	// H3
-	--font-scale-3--size------mobile: #{$font--gamma-size};
-	--font-scale-3--height------mobile: #{$font--gamma-height};
-	--font-scale-3--kerning------mobile: #{$font--gamma-kerning};
-
-	--font-scale-3--size------desktop: #{$font--delta-size};
-	--font-scale-3--height------desktop: #{$font--delta-height};
-	--font-scale-3--kerning------desktop: #{$font--delta-kerning};
+	--font-scale-3--size: #{$font--gamma-size};
+	--font-scale-3--height: #{$font--gamma-height};
+	--font-scale-3--kerning: #{$font--gamma-kerning};
 
 	// H4
 	--font-scale-4--size------mobile: #{$font--delta-size};
@@ -174,6 +170,10 @@ $font--theta-kerning: 0;
 		--font-scale-2--size: #{$font--beta-size};
 		--font-scale-2--height: #{$font--beta-height};
 		--font-scale-2--kerning: #{$font--beta-kerning};
+
+		--font-scale-3--size: #{$font--delta-size};
+		--font-scale-3--height: #{$font--delta-height};
+		--font-scale-3--kerning: #{$font--delta-kerning};
 
 		--font-scale-5--size: #{$font--epsilon-size};
 		--font-scale-5--height: #{$font--epsilon-height};

@@ -54,12 +54,9 @@
   --font-scale-2--size: 30px;
   --font-scale-2--height: 40px;
   --font-scale-2--kerning: 0;
-  --font-scale-3--size------mobile: 30px;
-  --font-scale-3--height------mobile: 40px;
-  --font-scale-3--kerning------mobile: 0;
-  --font-scale-3--size------desktop: 24px;
-  --font-scale-3--height------desktop: 34px;
-  --font-scale-3--kerning------desktop: 0;
+  --font-scale-3--size: 30px;
+  --font-scale-3--height: 40px;
+  --font-scale-3--kerning: 0;
   --font-scale-4--size------mobile: 24px;
   --font-scale-4--height------mobile: 34px;
   --font-scale-4--kerning------mobile: 0;
@@ -96,6 +93,9 @@
     --font-scale-2--size: 34px;
     --font-scale-2--height: 44px;
     --font-scale-2--kerning: 0;
+    --font-scale-3--size: 24px;
+    --font-scale-3--height: 34px;
+    --font-scale-3--kerning: 0;
     --font-scale-5--size: 20px;
     --font-scale-5--height: 30px;
     --font-scale-5--kerning: -0.1px; } }
@@ -434,25 +434,11 @@ h2, .h2 {
   line-height: var(--font-scale-2--height);
   letter-spacing: var(--font-scale-2--kerning); }
 
-h3,
-.h3,
+h3, .h3,
 blockquote {
-  font-size: var(--font-scale-3--size------mobile);
-  line-height: var(--font-scale-3--height------mobile);
-  letter-spacing: var(--font-scale-3--kerning------mobile); }
-  @media (min-width: 641px) {
-    h3,
-    .h3,
-    blockquote {
-      font-size: var(--font-scale-3--size------desktop);
-      line-height: var(--font-scale-3--height------desktop);
-      letter-spacing: var(--font-scale-3--kerning------desktop); } }
-
-@media (min-width: 641px) {
-  h3, .h3, blockquote {
-    font-size: var(--font-scale-3--size------desktop);
-    line-height: var(--font-scale-3--height------desktop);
-    letter-spacing: var(--font-scale-3--kerning------desktop); } }
+  font-size: var(--font-scale-3--size);
+  line-height: var(--font-scale-3--height);
+  letter-spacing: var(--font-scale-3--kerning); }
 
 h4, .h4
 h5, .h5
