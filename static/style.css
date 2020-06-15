@@ -66,12 +66,9 @@
   --font-scale-6--size: 18px;
   --font-scale-6--height: 28px;
   --font-scale-6--kerning: -0.1px;
-  --font-scale-7--size------mobile: 16px;
-  --font-scale-7--height------mobile: 24px;
-  --font-scale-7--kerning------mobile: -0.1px;
-  --font-scale-7--size------desktop: 16px;
-  --font-scale-7--height------desktop: 24px;
-  --font-scale-7--kerning------desktop: -0.1px;
+  --font-scale-7--size: 16px;
+  --font-scale-7--height: 24px;
+  --font-scale-7--kerning: -0.1px;
   --font-scale-8--size------mobile: 14px;
   --font-scale-8--height------mobile: 20px;
   --font-scale-8--kerning------mobile: 0;
@@ -98,7 +95,10 @@
     --font-scale-5--kerning: -0.1px;
     --font-scale-6--size: 18px;
     --font-scale-6--height: 28px;
-    --font-scale-6--kerning: -0.1px; } }
+    --font-scale-6--kerning: -0.1px;
+    --font-scale-7--size: 16px;
+    --font-scale-7--height: 24px;
+    --font-scale-7--kerning: -0.1px; } }
 
 /*--------------------------------------------------------------
 1.0 Normalize
@@ -359,8 +359,8 @@ figure {
   /* Extra wide images within figure tags don't overflow the content area. */ }
 
 figcaption {
-  font-size: var(--font-scale-7--size------mobile);
-  line-height: var(--font-scale-7--height------mobile);
+  font-size: var(--font-scale-7--size);
+  line-height: var(--font-scale-7--height);
   padding: 8px 0; }
 
 img,
@@ -467,15 +467,9 @@ h6, .h6 {
   letter-spacing: var(--font-scale-6--kerning); }
 
 .text-xs {
-  font-size: var(--font-scale-7--size------mobile);
-  line-height: var(--font-scale-7--height------mobile);
-  letter-spacing: var(--font-scale-7--kerning------mobile); }
-
-@media (min-width: 641px) {
-  .text-xs {
-    font-size: var(--font-scale-7--size------desktop);
-    line-height: var(--font-scale-7--height------desktop);
-    letter-spacing: var(--font-scale-7--kerning------desktop); } }
+  font-size: var(--font-scale-7--size);
+  line-height: var(--font-scale-7--height);
+  letter-spacing: var(--font-scale-7--kerning); }
 
 h1, h2,
 .h1, .h2 {
@@ -541,8 +535,8 @@ pre, code, kbd, tt, var {
   background: var(--color--bg-2); }
 
 pre {
-  font-size: var(--font-scale-7--size------mobile);
-  line-height: var(--font-scale-7--height------mobile);
+  font-size: var(--font-scale-7--size);
+  line-height: var(--font-scale-7--height);
   margin-bottom: 1.6em;
   max-width: 100%;
   overflow: auto;
@@ -552,7 +546,7 @@ pre {
 
 code, kbd, tt, var {
   font-family: var(--font-family--code);
-  font-size: var(--font-scale-7--size------mobile);
+  font-size: var(--font-scale-7--size);
   padding: 2px 4px; }
 
 abbr, acronym {
@@ -1105,10 +1099,10 @@ label {
   display: inline-flex; }
 
 .header-links a:not(.button) {
-  font-size: var(--font-scale-7--size------mobile);
-  line-height: var(--font-scale-7--height------mobile);
-  letter-spacing: var(--font-scale-7--kerning------mobile);
-  font-weight: --font-weight--semibold;
+  font-size: var(--font-scale-7--size);
+  line-height: var(--font-scale-7--height);
+  letter-spacing: var(--font-scale-7--kerning);
+  font-weight: var(--font-weight--semibold);
   color: var(--color--typography-2i);
   text-transform: uppercase;
   text-decoration: none;
@@ -1118,12 +1112,6 @@ label {
 .header-links a:not(.button):hover,
 .header-links a:not(.button):active {
   color: var(--color--typography-1i); }
-
-@media (min-width: 641px) {
-  .header-links a:not(.button) {
-    font-size: var(--font-scale-7--size------desktop);
-    line-height: var(--font-scale-7--height------desktop);
-    letter-spacing: var(--font-scale-7--kerning------desktop); } }
 
 /*--------------------------------------------------------------
 # Hero

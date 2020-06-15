@@ -32,10 +32,10 @@
 }
 
 .header-links a:not(.button) {
-	font-size: var(--font-scale-7--size------mobile);
-	line-height: var(--font-scale-7--height------mobile);
-	letter-spacing: var(--font-scale-7--kerning------mobile);
-	font-weight: (--font-weight--semibold);
+	font-size: var(--font-scale-7--size);
+	line-height: var(--font-scale-7--height);
+	letter-spacing: var(--font-scale-7--kerning);
+	font-weight: var(--font-weight--semibold);
 	color: var(--color--typography-2i);
 	text-transform: uppercase;
 	text-decoration: none;
@@ -46,13 +46,4 @@
 .header-links a:not(.button):hover,
 .header-links a:not(.button):active {
 	color: var(--color--typography-1i);
-}
-
-// media::>medium
-@media (min-width: 641px) {
-	.header-links a:not(.button) {
-		font-size: var(--font-scale-7--size------desktop);
-		line-height: var(--font-scale-7--height------desktop);
-		letter-spacing: var(--font-scale-7--kerning------desktop);
-	}
 }

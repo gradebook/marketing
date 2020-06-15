@@ -86,18 +86,9 @@ h6, .h6 {
 }
 
 .text-xs {
-	font-size: var(--font-scale-7--size------mobile);
-	line-height: var(--font-scale-7--height------mobile);
-	letter-spacing: var(--font-scale-7--kerning------mobile);
-}
-
-// media::>medium
-@media (min-width: 641px ) {
-	.text-xs {
-		font-size: var(--font-scale-7--size------desktop);
-		line-height: var(--font-scale-7--height------desktop);
-		letter-spacing: var(--font-scale-7--kerning------desktop);
-	}
+	font-size: var(--font-scale-7--size);
+	line-height: var(--font-scale-7--height);
+	letter-spacing: var(--font-scale-7--kerning);
 }
 
 h1, h2,
@@ -176,8 +167,8 @@ pre, code, kbd, tt, var {
 }
 
 pre {
-	font-size: var(--font-scale-7--size------mobile);
-	line-height: var(--font-scale-7--height------mobile);
+	font-size: var(--font-scale-7--size);
+	line-height: var(--font-scale-7--height);
 	margin-bottom: 1.6em;
 	max-width: 100%;
 	overflow: auto;
@@ -188,7 +179,7 @@ pre {
 
 code, kbd, tt, var {
 	font-family: var(--font-family--code);
-	font-size: var(--font-scale-7--size------mobile);
+	font-size: var(--font-scale-7--size);
 	padding: 2px 4px;
 }
 

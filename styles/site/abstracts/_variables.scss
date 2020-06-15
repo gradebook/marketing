@@ -133,13 +133,9 @@ $font--theta-kerning: 0;
 	--font-scale-6--kerning: #{$font--zeta-kerning};
 
 	// Smaller
-	--font-scale-7--size------mobile: #{$font--eta-size};
-	--font-scale-7--height------mobile: #{$font--eta-height};
-	--font-scale-7--kerning------mobile: #{$font--eta-kerning};
-
-	--font-scale-7--size------desktop: #{$font--eta-size};
-	--font-scale-7--height------desktop: #{$font--eta-height};
-	--font-scale-7--kerning------desktop: #{$font--eta-kerning};
+	--font-scale-7--size: #{$font--eta-size};
+	--font-scale-7--height: #{$font--eta-height};
+	--font-scale-7--kerning: #{$font--eta-kerning};
 
 	// Footer Area
 	--font-scale-8--size------mobile: #{$font--theta-size};
@@ -178,5 +174,9 @@ $font--theta-kerning: 0;
 		--font-scale-6--size: #{$font--zeta-size};
 		--font-scale-6--height: #{$font--zeta-height};
 		--font-scale-6--kerning: #{$font--zeta-kerning};
+
+		--font-scale-7--size: #{$font--eta-size};
+		--font-scale-7--height: #{$font--eta-height};
+		--font-scale-7--kerning: #{$font--eta-kerning};
 	}
 }
