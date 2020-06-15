@@ -1045,37 +1045,44 @@ label {
   height: 48px;
   text-align: center;
   white-space: nowrap; }
-  @media (min-width: 641px) {
-    .button {
-      font-size: var(--font-scale-8--size------desktop);
-      letter-spacing: var(--font-scale-8--kerning------desktop); } }
-  .button:active {
-    outline: 0; }
-  .button::before {
-    border-radius: 2px; }
+
+@media (min-width: 641px) {
+  .button {
+    font-size: var(--font-scale-8--size------desktop);
+    letter-spacing: var(--font-scale-8--kerning------desktop); } }
+
+.button:active {
+  outline: 0; }
+
+.button::before {
+  border-radius: 2px; }
 
 .button-shadow {
   position: relative; }
-  .button-shadow::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    box-shadow: 0 8px 16px rgba(var(--color--typography-1), 0.12);
-    mix-blend-mode: multiply;
-    transition: box-shadow .15s ease; }
-  .button-shadow:hover::before {
-    box-shadow: 0 8px 16px rgba(var(--color--typography-1), 0.16); }
+
+.button-shadow::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  box-shadow: 0 8px 16px rgba(var(--color--typography-1), 0.12);
+  mix-blend-mode: multiply;
+  transition: box-shadow .15s ease; }
+
+.button-shadow:hover::before {
+  box-shadow: 0 8px 16px rgba(var(--color--typography-1), 0.16); }
 
 .button-sm {
   padding: 8px 24px;
   height: 32px; }
-  .button-sm.button-shadow::before {
-    box-shadow: 0 4px 16px rgba(var(--color--typography-1), 0.12); }
-  .button-sm.button-shadow:hover::before {
-    box-shadow: 0 4px 16px rgba(var(--color--typography-1), 0.16); }
+
+.button-sm.button-shadow::before {
+  box-shadow: 0 4px 16px rgba(var(--color--typography-1), 0.12); }
+
+.button-sm.button-shadow:hover::before {
+  box-shadow: 0 4px 16px rgba(var(--color--typography-1), 0.16); }
 
 .button-primary,
 .button-secondary {
@@ -1086,29 +1093,39 @@ label {
   background: var(--color--typography-2);
   border: 1px solid var(--color--primary-1);
   border-radius: 100px; }
-  .button-primary:hover {
-    background: #313847; }
-  .button-primary.button-shadow::before {
-    box-shadow: 0 8px 16px rgba(var(--color--primary-1), 0.24); }
-  .button-primary.button-shadow:hover::before {
-    box-shadow: 0 8px 16px rgba(var(--color--primary-1), 0.32); }
-  .button-primary .button-sm.button-shadow::before {
-    box-shadow: 0 4px 16px rgba(var(--color--primary-1), 0.24); }
-  .button-primary .button-sm.button-shadow:hover::before {
-    box-shadow: 0 4px 16px rgba(var(--color--primary-1), 0.32); }
+
+.button-primary:hover {
+  background: #313847; }
+
+.button-primary.button-shadow::before {
+  box-shadow: 0 8px 16px rgba(var(--color--primary-1), 0.24); }
+
+.button-primary.button-shadow:hover::before {
+  box-shadow: 0 8px 16px rgba(var(--color--primary-1), 0.32); }
+
+.button-sm.button-shadow::before {
+  box-shadow: 0 4px 16px rgba(var(--color--primary-1), 0.24); }
+
+.button-sm.button-shadow:hover::before {
+  box-shadow: 0 4px 16px rgba(var(--color--primary-1), 0.32); }
 
 .button-secondary {
   background: var(--color--secondary-1); }
-  .button-secondary:hover {
-    background: #67e2d6; }
-  .button-secondary.button-shadow::before {
-    box-shadow: 0 8px 16px rgba(var(--color--secondary-1), 0.24); }
-  .button-secondary.button-shadow:hover::before {
-    box-shadow: 0 8px 16px rgba(var(--color--secondary-1), 0.32); }
-  .button-secondary .button-sm.button-shadow::before {
-    box-shadow: 0 4px 16px rgba(var(--color--secondary-1), 0.24); }
-  .button-secondary .button-sm.button-shadow:hover::before {
-    box-shadow: 0 4px 16px rgba(var(--color--secondary-1), 0.32); }
+
+.button-secondary:hover {
+  background: #67e2d6; }
+
+.button-secondary.button-shadow::before {
+  box-shadow: 0 8px 16px rgba(var(--color--secondary-1), 0.24); }
+
+.button-secondary.button-shadow:hover::before {
+  box-shadow: 0 8px 16px rgba(var(--color--secondary-1), 0.32); }
+
+.button-sm.button-shadow::before {
+  box-shadow: 0 4px 16px rgba(var(--color--secondary-1), 0.24); }
+
+.button-sm.button-shadow:hover::before {
+  box-shadow: 0 4px 16px rgba(var(--color--secondary-1), 0.32); }
 
 .button-block {
   display: flex;
