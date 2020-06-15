@@ -57,20 +57,9 @@ blockquote {
 h4, .h4
 h5, .h5
 h6, .h6 {
-	font-size: var(--font-scale-4--size------mobile);
-	line-height: var(--font-scale-4--height------mobile);
-	letter-spacing: var(--font-scale-4--kerning------mobile);
-}
-
-// media::>medium
-@media (min-width: 641px ) {
-	h4, .h4
-	h5, .h5
-	h6, .h6 {
-		font-size: var(--font-scale-4--size------desktop);
-		line-height: var(--font-scale-4--height------desktop);
-		letter-spacing: var(--font-scale-4--kerning------desktop);
-	}
+	font-size: var(--font-scale-4--size);
+	line-height: var(--font-scale-4--height);
+	letter-spacing: var(--font-scale-4--kerning);
 }
 
 .text-light {
