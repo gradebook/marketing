@@ -481,26 +481,6 @@ h6, .h6 {
     line-height: var(--font-scale-4--height------desktop);
     letter-spacing: var(--font-scale-4--kerning------desktop); } }
 
-@media (max-width: 640px) {
-  .h1-mobile {
-    font-size: var(--font-scale-1--size------mobile);
-    line-height: var(--font-scale-1--height------mobile);
-    letter-spacing: var(--font-scale-1--kerning------mobile); }
-  .h2-mobile {
-    font-size: var(--font-scale-2--size------mobile);
-    line-height: var(--font-scale-2--height------mobile);
-    letter-spacing: var(--font-scale-2--kerning------mobile); }
-  .h3-mobile {
-    font-size: var(--font-scale-3--size------mobile);
-    line-height: var(--font-scale-3--height------mobile);
-    letter-spacing: var(--font-scale-3--kerning------mobile); }
-  .h4-mobile,
-  .h5-mobile,
-  .h6-mobile {
-    font-size: var(--font-scale-4--size------mobile);
-    line-height: var(--font-scale-4--height------mobile);
-    letter-spacing: var(--font-scale-4--kerning------mobile); } }
-
 .text-light {
   color: var(--color--typography-3); }
 
