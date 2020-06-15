@@ -113,7 +113,7 @@
 	position: relative;
 }
 
-.has-bottom-divider ::after {
+.has-bottom-divider::after {
 	content: '';
 	position: absolute;
 	bottom: 0;
