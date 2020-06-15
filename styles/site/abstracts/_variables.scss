@@ -13,48 +13,6 @@
 @media (max-width: 640px) {}
 *******************************************/
 
-:root {
-	// COLOR TYPOGRAPHY
-	--color--typography-1--opacity: 1;
-	--color--typography-1: rgba(26, 32, 44, var(--color--typography-1--opacity));
-	--color--typography-2: #272c38;
-	--color--typography-2--hover: #313847;
-	--color--typography-3: #8A95A5;
-	--color--typography-4: #9EABC0;
-	--color--typography-1i: #DDDBF1;
-	--color--typography-2i: rgba(221, 219, 241, .8);
-	// COLOR BG
-	--color--bg-1: #FFFFFF;
-	--color--bg-2: #F3F5F8;
-	--color--bg-3: #E4E8EE;
-	--color--bg-3i: rgba(221, 219, 241, .8);
-	// PRIMARY COLORS
-	--color--primary-1: #7E6EE6;
-	--color--primary-1: #5E3B4D;
-	--color--primary-2: #A59AEE;
-	--color--primary-3: #5743DF;
-	--color--primary-4: #E5E1FF;
-	// SECONDARY COLORS
-	--color--secondary-1--opacity: 1;
-	--color--secondary-1: rgba(90, 224, 210, var(--color--secondary-1--opacity));
-	--color--secondary-1--hover: #67e2d6;;
-	--color--secondary-2: #85E8DE;
-	--color--secondary-3: #2FD8C6;
-	--color--secondary-4: #BDFDF6;
-
-	//FONT FAMILIES
-	--font-family--base: "Heebo", sans-serif;
-	--font-family--heading: "PLayfair Display", sans-serif;
-	--font-family--code: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
-	--font-family--pre: "Courier 10 Pitch", Courier, monospace;
-
-	// FONT WEIGHTS
-	--font-weight--regular: 400,;
-	--font-weight--medium: 500;
-	--font-weight--semibold: 600;
-	--font-weight--bold: 700;
-}
-
 /*******************************************************
 *******************FONT SIZE GOLDENS********************
 ********************************************************
@@ -93,11 +51,52 @@
 ********************************************************
 *******************************************************/
 
- :root {
-	 // H1 - size: beta
-	 --font-scale-1--size: 34px;
-	 --font-scale-1--height: 44px;
-	 --font-scale-1--kerning: 0;
+:root {
+	// COLOR TYPOGRAPHY
+	--color--typography-1--opacity: 1;
+	--color--typography-1: rgba(26, 32, 44, var(--color--typography-1--opacity));
+	--color--typography-2: #272c38;
+	--color--typography-2--hover: #313847;
+	--color--typography-3: #8a95a5;
+	--color--typography-4: #9eabc0;
+	--color--typography-1i: #dddbf1;
+	--color--typography-2i: rgba(221, 219, 241, 0.8);
+	// COLOR BG
+	--color--bg-1: #fff;
+	--color--bg-2: #f3f5f8;
+	--color--bg-3: #e4e8ee;
+	--color--bg-3i: rgba(221, 219, 241, 0.8);
+	// PRIMARY COLORS
+	--color--primary-1: #7e6ee6;
+	--color--primary-1: #5e3b4d;
+	--color--primary-2: #a59aee;
+	--color--primary-3: #5743df;
+	--color--primary-4: #e5e1ff;
+	// SECONDARY COLORS
+	--color--secondary-1--opacity: 1;
+	--color--secondary-1: rgba(90, 224, 210, var(--color--secondary-1--opacity));
+	--color--secondary-1--hover: #67e2d6;
+	--color--secondary-2: #85e8de;
+	--color--secondary-3: #2fd8c6;
+	--color--secondary-4: #bdfdf6;
+
+	//FONT FAMILIES
+	--font-family--base: "Heebo", sans-serif;
+	--font-family--heading: "PLayfair Display", sans-serif;
+	--font-family--code: monaco, consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+	--font-family--pre: "Courier 10 Pitch", courier, monospace;
+
+	// FONT WEIGHTS
+	--font-weight--regular: 400,;
+	--font-weight--medium: 500;
+	--font-weight--semibold: 600;
+	--font-weight--bold: 700;
+
+	// FONT SIZING
+	// H1 - size: beta
+	--font-scale-1--size: 34px;
+	--font-scale-1--height: 44px;
+	--font-scale-1--kerning: 0;
 
 	// H2 - size: gamma
 	--font-scale-2--size: 30px;

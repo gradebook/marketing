@@ -7,7 +7,6 @@
 	text-decoration: none !important;
 	text-transform: uppercase;
 	background-color: var(--color--bg-1);
-	background: var(--color--bg-1);
 	color: var(--color--primary-1) !important;
 	border: none;
 	border-radius: 2px;
@@ -38,14 +37,17 @@
 	right: 0;
 	bottom: 0;
 	left: 0;
-	--color--typography-1--opacity: .12;
+
+	--color--typography-1--opacity: 0.12;
+
 	box-shadow: 0 8px 16px var(--color--typography-1);
 	mix-blend-mode: multiply;
-	transition: box-shadow .15s ease;
+	transition: box-shadow 0.15s ease;
 }
 
 .button-shadow:hover::before {
-	--color--typography-1--opacity: .16;
+	--color--typography-1--opacity: 0.16;
+
 	box-shadow: 0 8px 16px var(--color--typography-1);
 }
 
@@ -55,19 +57,21 @@
 }
 
 .button-sm.button-shadow::before {
-	--color--typography-1--opacity: .12;
+	--color--typography-1--opacity: 0.12;
+
 	box-shadow: 0 4px 16px var(--color--typography-1);
 }
 
 .button-sm.button-shadow:hover::before {
-	--color--typography-1--opacity: .16;
+	--color--typography-1--opacity: 0.16;
+
 	box-shadow: 0 4px 16px var(--color--typography-1);
 }
 
 .button-primary,
 .button-secondary {
 	color: var(--color--typography-1i) !important;
-	transition: background .15s ease;
+	transition: background 0.15s ease;
 }
 
 .button-primary {
@@ -81,22 +85,26 @@
 }
 
 .button-primary.button-shadow::before {
-	--color--typography-1--opacity: .24;
+	--color--typography-1--opacity: 0.24;
+
 	box-shadow: 0 8px 16px var(--color--primary-1);
 }
 
 .button-primary.button-shadow:hover::before {
-	--color--typography-1--opacity: .32;
-		box-shadow: 0 8px 16px var(--color--primary-1);
+	--color--typography-1--opacity: 0.32;
+
+	box-shadow: 0 8px 16px var(--color--primary-1);
 }
 
-.button-sm.button-shadow::before {
-	--color--typography-1--opacity: .24;
+.button-primary .button-sm.button-shadow::before {
+	--color--typography-1--opacity: 0.24;
+
 	box-shadow: 0 4px 16px var(--color--primary-1);
 }
 
-.button-sm.button-shadow:hover::before {
-	--color--typography-1--opacity: .32;
+.button-primary .button-sm.button-shadow:hover::before {
+	--color--typography-1--opacity: 0.32;
+
 	box-shadow: 0 4px 16px var(--color--primary-1);
 }
 
@@ -109,22 +117,27 @@
 }
 
 .button-secondary.button-shadow::before {
-	--color--secondary-1--opacity: .24;
+	--color--secondary-1--opacity: 0.24;
+
 	box-shadow: 0 8px 16px var(--color--secondary-1);
 }
 
 .button-secondary.button-shadow:hover::before {
-	--color--secondary-1--opacity: .32;
+	--color--secondary-1--opacity: 0.32;
+
 	box-shadow: 0 8px 16px var(--color--secondary-1);
 }
 
-.button-sm.button-shadow::before {
-	--color--secondary-1--opacity: .24;
+/* stylelint-disable-next-line no-descending-specificity */
+.button-secondary .button-sm.button-shadow::before {
+	--color--secondary-1--opacity: 0.24;
+
 	box-shadow: 0 4px 16px var(--color--secondary-1);
 }
 
-.button-sm.button-shadow:hover::before {
-	--color--secondary-1--opacity: .32;
+.button-secondary .button-shadow:hover::before {
+	--color--secondary-1--opacity: 0.32;
+
 	box-shadow: 0 4px 16px var(--color--secondary-1);
 }
 
@@ -134,7 +147,7 @@
 }
 
 // media::<=medium
-@media (max-width: 640px ) {
+@media (max-width: 640px) {
 	.button-wide-mobile {
 		width: 100%;
 		max-width: 280px;

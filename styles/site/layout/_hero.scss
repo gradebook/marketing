@@ -4,6 +4,7 @@
 	padding-bottom: 80px;
 	z-index: 0;
 }
+
 .hero::before {
 	content: '';
 	position: absolute;
@@ -62,27 +63,27 @@
 }
 
 .has-animations.is-loaded .hero::before {
-	animation: heroBg .6s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+	animation: heroBg 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
 }
 
 .has-animations.is-loaded .hero::after {
-	animation: heroFadeIn .6s ease forwards .3s;
+	animation: heroFadeIn 0.6s ease forwards 0.3s;
 }
 
 .has-animations.is-loaded .site-header {
-	animation: heroFadeIn .6s ease forwards .3s;
+	animation: heroFadeIn 0.6s ease forwards 0.3s;
 }
 
 .has-animations.is-loaded .hero-title {
-	animation: heroContent .6s cubic-bezier(0.215, 0.61, 0.355, 1) forwards .15s;
+	animation: heroContent 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) forwards 0.15s;
 }
 
 .has-animations.is-loaded .hero-paragraph {
-	animation: heroContent .6s cubic-bezier(0.215, 0.61, 0.355, 1) forwards .3s;
+	animation: heroContent 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) forwards 0.3s;
 }
 
 .has-animations.is-loaded .hero-cta {
-	animation: heroContent .6s cubic-bezier(0.215, 0.61, 0.355, 1) forwards .45s;
+	animation: heroContent 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) forwards 0.45s;
 }
 
 @keyframes heroBg {
@@ -90,6 +91,7 @@
 		transform: translateY(-100%);
 		opacity: 0;
 	}
+
 	to {
 		transform: translateY(0);
 		opacity: 1;
@@ -101,6 +103,7 @@
 		transform: translateY(-40px);
 		opacity: 0;
 	}
+
 	to {
 		transform: translateY(0);
 		opacity: 1;
@@ -111,6 +114,7 @@
 	from {
 		opacity: 0;
 	}
+
 	to {
 		opacity: 1;
 	}

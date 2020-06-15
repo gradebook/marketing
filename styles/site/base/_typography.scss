@@ -1,3 +1,4 @@
+/* stylelint-disable selector-list-comma-newline-after */
 html {
 	font-size: var(--font-scale-5--size);
 	line-height: var(--font-scale-5--height);
@@ -35,6 +36,17 @@ h1, h2, h3, h4, h5, h6,
 	font-weight: var(--font-weight--semibold);
 }
 
+h1, h2,
+.h1, .h2 {
+	margin-top: 48px;
+	margin-bottom: 16px;
+}
+
+h3, .h3 {
+	margin-top: 36px;
+	margin-bottom: 12px;
+}
+
 h1, .h1 {
 	font-size: var(--font-scale-1--size);
 	line-height: var(--font-scale-1--height);
@@ -54,58 +66,18 @@ blockquote {
 	letter-spacing: var(--font-scale-3--kerning);
 }
 
-h4, .h4
-h5, .h5
+h4, .h4,
+h5, .h5,
 h6, .h6 {
 	font-size: var(--font-scale-4--size);
 	line-height: var(--font-scale-4--height);
 	letter-spacing: var(--font-scale-4--kerning);
+	margin-top: 24px;
+	margin-bottom: 4px;
 }
 
 .text-light {
 	color: var(--color--typography-3);
-}
-
-.text-light a {
-	color: var(--color--typography-3);
-}
-
-.text-light h1, .text-light .h1
-.text-light h2, .text-light .h2
-.text-light h3, .text-light .h3
-.text-light h4, .text-light .h4
-.text-light h5, .text-light .h5
-.text-light h6, .text-light .h6 {
-	color: var(--color--typography-1i) !important;
-}
-
-.text-sm {
-	font-size: var(--font-scale-6--size);
-	line-height: var(--font-scale-6--height);
-	letter-spacing: var(--font-scale-6--kerning);
-}
-
-.text-xs {
-	font-size: var(--font-scale-7--size);
-	line-height: var(--font-scale-7--height);
-	letter-spacing: var(--font-scale-7--kerning);
-}
-
-h1, h2,
-.h1, .h2 {
-	margin-top: 48px;
-	margin-bottom: 16px;
-}
-
-h3, .h3 {
-	margin-top: 36px;
-	margin-bottom: 12px;
-}
-
-h4, h5, h6,
-.h4, .h5, .h6 {
-	margin-top: 24px;
-	margin-bottom: 4px;
 }
 
 p {
@@ -169,7 +141,6 @@ pre, code, kbd, tt, var {
 pre {
 	font-size: var(--font-scale-7--size);
 	line-height: var(--font-scale-7--height);
-	margin-bottom: 1.6em;
 	max-width: 100%;
 	overflow: auto;
 	padding: 24px;
@@ -209,4 +180,29 @@ textarea,
 label {
 	font-size: var(--font-scale-5--size);
 	line-height: var(--font-scale-5--height);
+}
+
+.text-light a {
+	color: var(--color--typography-3);
+}
+
+.text-light h1, .text-light .h1,
+.text-light h2, .text-light .h2,
+.text-light h3, .text-light .h3,
+.text-light h4, .text-light .h4,
+.text-light h5, .text-light .h5,
+.text-light h6, .text-light .h6 {
+	color: var(--color--typography-1i) !important;
+}
+
+.text-sm {
+	font-size: var(--font-scale-6--size);
+	line-height: var(--font-scale-6--height);
+	letter-spacing: var(--font-scale-6--kerning);
+}
+
+.text-xs {
+	font-size: var(--font-scale-7--size);
+	line-height: var(--font-scale-7--height);
+	letter-spacing: var(--font-scale-7--kerning);
 }

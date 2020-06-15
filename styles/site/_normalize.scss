@@ -39,7 +39,7 @@ hr {
 }
 
 pre {
-	font-family: monospace, monospace;
+	font-family: monospace;
 	font-size: 1em;
 }
 
@@ -57,17 +57,13 @@ abbr[title] {
 b,
 strong {
 	font-weight: inherit;
-}
-
-b,
-strong {
 	font-weight: bolder;
 }
 
 code,
 kbd,
 samp {
-	font-family: monospace, monospace;
+	font-family: monospace;
 	font-size: 1em;
 }
 

@@ -1,10 +1,10 @@
 .features .section-title {
-		position: relative;
-		margin-bottom: 32px;
-		max-width: 650px;
-		margin-left: auto;
-		margin-right: auto;
-		z-index: 0;
+	position: relative;
+	margin-bottom: 32px;
+	max-width: 650px;
+	margin-left: auto;
+	margin-right: auto;
+	z-index: 0;
 }
 
 .features .section-title::before {
@@ -17,7 +17,7 @@
 	background-image: url('/static/images/features-quote-illustration.svg');
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
-	z-index: -1
+	z-index: -1;
 }
 
 .features-illustration {

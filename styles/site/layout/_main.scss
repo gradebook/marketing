@@ -5,6 +5,7 @@
 .body-wrap {
 	background: var(--color--bg-1);
 	overflow: hidden;
+
 	/* Sticky footer */
 	display: flex;
 	flex-direction: column;
@@ -16,7 +17,8 @@
 	margin: 0 auto;
 	// Dark Mode!
 	// box-shadow: 0 20px 48px rgba(166, 166, 166, 0.2); (darken color--bg-1 35%)
-	--color--typography-1--opacity: .16;
+	--color--typography-1--opacity: 0.16;
+
 	box-shadow: 0 20px 48px var(--color--typography-1);
 }
 

@@ -3,8 +3,8 @@ html {
 }
 
 *,
-*:before,
-*:after { /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+*::before,
+*::after { /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
 	box-sizing: inherit;
 }
 
@@ -24,7 +24,8 @@ hr {
 	margin-bottom: 24px;
 }
 
-ul, ol {
+ul,
+ol {
 	margin-top: 0;
 	margin-bottom: 24px;
 	padding-left: 24px;
@@ -103,7 +104,7 @@ td:first-child {
 	padding-left: 0;
 }
 
-th:first-child,
-td:first-child {
+th:last-child,
+td:last-child {
 	padding-right: 0;
 }
