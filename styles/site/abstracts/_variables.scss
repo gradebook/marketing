@@ -103,13 +103,9 @@ $font--theta-kerning: 0;
 	//Mobile: $breakpoint__xs + $breakpoint__s (up to 600)
 
 	// H1
-	--font-scale-1--size------mobile: #{$font--beta-size};
-	--font-scale-1--height------mobile: #{$font--beta-height};
-	--font-scale-1--kerning------mobile: #{$font--beta-kerning};
-
-	--font-scale-1--size------desktop: #{$font--alpha-size};
-	--font-scale-1--height------desktop: #{$font--alpha-height};
-	--font-scale-1--kerning------desktop: #{$font--alpha-kerning};
+	--font-scale-1--size: #{$font--beta-size};
+	--font-scale-1--height: #{$font--beta-height};
+	--font-scale-1--kerning: #{$font--beta-kerning};
 
 	// H2
 	--font-scale-2--size------mobile: #{$font--gamma-size};
@@ -174,6 +170,10 @@ $font--theta-kerning: 0;
 // media::>medium
 @media (min-width: 641px) {
 	:root {
+		--font-scale-1--size: #{$font--alpha-size};
+		--font-scale-1--height: #{$font--alpha-height};
+		--font-scale-1--kerning: #{$font--alpha-kerning};
+
 		--font-scale-5--size: #{$font--epsilon-size};
 		--font-scale-5--height: #{$font--epsilon-height};
 		--font-scale-5--kerning: #{$font--epsilon-kerning};

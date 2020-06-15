@@ -48,12 +48,9 @@
   --container-width--sm: 800px; }
 
 :root {
-  --font-scale-1--size------mobile: 34px;
-  --font-scale-1--height------mobile: 44px;
-  --font-scale-1--kerning------mobile: 0;
-  --font-scale-1--size------desktop: 44px;
-  --font-scale-1--height------desktop: 54px;
-  --font-scale-1--kerning------desktop: 0;
+  --font-scale-1--size: 34px;
+  --font-scale-1--height: 44px;
+  --font-scale-1--kerning: 0;
   --font-scale-2--size------mobile: 30px;
   --font-scale-2--height------mobile: 40px;
   --font-scale-2--kerning------mobile: 0;
@@ -96,6 +93,9 @@
 
 @media (min-width: 641px) {
   :root {
+    --font-scale-1--size: 44px;
+    --font-scale-1--height: 54px;
+    --font-scale-1--kerning: 0;
     --font-scale-5--size: 20px;
     --font-scale-5--height: 30px;
     --font-scale-5--kerning: -0.1px; } }
@@ -425,15 +425,9 @@ h1, h2, h3, h4, h5, h6,
   font-weight: var(--font-weight--semibold); }
 
 h1, .h1 {
-  font-size: var(--font-scale-1--size------mobile);
-  line-height: var(--font-scale-1--height------mobile);
-  letter-spacing: var(--font-scale-1--kerning------mobile); }
-
-@media (min-width: 641px) {
-  h1, .h1 {
-    font-size: var(--font-scale-1--size------desktop);
-    line-height: var(--font-scale-1--height------desktop);
-    letter-spacing: var(--font-scale-1--kerning------desktop); } }
+  font-size: var(--font-scale-1--size);
+  line-height: var(--font-scale-1--height);
+  letter-spacing: var(--font-scale-1--kerning); }
 
 h2, .h2 {
   font-size: var(--font-scale-2--size------mobile);

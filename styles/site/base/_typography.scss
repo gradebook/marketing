@@ -36,18 +36,9 @@ h1, h2, h3, h4, h5, h6,
 }
 
 h1, .h1 {
-	font-size: var(--font-scale-1--size------mobile);
-	line-height: var(--font-scale-1--height------mobile);
-	letter-spacing: var(--font-scale-1--kerning------mobile);
-}
-
-// media::>medium
-@media (min-width: 641px ) {
-	h1, .h1 {
-		font-size: var(--font-scale-1--size------desktop);
-		line-height: var(--font-scale-1--height------desktop);
-		letter-spacing: var(--font-scale-1--kerning------desktop);
-	}
+	font-size: var(--font-scale-1--size);
+	line-height: var(--font-scale-1--height);
+	letter-spacing: var(--font-scale-1--kerning);
 }
 
 h2, .h2 {
