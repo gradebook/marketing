@@ -57,7 +57,8 @@
 	font-size: var(--font-scale-3--size------mobile);
 	line-height: var(--font-scale-3--height------mobile);
 	letter-spacing: var(--font-scale-3--kerning------mobile);
-	@include media( '>medium' ) {
+	// media::>medium
+	@media (min-width: 641px) {
 		font-size: var(--font-scale-3--size------desktop);
 		line-height: var(--font-scale-3--height------desktop);
 		letter-spacing: var(--font-scale-3--kerning------desktop);
@@ -91,7 +92,8 @@
 	align-self: flex-end;
 }
 
-@include media( '>medium' ) {
+// media::>medium
+@media (min-width: 641px) {
 	.pricing {
 		.section-title {
 			margin-bottom: 80px;

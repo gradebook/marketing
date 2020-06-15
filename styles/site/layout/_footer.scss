@@ -2,7 +2,8 @@
 	font-size: var(--font-scale-8--size------mobile);
 	line-height: var(--font-scale-8--height------mobile);
 	letter-spacing: var(--font-scale-8--kerning------mobile);
-	@include media( '>medium' ) {
+	// media::>medium
+	@media (min-width: 641px) {
 		font-size: var(--font-scale-8--size------desktop);
 		line-height: var(--font-scale-8--height------desktop);
 		letter-spacing: var(--font-scale-8--kerning------desktop);
@@ -87,7 +88,8 @@
 	margin-top: 48px;
 }
 
-@include media( '<=medium' ) {
+// media::<=medium
+@media (max-width: 640px) {
 	.site-footer-unit:first-of-type {
 		.site-footer-unit-inner {
 			padding-top: 0;
@@ -96,7 +98,8 @@
 	}
 }
 
-@include media( '>medium' ) {
+// media::>medium
+@media (min-width: 641px) {
 	.site-footer-inner {
 		padding-top: 56px;
 	}

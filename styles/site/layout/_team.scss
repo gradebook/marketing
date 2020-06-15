@@ -40,7 +40,8 @@
 	text-align: center;
 }
 
-@include media( '>medium' ) {
+// media::>medium
+@media (min-width: 641px ) {
 	.team {
 		.container {
 			/* image width (360) + padding (48) + text width (360) = 828 */
@@ -122,7 +123,8 @@
 	}
 }
 
-@include media( '>large' ) {
+// media::>large
+@media (min-width: 1025px) {
 	.team {
 		.container {
 			/* image width (420) + padding (48) + text width (480) = 828 */

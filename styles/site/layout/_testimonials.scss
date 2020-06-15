@@ -64,7 +64,8 @@
 	color: var(--color--typography-1);
 }
 
-@include media( '>medium' ) {
+// media::>medium
+@media (min-width: 641px ) {
 	.testimonials {
 		.section-title {
 			margin-bottom: 80px;

@@ -34,7 +34,8 @@
 		font-size: var(--font-scale-7--size------mobile);
 		line-height: var(--font-scale-7--height------mobile);
 		letter-spacing: var(--font-scale-7--kerning------mobile);
-		@include media( '>medium' ) {
+		// media::>medium
+		@media (min-width: 641px) {
 			font-size: var(--font-scale-7--size------desktop);
 			line-height: var(--font-scale-7--height------desktop);
 			letter-spacing: var(--font-scale-7--kerning------desktop);

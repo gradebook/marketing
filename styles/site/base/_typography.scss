@@ -1,7 +1,8 @@
 html {
 	font-size: var(--font-scale-5--size------mobile);
 	line-height: var(--font-scale-5--height------mobile);
-	@include media( '>medium' ) {
+	// media::>medium
+	@media (min-width: 641px ) {
 		font-size: var(--font-scale-5--size------desktop);
 		line-height: var(--font-scale-5--height------desktop);
 		line-height: var(--font-scale-5--kerning------desktop);
@@ -45,7 +46,8 @@ h1,
 	font-size: var(--font-scale-1--size------mobile);
 	line-height: var(--font-scale-1--height------mobile);
 	letter-spacing: var(--font-scale-1--kerning------mobile);
-	@include media( '>medium' ) {
+	// media::>medium
+	@media (min-width: 641px ) {
 		font-size: var(--font-scale-1--size------desktop);
 		line-height: var(--font-scale-1--height------desktop);
 		letter-spacing: var(--font-scale-1--kerning------desktop);
@@ -57,7 +59,8 @@ h2,
 	font-size: var(--font-scale-2--size------mobile);
 	line-height: var(--font-scale-2--height------mobile);
 	letter-spacing: var(--font-scale-2--kerning------mobile);
-	@include media( '>medium' ) {
+	// media::>medium
+	@media (min-width: 641px ) {
 		font-size: var(--font-scale-2--size------desktop);
 		line-height: var(--font-scale-2--height------desktop);
 		letter-spacing: var(--font-scale-2--kerning------desktop);
@@ -70,7 +73,8 @@ blockquote {
 	font-size: var(--font-scale-3--size------mobile);
 	line-height: var(--font-scale-3--height------mobile);
 	letter-spacing: var(--font-scale-3--kerning------mobile);
-	@include media( '>medium' ) {
+	// media::>medium
+	@media (min-width: 641px ) {
 		font-size: var(--font-scale-3--size------desktop);
 		line-height: var(--font-scale-3--height------desktop);
 		letter-spacing: var(--font-scale-3--kerning------desktop);
@@ -86,15 +90,16 @@ h6,
 	font-size: var(--font-scale-4--size------mobile);
 	line-height: var(--font-scale-4--height------mobile);
 	letter-spacing: var(--font-scale-4--kerning------mobile);
-	@include media( '>medium' ) {
+	// media::>medium
+	@media (min-width: 641px ) {
 		font-size: var(--font-scale-4--size------desktop);
 		line-height: var(--font-scale-4--height------desktop);
 		letter-spacing: var(--font-scale-4--kerning------desktop);
 	}
 }
 
-@include media( '<=medium' ) {
-
+// media::<=medium
+@media (max-width: 640px ) {
 	.h1-mobile {
 		font-size: var(--font-scale-1--size------mobile);
 		line-height: var(--font-scale-1--height------mobile);
@@ -141,7 +146,8 @@ h6,
 	font-size: var(--font-scale-6--size------mobile);
 	line-height: var(--font-scale-6--height------mobile);
 	letter-spacing: var(--font-scale-6--kerning------mobile);
-	@include media( '>medium' ) {
+	// media::>medium
+	@media (min-width: 641px ) {
 		font-size: var(--font-scale-6--size------desktop);
 		line-height: var(--font-scale-6--height------desktop);
 		letter-spacing: var(--font-scale-6--kerning------desktop);
@@ -152,7 +158,8 @@ h6,
 	font-size: var(--font-scale-7--size------mobile);
 	line-height: var(--font-scale-7--height------mobile);
 	letter-spacing: var(--font-scale-7--kerning------mobile);
-	@include media( '>medium' ) {
+	// media::>medium
+	@media (min-width: 641px ) {
 		font-size: var(--font-scale-7--size------desktop);
 		line-height: var(--font-scale-7--height------desktop);
 		letter-spacing: var(--font-scale-7--kerning------desktop);
@@ -276,6 +283,6 @@ input,
 select,
 textarea,
 label {
-		font-size: var(--font-scale-5--size------mobile);
+	font-size: var(--font-scale-5--size------mobile);
 	line-height: var(--font-scale-5--height------mobile);
 }

@@ -2,7 +2,8 @@
 	display: inline-flex;
 	font-size: var(--font-scale-8--size------mobile);
 	letter-spacing: var(--font-scale-8--kerning------mobile);
-	@include media( '>medium' ) {
+	// media::>medium
+	@media (min-width: 641px ) {
 		font-size: var(--font-scale-8--size------desktop);
 		letter-spacing: var(--font-scale-8--kerning------desktop);
 	}
@@ -139,7 +140,8 @@
 	width: 100%;
 }
 
-@include media( '<=medium' ) {
+// media::<=medium
+@media (max-width: 640px ) {
 	.button-wide-mobile {
 		width: 100%;
 		max-width: 280px;

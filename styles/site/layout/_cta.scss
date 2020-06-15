@@ -43,7 +43,8 @@
 	}
 }
 
-@include media( '>medium') {
+// media::>medium
+@media (min-width: 641px) {
 	.cta {
 		text-align: left;
 

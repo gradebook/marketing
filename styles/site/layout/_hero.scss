@@ -33,8 +33,8 @@
 	position: relative; /* To display elements above hero illustrations */
 }
 
-@include media( '>medium' ) {
-
+// media::>medium
+@media (min-width: 641px) {
 	.hero {
 		padding-top: 160px;
 		padding-bottom: 128px;

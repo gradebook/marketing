@@ -5,7 +5,8 @@
 	padding-left: var(--content-padding--mobile);
 	padding-right: var(--content-padding--mobile);
 
-	@include media( '>small' ) {
+	// media::>small
+	@media (min-width: 481px ) {
 		padding-left: var(--content-padding--desktop);
 		padding-right: var(--content-padding--desktop);
 	}
@@ -43,7 +44,8 @@
 		display: block;
 		font-size: var(--font-scale-8--size------mobile);
 		letter-spacing: var(--font-scale-8--kerning------mobile);
-		@include media( '>medium' ) {
+		// media::>medium
+		@media (min-width: 641px ) {
 			font-size: var(--font-scale-8--size------desktop);
 			letter-spacing: var(--font-scale-8--kerning------desktop);
 		}

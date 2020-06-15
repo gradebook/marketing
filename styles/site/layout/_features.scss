@@ -59,7 +59,8 @@
 	justify-content: center;
 }
 
-@include media( '>medium' ) {
+// media::>medium
+@media (min-width: 641px) {
 	.features {
 		.section-title {
 			margin-bottom: 64px;
