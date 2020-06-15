@@ -128,13 +128,9 @@ $font--theta-kerning: 0;
 	--font-scale-5--kerning: #{$font--epsilon-kerning};
 
 	// Small
-	--font-scale-6--size------mobile: #{$font--zeta-size};
-	--font-scale-6--height------mobile: #{$font--zeta-height};
-	--font-scale-6--kerning------mobile: #{$font--zeta-kerning};
-
-	--font-scale-6--size------desktop: #{$font--zeta-size};
-	--font-scale-6--height------desktop: #{$font--zeta-height};
-	--font-scale-6--kerning------desktop: #{$font--zeta-kerning};
+	--font-scale-6--size: #{$font--zeta-size};
+	--font-scale-6--height: #{$font--zeta-height};
+	--font-scale-6--kerning: #{$font--zeta-kerning};
 
 	// Smaller
 	--font-scale-7--size------mobile: #{$font--eta-size};
@@ -178,5 +174,9 @@ $font--theta-kerning: 0;
 		--font-scale-5--size: #{$font--epsilon-size};
 		--font-scale-5--height: #{$font--epsilon-height};
 		--font-scale-5--kerning: #{$font--epsilon-kerning};
+
+		--font-scale-6--size: #{$font--zeta-size};
+		--font-scale-6--height: #{$font--zeta-height};
+		--font-scale-6--kerning: #{$font--zeta-kerning};
 	}
 }

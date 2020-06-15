@@ -80,18 +80,9 @@ h6, .h6 {
 }
 
 .text-sm {
-	font-size: var(--font-scale-6--size------mobile);
-	line-height: var(--font-scale-6--height------mobile);
-	letter-spacing: var(--font-scale-6--kerning------mobile);
-}
-
-// media::>medium
-@media (min-width: 641px ) {
-	.text-sm {
-		font-size: var(--font-scale-6--size------desktop);
-		line-height: var(--font-scale-6--height------desktop);
-		letter-spacing: var(--font-scale-6--kerning------desktop);
-	}
+	font-size: var(--font-scale-6--size);
+	line-height: var(--font-scale-6--height);
+	letter-spacing: var(--font-scale-6--kerning);
 }
 
 .text-xs {
@@ -210,9 +201,9 @@ mark, ins {
 }
 
 small {
-	font-size: var(--font-scale-6--size------mobile);
-	line-height: var(--font-scale-6--height------mobile);
-	letter-spacing: var(--font-scale-6--kerning------mobile);
+	font-size: var(--font-scale-6--size);
+	line-height: var(--font-scale-6--height);
+	letter-spacing: var(--font-scale-6--kerning);
 }
 
 b,
