@@ -96,12 +96,14 @@ th {
 th,
 td {
 	padding: 10px 16px;
+}
 
-	&:first-child {
-		padding-left: 0;
-	}
+th:first-child,
+td:first-child {
+	padding-left: 0;
+}
 
-	&:last-child {
-		padding-right: 0;
-	}
+th:first-child,
+td:first-child {
+	padding-right: 0;
 }

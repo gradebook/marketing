@@ -1,3 +1,18 @@
+/*******************************************
+							MEDIA QUERIES
+// media::>small
+@media (min-width: 481px) {}
+
+// media::>medium
+@media (min-width: 641px) {}
+
+// media::>large
+@media (min-width: 1025px) {}
+
+// media::<=medium
+@media (max-width: 640px) {}
+*******************************************/
+
 $color--typography-1:#1a202c;
 $color--typography-2:#272c38;
 $color--primary-1:#5E3B4D;

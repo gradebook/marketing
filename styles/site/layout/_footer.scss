@@ -2,23 +2,27 @@
 	font-size: var(--font-scale-8--size------mobile);
 	line-height: var(--font-scale-8--height------mobile);
 	letter-spacing: var(--font-scale-8--kerning------mobile);
-	@include media( '>medium' ) {
+	background: var(--color--typography-1);
+	//color: var(--color--typography-2);
+}
+
+// media::>medium
+@media (min-width: 641px) {
+	.site-footer {
 		font-size: var(--font-scale-8--size------desktop);
 		line-height: var(--font-scale-8--height------desktop);
 		letter-spacing: var(--font-scale-8--kerning------desktop);
 	}
-	background: var(--color--typography-1);
-	//color: var(--color--typography-2);
+}
 
-	a {
-		color: var(--color--typography-3);
-		text-decoration: none;
+.site-footer a {
+	color: var(--color--typography-3);
+	text-decoration: none;
+}
 
-		&:hover,
-		&:active {
-			text-decoration: underline;
-		}
-	}
+.site-footer a:hover,
+.site-footer a:active {
+	text-decoration: underline;
 }
 
 .site-footer-inner {
@@ -39,23 +43,21 @@
 	display: inline-block;
 }
 
-.footer-social-links,
-.footer-bottom-links {
-	li + li {
-		margin-left: 16px;
-	}
+.footer-social-links li + li,
+.footer-bottom-links li + li {
+	margin-left: 16px;
 }
 
 .footer-social-links {
 	margin-left: -8px;
+}
 
-	li {
-		display: inline-flex;
+.footer-social-links li {
+	display: inline-flex;
+}
 
-		a {
-			padding: 8px;
-		}
-	}
+.footer-social-links li a {
+	padding: 8px;
 }
 
 .site-footer-unit-inner {
@@ -69,34 +71,32 @@
 	text-transform: uppercase;
 }
 
-.footer-top-links {
-	ul {
-		margin-bottom: 32px;
-	}
+.footer-top-links ul {
+	margin-bottom: 32px;
+}
 
-	li {
-		margin-bottom: 12px;
-	}
+.footer-top-links li {
+	margin-bottom: 12px;
+}
 
-	a {
-		color: var(--color--typography-4);
-	}
+.footer-top-links a {
+	color: var(--color--typography-4);
 }
 
 .site-footer-bottom {
 	margin-top: 48px;
 }
 
-@include media( '<=medium' ) {
-	.site-footer-unit:first-of-type {
-		.site-footer-unit-inner {
-			padding-top: 0;
-			border-top: none;
-		}
+// media::<=medium
+@media (max-width: 640px) {
+	.site-footer-unit:first-of-type .site-footer-unit-inner {
+		padding-top: 0;
+		border-top: none;
 	}
 }
 
-@include media( '>medium' ) {
+// media::>medium
+@media (min-width: 641px) {
 	.site-footer-inner {
 		padding-top: 56px;
 	}
@@ -107,14 +107,14 @@
 		margin-right: -12px;
 		margin-left: -12px;
 		margin-top: -12px;
+	}
 
-		&:last-of-type {
-			margin-bottom: -12px;
-		}
+	.site-footer-top:last-of-type {
+		margin-bottom: -12px;
+	}
 
-		&:not(:last-of-type) {
-			margin-bottom: 12px;
-		}
+	.site-footer-top:not(:last-of-type) {
+		margin-bottom: 12px;
 	}
 
 	.site-footer-unit {

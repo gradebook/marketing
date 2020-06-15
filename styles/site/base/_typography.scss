@@ -1,7 +1,11 @@
 html {
 	font-size: var(--font-scale-5--size------mobile);
 	line-height: var(--font-scale-5--height------mobile);
-	@include media( '>medium' ) {
+}
+
+// media::>medium
+@media (min-width: 641px ) {
+	html {
 		font-size: var(--font-scale-5--size------desktop);
 		line-height: var(--font-scale-5--height------desktop);
 		line-height: var(--font-scale-5--kerning------desktop);
@@ -24,12 +28,12 @@ textarea {
 a {
 	color: var(--color--primary-1);
 	text-decoration: none;
+}
 
-	&:hover,
-	&:active {
-		outline: 0;
-		text-decoration: underline;
-	}
+a:hover,
+a:active {
+	outline: 0;
+	text-decoration: underline;
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -40,24 +44,29 @@ h1, h2, h3, h4, h5, h6,
 	font-weight: var(--font-weight--semibold);
 }
 
-h1,
-.h1 {
+h1, .h1 {
 	font-size: var(--font-scale-1--size------mobile);
 	line-height: var(--font-scale-1--height------mobile);
 	letter-spacing: var(--font-scale-1--kerning------mobile);
-	@include media( '>medium' ) {
+}
+
+// media::>medium
+@media (min-width: 641px ) {
+	h1, .h1 {
 		font-size: var(--font-scale-1--size------desktop);
 		line-height: var(--font-scale-1--height------desktop);
 		letter-spacing: var(--font-scale-1--kerning------desktop);
 	}
 }
 
-h2,
-.h2 {
+h2, .h2 {
 	font-size: var(--font-scale-2--size------mobile);
 	line-height: var(--font-scale-2--height------mobile);
 	letter-spacing: var(--font-scale-2--kerning------mobile);
-	@include media( '>medium' ) {
+}
+// media::>medium
+@media (min-width: 641px ) {
+	h2, .h2 {
 		font-size: var(--font-scale-2--size------desktop);
 		line-height: var(--font-scale-2--height------desktop);
 		letter-spacing: var(--font-scale-2--kerning------desktop);
@@ -70,31 +79,43 @@ blockquote {
 	font-size: var(--font-scale-3--size------mobile);
 	line-height: var(--font-scale-3--height------mobile);
 	letter-spacing: var(--font-scale-3--kerning------mobile);
-	@include media( '>medium' ) {
+	// media::>medium
+	@media (min-width: 641px ) {
+		font-size: var(--font-scale-3--size------desktop);
+		line-height: var(--font-scale-3--height------desktop);
+		letter-spacing: var(--font-scale-3--kerning------desktop);
+	}
+}
+// media::>medium
+@media (min-width: 641px ) {
+	h3, .h3, blockquote {
 		font-size: var(--font-scale-3--size------desktop);
 		line-height: var(--font-scale-3--height------desktop);
 		letter-spacing: var(--font-scale-3--kerning------desktop);
 	}
 }
 
-h4,
-h5,
-h6,
-.h4,
-.h5,
-.h6 {
+h4, .h4
+h5, .h5
+h6, .h6 {
 	font-size: var(--font-scale-4--size------mobile);
 	line-height: var(--font-scale-4--height------mobile);
 	letter-spacing: var(--font-scale-4--kerning------mobile);
-	@include media( '>medium' ) {
+}
+
+// media::>medium
+@media (min-width: 641px ) {
+	h4, .h4
+	h5, .h5
+	h6, .h6 {
 		font-size: var(--font-scale-4--size------desktop);
 		line-height: var(--font-scale-4--height------desktop);
 		letter-spacing: var(--font-scale-4--kerning------desktop);
 	}
 }
 
-@include media( '<=medium' ) {
-
+// media::<=medium
+@media (max-width: 640px ) {
 	.h1-mobile {
 		font-size: var(--font-scale-1--size------mobile);
 		line-height: var(--font-scale-1--height------mobile);
@@ -124,24 +145,30 @@ h6,
 
 .text-light {
 	color: var(--color--typography-3);
-
-	a {
-		color: var(--color--typography-3);
-	}
 }
 
-.text-light {
-	h1, h2, h3, h4, h5, h6,
-	.h1, .h2, .h3, .h4, .h5, .h6 {
-		color: var(--color--typography-1i) !important;
-	}
+.text-light a {
+	color: var(--color--typography-3);
+}
+
+.text-light h1, .text-light .h1
+.text-light h2, .text-light .h2
+.text-light h3, .text-light .h3
+.text-light h4, .text-light .h4
+.text-light h5, .text-light .h5
+.text-light h6, .text-light .h6 {
+	color: var(--color--typography-1i) !important;
 }
 
 .text-sm {
 	font-size: var(--font-scale-6--size------mobile);
 	line-height: var(--font-scale-6--height------mobile);
 	letter-spacing: var(--font-scale-6--kerning------mobile);
-	@include media( '>medium' ) {
+}
+
+// media::>medium
+@media (min-width: 641px ) {
+	.text-sm {
 		font-size: var(--font-scale-6--size------desktop);
 		line-height: var(--font-scale-6--height------desktop);
 		letter-spacing: var(--font-scale-6--kerning------desktop);
@@ -152,7 +179,11 @@ h6,
 	font-size: var(--font-scale-7--size------mobile);
 	line-height: var(--font-scale-7--height------mobile);
 	letter-spacing: var(--font-scale-7--kerning------mobile);
-	@include media( '>medium' ) {
+}
+
+// media::>medium
+@media (min-width: 641px ) {
+	.text-xs {
 		font-size: var(--font-scale-7--size------desktop);
 		line-height: var(--font-scale-7--height------desktop);
 		letter-spacing: var(--font-scale-7--kerning------desktop);
@@ -165,8 +196,7 @@ h1, h2,
 	margin-bottom: 16px;
 }
 
-h3,
-.h3 {
+h3, .h3 {
 	margin-top: 36px;
 	margin-bottom: 12px;
 }
@@ -192,18 +222,18 @@ blockquote {
 	margin-top: 24px;
 	margin-bottom: 24px;
 	margin-left: 24px;
+}
 
-	&::before {
-		content: "\201C";
-	}
+blockquote::before {
+	content: "\201C";
+}
 
-	&::after {
-		content: "\201D";
-	}
+blockquote::after {
+	content: "\201D";
+}
 
-	p {
-		display: inline;
-	}
+blockquote p {
+	display: inline;
 }
 
 address {
@@ -276,6 +306,6 @@ input,
 select,
 textarea,
 label {
-		font-size: var(--font-scale-5--size------mobile);
+	font-size: var(--font-scale-5--size------mobile);
 	line-height: var(--font-scale-5--height------mobile);
 }
