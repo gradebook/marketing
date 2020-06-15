@@ -42,17 +42,9 @@ h1, .h1 {
 }
 
 h2, .h2 {
-	font-size: var(--font-scale-2--size------mobile);
-	line-height: var(--font-scale-2--height------mobile);
-	letter-spacing: var(--font-scale-2--kerning------mobile);
-}
-// media::>medium
-@media (min-width: 641px ) {
-	h2, .h2 {
-		font-size: var(--font-scale-2--size------desktop);
-		line-height: var(--font-scale-2--height------desktop);
-		letter-spacing: var(--font-scale-2--kerning------desktop);
-	}
+	font-size: var(--font-scale-2--size);
+	line-height: var(--font-scale-2--height);
+	letter-spacing: var(--font-scale-2--kerning);
 }
 
 h3,
