@@ -138,13 +138,9 @@ $font--theta-kerning: 0;
 	--font-scale-4--kerning------desktop: #{$font--delta-kerning};
 
 	// Body, H5, H6
-	--font-scale-5--size------mobile: #{$font--epsilon-size};
-	--font-scale-5--height------mobile: #{$font--epsilon-height};
-	--font-scale-5--kerning------mobile: #{$font--epsilon-kerning};
-
-	--font-scale-5--size------desktop: #{$font--epsilon-size};
-	--font-scale-5--height------desktop: #{$font--epsilon-height};
-	--font-scale-5--kerning------desktop: #{$font--epsilon-kerning};
+	--font-scale-5--size: #{$font--epsilon-size};
+	--font-scale-5--height: #{$font--epsilon-height};
+	--font-scale-5--kerning: #{$font--epsilon-kerning};
 
 	// Small
 	--font-scale-6--size------mobile: #{$font--zeta-size};
@@ -172,4 +168,14 @@ $font--theta-kerning: 0;
 	--font-scale-8--size------desktop: #{$font--theta-size};
 	--font-scale-8--height------desktop: #{$font--theta-height};
 	--font-scale-8--kerning------desktop: #{$font--theta-kerning};
+}
+
+// Large (Desktop) media queries
+// media::>medium
+@media (min-width: 641px) {
+	:root {
+		--font-scale-5--size: #{$font--epsilon-size};
+		--font-scale-5--height: #{$font--epsilon-height};
+		--font-scale-5--kerning: #{$font--epsilon-kerning};
+	}
 }

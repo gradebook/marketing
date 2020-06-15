@@ -72,12 +72,9 @@
   --font-scale-4--size------desktop: 24px;
   --font-scale-4--height------desktop: 34px;
   --font-scale-4--kerning------desktop: 0;
-  --font-scale-5--size------mobile: 20px;
-  --font-scale-5--height------mobile: 30px;
-  --font-scale-5--kerning------mobile: -0.1px;
-  --font-scale-5--size------desktop: 20px;
-  --font-scale-5--height------desktop: 30px;
-  --font-scale-5--kerning------desktop: -0.1px;
+  --font-scale-5--size: 20px;
+  --font-scale-5--height: 30px;
+  --font-scale-5--kerning: -0.1px;
   --font-scale-6--size------mobile: 18px;
   --font-scale-6--height------mobile: 28px;
   --font-scale-6--kerning------mobile: -0.1px;
@@ -96,6 +93,12 @@
   --font-scale-8--size------desktop: 14px;
   --font-scale-8--height------desktop: 20px;
   --font-scale-8--kerning------desktop: 0; }
+
+@media (min-width: 641px) {
+  :root {
+    --font-scale-5--size: 20px;
+    --font-scale-5--height: 30px;
+    --font-scale-5--kerning: -0.1px; } }
 
 /*--------------------------------------------------------------
 1.0 Normalize
@@ -391,14 +394,8 @@ td:first-child {
 # Typography
 --------------------------------------------------------------*/
 html {
-  font-size: var(--font-scale-5--size------mobile);
-  line-height: var(--font-scale-5--height------mobile); }
-
-@media (min-width: 641px) {
-  html {
-    font-size: var(--font-scale-5--size------desktop);
-    line-height: var(--font-scale-5--height------desktop);
-    line-height: var(--font-scale-5--kerning------desktop); } }
+  font-size: var(--font-scale-5--size);
+  line-height: var(--font-scale-5--height); }
 
 body {
   color: var(--color--typography-3);
@@ -638,8 +635,8 @@ input,
 select,
 textarea,
 label {
-  font-size: var(--font-scale-5--size------mobile);
-  line-height: var(--font-scale-5--height------mobile); }
+  font-size: var(--font-scale-5--size);
+  line-height: var(--font-scale-5--height); }
 
 /*--------------------------------------------------------------
 # Helpers

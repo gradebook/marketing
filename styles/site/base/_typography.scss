@@ -1,15 +1,6 @@
 html {
-	font-size: var(--font-scale-5--size------mobile);
-	line-height: var(--font-scale-5--height------mobile);
-}
-
-// media::>medium
-@media (min-width: 641px ) {
-	html {
-		font-size: var(--font-scale-5--size------desktop);
-		line-height: var(--font-scale-5--height------desktop);
-		line-height: var(--font-scale-5--kerning------desktop);
-	}
+	font-size: var(--font-scale-5--size);
+	line-height: var(--font-scale-5--height);
 }
 
 body {
@@ -306,6 +297,6 @@ input,
 select,
 textarea,
 label {
-	font-size: var(--font-scale-5--size------mobile);
-	line-height: var(--font-scale-5--height------mobile);
+	font-size: var(--font-scale-5--size);
+	line-height: var(--font-scale-5--height);
 }
