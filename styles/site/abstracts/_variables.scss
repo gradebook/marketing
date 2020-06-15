@@ -13,15 +13,12 @@
 @media (max-width: 640px) {}
 *******************************************/
 
-$color--typography-1:#1a202c;
-$color--typography-2:#272c38;
-$color--primary-1:#5E3B4D;
-$color--secondary-1:#5AE0D2;
-
 :root {
 	// COLOR TYPOGRAPHY
-	--color--typography-1: #{$color--typography-1};
-	--color--typography-2: #{$color--typography-2};
+	--color--typography-1--opacity: 1;
+	--color--typography-1: rgba(26, 32, 44, var(--color--typography-1--opacity));
+	--color--typography-2: #272c38;
+	--color--typography-2--hover: #313847;
 	--color--typography-3: #8A95A5;
 	--color--typography-4: #9EABC0;
 	--color--typography-1i: #DDDBF1;
@@ -32,12 +29,14 @@ $color--secondary-1:#5AE0D2;
 	--color--bg-3: #E4E8EE;
 	// PRIMARY COLORS
 	--color--primary-1: #7E6EE6;
-	--color--primary-1: #{$color--primary-1};
+	--color--primary-1: #5E3B4D;
 	--color--primary-2: #A59AEE;
 	--color--primary-3: #5743DF;
 	--color--primary-4: #E5E1FF;
 	// SECONDARY COLORS
-	--color--secondary-1: #{$color--secondary-1};
+	--color--secondary-1--opacity: 1;
+	--color--secondary-1: rgba(90, 224, 210, var(--color--secondary-1--opacity));
+	--color--secondary-1--hover: #67e2d6;;
 	--color--secondary-2: #85E8DE;
 	--color--secondary-3: #2FD8C6;
 	--color--secondary-4: #BDFDF6;

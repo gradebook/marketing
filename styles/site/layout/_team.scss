@@ -33,8 +33,9 @@
 	margin-right: auto;
 	overflow: visible;
 	// Dark Mode!
-	// box-shadow: 0 20px 48px rgba(darken($color--bg-1, 35%), .2);
-	box-shadow: 0 20px 48px rgba($color--typography-1, .16);
+	// box-shadow: 0 20px 48px rgba(166, 166, 166, 0.2); (darken color--bg-1 35%)
+	--color--typography-1--opacity: .16;
+	box-shadow: 0 20px 48px var(--color--typography-1);
 }
 
 .member-body {

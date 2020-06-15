@@ -38,13 +38,15 @@
 	right: 0;
 	bottom: 0;
 	left: 0;
-	box-shadow: 0 8px 16px rgba(var(--color--typography-1), .12);
+	--color--typography-1--opacity: .12;
+	box-shadow: 0 8px 16px var(--color--typography-1);
 	mix-blend-mode: multiply;
 	transition: box-shadow .15s ease;
 }
 
 .button-shadow:hover::before {
-	box-shadow: 0 8px 16px rgba(var(--color--typography-1), .16);
+	--color--typography-1--opacity: .16;
+	box-shadow: 0 8px 16px var(--color--typography-1);
 }
 
 .button-sm {
@@ -53,11 +55,13 @@
 }
 
 .button-sm.button-shadow::before {
-	box-shadow: 0 4px 16px rgba(var(--color--typography-1), .12);
+	--color--typography-1--opacity: .12;
+	box-shadow: 0 4px 16px var(--color--typography-1);
 }
 
 .button-sm.button-shadow:hover::before {
-	box-shadow: 0 4px 16px rgba(var(--color--typography-1), .16);
+	--color--typography-1--opacity: .16;
+	box-shadow: 0 4px 16px var(--color--typography-1);
 }
 
 .button-primary,
@@ -73,23 +77,27 @@
 }
 
 .button-primary:hover {
-	background: lighten($color--typography-2, 5%);
+	background: var(--color--typography-2--hover);
 }
 
 .button-primary.button-shadow::before {
-	box-shadow: 0 8px 16px rgba(var(--color--primary-1), .24);
+	--color--typography-1--opacity: .24;
+	box-shadow: 0 8px 16px var(--color--primary-1);
 }
 
 .button-primary.button-shadow:hover::before {
-		box-shadow: 0 8px 16px rgba(var(--color--primary-1), .32);
+	--color--typography-1--opacity: .32;
+		box-shadow: 0 8px 16px var(--color--primary-1);
 }
 
 .button-sm.button-shadow::before {
-	box-shadow: 0 4px 16px rgba(var(--color--primary-1), .24);
+	--color--typography-1--opacity: .24;
+	box-shadow: 0 4px 16px var(--color--primary-1);
 }
 
 .button-sm.button-shadow:hover::before {
-	box-shadow: 0 4px 16px rgba(var(--color--primary-1), .32);
+	--color--typography-1--opacity: .32;
+	box-shadow: 0 4px 16px var(--color--primary-1);
 }
 
 .button-secondary {
@@ -97,23 +105,27 @@
 }
 
 .button-secondary:hover {
-	background: lighten($color--secondary-1, 3%);
+	background: var(--color--secondary-1--hover);
 }
 
 .button-secondary.button-shadow::before {
-	box-shadow: 0 8px 16px rgba(var(--color--secondary-1), .24);
+	--color--secondary-1--opacity: .24;
+	box-shadow: 0 8px 16px var(--color--secondary-1);
 }
 
 .button-secondary.button-shadow:hover::before {
-	box-shadow: 0 8px 16px rgba(var(--color--secondary-1), .32);
+	--color--secondary-1--opacity: .32;
+	box-shadow: 0 8px 16px var(--color--secondary-1);
 }
 
 .button-sm.button-shadow::before {
-	box-shadow: 0 4px 16px rgba(var(--color--secondary-1), .24);
+	--color--secondary-1--opacity: .24;
+	box-shadow: 0 4px 16px var(--color--secondary-1);
 }
 
 .button-sm.button-shadow:hover::before {
-	box-shadow: 0 4px 16px rgba(var(--color--secondary-1), .32);
+	--color--secondary-1--opacity: .32;
+	box-shadow: 0 4px 16px var(--color--secondary-1);
 }
 
 .button-block {
