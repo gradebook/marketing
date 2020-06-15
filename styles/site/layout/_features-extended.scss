@@ -45,7 +45,9 @@
 @media (min-width: 641px) {
 	.features-extended .container {
 		/* image width (360) + padding (48) + text width (360) = 828 */
-		max-width: 828px + ( $content-padding--desktop * 2 );
+		// I'm not sure where the above logic came from, but padding add 2 * 24px to 828
+		// contentPadding::desktop
+		max-width: 876px;
 	}
 
 	.features-extended .section-inner {
@@ -125,8 +127,10 @@
 // media::>large
 @media (min-width: 1025px) {
 	.features-extended .container {
-		/* image width (420) + padding (48) + text width (480) = 828 */
-		max-width: 948px + ( $content-padding--desktop * 2 );
+		/* image width (420) + padding (48) + text width (480) = 948 */
+		// Add 24px * 2 for padding
+		// contentPadding::desktop
+		max-width: 996px;
 	}
 
 	.feature-extended-body {

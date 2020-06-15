@@ -41,11 +41,7 @@
   --font-weight--regular: 400,;
   --font-weight--medium: 500;
   --font-weight--semibold: 600;
-  --font-weight--bold: 700;
-  --content-padding--mobile: 16px;
-  --content-padding--desktop: 24px;
-  --container-width: 1080px;
-  --container-width--sm: 800px; }
+  --font-weight--bold: 700; }
 
 /*******************************************************
 *******************FONT SIZE GOLDENS********************
@@ -601,14 +597,14 @@ label {
 .container-sm {
   width: 100%;
   margin: 0 auto;
-  padding-left: var(--content-padding--mobile);
-  padding-right: var(--content-padding--mobile); }
+  padding-left: 16px;
+  padding-right: 16px; }
 
 @media (min-width: 481px) {
   .container,
   .container-sm {
-    padding-left: var(--content-padding--desktop);
-    padding-right: var(--content-padding--desktop); } }
+    padding-left: 48px;
+    padding-right: 48px; } }
 
 .container {
   max-width: 1128px; }
@@ -617,7 +613,7 @@ label {
   max-width: 848px; }
 
 .container .container-sm {
-  max-width: var(--container-width--sm);
+  max-width: 800px;
   padding-left: 0;
   padding-right: 0; }
 
@@ -1386,7 +1382,7 @@ label {
 
 @media (min-width: 1025px) {
   .features-extended .container {
-    /* image width (420) + padding (48) + text width (480) = 828 */
+    /* image width (420) + padding (48) + text width (480) = 948 */
     max-width: 996px; }
   .feature-extended-body {
     width: 480px; } }
@@ -1487,7 +1483,7 @@ label {
 
 @media (min-width: 1025px) {
   .team .container {
-    /* image width (420) + padding (48) + text width (480) = 828 */
+    /* image width (420) + padding (48) + text width (480) = 948 */
     max-width: 996px; }
   .member-body {
     width: 640px; }
