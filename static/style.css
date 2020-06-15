@@ -47,6 +47,43 @@
   --container-width: 1080px;
   --container-width--sm: 800px; }
 
+/*******************************************************
+*******************FONT SIZE GOLDENS********************
+********************************************************
+**** alpha-size: 44px;
+**** alpha-height: 54px;
+**** alpha-kerning: 0;
+****
+**** beta-size: 34px;
+**** beta-height: 44px;
+**** beta-kerning: 0;
+****
+**** gamma-size: 30px;
+**** gamma-height: 40px;
+**** gamma-kerning: 0;
+****
+**** delta-size: 24px;
+**** delta-height: 34px;
+**** delta-kerning: 0;
+****
+**** epsilon-size: 20px;
+**** epsilon-height: 30px;
+**** epsilon-kerning: -0.1px;
+****
+**** zeta-size: 18px;
+**** zeta-height: 28px;
+**** zeta-kerning: -0.1px;
+****
+**** eta-size: 16px;
+**** eta-height: 24px;
+**** eta-kerning: -0.1px;
+****
+**** theta-size: 14px;
+**** theta-height: 20px;
+**** theta-kerning: 0;
+********************************************************
+********************************************************
+*******************************************************/
 :root {
   --font-scale-1--size: 34px;
   --font-scale-1--height: 44px;

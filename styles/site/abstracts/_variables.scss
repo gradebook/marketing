@@ -66,97 +66,103 @@ $container-width--sm: 800px;
 	--container-width--sm: #{$container-width--sm};
 }
 
-$font--alpha-size: 44px;
-$font--alpha-height: 54px;
-$font--alpha-kerning: 0;
+/*******************************************************
+*******************FONT SIZE GOLDENS********************
+********************************************************
+**** alpha-size: 44px;
+**** alpha-height: 54px;
+**** alpha-kerning: 0;
+****
+**** beta-size: 34px;
+**** beta-height: 44px;
+**** beta-kerning: 0;
+****
+**** gamma-size: 30px;
+**** gamma-height: 40px;
+**** gamma-kerning: 0;
+****
+**** delta-size: 24px;
+**** delta-height: 34px;
+**** delta-kerning: 0;
+****
+**** epsilon-size: 20px;
+**** epsilon-height: 30px;
+**** epsilon-kerning: -0.1px;
+****
+**** zeta-size: 18px;
+**** zeta-height: 28px;
+**** zeta-kerning: -0.1px;
+****
+**** eta-size: 16px;
+**** eta-height: 24px;
+**** eta-kerning: -0.1px;
+****
+**** theta-size: 14px;
+**** theta-height: 20px;
+**** theta-kerning: 0;
+********************************************************
+********************************************************
+*******************************************************/
 
-$font--beta-size: 34px;
-$font--beta-height: 44px;
-$font--beta-kerning: 0;
+ :root {
+	 // H1 - size: beta
+	 --font-scale-1--size: 34px;
+	 --font-scale-1--height: 44px;
+	 --font-scale-1--kerning: 0;
 
-$font--gamma-size: 30px;
-$font--gamma-height: 40px;
-$font--gamma-kerning: 0;
+	// H2 - size: gamma
+	--font-scale-2--size: 30px;
+	--font-scale-2--height: 40px;
+	--font-scale-2--kerning: 0;
 
-$font--delta-size: 24px;
-$font--delta-height: 34px;
-$font--delta-kerning: 0;
+	// H3 - size: gamma
+	--font-scale-3--size: 30px;
+	--font-scale-3--height: 40px;
+	--font-scale-3--kerning: 0;
 
-$font--epsilon-size: 20px;
-$font--epsilon-height: 30px;
-$font--epsilon-kerning: -0.1px;
+	// H4 - size: delta
+	--font-scale-4--size: 24px;
+	--font-scale-4--height: 34px;
+	--font-scale-4--kerning: 0;
 
-$font--zeta-size: 18px;
-$font--zeta-height: 28px;
-$font--zeta-kerning: -0.1px;
+	// Body, H5, H6 - size: epsilon
+	--font-scale-5--size: 20px;
+	--font-scale-5--height: 30px;
+	--font-scale-5--kerning: -0.1px;
 
-$font--eta-size: 16px;
-$font--eta-height: 24px;
-$font--eta-kerning: -0.1px;
+	// Small - size: zeta
+	--font-scale-6--size: 18px;
+	--font-scale-6--height: 28px;
+	--font-scale-6--kerning: -0.1px;
 
-$font--theta-size: 14px;
-$font--theta-height: 20px;
-$font--theta-kerning: 0;
+	// Smaller - size: eta
+	--font-scale-7--size: 16px;
+	--font-scale-7--height: 24px;
+	--font-scale-7--kerning: -0.1px;
 
-:root {
-	//Desktop: $breakpoint__m + $breakpoint__l (600 - 1024)
-	//Mobile: $breakpoint__xs + $breakpoint__s (up to 600)
-
-	// H1
-	--font-scale-1--size: #{$font--beta-size};
-	--font-scale-1--height: #{$font--beta-height};
-	--font-scale-1--kerning: #{$font--beta-kerning};
-
-	// H2
-	--font-scale-2--size: #{$font--gamma-size};
-	--font-scale-2--height: #{$font--gamma-height};
-	--font-scale-2--kerning: #{$font--gamma-kerning};
-
-	// H3
-	--font-scale-3--size: #{$font--gamma-size};
-	--font-scale-3--height: #{$font--gamma-height};
-	--font-scale-3--kerning: #{$font--gamma-kerning};
-
-	// H4
-	--font-scale-4--size: #{$font--delta-size};
-	--font-scale-4--height: #{$font--delta-height};
-	--font-scale-4--kerning: #{$font--delta-kerning};
-
-	// Body, H5, H6
-	--font-scale-5--size: #{$font--epsilon-size};
-	--font-scale-5--height: #{$font--epsilon-height};
-	--font-scale-5--kerning: #{$font--epsilon-kerning};
-
-	// Small
-	--font-scale-6--size: #{$font--zeta-size};
-	--font-scale-6--height: #{$font--zeta-height};
-	--font-scale-6--kerning: #{$font--zeta-kerning};
-
-	// Smaller
-	--font-scale-7--size: #{$font--eta-size};
-	--font-scale-7--height: #{$font--eta-height};
-	--font-scale-7--kerning: #{$font--eta-kerning};
-
-	// Footer Area
-	--font-scale-8--size: #{$font--theta-size};
-	--font-scale-8--height: #{$font--theta-height};
-	--font-scale-8--kerning: #{$font--theta-kerning};
+	// Footer Area - size: theta
+	--font-scale-8--size: 14px;
+	--font-scale-8--height: 20px;
+	--font-scale-8--kerning: 0;
 }
 
 // Large (Desktop) media queries
 // media::>medium
 @media (min-width: 641px) {
 	:root {
-		--font-scale-1--size: #{$font--alpha-size};
-		--font-scale-1--height: #{$font--alpha-height};
-		--font-scale-1--kerning: #{$font--alpha-kerning};
+		// Size: alpha
+		--font-scale-1--size: 44px;
+		--font-scale-1--height: 54px;
+		--font-scale-1--kerning: 0;
 
-		--font-scale-2--size: #{$font--beta-size};
-		--font-scale-2--height: #{$font--beta-height};
-		--font-scale-2--kerning: #{$font--beta-kerning};
+		// Size: beta
+		--font-scale-2--size: 34px;
+		--font-scale-2--height: 44px;
+		--font-scale-2--kerning: 0;
 
-		--font-scale-3--size: #{$font--delta-size};
-		--font-scale-3--height: #{$font--delta-height};
-		--font-scale-3--kerning: #{$font--delta-kerning};
+		// Size: delta
+		--font-scale-3--size: 24px;
+		--font-scale-3--height: 34px;
+		--font-scale-3--kerning: 0;
 	}
 }
