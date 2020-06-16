@@ -5,13 +5,16 @@ const postcss = require('postcss');
 
 const FILES = [{
 	input: 'ghost/screen.css',
-	output: 'blog.css',
+	// output: 'blog.css',
+	output: 'screen.css',
 }, {
 	input: 'site/style.css',
-	output: 'global.css'
+	// output: 'global.css'
+	output: 'style.css'
 }];
 
-const OUT_ROOT = resolve(__dirname, '../static/css');
+// const OUT_ROOT = resolve(__dirname, '../static/css');
+const OUT_ROOT = resolve(__dirname, '../static/');
 const STYLE_ROOT = resolve(__dirname, '../styles/');
 
 const plugins = [
@@ -19,7 +22,7 @@ const plugins = [
 	require('autoprefixer'),
 	require('postcss-custom-properties'),
 	require('postcss-color-function'),
-	require('cssnano')
+	// require('cssnano')
 ];
 
 const compiler = postcss(plugins);
