@@ -3,8 +3,8 @@ html {
 }
 
 *,
-*:before,
-*:after { /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+*::before,
+*::after { /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
 	box-sizing: inherit;
 }
 
@@ -18,13 +18,14 @@ hr {
 	border: 0;
 	display: block;
 	height: 1px;
-	background: var(--color--bg-3i); // Use this for dark theme!
+	// background: var(--color--bg-3i); // Use this for dark theme!
 	background: var(--color--bg-3);
 	margin-top: 24px;
 	margin-bottom: 24px;
 }
 
-ul, ol {
+ul,
+ol {
 	margin-top: 0;
 	margin-bottom: 24px;
 	padding-left: 24px;
@@ -68,8 +69,8 @@ figure {
 }
 
 figcaption {
-	font-size: var(--font-scale-7--size------mobile);
-	line-height: var(--font-scale-7--height------mobile);
+	font-size: var(--font-scale-7--size);
+	line-height: var(--font-scale-7--height);
 	padding: 8px 0;
 }
 
@@ -103,7 +104,7 @@ td:first-child {
 	padding-left: 0;
 }
 
-th:first-child,
-td:first-child {
+th:last-child,
+td:last-child {
 	padding-right: 0;
 }

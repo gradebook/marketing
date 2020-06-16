@@ -33,8 +33,10 @@
 	margin-right: auto;
 	overflow: visible;
 	// Dark Mode!
-	// box-shadow: 0 20px 48px rgba(darken($color--bg-1, 35%), .2);
-	box-shadow: 0 20px 48px rgba($color--typography-1, .16);
+	// box-shadow: 0 20px 48px rgba(166, 166, 166, 0.2); (darken color--bg-1 35%)
+	--color--typography-1--opacity: 0.16;
+
+	box-shadow: 0 20px 48px var(--color--typography-1);
 }
 
 .member-body {
@@ -42,10 +44,12 @@
 }
 
 // media::>medium
-@media (min-width: 641px ) {
+@media (min-width: 641px) {
 	.team .container {
 		/* image width (360) + padding (48) + text width (360) = 828 */
-		max-width: 828px + ( $content-padding--desktop * 2 );
+		// Add 24px * 2 for padding
+		// contentPadding::desktop
+		max-width: 876px;
 	}
 
 	.team .section-inner {
@@ -115,6 +119,7 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+
 		/* Align vertically, end */
 		flex-shrink: 0;
 		width: 60%;
@@ -125,8 +130,10 @@
 // media::>large
 @media (min-width: 1025px) {
 	.team .container {
-		/* image width (420) + padding (48) + text width (480) = 828 */
-		max-width: 948px + ( $content-padding--desktop * 2 );
+		/* image width (420) + padding (48) + text width (480) = 948 */
+		// Add 24px * 2 for padding
+		// contentPadding::desktop
+		max-width: 996px;
 	}
 
 	.member-body {
