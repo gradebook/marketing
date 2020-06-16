@@ -86,7 +86,7 @@
 	align-self: flex-end;
 }
 
-// media::>medium
+/* media::>medium */
 @media (min-width: 641px) {
 	.pricing .section-title {
 		margin-bottom: 80px;

@@ -146,7 +146,7 @@
 	width: 100%;
 }
 
-// media::<=medium
+/* media::<=medium */
 @media (max-width: 640px) {
 	.button-wide-mobile {
 		width: 100%;

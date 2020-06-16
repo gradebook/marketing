@@ -52,7 +52,7 @@
 *******************************************************/
 
 :root {
-	// COLOR TYPOGRAPHY
+	/* COLOR TYPOGRAPHY */
 	--color--typography-1--opacity: 1;
 	--color--typography-1: rgba(26, 32, 44, var(--color--typography-1--opacity));
 	--color--typography-2: #272c38;
@@ -61,18 +61,21 @@
 	--color--typography-4: #9eabc0;
 	--color--typography-1i: #dddbf1;
 	--color--typography-2i: rgba(221, 219, 241, 0.8);
-	// COLOR BG
+
+	/* COLOR BG */
 	--color--bg-1: #fff;
 	--color--bg-2: #f3f5f8;
 	--color--bg-3: #e4e8ee;
 	--color--bg-3i: rgba(221, 219, 241, 0.8);
-	// PRIMARY COLORS
+
+	/* PRIMARY COLORS */
 	--color--primary-1: #7e6ee6;
 	--color--primary-1: #5e3b4d;
 	--color--primary-2: #a59aee;
 	--color--primary-3: #5743df;
 	--color--primary-4: #e5e1ff;
-	// SECONDARY COLORS
+
+	/* SECONDARY COLORS */
 	--color--secondary-1--opacity: 1;
 	--color--secondary-1: rgba(90, 224, 210, var(--color--secondary-1--opacity));
 	--color--secondary-1--hover: #67e2d6;
@@ -80,75 +83,80 @@
 	--color--secondary-3: #2fd8c6;
 	--color--secondary-4: #bdfdf6;
 
-	//FONT FAMILIES
+
+	/* FONT FAMILIES */
 	--font-family--base: "Heebo", sans-serif;
 	--font-family--heading: "PLayfair Display", sans-serif;
 	--font-family--code: monaco, consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 	--font-family--pre: "Courier 10 Pitch", courier, monospace;
 
-	// FONT WEIGHTS
+
+	/* FONT WEIGHTS */
 	--font-weight--regular: 400,;
 	--font-weight--medium: 500;
 	--font-weight--semibold: 600;
 	--font-weight--bold: 700;
 
-	// FONT SIZING
-	// H1 - size: beta
+
+	/* FONT SIZING */
+
+	/* H1 - size: beta */
 	--font-scale-1--size: 34px;
 	--font-scale-1--height: 44px;
 	--font-scale-1--kerning: 0;
 
-	// H2 - size: gamma
+	/* H2 - size: gamma */
 	--font-scale-2--size: 30px;
 	--font-scale-2--height: 40px;
 	--font-scale-2--kerning: 0;
 
-	// H3 - size: gamma
+	/* H3 - size: gamma */
 	--font-scale-3--size: 30px;
 	--font-scale-3--height: 40px;
 	--font-scale-3--kerning: 0;
 
-	// H4 - size: delta
+	/* H4 - size: delta */
 	--font-scale-4--size: 24px;
 	--font-scale-4--height: 34px;
 	--font-scale-4--kerning: 0;
 
-	// Body, H5, H6 - size: epsilon
+	/* Body, H5, H6 - size: epsilon */
 	--font-scale-5--size: 20px;
 	--font-scale-5--height: 30px;
 	--font-scale-5--kerning: -0.1px;
 
-	// Small - size: zeta
+	/* Small - size: zeta */
 	--font-scale-6--size: 18px;
 	--font-scale-6--height: 28px;
 	--font-scale-6--kerning: -0.1px;
 
-	// Smaller - size: eta
+	/* Smaller - size: eta */
 	--font-scale-7--size: 16px;
 	--font-scale-7--height: 24px;
 	--font-scale-7--kerning: -0.1px;
 
-	// Footer Area - size: theta
+	/* Footer Area - size: theta */
 	--font-scale-8--size: 14px;
 	--font-scale-8--height: 20px;
 	--font-scale-8--kerning: 0;
 }
 
-// Large (Desktop) media queries
-// media::>medium
+/* Large (Desktop) media queries */
+
+/* media::>medium */
 @media (min-width: 641px) {
 	:root {
-		// Size: alpha
+		/* Size: alpha */
 		--font-scale-1--size: 44px;
 		--font-scale-1--height: 54px;
 		--font-scale-1--kerning: 0;
 
-		// Size: beta
+		/* Size: beta */
 		--font-scale-2--size: 34px;
 		--font-scale-2--height: 44px;
 		--font-scale-2--kerning: 0;
 
-		// Size: delta
+		/* Size: delta */
 		--font-scale-3--size: 24px;
 		--font-scale-3--height: 34px;
 		--font-scale-3--kerning: 0;

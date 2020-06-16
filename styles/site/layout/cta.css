@@ -43,7 +43,7 @@
 	position: relative; /* To display elements above hero illustrations */
 }
 
-// media::>medium
+/* media::>medium */
 @media (min-width: 641px) {
 	.cta {
 		text-align: left;

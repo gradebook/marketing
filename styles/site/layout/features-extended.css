@@ -32,8 +32,9 @@
 	margin-left: auto;
 	margin-right: auto;
 	overflow: visible;
-	// Dark Mode!
-	// box-shadow: 0 20px 48px rgba(166, 166, 166, 0.2); (darken color--bg-1 35%)
+
+	/* Dark Mode!
+	/* box-shadow: 0 20px 48px rgba(166, 166, 166, 0.2); (darken color--bg-1 35%) */
 	--color--typography-1--opacity: 0.16;
 
 	box-shadow: 0 20px 48px var(--color--typography-1);
@@ -43,12 +44,12 @@
 	text-align: center;
 }
 
-// media::>medium
+/* media::>medium */
 @media (min-width: 641px) {
 	.features-extended .container {
-		/* image width (360) + padding (48) + text width (360) = 828 */
-		// I'm not sure where the above logic came from, but padding add 2 * 24px to 828
-		// contentPadding::desktop
+		/* image width (360) + padding (48) + text width (360) = 828
+		/* I'm not sure where the above logic came from, but padding add 2 * 24px to 828
+		/* contentPadding::desktop */
 		max-width: 876px;
 	}
 
@@ -89,13 +90,13 @@
 	.feature-extended .feature-extended-image {
 		margin-right: 48px;
 		margin-bottom: 0;
+	}
 
-		img,
-		svg {
-			width: auto;
-			max-width: 460px;
-			margin-left: 0;
-		}
+	.feature-extended .feature-extended-image img,
+	.feature-extended .feature-extended-image svg {
+		width: auto;
+		max-width: 460px;
+		margin-left: 0;
 	}
 
 	.feature-extended:nth-child(odd) {
@@ -127,12 +128,12 @@
 	}
 }
 
-// media::>large
+/* media::>large */
 @media (min-width: 1025px) {
 	.features-extended .container {
-		/* image width (420) + padding (48) + text width (480) = 948 */
-		// Add 24px * 2 for padding
-		// contentPadding::desktop
+		/* image width (420) + padding (48) + text width (480) = 948
+		/* Add 24px * 2 for padding
+		/* contentPadding::desktop */
 		max-width: 996px;
 	}
 
