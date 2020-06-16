@@ -108,9 +108,9 @@
 	--font-scale-2--height: 40px;
 	--font-scale-2--kerning: 0;
 
-	/* H3 - size: gamma */
-	--font-scale-3--size: 30px;
-	--font-scale-3--height: 40px;
+	/* Size: delta */
+	--font-scale-3--size: 24px;
+	--font-scale-3--height: 34px;
 	--font-scale-3--kerning: 0;
 
 	/* H4 - size: delta */
@@ -154,9 +154,9 @@
 		--font-scale-2--height: 44px;
 		--font-scale-2--kerning: 0;
 
-		/* Size: delta */
-		--font-scale-3--size: 24px;
-		--font-scale-3--height: 34px;
+		/* H3 - size: gamma */
+		--font-scale-3--size: 30px;
+		--font-scale-3--height: 40px;
 		--font-scale-3--kerning: 0;
 	}
 }

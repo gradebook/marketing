@@ -109,9 +109,9 @@
 	--font-scale-2--height: 40px;
 	--font-scale-2--kerning: 0;
 
-	/* H3 - size: gamma */
-	--font-scale-3--size: 30px;
-	--font-scale-3--height: 40px;
+	/* Size: delta */
+	--font-scale-3--size: 24px;
+	--font-scale-3--height: 34px;
 	--font-scale-3--kerning: 0;
 
 	/* H4 - size: delta */
@@ -153,9 +153,9 @@
 		--font-scale-2--height: 44px;
 		--font-scale-2--kerning: 0;
 
-		/* Size: delta */
-		--font-scale-3--size: 24px;
-		--font-scale-3--height: 34px;
+		/* H3 - size: gamma */
+		--font-scale-3--size: 30px;
+		--font-scale-3--height: 40px;
 		--font-scale-3--kerning: 0;
 	}
 }
@@ -524,9 +524,9 @@ h2, .h2 {
 }
 h3, .h3,
 blockquote {
-	font-size: 30px;
+	font-size: 24px;
 	font-size: var(--font-scale-3--size);
-	line-height: 40px;
+	line-height: 34px;
 	line-height: var(--font-scale-3--height);
 	letter-spacing: 0;
 	letter-spacing: var(--font-scale-3--kerning);
@@ -708,10 +708,10 @@ label {
 	.container,
 	.container-sm {
 		/* contentPadding::desktop */
-		padding-left: 48px;
+		padding-left: 24px;
 
 		/* contentPadding::desktop */
-		padding-right: 48px;
+		padding-right: 24px;
 	}
 }
 .container {
