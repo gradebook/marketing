@@ -53,8 +53,7 @@
 
 :root {
 	/* COLOR TYPOGRAPHY */
-	--color--typography-1--opacity: 1;
-	--color--typography-1: rgba(26, 32, 44, var(--color--typography-1--opacity));
+	--color--typography-1: rgb(26, 32, 44);
 	--color--typography-2: #272c38;
 	--color--typography-2--hover: #313847;
 	--color--typography-3: #8a95a5;
@@ -76,8 +75,7 @@
 	--color--primary-4: #e5e1ff;
 
 	/* SECONDARY COLORS */
-	--color--secondary-1--opacity: 1;
-	--color--secondary-1: rgba(90, 224, 210, var(--color--secondary-1--opacity));
+	--color--secondary-1: rgb(90, 224, 210);
 	--color--secondary-1--hover: #67e2d6;
 	--color--secondary-2: #85e8de;
 	--color--secondary-3: #2fd8c6;
