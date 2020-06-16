@@ -3,7 +3,8 @@
 	line-height: var(--font-scale-8--height);
 	letter-spacing: var(--font-scale-8--kerning);
 	background: var(--color--typography-1);
-	//color: var(--color--typography-2);
+
+	/* color: var(--color--typography-2); */
 }
 
 .site-footer a {
@@ -81,7 +82,7 @@
 	margin-top: 48px;
 }
 
-// media::<=medium
+/* media::<=medium */
 @media (max-width: 640px) {
 	.site-footer-unit:first-of-type .site-footer-unit-inner {
 		padding-top: 0;
@@ -89,7 +90,7 @@
 	}
 }
 
-// media::>medium
+/* media::>medium */
 @media (min-width: 641px) {
 	.site-footer-inner {
 		padding-top: 56px;
