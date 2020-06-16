@@ -7,7 +7,7 @@ const {format} = require('util');
 const {performance} = require('perf_hooks');
 
 async function findGlobalVariables(root) {
-	const variablesFile = resolve(root, './abstracts/_variables.scss');
+	const variablesFile = resolve(root, './abstracts/variables.css');
 
 	const fileContents = await fs.promises.readFile(variablesFile, 'utf-8');
 	const variables = new Set();
@@ -64,7 +64,7 @@ async function test() {
 
 	for await (const file of readdirp(styleRoot, {
 		directoryFilter: ['!abstracts'],
-		fileFilter: '*.scss',
+		fileFilter: '*.css',
 		type: 'files'
 	})) {
 		allErrors.push(
