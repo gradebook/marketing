@@ -1134,13 +1134,11 @@ label {
 	bottom: 0;
 	left: 0;
 	box-shadow: 0 8px 16px rgba(26, 32, 44, 0.12);
-	box-shadow: 0 8px 16px color(var(--color--typography-1) a(12%));
 	mix-blend-mode: multiply;
 	transition: box-shadow 0.15s ease;
 }
 .button-shadow:hover::before {
 	box-shadow: 0 8px 16px rgba(26, 32, 44, 0.16);
-	box-shadow: 0 8px 16px color(var(--color--typography-1) a(16%));
 }
 .button-sm {
 	padding: 8px 24px;
@@ -1148,11 +1146,9 @@ label {
 }
 .button-sm.button-shadow::before {
 	box-shadow: 0 4px 16px rgba(26, 32, 44, 0.12);
-	box-shadow: 0 4px 16px color(var(--color--typography-1) a(12%));
 }
 .button-sm.button-shadow:hover::before {
 	box-shadow: 0 4px 16px rgba(26, 32, 44, 0.16);
-	box-shadow: 0 4px 16px color(var(--color--typography-1) a(16%));
 }
 .button-primary,
 .button-secondary {
@@ -1173,19 +1169,15 @@ label {
 }
 .button-primary.button-shadow::before {
 	box-shadow: 0 8px 16px rgba(94, 59, 77, 0.24);
-	box-shadow: 0 8px 16px color(var(--color--primary-1) a(24%));
 }
 .button-primary.button-shadow:hover::before {
 	box-shadow: 0 8px 16px rgba(94, 59, 77, 0.32);
-	box-shadow: 0 8px 16px color(var(--color--primary-1) a(32%));
 }
 .button-primary .button-sm.button-shadow::before {
 	box-shadow: 0 4px 16px rgba(94, 59, 77, 0.24);
-	box-shadow: 0 4px 16px color(var(--color--primary-1) a(24%));
 }
 .button-primary .button-sm.button-shadow:hover::before {
 	box-shadow: 0 4px 16px rgba(94, 59, 77, 0.32);
-	box-shadow: 0 4px 16px color(var(--color--primary-1) a(32%));
 }
 .button-secondary {
 	background: rgb(90, 224, 210);
@@ -1197,20 +1189,16 @@ label {
 }
 .button-secondary.button-shadow::before {
 	box-shadow: 0 8px 16px rgba(90, 224, 210, 0.24);
-	box-shadow: 0 8px 16px color(var(--color--secondary-1) a(24%));
 }
 .button-secondary.button-shadow:hover::before {
 	box-shadow: 0 8px 16px rgba(90, 224, 210, 0.32);
-	box-shadow: 0 8px 16px color(var(--color--secondary-1) a(32%));
 }
 /* stylelint-disable-next-line no-descending-specificity */
 .button-secondary .button-sm.button-shadow::before {
 	box-shadow: 0 4px 16px rgba(90, 224, 210, 0.24);
-	box-shadow: 0 4px 16px color(var(--color--secondary-1) a(24%));
 }
 .button-secondary .button-shadow:hover::before {
 	box-shadow: 0 4px 16px rgba(90, 224, 210, 0.32);
-	box-shadow: 0 4px 16px color(var(--color--secondary-1) a(32%));
 }
 .button-block {
 	display: flex;
@@ -1508,7 +1496,6 @@ label {
 	/* Dark Mode!
 	/* box-shadow: 0 20px 48px rgba(166, 166, 166, 0.2); (darken color--bg-1 35%) */
 	box-shadow: 0 20px 48px rgba(26, 32, 44, 0.16);
-	box-shadow: 0 20px 48px color(var(--color--typography-1) a(16%));
 }
 .feature-extended-body {
 	text-align: center;
@@ -1652,7 +1639,6 @@ label {
 	/* Dark Mode!
 	/* box-shadow: 0 20px 48px rgba(166, 166, 166, 0.2); (darken color--bg-1 35%) */
 	box-shadow: 0 20px 48px rgba(26, 32, 44, 0.16);
-	box-shadow: 0 20px 48px color(var(--color--typography-1) a(16%));
 }
 .member-body {
 	text-align: center;
@@ -1857,7 +1843,6 @@ label {
 	/* Dark Mode!
 	/* box-shadow: 0 20px 48px rgba(166, 166, 166, 0.2); (darken color--bg-1 35%) */
 	box-shadow: 0 20px 48px rgba(26, 32, 44, 0.16);
-	box-shadow: 0 20px 48px color(var(--color--typography-1) a(16%));
 }
 main {
 	flex: 1 0 auto;

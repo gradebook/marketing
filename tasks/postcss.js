@@ -21,7 +21,9 @@ const plugins = [
 	require('postcss-easy-import'),
 	require('autoprefixer'),
 	require('postcss-custom-properties'),
-	require('postcss-color-function'),
+	require('postcss-color-function')({
+		preserveCustomProps: false
+	}),
 	// require('cssnano')
 ];
 

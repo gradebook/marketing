@@ -469,9 +469,7 @@ sans-serif;
 .gh-button:hover {
     text-decoration: none;
     color: rgb(17, 141, 208) !important;
-    color: color(var(--color-primary) l(-15%)) !important;
     box-shadow: inset 0 0 0 2px rgb(19, 157, 231);
-    box-shadow: inset 0 0 0 2px color(var(--color-primary) l(-10%));
     transition: 0.2s ease;
 }
 
@@ -484,7 +482,6 @@ sans-serif;
 
 .gh-button.gh-button-primary:hover {
     background-color: rgb(19, 157, 231);
-    background-color: color(var(--color-primary) l(-10%));
 }
 
 /* Ghost components */
