@@ -37,11 +37,32 @@ task('enableProdMode', () => {
 
 task('js', () => new Promise((resolve, reject) => {
 	const {spawn} = require('child_process');
+	const rollupPath = require.resolve('rollup/dist/bin/rollup');
+	let manifest;
 
-	const cp = spawn('yarn', ['rollup', '-c'], {stdio: 'inherit'});
+	// NOTE: we can't use yarn here because we need ipc
+	const cp = spawn('node', [rollupPath, '-c'], {
+		stdio: ['inherit', 'inherit', 'inherit', 'ipc']
+	});
+
+	cp.on('message', message => {
+		if (process.env.NO_CACHEBUST !== 'true') {
+			manifest = require('./tasks/get-cache');
+			// @ts-ignore
+			for (const key in message) {
+				manifest.store(key, message[key]);
+			}
+		}
+	});
 
 	cp.on('exit', code => {
-		code === 0 ? resolve(code) : reject(code);
+		if (code === 0) {
+			if (manifest) {
+				manifest.write().then(() => resolve(code)).catch(reject);
+			}
+		} else {
+			reject(code);
+		}
 	});
 }));
 
