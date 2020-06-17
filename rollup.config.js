@@ -12,6 +12,9 @@ const ENTRYPOINTS = ['popup', 'update-cta', 'main', 'facebook'];
 const entrypointCompilers = [];
 
 const cachebust = process.env.NO_CACHEBUST !== 'true' && require('./rollup-hash');
+const writeCache = {
+	generateBundle: process.env.NO_CACHEBUST !== 'true' ? require('./rollup-hash').onWriteBundle : () => null
+};
 
 const plugins = [
 	replace({
@@ -63,7 +66,17 @@ export default [...entrypointCompilers, {
 			// we'll extract any component CSS out into
 			// a separate file - better for performance
 			css: css => {
-				css.write('dist/built/signup.css');
+				let outputFileName = 'dist/built/signup.css';
+				if (cachebust) {
+					const {js: manifest} = require('./tasks/get-cache');
+					const hashedName = `signup-${require('rev-hash')(css.code)}.css`;
+
+					manifest['dist/built/signup.css'] = hashedName;
+					manifest['signup.css'] = hashedName;
+					outputFileName = `dist/built/${hashedName}`;
+				}
+
+				css.write(outputFileName);
 			}
 		}),
 
@@ -89,6 +102,7 @@ export default [...entrypointCompilers, {
 		// If we're building for production (npm run build
 		// instead of npm run dev), minify
 		production && terser(),
+		writeCache,
 		cachebust
 	],
 	watch: {

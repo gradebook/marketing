@@ -1,7 +1,7 @@
 const fs = require('fs');
 
-let css = '';
-let js = '';
+let css = {};
+let js = {};
 
 try {
 	css = JSON.parse(fs.readFileSync('css.cache-manifest', 'utf8') || '{}')
@@ -12,9 +12,16 @@ try {
 } catch {}
 
 module.exports = {
-	all: {
-		...css,
-		...js
+	getItem(item) {
+		if (Reflect.has(css, item)) {
+			return css[item];
+		}
+
+		if (Reflect.has(js, item)) {
+			return js[item];
+		}
+
+		return item;
 	},
 	css,
 	js
