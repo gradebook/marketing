@@ -16,10 +16,8 @@
   ],
   "scripts": {
     "clean": "gulp clean",
-    "dev": "eleventy --serve",
-    "start": "echo started",
     "build": "gulp build",
-    "watch": "yarn dev"
+    "watch": "gulp dev"
   },
   "devDependencies": {
     "@11ty/eleventy": "0.11.0",

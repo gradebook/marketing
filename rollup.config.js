@@ -116,16 +116,20 @@ export default [...entrypointCompilers, {
 }];
 
 function serve() {
-	let started = false;
+	let liveReloadInstance;
 
 	return {
 		writeBundle() {
-			if (!started) {
-				started = true;
+			if (!liveReloadInstance) {
+				liveReloadInstance = require('browser-sync');
 
-				require('child_process').spawn('npm', ['run', 'start', '--', '--dev'], {
-					stdio: ['ignore', 'inherit', 'inherit'],
-					shell: true
+				liveReloadInstance.init({
+					server: {
+						baseDir: './dist/'
+					},
+					watch: false,
+					open: false,
+					notify: false
 				});
 			}
 		}
