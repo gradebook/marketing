@@ -1,6 +1,6 @@
 // @ts-check
 const {Transform, PassThrough} = require('stream');
-const {join, relative, resolve} = require('path');
+const {join, resolve} = require('path');
 const fs = require('fs');
 module.exports = class FileHasher {
 	constructor() {
@@ -25,15 +25,15 @@ module.exports = class FileHasher {
 	_transform(file, enc, cb) {
 		const revHash = require('rev-hash');
 
-		const fileHash = revHash(file.contents);
 		/** @type string */
 		const originalFileName = file.relative;
+		const fileHash = revHash(file.contents);
+
 		const lastPeriod = originalFileName.lastIndexOf('.');
 		const finalFileName = originalFileName.slice(0, lastPeriod) + '-' + fileHash + originalFileName.slice(lastPeriod);
-		const outputPath = join('static', relative(file.cwd, file.base), finalFileName).replace('styles', 'css');
-		console.log({outputPath, finalFileName, originalFileName})
+
+		const outputPath = join('built', finalFileName);
 		this._mapList[originalFileName] = outputPath;
-		this._mapList[outputPath.replace(finalFileName, originalFileName)] = outputPath;
 
 		file.path = join(file.base, finalFileName);
 		this.transform.push(file);

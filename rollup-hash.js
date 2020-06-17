@@ -2,21 +2,14 @@ const revHash = require('rev-hash');
 const fs = require('fs');
 const manifest = require('./tasks/get-cache').js;
 
-const transform = (fileName, hash) => {
-	const newFile = fileName.replace('.js', `-${hash}.js`);
-	manifest[fileName] = newFile;
-	return newFile;
-};
-
 module.exports = {
-	renderChunk(code, chunk, options) {
-		const chunkHash = revHash(code);
+	renderChunk(code, chunk) {
+		const hash = revHash(code);
+		const {fileName} = chunk;
+		const newFile = fileName.replace('.js', `-${hash}.js`);
+		manifest[fileName] = newFile;
 
-		if (options.file.endsWith(chunk.fileName)) {
-			options.file = transform(options.file, chunkHash);
-		}
-
-		chunk.fileName = transform(chunk.fileName, chunkHash);
+		chunk.fileName = newFile;
 	},
 
 	onWriteBundle() {

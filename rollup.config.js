@@ -71,7 +71,6 @@ export default [...entrypointCompilers, {
 					const {js: manifest} = require('./tasks/get-cache');
 					const hashedName = `signup-${require('rev-hash')(css.code)}.css`;
 
-					manifest['dist/built/signup.css'] = hashedName;
 					manifest['signup.css'] = hashedName;
 					outputFileName = `dist/built/${hashedName}`;
 				}
