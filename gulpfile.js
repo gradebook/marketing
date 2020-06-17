@@ -59,6 +59,8 @@ task('js', () => new Promise((resolve, reject) => {
 		if (code === 0) {
 			if (manifest) {
 				manifest.write().then(() => resolve(code)).catch(reject);
+			} else {
+				resolve();
 			}
 		} else {
 			reject(code);
@@ -126,7 +128,7 @@ task('dev', series('default', function devServer() {
 		watch: false,
 		open: false,
 		notify: false
-	})
+	});
 }));
 
 task('build', series(
