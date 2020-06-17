@@ -24,7 +24,7 @@ const plugins = [
 	}),
 	commonjs(),
 	production && terser(),
-	production && require('./rollup-hash')
+	process.env.NO_CACHEBUST !== 'true' && require('./rollup-hash')
 ];
 
 for (const entrypoint of ENTRYPOINTS) {

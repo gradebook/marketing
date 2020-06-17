@@ -5,7 +5,7 @@ const fs = require('fs');
 module.exports = class FileHasher {
 	constructor() {
 		this._mapList = {};
-		if (process.env.NO_CACHE === 'true') {
+		if (process.env.NO_CACHEBUST === 'true') {
 			this.transform = new PassThrough({
 				objectMode: true
 			});
