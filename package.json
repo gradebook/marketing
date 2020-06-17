@@ -18,8 +18,7 @@
     "clean": "gulp clean",
     "dev": "eleventy --serve",
     "start": "echo started",
-    "prebuild": "rollup -c",
-    "build": "eleventy",
+    "build": "gulp build",
     "watch": "yarn dev"
   },
   "devDependencies": {
