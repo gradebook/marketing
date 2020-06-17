@@ -2,7 +2,6 @@
 const {Transform, PassThrough} = require('stream');
 const {join, relative, resolve} = require('path');
 const fs = require('fs');
-
 module.exports = class FileHasher {
 	constructor() {
 		this._mapList = {};

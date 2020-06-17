@@ -1,4 +1,4 @@
-const manifest = require('../../get-cache').all;
+const manifest = require('../../tasks/get-cache').all;
 
 module.exports = file => {
 	if (!manifest || process.env.NO_CACHEBUST === 'true') {
