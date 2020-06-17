@@ -1,3 +1,4 @@
+// @ts-check
 require('dotenv').config()
 import svelte from 'rollup-plugin-svelte';
 import replace from '@rollup/plugin-replace';
@@ -11,10 +12,17 @@ const production = !process.env.ROLLUP_WATCH;
 const ENTRYPOINTS = ['popup', 'update-cta', 'main', 'facebook'];
 const entrypointCompilers = [];
 
-const cachebust = process.env.NO_CACHEBUST !== 'true' && require('./rollup-hash');
-const writeCache = {
-	generateBundle: process.env.NO_CACHEBUST !== 'true' ? require('./tasks/get-cache').write : () => null
-};
+let hashFile = {};
+let writeHashes = {};
+
+if (process.env.NO_CACHEBUST !== 'true') {
+	const manifest = require('./tasks/get-cache');
+	hashFile.renderChunk = (code, chunk) => {
+		chunk.fileName = manifest.transform(chunk.fileName, code);
+	};
+
+	writeHashes.generateBundle = () => manifest.write();
+}
 
 const plugins = [
 	replace({
@@ -29,7 +37,7 @@ const plugins = [
 	}),
 	commonjs(),
 	production && terser(),
-	cachebust
+	hashFile
 ];
 
 for (const entrypoint of ENTRYPOINTS) {
@@ -67,12 +75,10 @@ export default [...entrypointCompilers, {
 			// a separate file - better for performance
 			css: css => {
 				let outputFileName = 'dist/built/signup.css';
-				if (cachebust) {
-					const manifest = require('./tasks/get-cache');
-					const hashedName = `signup-${require('rev-hash')(css.code)}.css`;
-
-					manifest.setItem('signup.css', hashedName);
-					outputFileName = `dist/built/${hashedName}`;
+				if (hashFile.renderChunk) {
+					const ref = {fileName: outputFileName};
+					hashFile.renderChunk(css.code, ref);
+					outputFileName = ref.fileName;
 				}
 
 				css.write(outputFileName);
@@ -101,8 +107,8 @@ export default [...entrypointCompilers, {
 		// If we're building for production (npm run build
 		// instead of npm run dev), minify
 		production && terser(),
-		writeCache,
-		cachebust
+		writeHashes,
+		hashFile
 	],
 	watch: {
 		clearScreen: false
