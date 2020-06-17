@@ -11,6 +11,8 @@ const production = !process.env.ROLLUP_WATCH;
 const ENTRYPOINTS = ['popup', 'update-cta', 'main', 'facebook'];
 const entrypointCompilers = [];
 
+const cachebust = process.env.NO_CACHEBUST !== 'true' && require('./rollup-hash');
+
 const plugins = [
 	replace({
 		env: JSON.stringify({
@@ -24,7 +26,7 @@ const plugins = [
 	}),
 	commonjs(),
 	production && terser(),
-	process.env.NO_CACHEBUST !== 'true' && require('./rollup-hash')
+	cachebust
 ];
 
 for (const entrypoint of ENTRYPOINTS) {
@@ -87,7 +89,7 @@ export default [...entrypointCompilers, {
 		// If we're building for production (npm run build
 		// instead of npm run dev), minify
 		production && terser(),
-		production && require('./rollup-hash')
+		cachebust
 	],
 	watch: {
 		clearScreen: false
