@@ -8,14 +8,7 @@ const github = require('./11ty/data-fetchers/github');
 const time = require('./11ty/data-fetchers/timer');
 const helpers = require('./11ty/helpers');
 
-const htmlMinTransform = require('./11ty/transformers/html-min-transform.js');
-
 module.exports = function(config) {
-  // Minify HTML
-  if (process.env.ELEVENTY_ENV !== 'dev') {
-    config.addTransform('htmlmin', htmlMinTransform);
-  }
-
   // Assist RSS feed template
   config.addPlugin(pluginRSS);
 

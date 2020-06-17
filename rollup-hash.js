@@ -1,6 +1,6 @@
 const revHash = require('rev-hash');
 const fs = require('fs');
-const manifest = require('./get-cache') || {};
+const manifest = require('./get-cache').js || {};
 
 const transform = (fileName, hash) => {
 	const newFile = fileName.replace('.js', `-${hash}.js`);
@@ -20,6 +20,6 @@ module.exports = {
 	},
 
 	writeBundle() {
-		return fs.promises.writeFile('.cache-manifest', JSON.stringify(manifest, null, 2));
+		return fs.promises.writeFile('js.cache-manifest', JSON.stringify(manifest, null, 2));
 	}
 }
