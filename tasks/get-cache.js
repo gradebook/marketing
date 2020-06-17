@@ -1,5 +1,5 @@
 const fs = require('fs');
-const {resolve} = require('path')
+const {resolve, basename, dirname, join} = require('path')
 
 const cacheManifestLocation = resolve(__dirname, '../.cachebust-manifest');
 let cache = {};
@@ -14,10 +14,18 @@ module.exports = {
 			return cache[item];
 		}
 
-		return item;
+		return null;
 	},
-	setItem(item, hashedFile) {
-		cache[item] = hashedFile;
+	transform(fullFilePath, fileContents) {
+		const hash = require('rev-hash');
+		const fileName = basename(fullFilePath);
+		const contentHash = hash(fileContents);
+		const hashedFileName = fileName.replace(
+			/\.([a-z]+)$/i,
+			(_, extension) => `-${contentHash}.${extension}`
+		)
+		cache[fileName] = hashedFileName;
+		return join(dirname(fullFilePath), hashedFileName);
 	},
 	write() {
 		return fs.promises.writeFile(cacheManifestLocation, JSON.stringify(cache, null, 2));

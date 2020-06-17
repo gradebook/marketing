@@ -23,20 +23,9 @@ module.exports = class FileHasher {
 	 * @param {() => void} cb
 	 */
 	_transform(file, enc, cb) {
-		const revHash = require('rev-hash');
 		const manifest = require('./get-cache');
 
-		/** @type string */
-		const originalFileName = file.relative;
-		const fileHash = revHash(file.contents);
-
-		const lastPeriod = originalFileName.lastIndexOf('.');
-		const finalFileName = originalFileName.slice(0, lastPeriod) + '-' + fileHash + originalFileName.slice(lastPeriod);
-
-		const outputPath = join('built', finalFileName);
-		manifest.setItem(originalFileName, outputPath);
-
-		file.path = join(file.base, finalFileName);
+		file.path = join(file.base, manifest.transform(file.relative, file.contents));
 		this.transform.push(file);
 		cb();
 	}
