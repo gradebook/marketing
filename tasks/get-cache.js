@@ -1,28 +1,25 @@
 const fs = require('fs');
+const {resolve} = require('path')
 
-let css = {};
-let js = {};
-
-try {
-	css = JSON.parse(fs.readFileSync('css.cache-manifest', 'utf8') || '{}')
-} catch {}
+const cacheManifestLocation = resolve(__dirname, '../.cachebust-manifest');
+let cache = {};
 
 try {
-	js = JSON.parse(fs.readFileSync('js.cache-manifest', 'utf8') || '{}')
+	cache = JSON.parse(fs.readFileSync(cacheManifestLocation, 'utf8') || '{}')
 } catch {}
 
 module.exports = {
 	getItem(item) {
-		if (Reflect.has(css, item)) {
-			return css[item];
-		}
-
-		if (Reflect.has(js, item)) {
-			return js[item];
+		if (Reflect.has(cache, item)) {
+			return cache[item];
 		}
 
 		return item;
 	},
-	css,
-	js
+	setItem(item, hashedFile) {
+		cache[item] = hashedFile;
+	},
+	write() {
+		return fs.promises.writeFile(cacheManifestLocation, JSON.stringify(cache, null, 2));
+	}
 };

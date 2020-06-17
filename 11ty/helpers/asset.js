@@ -1,7 +1,7 @@
 const manifest = require('../../tasks/get-cache');
 
 module.exports = file => {
-	if (!manifest || process.env.NO_CACHEBUST === 'true') {
+	if (process.env.NO_CACHEBUST === 'true') {
 		return file;
 	}
 

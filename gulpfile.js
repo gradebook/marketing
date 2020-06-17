@@ -25,7 +25,7 @@ const transformCssFileNames = new Transform({
 task('clean', () => {
 	/** @type {(glob: string) => Promise<void>} */
 	const rimraf = require('util').promisify(require('rimraf'));
-	const globs = ['dist', '*.cache-manifest', 'static/css', 'static/js'];
+	const globs = ['dist', '.cachebust-manifest', 'static/css', 'static/js'];
 
 	return Promise.all(globs.map(glob => rimraf(glob)));
 });

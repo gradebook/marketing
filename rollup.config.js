@@ -13,7 +13,7 @@ const entrypointCompilers = [];
 
 const cachebust = process.env.NO_CACHEBUST !== 'true' && require('./rollup-hash');
 const writeCache = {
-	generateBundle: process.env.NO_CACHEBUST !== 'true' ? require('./rollup-hash').onWriteBundle : () => null
+	generateBundle: process.env.NO_CACHEBUST !== 'true' ? require('./tasks/get-cache').write : () => null
 };
 
 const plugins = [
@@ -68,10 +68,10 @@ export default [...entrypointCompilers, {
 			css: css => {
 				let outputFileName = 'dist/built/signup.css';
 				if (cachebust) {
-					const {js: manifest} = require('./tasks/get-cache');
+					const manifest = require('./tasks/get-cache');
 					const hashedName = `signup-${require('rev-hash')(css.code)}.css`;
 
-					manifest['signup.css'] = hashedName;
+					manifest.setItem('signup.css', hashedName);
 					outputFileName = `dist/built/${hashedName}`;
 				}
 
