@@ -15,6 +15,7 @@
     "last 2 chrome versions"
   ],
   "scripts": {
+    "lint": "stylelint styles/site/**/*",
     "clean": "gulp clean",
     "build": "gulp build",
     "watch": "gulp dev"
