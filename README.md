@@ -19,6 +19,10 @@ Gradebook uses the latest version of Node LTS. Please ensure you have this insta
 
 The commands you need to run are dependent on what you're trying to do.
 
- - For all tasks, you need eleventy to run - `yarn dev`
+ - For most tasks, you need gulp running - run `yarn dev` to start a live server
 
- - For *js* and *css* tasks (e.g. svelte or styling), you also need to have rollup running - `yarn rollup -c -w`
+ - For Svelte Apps, you need to use rollup - run `yarn rollup -c -w` to compile the app and start a live server. Do not start the gulp live server.
+
+	 - Before starting, you'll probably need to build w/ eleventy once - run `yarn build`. Make sure `NO_CACHEBUST=true` in your env file. If you don't want to fetch from external sources, make sure `NO_FETCH=true`.
+
+	 - If you make changes to the global `{page}.css` file, you will need to rebuild w/ eleventy.
