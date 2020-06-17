@@ -62,7 +62,12 @@ task('css', (cb) => {
 		.pipe(hasher.transform)
 		.pipe(dest('dist/built'))
 		.on('end', () => {
-			hasher.write().then(cb);
+			if (process.env.NO_CACHEBUST === 'true') {
+				cb();
+			} else {
+				const manifest = require('./tasks/get-cache');
+				manifest.write().finally(cb);
+			}
 		});
 });
 

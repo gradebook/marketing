@@ -9,7 +9,6 @@ module.exports = class FileHasher {
 				objectMode: true
 			});
 		} else {
-			this._shouldWrite = true;
 			this.transform = new Transform({
 				objectMode: true,
 				transform: (file, enc, cb) => this._transform(file, null, cb)
@@ -28,12 +27,5 @@ module.exports = class FileHasher {
 		file.path = join(file.base, manifest.transform(file.relative, file.contents));
 		this.transform.push(file);
 		cb();
-	}
-
-	async write() {
-		if (this._shouldWrite) {
-			const manifest = require('./get-cache');
-			return manifest.write();
-		}
 	}
 }
