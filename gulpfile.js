@@ -60,7 +60,7 @@ task('css', (cb) => {
 		]))
 		.pipe(transformCssFileNames)
 		.pipe(hasher.transform)
-		.pipe(dest('dist/static/css'))
+		.pipe(dest('dist/built'))
 		.on('end', () => {
 			hasher.write().then(cb);
 		});

@@ -34,7 +34,7 @@ for (const entrypoint of ENTRYPOINTS) {
 			sourcemap: false,
 			format: 'iife',
 			name: entrypoint.replace(/-(.)/, (_, t) => t.toUpperCase()),
-			file: `static/js/${entrypoint}.js`
+			file: `dist/built/${entrypoint}.js`
 		},
 		plugins
 	})
@@ -46,7 +46,7 @@ export default [...entrypointCompilers, {
 		sourcemap: true,
 		format: 'iife',
 		name: 'app',
-		file: 'static/js/signup.js'
+		file: 'dist/built/signup.js'
 	},
 	plugins: [
 		replace({
@@ -61,7 +61,7 @@ export default [...entrypointCompilers, {
 			// we'll extract any component CSS out into
 			// a separate file - better for performance
 			css: css => {
-				css.write('static/css/signup.css');
+				css.write('dist/built/signup.css');
 			}
 		}),
 
