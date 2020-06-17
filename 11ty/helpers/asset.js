@@ -7,12 +7,11 @@ module.exports = file => {
 	}
 
 	const manifestKey = file.replace(/^\//, '');
-	const prefix = file.startsWith('/') ? '/' : '';
-
 	const hashedItem = manifest.getItem(manifestKey);
 
 	if (hashedItem) {
-		return prefix + hashedItem;
+		return `/built/${hashedItem}`;
 	}
+
 	console.error(chalk.red('Asset "%s" does not exist'), manifestKey);
 };
