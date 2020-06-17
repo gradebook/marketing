@@ -3,7 +3,7 @@ const manifest = require('../../tasks/get-cache');
 
 module.exports = file => {
 	if (process.env.NO_CACHEBUST === 'true') {
-		return file;
+		return `/built/${file}`;
 	}
 
 	const manifestKey = file.replace(/^\//, '');
