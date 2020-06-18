@@ -22,21 +22,9 @@ build/
 # dotenv environment variables file
 .env
 
-# rollup artifacts
-.cache-manifest
-
-### Sass ###
-.sass-cache/
-*.css.map
-*.sass.map
-*.scss.map
-
 # Workspace files are user-specific
 *.sublime-workspace
 
 # Static built files
 dist/
-.cache-manifest
-static/css
-static/js
-.cache-manifest
+*.cachebust-manifest

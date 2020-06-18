@@ -1,3 +1,4 @@
+// @ts-check
 require('dotenv').config()
 import svelte from 'rollup-plugin-svelte';
 import replace from '@rollup/plugin-replace';
@@ -10,6 +11,18 @@ const production = !process.env.ROLLUP_WATCH;
 
 const ENTRYPOINTS = ['popup', 'update-cta', 'main', 'facebook'];
 const entrypointCompilers = [];
+
+let hashFile = {};
+let writeHashes = {};
+
+if (process.env.NO_CACHEBUST !== 'true') {
+	const manifest = require('./tasks/get-cache');
+	hashFile.renderChunk = (code, chunk) => {
+		chunk.fileName = manifest.transform(chunk.fileName, code);
+	};
+
+	writeHashes.generateBundle = () => manifest.write();
+}
 
 const plugins = [
 	replace({
@@ -24,7 +37,7 @@ const plugins = [
 	}),
 	commonjs(),
 	production && terser(),
-	production && require('./rollup-hash')
+	hashFile
 ];
 
 for (const entrypoint of ENTRYPOINTS) {
@@ -34,7 +47,7 @@ for (const entrypoint of ENTRYPOINTS) {
 			sourcemap: false,
 			format: 'iife',
 			name: entrypoint.replace(/-(.)/, (_, t) => t.toUpperCase()),
-			file: `static/js/${entrypoint}.js`
+			file: `dist/built/${entrypoint}.js`
 		},
 		plugins
 	})
@@ -46,7 +59,7 @@ export default [...entrypointCompilers, {
 		sourcemap: true,
 		format: 'iife',
 		name: 'app',
-		file: 'static/js/signup.js'
+		file: 'dist/built/signup.js'
 	},
 	plugins: [
 		replace({
@@ -61,7 +74,14 @@ export default [...entrypointCompilers, {
 			// we'll extract any component CSS out into
 			// a separate file - better for performance
 			css: css => {
-				css.write('static/css/signup.css');
+				let outputFileName = 'dist/built/signup.css';
+				if (hashFile.renderChunk) {
+					const ref = {fileName: outputFileName};
+					hashFile.renderChunk(css.code, ref);
+					outputFileName = ref.fileName;
+				}
+
+				css.write(outputFileName);
 			}
 		}),
 
@@ -87,7 +107,8 @@ export default [...entrypointCompilers, {
 		// If we're building for production (npm run build
 		// instead of npm run dev), minify
 		production && terser(),
-		production && require('./rollup-hash')
+		writeHashes,
+		hashFile
 	],
 	watch: {
 		clearScreen: false
@@ -95,16 +116,20 @@ export default [...entrypointCompilers, {
 }];
 
 function serve() {
-	let started = false;
+	let liveReloadInstance;
 
 	return {
 		writeBundle() {
-			if (!started) {
-				started = true;
+			if (!liveReloadInstance) {
+				liveReloadInstance = require('browser-sync');
 
-				require('child_process').spawn('npm', ['run', 'start', '--', '--dev'], {
-					stdio: ['ignore', 'inherit', 'inherit'],
-					shell: true
+				liveReloadInstance.init({
+					server: {
+						baseDir: './dist/'
+					},
+					watch: true,
+					open: false,
+					notify: false
 				});
 			}
 		}

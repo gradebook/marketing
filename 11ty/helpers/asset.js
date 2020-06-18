@@ -1,12 +1,17 @@
-const manifest = require('../../get-cache');
+const chalk = require('chalk');
+const manifest = require('../../tasks/get-cache');
 
 module.exports = file => {
-	if (!manifest || process.env.NO_CACHEBUST === 'true') {
-		return file.replace('scss', 'css');
+	if (process.env.NO_CACHEBUST === 'true') {
+		return `/built/${file}`;
 	}
 
 	const manifestKey = file.replace(/^\//, '');
-	const prefix = file.startsWith('/') ? '/' : ''
+	const hashedItem = manifest.getItem(manifestKey);
 
-	return manifestKey in manifest ? prefix + manifest[manifestKey] : prefix + manifestKey.replace('scss', 'css')
+	if (hashedItem) {
+		return `/built/${hashedItem}`;
+	}
+
+	console.error(chalk.red('Asset "%s" does not exist'), manifestKey);
 };
