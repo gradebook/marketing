@@ -1,7 +1,7 @@
 // @ts-check
 require('dotenv').config();
 const {Transform} = require('stream');
-const {join} = require('path');
+const {join, sep} = require('path');
 const {task, src, dest, parallel, series, watch} = require('gulp');
 const FileHasher = require('./tasks/file-hasher');
 let eleventy;
@@ -12,7 +12,7 @@ const hasher = new FileHasher();
 const transformCssFileNames = new Transform({
 	objectMode: true,
 	transform: function transformCssFileNames(file, enc, cb) {
-		const finalFileName = file.relative.split('/').pop();
+		const finalFileName = file.relative.split(sep).pop();
 		if (!BLACKLISTED_CSS_FILES.includes(finalFileName)) {
 			file.path = join(file.base, finalFileName);
 			this.push(file);
