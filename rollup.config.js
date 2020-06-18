@@ -127,7 +127,7 @@ function serve() {
 					server: {
 						baseDir: './dist/'
 					},
-					watch: false,
+					watch: true,
 					open: false,
 					notify: false
 				});
