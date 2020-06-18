@@ -18,6 +18,7 @@
     "lint": "stylelint styles/site/**/*",
     "clean": "gulp clean",
     "build": "gulp build",
+    "dev": "gulp dev",
     "watch": "gulp dev"
   },
   "devDependencies": {
