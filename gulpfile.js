@@ -127,7 +127,9 @@ task('dev', series('default', function devServer() {
 		},
 		watch: false,
 		open: false,
-		notify: false
+		notify: false,
+		ui: false,
+		port: Number(process.env.LIVE_RELOAD_PORT)
 	});
 }));
 
