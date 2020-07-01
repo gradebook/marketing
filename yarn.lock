@@ -230,10 +230,10 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@gradebook/external-window@0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@gradebook/external-window/-/external-window-0.1.0.tgz#8f1a83baabc94c9b16d27a081821a4e91d9fe352"
-  integrity sha512-8DJsYvu2IMk9FUJ3Lh4yp5iuZCsnCWMgNwdRnRFuwGg6FtI4wZKDR6VdeP9t+fFCdDIEw48XrChPwvdO5EzhXw==
+"@gradebook/external-window@0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@gradebook/external-window/-/external-window-0.1.1.tgz#0dda1796f6709cf47cdc3e0a0137f84a1a26e72c"
+  integrity sha512-5MwY9gb0yORrzRsWY0FHeSpe80YJljEHYI1Bq8TMi8kUV5hMWGYbsJDt7lS9nDb7oL3BcPrEhkifX6pf6GD8Hw==
 
 "@nodelib/fs.scandir@2.1.3":
   version "2.1.3"
