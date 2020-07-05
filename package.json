@@ -39,6 +39,7 @@
     "gulp": "4.0.2",
     "gulp-postcss": "8.0.0",
     "html-minifier": "4.0.0",
+    "markdown-it-named-headings": "1.1.0",
     "postcss-color-function": "4.1.0",
     "postcss-custom-properties": "9.1.1",
     "postcss-easy-import": "3.0.0",

@@ -6,7 +6,9 @@ description: See what's changed as Gradebook evolves!
 
 # Release Notes
 
-## 3.11 (July 4, 2020 🎇)
+## 3.11
+
+_Released July 4, 2020 🎇_
 
 ### Features
 

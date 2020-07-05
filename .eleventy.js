@@ -26,6 +26,16 @@ module.exports = function(config) {
 		verbose: false
 	}); */
 
+	// Custom markdown plugins are fun
+	const createMarkdownRenderer = require('markdown-it');
+	const addNamedHeadingsToMarkdown = require('markdown-it-named-headings');
+
+	config.setLibrary('md', createMarkdownRenderer({
+		html: true,
+		xhtmlOut: true
+	}).use(addNamedHeadingsToMarkdown))
+
+
 	config.addHandlebarsHelper('block', helpers.block);
 	config.addHandlebarsHelper('blockContent', helpers.block.content);
 	config.addHandlebarsHelper('meta', helpers.meta);
