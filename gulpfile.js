@@ -119,7 +119,7 @@ task('dev', series('default', function devServer() {
 	const reload = () => liveReload.reload();
 	watch('./src/**/*.css', series('css')).on('change', reload);
 	watch('./src/**/*.js', series('js')).on('change', reload);
-	watch('./src/**/*.hbs', series('html')).on('change', reload);
+	watch(['./src/**/*.hbs','./src/**/*.md'], series('html')).on('change', reload);
 
 	liveReload.init({
 		server: {
