@@ -30,7 +30,7 @@
     "@tryghost/content-api": "1.4.1",
     "@tryghost/helpers": "1.1.27",
     "@tryghost/schema-org": "0.1.11",
-    "autoprefixer": "9.8.4",
+    "autoprefixer": "9.8.6",
     "axios": "0.19.2",
     "browser-sync": "2.26.7",
     "chalk": "4.1.0",
