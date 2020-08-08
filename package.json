@@ -19,7 +19,8 @@
     "clean": "gulp clean",
     "build": "gulp build",
     "dev": "gulp dev",
-    "watch": "gulp dev"
+    "watch": "gulp dev",
+    "serve": "browser-sync start dist -c ./browser-sync.js"
   },
   "devDependencies": {
     "@11ty/eleventy": "0.11.0",
