@@ -4,11 +4,11 @@
 }
 </style>
 <script>
+	import {onMount} from 'svelte'
 	import Select from 'svelte-select';
 	import Box from './Box.svelte';
 	import Buttons from './Buttons.svelte';
 	import items from './schools';
-	import {onMount} from 'svelte'
 	import {getUser, logout, approveAccount} from '../services/net';
 	import getUrl from './get-url';
 
@@ -18,13 +18,11 @@
 	};
 
 	let school;
-	let startingLabel = 'Select...';
 	let notListed = false;
 	let message = '';
 	let userInputName = '';
 
 	let email = 'your email';
-	let state = 0;
 	let state = STATE.confirmCreation;
 
 	let focusElem;
@@ -38,20 +36,20 @@
 		const user = await getUser();
 		if (!user) {
 			return;
-			}
+		}
 
 		email = user.email;
-			const domain = email.substring(email.lastIndexOf('@') + 1);
-			guessedSchool = items.find(school => school.domain === domain);
-			school = guessedSchool;
+		const domain = email.substring(email.lastIndexOf('@') + 1);
+		guessedSchool = items.find(school => school.domain === domain);
+		school = guessedSchool;
 	});
 
 	async function cancel() {
 		const response = await logout();
 		if (response) {
-		message = 'ERROR: Please refresh the page and try again.';
-	}
+			message = 'ERROR: Please refresh the page and try again.';
 		}
+	}
 
 	const setState = state_ => state = state_;
 
@@ -74,7 +72,7 @@
 		const response = await approveAccount(payload);
 		if (response) {
 			message = response;
-			}
+		}
 	}
 </script>
 
@@ -90,7 +88,12 @@
 {:else if state === STATE.selectSchool}
 	<Box>
 		<h2>Find Your School</h2>
-		<Select {items} selectedValue={guessedSchool} isDisabled={notListed} on:select={e => {school = e.detail; message = ''}}></Select>
+		<Select
+			{items}
+			selectedValue={guessedSchool}
+			isDisabled={notListed}
+			on:select={e => {school = e.detail; message = ''}}
+		></Select>
 		<br>
 		<div class="space">
 			<input type="checkbox" id="not-listed" bind:checked={notListed} on:change={e => message = ''}>
