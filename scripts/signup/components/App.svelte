@@ -70,13 +70,13 @@
 		}
 
 		message = '';
-		let payload = {};
+		const payload = {};
 
-		if(!notListed & school !== undefined) {
-			payload.school = school.value;
-		} else if (notListed) {
+		if (notListed) {
 			payload.school = 'www';
 			payload.suggestion = userInputName;
+		} else {
+			payload.school = school.value;
 		}
 
 		const response = await approveAccount(payload);
