@@ -91,9 +91,7 @@
 		<h2>Welcome to Gradebook!</h2>
 		<p style="margin-top: 45px;">There is not yet an account associated with {email}. Would you like to create one?</p>
 		<Buttons>
-			<button on:click={cancel}>
-				Cancel
-			</button>
+			<button on:click={cancel}>Cancel</button>
 			<button bind:this={focusElem} on:click={() => setState(STATE.selectSchool)}>Create Account</button>
 		</Buttons>
 	</Box>
@@ -113,12 +111,8 @@
 			<p class="warn" style="bottom: 12px; position: absolute;">{message}</p>
 		{/if}
 		<Buttons>
-			<button on:click={cancel}>
-				Cancel
-			</button>
-			<button on:click={confirm}>
-				Confirm
-			</button>
+			<button on:click={cancel}>Cancel</button>
+			<button on:click={confirm}>Confirm</button>
 		</Buttons>
 	</Box>
 {/if}
