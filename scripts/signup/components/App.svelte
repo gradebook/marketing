@@ -30,6 +30,8 @@
 	let focusElem;
 	let guessedSchool;
 
+	$: canConfirm = Boolean((notListed && userInputName) || (!notListed && school));
+
 	onMount(async () => {
 		focusElem.focus();
 
@@ -49,22 +51,12 @@
 		if (response) {
 		message = 'ERROR: Please refresh the page and try again.';
 	}
-
-	function canConfirm() {
-		if(!notListed && !school) {
-			return false;
 		}
 
-		if(notListed && !userInputName) {
-			return false;
-		}
-
-		return true;
-	}
 	const setState = state_ => state = state_;
 
-		if(!canConfirm()) {
 	async function confirm() {
+		if (!canConfirm) {
 			message = 'Please select or type a school.';
 			return false;
 		}
