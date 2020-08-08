@@ -90,6 +90,7 @@
 			selectedValue={guessedSchool}
 			isDisabled={notListed}
 			on:select={e => {school = e.detail; message = ''}}
+			on:clear={() => {school = null; message = ''}}
 		></Select>
 		<br>
 		<div class="space">
