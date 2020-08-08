@@ -24,15 +24,11 @@
 
 	let email = 'your email';
 	let state = STATE.confirmCreation;
-
-	let focusElem;
 	let guessedSchool;
 
 	$: canConfirm = Boolean((notListed && userInputName) || (!notListed && school));
 
 	onMount(async () => {
-		focusElem.focus();
-
 		const user = await getUser();
 		if (!user) {
 			return;
@@ -82,7 +78,8 @@
 		<p style="margin-top: 45px;">There is not yet an account associated with {email}. Would you like to create one?</p>
 		<Buttons>
 			<button on:click={cancel}>Cancel</button>
-			<button bind:this={focusElem} on:click={() => setState(STATE.selectSchool)}>Create Account</button>
+			<!-- svelte-ignore a11y-autofocus -->
+			<button autofocus on:click={() => setState(STATE.selectSchool)}>Create Account</button>
 		</Buttons>
 	</Box>
 {:else if state === STATE.selectSchool}
