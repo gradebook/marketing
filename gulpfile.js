@@ -117,8 +117,8 @@ task('default', series(parallel(['css', 'js']), 'html'));
 task('dev', series('default', function devServer() {
 	const liveReload = require('browser-sync');
 	const reload = () => liveReload.reload();
-	watch('./src/**/*.css', series('css')).on('change', reload);
 	watch('./src/**/*.js', series('js')).on('change', reload);
+	watch('./styles/**/*', series('css')).on('change', reload);
 	watch(['./src/**/*.hbs','./src/**/*.md'], series('html')).on('change', reload);
 
 	liveReload.init({
