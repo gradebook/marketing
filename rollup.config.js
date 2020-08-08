@@ -25,7 +25,9 @@ if (process.env.NO_CACHEBUST !== 'true') {
 
 const serve = {
 	writeBundle() {
-		// @todo
+		if (process.send) {
+			process.send({bundleWritten: true});
+		}
 	}
 };
 
