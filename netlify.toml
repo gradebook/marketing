@@ -1,7 +1,7 @@
 [build]
   command = "yarn build"
   publish = "dist"
-  ignore = "./should-build.sh"
+  ignore = "sh ./should-build.sh"
 
 [[redirects]]
   from = "/login"
