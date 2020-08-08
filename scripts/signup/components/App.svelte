@@ -26,7 +26,7 @@
 	let state = STATE.confirmCreation;
 	let guessedSchool;
 
-	$: canConfirm = Boolean((notListed && userInputName) || (!notListed && school));
+	$: disallowSubmission = !Boolean((notListed && userInputName) || (!notListed && school));
 
 	onMount(async () => {
 		const user = await getUser();
@@ -50,11 +50,6 @@
 	const setState = state_ => state = state_;
 
 	async function confirm() {
-		if (!canConfirm) {
-			message = 'Please select or type a school.';
-			return false;
-		}
-
 		message = '';
 		const payload = {};
 
@@ -105,7 +100,7 @@
 		{/if}
 		<Buttons>
 			<button on:click={cancel}>Cancel</button>
-			<button on:click={confirm}>Confirm</button>
+			<button disabled={disallowSubmission} on:click={confirm}>Confirm</button>
 		</Buttons>
 	</Box>
 {/if}
