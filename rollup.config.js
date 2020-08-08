@@ -4,7 +4,6 @@ import svelte from 'rollup-plugin-svelte';
 import replace from '@rollup/plugin-replace';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
-import livereload from 'rollup-plugin-livereload';
 import {terser} from 'rollup-plugin-terser';
 
 const production = !process.env.ROLLUP_WATCH;
@@ -23,6 +22,12 @@ if (process.env.NO_CACHEBUST !== 'true') {
 
 	writeHashes.generateBundle = () => manifest.write();
 }
+
+const serve = {
+	writeBundle() {
+		// @todo
+	}
+};
 
 const plugins = [
 	replace({
@@ -96,16 +101,9 @@ export default [...entrypointCompilers, {
 		}),
 		commonjs(),
 
-		// In dev mode, call `npm run start` once
-		// the bundle has been generated
-		!production && serve(),
+		!production && serve,
 
-		// Watch the `public` directory and refresh the
-		// browser on changes when not in production
-		!production && livereload('public'),
-
-		// If we're building for production (npm run build
-		// instead of npm run dev), minify
+		// If we're building for production, minify
 		production && terser(),
 		writeHashes,
 		hashFile
@@ -115,25 +113,3 @@ export default [...entrypointCompilers, {
 	}
 }];
 
-function serve() {
-	let liveReloadInstance;
-
-	return {
-		writeBundle() {
-			if (!liveReloadInstance) {
-				liveReloadInstance = require('browser-sync');
-
-				liveReloadInstance.init({
-					server: {
-						baseDir: './dist/'
-					},
-					watch: true,
-					open: false,
-					notify: false,
-					ui: false,
-					port: Number(process.env.LIVE_RELOAD_PORT)
-				});
-			}
-		}
-	};
-}
