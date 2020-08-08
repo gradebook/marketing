@@ -11,6 +11,11 @@
 	import {onMount} from 'svelte'
 	import getUrl from './get-url';
 
+	const STATE = {
+		confirmCreation: 0,
+		selectSchool: 1
+	};
+
 	let school;
 	let startingLabel = 'Select...';
 	let notListed = false;
@@ -19,6 +24,7 @@
 
 	let email = 'your email';
 	let state = 0;
+	let state = STATE.confirmCreation;
 
 	let focusElem;
 	let guessedSchool;
@@ -37,10 +43,6 @@
 			school = guessedSchool;
 		}).catch(error => console.error(`__getUser::${error.message}`));
 	})
-
-	function createAccount() {
-		state = 1;
-	}
 
 	function cancel() {
 		fetch(getUrl('/api/v0/session/end'), {credentials: 'include'}).then(r => {
@@ -63,6 +65,7 @@
 
 		return true;
 	}
+	const setState = state_ => state = state_;
 
 	function confirm() {
 		if(!canConfirm()) {
@@ -113,7 +116,7 @@
 	}
 </script>
 
-{#if state==0}
+{#if state === STATE.confirmCreation}
 	<Box>
 		<h2>Welcome to Gradebook!</h2>
 		<p style="margin-top: 45px;">There is not yet an account associated with {email}. Would you like to create one?</p>
@@ -121,12 +124,10 @@
 			<button on:click={cancel}>
 				Cancel
 			</button>
-			<button bind:this={focusElem} on:click={createAccount}>
-				Create Account
-			</button>
+			<button bind:this={focusElem} on:click={() => setState(STATE.selectSchool)}>Create Account</button>
 		</Buttons>
 	</Box>
-{:else if state==1}
+{:else if state === STATE.selectSchool}
 	<Box>
 		<h2>Find Your School</h2>
 		<Select {items} selectedValue={guessedSchool} isDisabled={notListed} on:select={e => {school = e.detail; message = ''}}></Select>
