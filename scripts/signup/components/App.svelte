@@ -2,11 +2,30 @@
 .inline {
 	display: inline;
 }
+
+.box {
+	width: 80%;
+	max-width: 400px;
+	height: 300px;
+	border-radius: 4px;
+	box-shadow:
+		0 11px 15px -7px rgba(0, 0, 0, 0.2),
+		0 24px 38px 3px rgba(0, 0, 0, 0.14),
+		0 9px 46px 8px rgba(0, 0, 0, 0.12);
+	padding: 24px;
+	padding-bottom: 0;
+	padding-top: 0;
+	margin: 0 0 1em 0;
+	background-color: #fff;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
 </style>
 <script>
 	import {onMount} from 'svelte'
 	import Select from 'svelte-select';
-	import Box from './Box.svelte';
 	import Buttons from './Buttons.svelte';
 	import items from './schools';
 	import {getUser, logout, approveAccount} from '../services/net';
@@ -67,8 +86,8 @@
 	}
 </script>
 
-{#if state === STATE.confirmCreation}
-	<Box>
+<div class="box">
+	{#if state === STATE.confirmCreation}
 		<h2>Welcome to Gradebook!</h2>
 		<p style="margin-top: 45px;">There is not yet an account associated with {email}. Would you like to create one?</p>
 		<Buttons>
@@ -76,9 +95,7 @@
 			<!-- svelte-ignore a11y-autofocus -->
 			<button autofocus on:click={() => setState(STATE.selectSchool)}>Create Account</button>
 		</Buttons>
-	</Box>
-{:else if state === STATE.selectSchool}
-	<Box>
+	{:else if state === STATE.selectSchool}
 		<h2>Find Your School</h2>
 		<Select
 			{items}
@@ -102,5 +119,5 @@
 			<button on:click={cancel}>Cancel</button>
 			<button disabled={disallowSubmission} on:click={confirm}>Confirm</button>
 		</Buttons>
-	</Box>
-{/if}
+	{/if}
+</div>
