@@ -1,7 +1,7 @@
 [build]
   command = "yarn build"
   publish = "dist"
-  ignore = "test $INCOMING_HOOK_URL && echo 'Webhook found' || git diff $CACHED_COMMIT_REF --name-only | egrep '(scripts|styles)'"
+  ignore = "./should-build.sh"
 
 [[redirects]]
   from = "/login"
