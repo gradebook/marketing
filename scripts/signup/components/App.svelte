@@ -4,23 +4,32 @@
 }
 
 .box {
-	width: 80%;
+	margin: 0 1rem;
 	max-width: 400px;
 	height: 300px;
 	border-radius: 4px;
-	box-shadow:
+	box-shadow: /* stylelint-ignore */
 		0 11px 15px -7px rgba(0, 0, 0, 0.2),
 		0 24px 38px 3px rgba(0, 0, 0, 0.14),
 		0 9px 46px 8px rgba(0, 0, 0, 0.12);
-	padding: 24px;
-	padding-bottom: 0;
-	padding-top: 0;
-	margin: 0 0 1em 0;
+	padding: 1.5rem;
 	background-color: #fff;
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.box .header {
+	margin: 0;
+}
+
+.box main {
+	flex: 1;
+	margin-top: 2rem;
+}
+
+.box .footer {
+	align-self: flex-end;
 }
 </style>
 <script>
@@ -88,36 +97,40 @@
 
 <div class="box">
 	{#if state === STATE.confirmCreation}
-		<h2>Welcome to Gradebook!</h2>
-		<p style="margin-top: 45px;">There is not yet an account associated with {email}. Would you like to create one?</p>
-		<Buttons>
+		<h2 class="header">Welcome to Gradebook!</h2>
+		<main class="mt-8">
+			<p>There is not yet an account associated with {email}. Would you like to create one?</p>
+		</main>
+		<div class="footer">
 			<button on:click={cancel}>Cancel</button>
 			<!-- svelte-ignore a11y-autofocus -->
 			<button autofocus on:click={() => setState(STATE.selectSchool)}>Create Account</button>
-		</Buttons>
-	{:else if state === STATE.selectSchool}
-		<h2>Find Your School</h2>
-		<Select
-			{items}
-			selectedValue={guessedSchool}
-			isDisabled={notListed}
-			on:select={e => {school = e.detail; message = ''}}
-			on:clear={() => {school = null; message = ''}}
-		></Select>
-		<br>
-		<div class="space">
-			<input type="checkbox" id="not-listed" bind:checked={notListed} on:change={e => message = ''}>
-			<label for="not-listed" class="inline">My school isn't listed</label>
 		</div>
-		{#if notListed}
-			My school: <input class="school" type="text" bind:value={userInputName}>
-		{/if}
-		{#if message}
-			<p class="warn" style="bottom: 12px; position: absolute;">{message}</p>
-		{/if}
-		<Buttons>
+	{:else if state === STATE.selectSchool}
+		<h2 class="header">Find Your School</h2>
+		<main class="content">
+			<Select
+				{items}
+				selectedValue={guessedSchool}
+				isDisabled={notListed}
+				on:select={e => {school = e.detail; message = ''}}
+				on:clear={() => {school = null; message = ''}}
+			></Select>
+			<br>
+			<div class="space">
+				<input type="checkbox" id="not-listed" bind:checked={notListed} on:change={e => message = ''}>
+				<label for="not-listed" class="inline">My school isn't listed</label>
+			</div>
+			{#if notListed}
+				My school: <input class="school" type="text" bind:value={userInputName}>
+			{/if}
+			{#if message}
+				<p class="warn" style="bottom: 12px; position: absolute;">{message}</p>
+			{/if}
+		</main>
+		<div class="footer">
 			<button on:click={cancel}>Cancel</button>
 			<button disabled={disallowSubmission} on:click={confirm}>Confirm</button>
-		</Buttons>
+		</div>
 	{/if}
 </div>
