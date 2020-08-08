@@ -9,6 +9,7 @@
 	import Buttons from './Buttons.svelte';
 	import items from './schools';
 	import {onMount} from 'svelte'
+	import {getUser, logout, approveAccount} from '../services/net';
 	import getUrl from './get-url';
 
 	const STATE = {
@@ -29,28 +30,23 @@
 	let focusElem;
 	let guessedSchool;
 
-	onMount(function() {
+	onMount(async () => {
 		focusElem.focus();
 
-		fetch(getUrl('/api/v0/session'), {credentials: 'include'}).then(r => r.json()).then(user => {
-			email = user.email;
-			if (!user.isNew) {
-				window.location.href = getUrl('/api/v0/redirect');
+		const user = await getUser();
+		if (!user) {
+			return;
 			}
 
+		email = user.email;
 			const domain = email.substring(email.lastIndexOf('@') + 1);
 			guessedSchool = items.find(school => school.domain === domain);
 			school = guessedSchool;
-		}).catch(error => console.error(`__getUser::${error.message}`));
-	})
+	});
 
-	function cancel() {
-		fetch(getUrl('/api/v0/session/end'), {credentials: 'include'}).then(r => {
-			if (r.status === 204) {
-				window.location.href = getUrl('');
-			}
-		}).catch(error => console.error(`__getUser::${error.message}`));
-
+	async function cancel() {
+		const response = await logout();
+		if (response) {
 		message = 'ERROR: Please refresh the page and try again.';
 	}
 
@@ -67,8 +63,8 @@
 	}
 	const setState = state_ => state = state_;
 
-	function confirm() {
 		if(!canConfirm()) {
+	async function confirm() {
 			message = 'Please select or type a school.';
 			return false;
 		}
@@ -83,36 +79,10 @@
 			payload.suggestion = userInputName;
 		}
 
-		const params = {
-			method: 'PUT',
-			body: JSON.stringify(payload),
-			headers: {
-				'content-type': 'application/json'
-			},
-			credentials: 'include'
-		};
-
-		fetch(getUrl('/api/v0/approve'), params).then(r => r.json()).then((r) => {
-			if (r.message) {
-				if (r.message === 'You are already approved') {
-					return window.location.href = getUrl('/api/v0/redirect');
-				}
-
-				message = r.message;
-				return;
+		const response = await approveAccount(payload);
+		if (response) {
+			message = response;
 			}
-
-			if (r.domain) {
-				const domain = r.domain.replace(/\/$/, '');
-				window.location.href = `${domain}/api/v0/me/approve`;
-			} else {
-				console.log(r);
-				message = 'Unable to process response. Please contact support if this issue persists.';
-			}
-		}).catch(error => {
-			console.log(error);
-			message = error;
-		});
 	}
 </script>
 
