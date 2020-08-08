@@ -151,16 +151,7 @@ task('dev', series('enableWatchMode', 'default', function devServer() {
 	watch('./styles/**/*', series('css')).on('change', reload);
 	watch(['./src/**/*.hbs','./src/**/*.md'], series('html')).on('change', reload);
 
-	liveReload.init({
-		server: {
-			baseDir: './dist/'
-		},
-		watch: false,
-		open: false,
-		notify: false,
-		ui: false,
-		port: Number(process.env.LIVE_RELOAD_PORT)
-	});
+	liveReload.init(require('./browser-sync.js'));
 }));
 
 task('build', series(
