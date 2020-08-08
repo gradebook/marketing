@@ -1,17 +1,7 @@
 [build]
   command = "yarn build"
   publish = "dist"
-  ignore = """
-    if [ -z "$INCOMING_HOOK_URL" ]; then
-      echo "Webhook detected"
-      exit 0
-    else
-      echo "Determining what files changed"
-      git diff $CACHED_COMMIT_REF --name-only | egrep '(scripts|styles)'
-      RESP=$?
-      exit RESP
-    fi
-  """
+  ignore = "test $INCOMING_HOOK_URL && echo 'Webhook found' || git diff $CACHED_COMMIT_REF --name-only | egrep '(scripts|styles)'"
 
 [[redirects]]
   from = "/login"
