@@ -1,7 +1,6 @@
 <script>
 	import {onMount} from 'svelte'
 	import Select from 'svelte-select';
-	import Buttons from './Buttons.svelte';
 	import items from './schools';
 	import {getUser, logout, approveAccount} from '../services/net';
 	import getUrl from './get-url';
