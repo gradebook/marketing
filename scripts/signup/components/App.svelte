@@ -13,7 +13,7 @@
 
 	let school;
 	let notListed = false;
-	let message = '';
+	let message = 'test';
 	let userInputName = '';
 
 	let email = 'your email';
@@ -93,11 +93,9 @@
 			{#if notListed}
 				My school: <input class="school" type="text" bind:value={userInputName}>
 			{/if}
-			{#if message}
-				<p class="warn" style="bottom: 12px; position: absolute;">{message}</p>
-			{/if}
 		</main>
 		<div class="footer">
+			<p class="error-message">{message}</p>
 			<button on:click={cancel}>Cancel</button>
 			<button disabled={disallowSubmission} on:click={confirm}>
 				<svg class="loader" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" hidden={!createAccountMutex}>

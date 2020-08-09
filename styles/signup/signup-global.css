@@ -61,9 +61,10 @@ button:not(:disabled):active {
 	background-color: #ddd;
 }
 
-.warn {
+.error-message {
 	color: darkred;
-	max-width: 50%;
+	width: 100%;
+	margin: 0;
 }
 
 .space {
@@ -102,7 +103,10 @@ button:not(:disabled):active {
 }
 
 .box .footer {
-	align-self: flex-end;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	width: 100%;
 }
 
 [hidden="true"] {
