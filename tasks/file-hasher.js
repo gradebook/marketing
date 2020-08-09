@@ -1,7 +1,7 @@
 // @ts-check
 const {Transform, PassThrough} = require('stream');
-const {join, resolve} = require('path');
-const fs = require('fs');
+const {join} = require('path');
+
 module.exports = class FileHasher {
 	constructor() {
 		if (process.env.NO_CACHEBUST === 'true') {
