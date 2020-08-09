@@ -3,18 +3,17 @@ require('dotenv').config();
 const {Transform} = require('stream');
 const {join, sep} = require('path');
 const {task, src, dest, parallel, series, watch} = require('gulp');
-const FileHasher = require('./tasks/file-hasher');
 let eleventy;
 let jsChangedEmitter;
+let hasher
 
-const BLACKLISTED_CSS_FILES = ['vars.css', 'normalize.css'];
-const hasher = new FileHasher();
+const IGNORED_CSS_FILES = ['vars.css', 'normalize.css'];
 
 const transformCssFileNames = new Transform({
 	objectMode: true,
 	transform: function transformCssFileNames(file, enc, cb) {
 		const finalFileName = file.relative.split(sep).pop();
-		if (!BLACKLISTED_CSS_FILES.includes(finalFileName)) {
+		if (!IGNORED_CSS_FILES.includes(finalFileName)) {
 			file.path = join(file.base, finalFileName);
 			this.push(file);
 		}
@@ -37,8 +36,11 @@ task('enableProdMode', () => {
 });
 
 task('enableWatchMode', () => {
+	const FileHasher = require('./tasks/file-hasher');
+
 	process.env.WATCH = 'true';
 	process.env.NO_CACHEBUST = 'true';
+	hasher = new FileHasher();
 	return Promise.resolve();
 });
 
@@ -99,6 +101,11 @@ task('js', () => new Promise((resolve, reject) => {
 }));
 
 task('css', (cb) => {
+	if (!hasher) {
+		const FileHasher = require('./tasks/file-hasher');
+		hasher = new FileHasher();
+	}
+
 	const postcss = require('gulp-postcss');
 
 	return src('./styles/*/*.css')
@@ -115,7 +122,7 @@ task('css', (cb) => {
 		.pipe(hasher.transform)
 		.pipe(dest('dist/built'))
 		.on('end', () => {
-			if (process.env.NO_CACHEBUST === 'true') {
+			if (process.env.NO_CACHEBUST !== 'true') {
 				cb();
 			} else {
 				const manifest = require('./tasks/get-cache');
