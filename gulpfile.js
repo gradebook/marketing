@@ -5,11 +5,10 @@ const {join, sep} = require('path');
 const {task, src, dest, parallel, series, watch} = require('gulp');
 let eleventy;
 let jsChangedEmitter;
-let hasher
 
 const IGNORED_CSS_FILES = ['vars.css', 'normalize.css'];
 
-const transformCssFileNames = new Transform({
+const transformCssFileNames = () => new Transform({
 	objectMode: true,
 	transform: function transformCssFileNames(file, enc, cb) {
 		const finalFileName = file.relative.split(sep).pop();
@@ -36,11 +35,8 @@ task('enableProdMode', () => {
 });
 
 task('enableWatchMode', () => {
-	const FileHasher = require('./tasks/file-hasher');
-
 	process.env.WATCH = 'true';
 	process.env.NO_CACHEBUST = 'true';
-	hasher = new FileHasher();
 	return Promise.resolve();
 });
 
@@ -101,12 +97,9 @@ task('js', () => new Promise((resolve, reject) => {
 }));
 
 task('css', (cb) => {
-	if (!hasher) {
-		const FileHasher = require('./tasks/file-hasher');
-		hasher = new FileHasher();
-	}
-
+	const FileHasher = require('./tasks/file-hasher');
 	const postcss = require('gulp-postcss');
+	const hasher = new FileHasher();
 
 	return src('./styles/*/*.css')
 		.pipe(postcss([
@@ -118,7 +111,7 @@ task('css', (cb) => {
 			}),
 			... process.env.NODE_ENV === 'production' ? [require('cssnano')] : []
 		]))
-		.pipe(transformCssFileNames)
+		.pipe(transformCssFileNames())
 		.pipe(hasher.transform)
 		.pipe(dest('dist/built'))
 		.on('end', () => {
