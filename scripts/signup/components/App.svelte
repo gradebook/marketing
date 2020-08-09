@@ -13,7 +13,7 @@
 
 	let school;
 	let notListed = false;
-	let message = 'test';
+	let message = '';
 	let userInputName = '';
 
 	let email = 'your email';
