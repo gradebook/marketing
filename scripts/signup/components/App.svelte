@@ -13,6 +13,7 @@
 
 	let school;
 	let notListed = false;
+	let corpsChecked = false;
 	let message = '';
 	let userInputName = '';
 
@@ -21,6 +22,8 @@
 	let guessedSchool;
 
 	$: disallowSubmission = !Boolean((notListed && userInputName) || (!notListed && school));
+	$: showCorpsCheckbox = school && school.value === 'aggie';
+	$: isCorpsMember = showCorpsCheckbox && corpsChecked;
 
 	onMount(async () => {
 		const user = await getUser();
@@ -50,6 +53,8 @@
 		if (notListed) {
 			payload.school = 'www';
 			payload.suggestion = userInputName;
+		} else if (school.value === 'aggie' && isCorpsMember) {
+			payload.school = 'aggiecorps'
 		} else {
 			payload.school = school.value;
 		}
@@ -88,6 +93,9 @@
 			</div>
 			{#if notListed}
 				My school: <input class="school" type="text" bind:value={userInputName}>
+			{:else if showCorpsCheckbox}
+				<input type="checkbox" id="is-corps" bind:checked={corpsChecked} on:change={e => message = ''}>
+				<label for="is-corps" class="inline">I am in the Corps of Cadets</label>
 			{/if}
 		</main>
 		<div class="footer">
