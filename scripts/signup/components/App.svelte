@@ -19,9 +19,8 @@
 	let email = 'your email';
 	let state = STATE.confirmCreation;
 	let guessedSchool;
-	let createAccountMutex = false;
 
-	$: disallowSubmission = createAccountMutex || !Boolean((notListed && userInputName) || (!notListed && school));
+	$: disallowSubmission = !Boolean((notListed && userInputName) || (!notListed && school));
 
 	onMount(async () => {
 		const user = await getUser();
@@ -45,7 +44,6 @@
 	const setState = state_ => state = state_;
 
 	async function confirm() {
-		createAccountMutex = true;
 		message = '';
 		const payload = {};
 
@@ -60,7 +58,6 @@
 		if (response) {
 			message = response;
 		}
-		createAccountMutex = false;
 	}
 </script>
 <div class="box">
