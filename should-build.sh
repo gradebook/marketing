@@ -1,6 +1,6 @@
 #! /bin/sh
 
-echo "Checking if build should run"
+echo "Checking if build should run relative to $CACHED_COMMIT_REF"
 
 # 0 means exit EARLY
 
