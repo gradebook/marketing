@@ -122,3 +122,9 @@ button:not(:disabled):active {
 		transform: rotate(360deg);
 	}
 }
+
+@media (max-width: 600px) {
+	.box .footer {
+		flex-direction: column;
+	}
+}
