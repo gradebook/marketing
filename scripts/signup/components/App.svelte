@@ -1,37 +1,3 @@
-<style>
-.inline {
-	display: inline;
-}
-
-.box {
-	margin: 0 1rem;
-	max-width: 400px;
-	height: 300px;
-	border-radius: 4px;
-	box-shadow: /* stylelint-ignore */
-		0 11px 15px -7px rgba(0, 0, 0, 0.2),
-		0 24px 38px 3px rgba(0, 0, 0, 0.14),
-		0 9px 46px 8px rgba(0, 0, 0, 0.12);
-	padding: 1.5rem;
-	background-color: #fff;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-}
-
-.box .header {
-	margin: 0;
-}
-
-.box main {
-	flex: 1;
-	margin-top: 2rem;
-}
-
-.box .footer {
-	align-self: flex-end;
-}
-</style>
 <script>
 	import {onMount} from 'svelte'
 	import Select from 'svelte-select';
