@@ -19,8 +19,9 @@
 	let email = 'your email';
 	let state = STATE.confirmCreation;
 	let guessedSchool;
+	let createAccountMutex = false;
 
-	$: disallowSubmission = !Boolean((notListed && userInputName) || (!notListed && school));
+	$: disallowSubmission = createAccountMutex || !Boolean((notListed && userInputName) || (!notListed && school));
 
 	onMount(async () => {
 		const user = await getUser();
@@ -44,6 +45,7 @@
 	const setState = state_ => state = state_;
 
 	async function confirm() {
+		createAccountMutex = true;
 		message = '';
 		const payload = {};
 
@@ -58,6 +60,7 @@
 		if (response) {
 			message = response;
 		}
+		createAccountMutex = false;
 	}
 </script>
 
@@ -96,7 +99,13 @@
 		</main>
 		<div class="footer">
 			<button on:click={cancel}>Cancel</button>
-			<button disabled={disallowSubmission} on:click={confirm}>Confirm</button>
+			<button disabled={disallowSubmission} on:click={confirm}>
+				<svg class="loader" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" hidden={!createAccountMutex}>
+					<circle cx="12" cy="12" r="10" stroke="#333" stroke-width="4"></circle>
+					<path fill="#333" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+				</svg>
+				Confirm
+			</button>
 		</div>
 	{/if}
 </div>
