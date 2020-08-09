@@ -1,6 +1,7 @@
 <script>
 	import {onMount} from 'svelte'
 	import Select from 'svelte-select';
+	import AsyncButton from './async-button.svelte';
 	import items from './schools';
 	import {getUser, logout, approveAccount} from '../services/net';
 	import getUrl from './get-url';
@@ -62,7 +63,6 @@
 		createAccountMutex = false;
 	}
 </script>
-
 <div class="box">
 	{#if state === STATE.confirmCreation}
 		<h2 class="header">Welcome to Gradebook!</h2>
@@ -70,7 +70,7 @@
 			<p>There is not yet an account associated with {email}. Would you like to create one?</p>
 		</main>
 		<div class="footer">
-			<button on:click={cancel}>Cancel</button>
+			<AsyncButton click={cancel}>Cancel</AsyncButton>
 			<!-- svelte-ignore a11y-autofocus -->
 			<button autofocus on:click={() => setState(STATE.selectSchool)}>Create Account</button>
 		</div>
@@ -95,14 +95,8 @@
 		</main>
 		<div class="footer">
 			<p class="error-message">{message}</p>
-			<button on:click={cancel}>Cancel</button>
-			<button disabled={disallowSubmission} on:click={confirm}>
-				<svg class="loader" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" hidden={!createAccountMutex}>
-					<circle cx="12" cy="12" r="10" stroke="#333" stroke-width="4"></circle>
-					<path fill="#333" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-				</svg>
-				Confirm
-			</button>
+			<AsyncButton click={cancel}>Cancel</AsyncButton>
+			<AsyncButton disabled={disallowSubmission} click={confirm}>Confirm</AsyncButton>
 		</div>
 	{/if}
 </div>
