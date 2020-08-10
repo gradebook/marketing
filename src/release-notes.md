@@ -6,7 +6,27 @@ description: See what's changed as Gradebook evolves!
 
 # Release Notes
 
-## 3.11
+## 3.15
+
+_Released August 9, 2020_
+
+### Features
+
+ - Refreshed GradeTable
+
+### Bug Fixes / Notable Changes
+
+ - Fixed course name not visually updating when it was changed in the settings
+
+ - Fixed a memory leak
+
+ - Fixed some issues with the tour
+
+ - Removed unused icon libraries
+
+ - Internally updated how we store cutoffs so we can support more cutoffs in the future
+
+## 3.14
 
 _Released July 4, 2020 🎇_
 
