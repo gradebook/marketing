@@ -6,6 +6,26 @@ description: See what's changed as Gradebook evolves!
 
 # Release Notes
 
+## 3.16
+
+_Released August 17, 2020_
+
+### Features
+
+ - Internal updates to support [major updates](https://github.com/gradebook/server/releases/tag/v4.0.0) to our backend
+
+### Bug Fixes / Notable Changes
+
+ - Added an edit button to the Previous Semester GPA section
+
+ - Improved support for mobile devices
+
+ - Removed some dead code from 3.15 to make the app load even faster 🚀
+
+ - Added support for Fall 2020
+
+ - Removed `Add Assignment` and `Add Category` buttons from archived semesters - they were crashing the app
+
 ## 3.15
 
 _Released August 9, 2020_
