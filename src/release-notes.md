@@ -6,6 +6,20 @@ description: See what's changed as Gradebook evolves!
 
 # Release Notes
 
+## 3.17
+
+_Released August 17, 2020_
+
+### Features
+
+ - Add initial support for [per-school configurations](https://github.com/gradebook/school-configuration). This will allow us to release features at a faster speed!
+
+### Bug Fixes / Notable Changes
+
+ - Fix category editor crashing the app some times
+
+ - Fix course creation sometimes not working
+
 ## 3.16
 
 _Released August 17, 2020_
