@@ -51,7 +51,7 @@
       origin: 'left',
       viewFactor: 0.5
     })
-    sr.reveal('.pricing-table, .testimonial, .cta-inner', {
+    sr.reveal('.pricing-table, .testimonial, .cta-inner, .enterprise-contact', {
       duration: 600,
       distance: '60px',
       easing: 'cubic-bezier(0.215, 0.61, 0.355, 1)',

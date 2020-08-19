@@ -1,3 +1,49 @@
 .enterprise-image-block-item {
 	padding: 4rem 0;
 }
+
+.enterprise-contact {
+	display: block;
+	background-color: var(--color--bg-2) !important;
+}
+
+.enterprise-form {
+	width: 60%;
+}
+
+.enterprise-form-header {
+	color: var(--color--typography-1) !important;
+}
+
+.enterprise-input {
+	margin: 1rem 0;
+}
+
+.enterprise-input--label {
+	color: var(--color--typography-4);
+	display: block;
+}
+
+.enterprise-input--input {
+	width: 300px;
+	background-color: rgba(255,255,255,0.1);
+	border: none;
+	color: var(--color--typography-1i);
+}
+
+.enterprise-input--input::placeholder {
+	color: var(--color--typography-3);
+}
+
+.enterprise-submit {
+	background-color: var(--color--primary-1);
+	border: 1px solid var(--color--typography-3);
+	border-radius: 50px;
+	padding: 6px 24px;
+	color: var(--color--typography-1i);
+}
+
+.enterprise-submit:hover {
+	background-color: rgba(255,255,255,0.1);
+	cursor: pointer;
+}
