@@ -1,0 +1,89 @@
+---
+title: Enterprise
+description: Give your students the grade tracking resource they deserve
+hideHeaderLogoText: false
+---
+
+{{#block "hero"}}
+<div class="container-sm">
+	<div class="hero-inner">
+		<div class="hero-copy">
+			<h1 class="gb-header hero-paragraph">Partner with the only <br> student-centered grade tracker</h1>
+			{{!-- @todo: no inline styles! --}}
+			<p class="hero-paragraph" style="font-size: 20px">Expert solutions and support for schools and groups of all sizes</p>
+		</div>
+		<div class="hero-cta">
+			<a class="button button-primary button-wide-mobile"
+				href="#enterprise-contact">Get in touch</a>
+		</div>
+	</div>
+</div>
+{{/block}}
+
+<section class="image-block section">
+	<div class="image-block-inner section-inner">
+		<div class="image-block-wrap">
+			<div class="container">
+				<div class="image-block-item enterprise-image-block-item">
+					<div class="image-block-item-image is-revealing">
+						<img src="/static/images/undraw_app_data_516s.svg" alt="Viewing statistics">
+					</div>
+					<div class="image-block-item-body is-revealing">
+						<h3 class="mt-0">Better insights into academic progress</h3>
+						<p class="mb-0">
+							Our powerful prediction and statistics tools allow your students to focus on what's most	important, and spend less time worrying about their grades.
+						</p>
+					</div>
+				</div>
+				<div class="image-block-item enterprise-image-block-item">
+					<div class="image-block-item-image is-revealing">
+						<img src="/static/images/undraw_collaborators_prrw.svg" alt="People collaborating">
+					</div>
+					<div class="image-block-item-body is-revealing">
+						<h3 class="mt-0">Standalone value, or a powerful layer on top of your existing LMS</h3>
+						<p class="mb-0">Traditional learning management systems are not built with a priority on student
+							experience. Our student-facing tools can be used independently as a freestanding resource, or
+							we can work with you to integrate our frontend tools into your LMS's backend and API.
+						</p>
+					</div>
+				</div>
+				<div class="image-block-item enterprise-image-block-item">
+					<div class="image-block-item-image is-revealing">
+						<img src="/static/images/undraw_agreement_aajr.svg" alt="Handshake">
+					</div>
+					<div class="image-block-item-body is-revealing">
+						<h3 class="mt-0">Partners in enhancing value to students</h3>
+						<p class="mb-0">Our team will work hand-in-hand with you to address the specific needs of your school.
+							Additionally, we're constantly finding ways to improve our value through customer and student feedback.
+							Oh and did we mention we'll design a custom theme for your school?
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="enterprise-contact" class="cta section text-light">
+	<div class="container">
+		<div class="cta-inner section-inner is-revealing">
+			<h3 class="section-title mt-0 ml-64 enterprise-form-header">Interested in partnering with us? Get in touch!</h3>
+			<form class="enterprise-form" method="POST" netlify>
+				<div class="enterprise-input">
+					<label class="enterprise-input--label" for="name">Name</label>
+					<input class="enterprise-input--input" id="name" name="name" type="text" required />
+				</div>
+				<div class="enterprise-input">
+					<label class="enterprise-input--label" for="email">Email</label>
+					<input class="enterprise-input--input" id="email" name="email" type="email" required />
+				</div>
+				<div class="enterprise-input">
+					<label class="enterprise-input--label" for="message">Message</label>
+					<textarea class="enterprise-input--input enterprise-input-message min-h-32" id="message" name="message" required></textarea>
+				</div>
+				<input type="submit" class="enterprise-submit" value="Submit">
+				<p class="enterprise-email pt-40">Or <a class="enterprise-email-link" href="mailto:contact@gradebook.app">send us an email</a></p>
+			</form>
+		</div>
+	</div>
+</section>

@@ -37,21 +37,21 @@
       origin: 'left',
       viewFactor: 0.5
     })
-    sr.reveal('.member:nth-child(odd) .member-body, .member:nth-child(even) .member-image', {
+		sr.reveal('.image-block-item:nth-child(odd) .image-block-item-body, .image-block-item:nth-child(even) .image-block-item-image', {
       duration: 600,
       distance: '40px',
       easing: 'cubic-bezier(0.215, 0.61, 0.355, 1)',
       origin: 'right',
       viewFactor: 0.5
     })
-    sr.reveal('.member:nth-child(even) .member-body, .member:nth-child(odd) .member-image', {
+    sr.reveal('.image-block-item:nth-child(even) .image-block-item-body, .image-block-item:nth-child(odd) .image-block-item-image', {
       duration: 600,
       distance: '40px',
       easing: 'cubic-bezier(0.215, 0.61, 0.355, 1)',
       origin: 'left',
       viewFactor: 0.5
     })
-    sr.reveal('.pricing-table, .testimonial, .cta-inner', {
+    sr.reveal('.pricing-table, .testimonial, .cta-inner, .enterprise-contact', {
       duration: 600,
       distance: '60px',
       easing: 'cubic-bezier(0.215, 0.61, 0.355, 1)',
