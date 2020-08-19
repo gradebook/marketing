@@ -12,7 +12,7 @@
 }
 
 .enterprise-form-header {
-	color: var(--color--typography-1) !important;
+	max-width: 30%;
 }
 
 .enterprise-input {
@@ -20,7 +20,7 @@
 }
 
 .enterprise-input--label {
-	color: var(--color--typography-4);
+	color: var(--color--primary-4);
 	display: block;
 }
 
@@ -46,4 +46,18 @@
 .enterprise-submit:hover {
 	background-color: rgba(255,255,255,0.1);
 	cursor: pointer;
+}
+
+.enterprise-input-message {
+	max-width: 80%;
+	max-height: 300px; /* Note: rem does not work here for some reason */
+}
+
+.enterprise-email {
+	color: var(--color--primary-4)
+}
+
+.enterprise-email-link {
+	color: var(--color--primary-4) !important;
+	text-decoration: underline;
 }

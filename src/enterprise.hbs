@@ -67,7 +67,7 @@ hideHeaderLogoText: false
 <section id="enterprise-contact" class="cta section text-light">
 	<div class="container">
 		<div class="cta-inner section-inner is-revealing">
-			<h3 class="section-title mt-0 ml-64">Get in touch!</h3>
+			<h3 class="section-title mt-0 ml-64 enterprise-form-header">Interested in partnering with us? Get in touch!</h3>
 			<form class="enterprise-form" method="POST" netlify>
 				<div class="enterprise-input">
 					<label class="enterprise-input--label" for="name">Name</label>
@@ -78,14 +78,11 @@ hideHeaderLogoText: false
 					<input class="enterprise-input--input" id="email" name="email" type="email" required />
 				</div>
 				<div class="enterprise-input">
-					<label class="enterprise-input--label" for="subject">Subject</label>
-					<input class="enterprise-input--input" id="subject" name="subject" type="text" required />
-				</div>
-				<div class="enterprise-input">
 					<label class="enterprise-input--label" for="message">Message</label>
-					<textarea class="enterprise-input--input min-h-32" id="message" name="message" required></textarea>
+					<textarea class="enterprise-input--input enterprise-input-message min-h-32" id="message" name="message" required></textarea>
 				</div>
 				<input type="submit" class="enterprise-submit" value="Submit">
+				<p class="enterprise-email pt-40">Or <a class="enterprise-email-link" href="mailto:contact@gradebook.app">send us an email</a></p>
 			</form>
 		</div>
 	</div>
