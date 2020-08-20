@@ -8,7 +8,7 @@ description: See what's changed as Gradebook evolves!
 
 ## 3.17
 
-_Released August 17, 2020_
+_Released August 18, 2020_
 
 ### Features
 
