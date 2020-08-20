@@ -1,7 +1,7 @@
 {
   const {AUTH_URL} = env;
   fetch(`${AUTH_URL}/api/v0/session`, {credentials: 'include'}).then(r => r.json()).then(user => {
-    const bothCta = document.querySelectorAll('.js-auth-redirect .button');
+    const bothCta = document.querySelectorAll('.js-auth-redirect');
     let updatedText;
     let updatedLink;
 
