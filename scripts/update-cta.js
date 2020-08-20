@@ -1,8 +1,7 @@
 {
   const {AUTH_URL} = env;
   fetch(`${AUTH_URL}/api/v0/session`, {credentials: 'include'}).then(r => r.json()).then(user => {
-    const topCta = document.querySelector('.hero-cta .button');
-    const bottomCta = document.querySelector('.cta-cta .button');
+    const bothCta = document.querySelectorAll('.js-auth-redirect .button');
     let updatedText;
     let updatedLink;
 
@@ -21,10 +20,10 @@
         }
       };
 
-      topCta.setAttribute('href', updatedLink);
-      bottomCta.setAttribute('href', updatedLink);
-      topCta.textContent = updatedText;
-      bottomCta.textContent = updatedText;
+			for (cta of bothCta) {
+				cta.setAttribute('href', updatedLink);
+				cta.textContent = updatedText;
+			}
     }
   }).catch(error => console.error(`__updateCTA::${error.message}`));
 }
