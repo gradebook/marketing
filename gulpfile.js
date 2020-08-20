@@ -137,7 +137,7 @@ task('html', async () => {
 
 task('html:minify', () => {
 	const minify = require('./tasks/minify-html');
-	return src('./dist/*.html')
+	return src('./dist/**/*.html')
 		.pipe(minify)
 		.pipe(dest('./dist'));
 });
