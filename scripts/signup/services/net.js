@@ -49,8 +49,14 @@ export function approveAccount(payload) {
 		}
 
 		if (response.domain) {
+			const globalQuery = new URLSearchParams(window.location.search);
+			let query = '';
+			if (globalQuery.has('import')) {
+				query = `?import=${globalQuery.get('import')}`;
+			}
+
 			const domain = response.domain.replace(/\/$/, '');
-			window.location.href = `${domain}/api/v0/me/approve`;
+			window.location.href = `${domain}/api/v0/me/approve${query}`;
 		} else {
 			console.log(response);
 			return 'Unable to process response. Please contact support if this issue persists.';
