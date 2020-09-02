@@ -72,7 +72,7 @@
 			<p>There is not yet an account associated with {email}. Would you like to create one?</p>
 		</main>
 		<div class="footer">
-			<AsyncButton click={cancel}>Cancel</AsyncButton>
+			<AsyncButton click={cancel} hideLoaderAfterFinish={false}>Cancel</AsyncButton>
 			<!-- svelte-ignore a11y-autofocus -->
 			<button autofocus on:click={() => setState(STATE.selectSchool)}>Create Account</button>
 		</div>
@@ -100,8 +100,8 @@
 		</main>
 		<div class="footer">
 			<p class="error-message">{message}</p>
-			<AsyncButton click={cancel}>Cancel</AsyncButton>
-			<AsyncButton disabled={disallowSubmission} click={confirm}>Confirm</AsyncButton>
+			<AsyncButton click={cancel} hideLoaderAfterFinish={false}>Cancel</AsyncButton>
+			<AsyncButton disabled={disallowSubmission} hideLoaderAfterFinish={false} click={confirm}>Confirm</AsyncButton>
 		</div>
 	{/if}
 </div>

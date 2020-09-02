@@ -23,6 +23,7 @@
 </style>
 <script>
 export let disabled = false;
+export let hideLoaderAfterFinish = true;
 export let click = () => new Promise(resolve => setTimeout(resolve, 3000));
 let mutex = false;
 
@@ -34,7 +35,7 @@ async function handleClick() {
 	try {
 		await click();
 	} finally {
-		mutex = false;
+		mutex = !hideLoaderAfterFinish;
 	}
 }
 </script>
