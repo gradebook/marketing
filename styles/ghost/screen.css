@@ -61,26 +61,6 @@ html,
 	text-decoration: none;
 }
 
-.gh-head-actions a {
-	display: inline-flex;
-	align-items: center;
-	margin: 0;
-	padding: 10px;
-}
-
-.gh-head-actions a svg {
-	height: 1.8rem;
-	fill: currentColor;
-}
-
-.gh-head-actions a:first-child svg {
-	margin-left: 20px;
-}
-
-.gh-head-actions a:last-child svg {
-	height: 2rem;
-}
-
 /* Index
 /* ---------------------------------------------------------- */
 
