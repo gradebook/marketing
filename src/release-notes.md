@@ -6,6 +6,26 @@ description: See what's changed as Gradebook evolves!
 
 # Release Notes
 
+## 3.18
+
+_Released September 7, 2020_
+
+### Features
+
+ - Reworked the login flow to make it easier and faster for you to get logged in or create your account
+
+### Bug Fixes / Notable Changes
+
+ - Creating a category now asks for the number of grades
+
+ - Removed unnecessary prompt when deleting an empty assignment or category
+
+ - Fixed an issue with scrollbars in FireFox
+
+ - GPA progress bar won't show up when your semester has no courses
+
+ - Fixed a crash and timing issues when per-school configurations failed to populate
+
 ## 3.17
 
 _Released August 18, 2020_
