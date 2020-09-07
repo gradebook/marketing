@@ -4,7 +4,7 @@
 		"color-hex-case": "lower",
 		"color-hex-length": "short",
 		"color-no-invalid-hex": true,
-		"declaration-colon-space-after": "always",
+		"declaration-colon-space-after": "always-single-line",
 		"max-empty-lines": 2,
 		"indentation": "tab"
 	},

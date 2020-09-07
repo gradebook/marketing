@@ -91,8 +91,8 @@
 	margin: 1.5em 0 0;
 }
 
-.gh-content [id] + .kg-card,
-.gh-content blockquote + .kg-card {
+.gh-content blockquote + .kg-card,
+.gh-content [id] + .kg-card {
 	margin-top: 6vmin;
 }
 
@@ -117,6 +117,7 @@
 	margin-top: 6vmin;
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
 .gh-content hr + * {
 	margin-top: 6vmin !important;
 }
@@ -289,9 +290,6 @@
 
 .kg-bookmark-metadata {
 	margin-top: 20px;
-}
-
-.kg-bookmark-metadata {
 	display: flex;
 	align-items: center;
 	font-weight: 500;
@@ -300,13 +298,6 @@
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
-}
-
-.kg-bookmark-description {
-	display: -webkit-box;
-	-webkit-box-orient: vertical;
-	-webkit-line-clamp: 2;
-	overflow: hidden;
 }
 
 .kg-bookmark-icon {
@@ -386,14 +377,14 @@
 	padding: 1px;
 }
 
+.gh-content tbody tr:nth-child(2n + 2) td {
+	box-shadow: inset 1px 0 rgba(0, 0, 0, 0.1);
+}
+
 .gh-content tbody tr:nth-child(2n + 2) td:last-child {
 	box-shadow:
 		inset 1px 0 rgba(0, 0, 0, 0.1),
 		inset -1px 0 rgba(0, 0, 0, 0.1);
-}
-
-.gh-content tbody tr:nth-child(2n + 2) td {
-	box-shadow: inset 1px 0 rgba(0, 0, 0, 0.1);
 }
 
 .gh-content tbody tr:last-child {

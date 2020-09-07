@@ -200,6 +200,7 @@ html,
 	justify-content: center;
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
 .gh-author-links a {
 	position: relative;
 	display: inline-flex;
