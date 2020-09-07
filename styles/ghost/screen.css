@@ -7,7 +7,6 @@
 @import "components/global.css";
 
 /* Ghost components */
-@import "ghost/header.css";
 @import "ghost/content.css";
 @import "ghost/readmore.css";
 @import "ghost/badge.css";
