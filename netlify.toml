@@ -10,8 +10,6 @@
 [[redirects]]
   from = "/blog/content/*"
   to = "https://blog.gradebook.app/blog/content/:splat"
-  status = 200
-  headers = {Host = "https://www.gradebook.app"}
 
 [[headers]]
     for = "/built/*"
