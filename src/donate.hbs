@@ -1,0 +1,61 @@
+---
+title: Donate
+description: Please support our continued work to develop products for student success
+---
+
+<section class="general section is-revealing">
+	<div class="general-inner section-inner">
+		<div class="container-sm">
+			<h1>Buy us a Coffee</h1>
+			<p>Josh's pithy pitch goes here to make you give us tons of money.</p>
+
+			<div class="text-center m-auto">
+				<div class="m-auto pb-32">
+					<h2 id="coffee-count">$10</h2>
+					<input id="coffee-slider" class="m-auto" type="range" value="10" min="1" max="100" />
+				</div>
+				<a class="m-auto button button-primary button-wide-mobile" id="donate-button">Buy us a Coffee</a>
+				<div class="mt-16 mb-32 payment-options">
+					<img src="/static/images/pm-visa.svg" />
+					<img src="/static/images/pm-googlepay.svg" />
+					<img src="/static/images/pm-applepay.svg" />
+				</div>
+				<small>or venmo us at <a id="donate-venmo" href="https://venmo.com/?txn=pay&audience=friends&recipients=gradebook&note=Buy%20the%20dev%20team%20some%20coffee">@gradebook</a></small>
+			</div>
+		</div>
+	</div>
+</section>
+
+{{#block "footer"}}
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+	stripe = Stripe('{{stripe.publishable}}');
+	var DOMAIN = 'window.location.origin';
+
+	// Handle slider change
+	var coffeeSlider = document.getElementById("coffee-slider");
+	coffeeSlider.addEventListener("input", function() {
+		document.getElementById("coffee-count").innerText = "$" + coffeeSlider.value;
+	});
+
+	// Handle donate button click
+	var donateButton = document.getElementById("donate-button");
+	donateButton.addEventListener("click", function () {
+		var quantity = parseInt(
+			document.getElementById("coffee-slider").value
+		);
+
+		// Make the call to Stripe.js to redirect to the checkout page
+		// with the current quantity
+		stripe
+			.redirectToCheckout({
+				mode: 'payment',
+				lineItems: [{price: '{{stripe.donate}}', quantity: quantity}],
+				successUrl:
+					DOMAIN + "/thank-you?session_id={CHECKOUT_SESSION_ID}",
+				cancelUrl: DOMAIN + "/donate"
+			})
+			.then(handleResult);
+	});
+</script>
+{{/block}}

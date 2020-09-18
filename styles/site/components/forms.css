@@ -1,0 +1,47 @@
+input[type=range]{
+	display: block;
+	width: 90%;
+	max-width: 40rem;
+	-webkit-appearance: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+	width: 300px;
+	height: 6px;
+	background-color: var(--color--bg-3);
+	border: none;
+	border-radius: 3px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	border: none;
+	height: 16px;
+	width: 32px;
+	border-radius: 8px;
+	background: var(--color--primary-1);
+	margin-top: -6px;
+}
+
+input[type=range]:focus {
+	outline: none;
+}
+
+input[type=range]:hover::-webkit-slider-runnable-track {
+	background-color: var(--color--bg-3i);
+}
+
+input[type=range]:hover::-webkit-slider-thumb {
+	background: #420420;
+	cursor: pointer;
+}
+
+.payment-options {
+	display: flex;
+	justify-content: center;
+	gap: 0.75rem;
+}
+
+.payment-options img {
+	height: 20px;
+}
