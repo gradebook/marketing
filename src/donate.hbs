@@ -30,7 +30,7 @@ description: Please support our continued work to develop products for student s
 <script src="https://js.stripe.com/v3/"></script>
 <script>
 	stripe = Stripe('{{stripe.publishable}}');
-	var DOMAIN = 'window.location.origin';
+	var DOMAIN = window.location.origin;
 
 	// Handle slider change
 	var coffeeSlider = document.getElementById("coffee-slider");
