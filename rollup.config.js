@@ -81,7 +81,7 @@ export default [...entrypointCompilers, {
 			// we'll extract any component CSS out into
 			// a separate file - better for performance
 			css: css => {
-				let outputFileName = 'dist/built/signup.css';
+				let outputFileName = 'signup.css';
 				if (hashFile.renderChunk) {
 					const ref = {fileName: outputFileName};
 					hashFile.renderChunk(css.code, ref);
