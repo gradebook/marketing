@@ -1,6 +1,7 @@
 ---
 title: Donate
 description: Please support our continued work to develop products for student success
+prices: [1, 5, 10, 25, 50, 100]
 ---
 
 <section class="general section is-revealing">
@@ -8,10 +9,17 @@ description: Please support our continued work to develop products for student s
 		<div class="container-sm">
 			<h1>Buy us a Coffee</h1>
 			<p>Josh's pithy pitch goes here to make you give us tons of money.</p>
-
 			<div class="text-center m-auto">
-				<div class="m-auto pb-32">
-					<h2 id="coffee-count">$10</h2>
+				<div class="mt-64 switch-field">
+					{{#each prices as |price|}}
+						<input type="radio" name="prices" id="price-{{price}}" value="{{price}}" />
+						<label for="price-{{price}}">{{price}}</label>
+					{{/each}}
+					<input type="radio" name="prices" id="price-other" value="other" />
+					<label for="price-other">Other</label>
+				</div>
+				<div id="slider-value" class="m-auto pb-32">
+					<h2 class="mt-16" id="coffee-count">$10</h2>
 					<input id="coffee-slider" class="m-auto" type="range" value="10" min="1" max="100" />
 				</div>
 				<a class="m-auto button button-primary button-wide-mobile" id="donate-button">Buy us a Coffee</a>
