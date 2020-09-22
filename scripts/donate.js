@@ -24,8 +24,6 @@ donateForm.addEventListener('submit', event => {
 	}
 
 	quantity = Number(quantity);
-	console.log(new URL('/thank-you?session_id={CHECKOUT_SESSION_ID}', origin).href);
-	console.log(new URL('/donate', origin).href);
 
 	// Make the call to Stripe.js to redirect to the checkout page with the current quantity
 	stripe.redirectToCheckout({
