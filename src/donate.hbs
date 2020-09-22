@@ -1,6 +1,5 @@
 ---
 title: Donate
-description: Please support our continued work to develop products for student success
 prices: [1, 5, 10, 25, 50, 100]
 ---
 
@@ -44,8 +43,8 @@ prices: [1, 5, 10, 25, 50, 100]
 </section>
 
 {{#block "footer"}}
-<script type="text/javascript" src="https://js.stripe.com/v3/"></script>
-<script type="text/javascript">
+<script src="https://js.stripe.com/v3/"></script>
+<script>
 	window.gb = {
 		stripe: {
 			publishable: "{{stripe.publishable}}",
@@ -53,5 +52,5 @@ prices: [1, 5, 10, 25, 50, 100]
 		}
 	}
 </script>
-<script type="text/javascript" src="{{asset "donate.js"}}"></script>
+<script src="{{asset "donate.js"}}"></script>
 {{/block}}
