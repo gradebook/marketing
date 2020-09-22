@@ -1,0 +1,56 @@
+---
+title: Donate
+prices: [1, 5, 10, 25, 50, 100]
+---
+
+<section class="general section is-revealing">
+	<div class="general-inner section-inner">
+		<div class="container-sm">
+			<h1>Buy us a coffee?</h1>
+			<p>
+				Gradebook is 100% free for students, but maintaining a service like this is expensive. A donation of just $5 helps our <a href="/team">small team</a> build new features and support thousands of students. Will you consider contributing? 😀
+			</p>
+			<div class="text-center m-auto">
+				<form name="donate" id="donate">
+					<div class="mt-64 switch-field">
+						{{#each prices as |price|}}
+							<input type="radio" name="prices" id="price-{{price}}" value="{{price}}" {{#eq 1 @index}}checked{{/eq}} />
+							<label for="price-{{price}}">${{price}}</label>
+						{{/each}}
+						<input type="radio" name="prices" id="price-other" value="other" />
+						<label for="price-other">Other</label>
+					</div>
+					<div id="slider-value" class="m-auto pb-32 hide">
+						<h2 class="mt-16" id="coffee-count">$10</h2>
+						<input id="coffee-slider" class="m-auto" type="range" value="10" min="1" max="100" />
+					</div>
+					<button type="submit" class="m-auto button button-primary button-wide-mobile">
+						Donate
+					</button>
+				</form>
+				<div class="mt-16 mb-32 payment-options">
+					<img src="/static/images/pm-visa.svg" />
+					<img src="/static/images/pm-mastercard.svg" />
+					<img src="/static/images/pm-amex.svg" />
+					<img src="/static/images/pm-discover.svg" />
+					<img src="/static/images/pm-googlepay.svg" />
+					<img src="/static/images/pm-applepay.svg" />
+				</div>
+				<small>or venmo us <a id="donate-venmo" href="https://venmo.com/?txn=pay&audience=friends&recipients=gradebook&note=Help%20support%20Gradebook%20🎁">@gradebook</a></small>
+			</div>
+		</div>
+	</div>
+</section>
+
+{{#block "footer"}}
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+	window.gb = {
+		stripe: {
+			publishable: "{{stripe.publishable}}",
+			donate: "{{stripe.donate}}"
+		}
+	}
+</script>
+<script src="{{asset "donate.js"}}"></script>
+{{/block}}

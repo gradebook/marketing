@@ -1,0 +1,129 @@
+input[type=range]{
+	display: block;
+	width: 90%;
+	max-width: 40rem;
+	-webkit-appearance: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+	width: 300px;
+	height: 6px;
+	background-color: var(--color--bg-3);
+	border: none;
+	border-radius: 3px;
+}
+
+input[type=range]::-moz-range-track {
+	height: 6px;
+	background-color: var(--color--bg-3);
+	border: none;
+	border-radius: 3px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	border: none;
+	height: 16px;
+	width: 32px;
+	border-radius: 8px;
+	background: var(--color--primary-1);
+	margin-top: -6px;
+}
+
+input[type=range]::-moz-range-thumb {
+	border: none;
+	height: 16px;
+	width: 32px;
+	border-radius: 8px;
+	background: var(--color--primary-1);
+	margin-top: -6px;
+}
+
+input[type=range]:focus {
+	outline: none;
+}
+
+input[type=range]:hover::-webkit-slider-runnable-track {
+	background-color: var(--color--bg-3i);
+}
+
+input[type=range]:hover::-moz-range-track {
+	background-color: var(--color--bg-3i);
+}
+
+input[type=range]:hover::-webkit-slider-thumb {
+	background: #420420;
+	cursor: pointer;
+}
+
+input[type=range]:hover::-moz-range-thumb {
+	background: #420420;
+	cursor: pointer;
+}
+
+.switch-field {
+		display: flex;
+		justify-content: center;
+    overflow: hidden;
+}
+
+.switch-field input {
+    position: absolute !important;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    width: 1px;
+    border: 0;
+    overflow: hidden;
+}
+
+.switch-field label {
+    background-color: var(--color--bg-2);
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 14px;
+    line-height: 1;
+    text-align: center;
+    padding: 16px 32px;
+    margin-right: -1px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    transition: all 0.1s ease-in-out;
+}
+
+.switch-field label:hover {
+    cursor: pointer;
+}
+
+.switch-field input:checked + label {
+		background-color: var(--color--primary-1);
+		color: var(--color--typography-1i);
+}
+
+.switch-field label:first-of-type {
+    border-radius: 32px 0 0 32px;
+}
+
+.switch-field label:last-of-type {
+    border-radius: 0 32px 32px 0;
+}
+
+.payment-options {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 0.75rem;
+}
+
+.payment-options img {
+	height: 20px;
+}
+
+#slider-value {
+	overflow-y: hidden;
+	transition: opacity 0.4s ease-out 0.2s, max-height 0.4s ease-in-out;
+	max-height: 110px;
+}
+
+#slider-value.hide {
+	transition: opacity 0.4s ease-out, max-height 0.4s ease-in-out  0.2s;
+	opacity: 0;
+	max-height: 0;
+}

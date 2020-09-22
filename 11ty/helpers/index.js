@@ -3,6 +3,7 @@ module.exports = {
 	absoluteURL: require('./absolute-url'),
 	block: require('./block'),
 	date: require('./date'),
+	eq: require('./eq'),
 	imageURL: require('./image-url'),
 	meta: require('./meta'),
 	offset: require('./offset'),
