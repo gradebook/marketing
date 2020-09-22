@@ -10,19 +10,23 @@ prices: [1, 5, 10, 25, 50, 100]
 			<h1>Buy us a Coffee</h1>
 			<p>Josh's pithy pitch goes here to make you give us tons of money.</p>
 			<div class="text-center m-auto">
-				<div class="mt-64 switch-field">
-					{{#each prices as |price|}}
-						<input type="radio" name="prices" id="price-{{price}}" value="{{price}}" {{#if @first}}checked{{/if}} />
-						<label for="price-{{price}}" onclick="setValue({{price}})">${{price}}</label>
-					{{/each}}
-					<input type="radio" name="prices" id="price-other" value="other" />
-					<label for="price-other" onclick="setValue(0)">Other</label>
-				</div>
-				<div id="slider-value" class="m-auto pb-32 hide">
-					<h2 class="mt-16" id="coffee-count">$10</h2>
-					<input id="coffee-slider" class="m-auto" type="range" value="10" min="1" max="100" />
-				</div>
-				<a class="m-auto button button-primary button-wide-mobile" id="donate-button">Buy us a Coffee</a>
+				<form name="donate" id="donate">
+					<div class="mt-64 switch-field">
+						{{#each prices as |price|}}
+							<input type="radio" name="prices" id="price-{{price}}" value="{{price}}" {{#if @first}}checked{{/if}} />
+							<label for="price-{{price}}">${{price}}</label>
+						{{/each}}
+						<input type="radio" name="prices" id="price-other" value="other" />
+						<label for="price-other">Other</label>
+					</div>
+					<div id="slider-value" class="m-auto pb-32 hide">
+						<h2 class="mt-16" id="coffee-count">$10</h2>
+						<input id="coffee-slider" class="m-auto" type="range" value="10" min="1" max="100" />
+					</div>
+					<button type="submit" class="m-auto button button-primary button-wide-mobile">
+						Buy us a Coffee
+					</button>
+				</form>
 				<div class="mt-16 mb-32 payment-options">
 					<img src="/static/images/pm-visa.svg" />
 					<img src="/static/images/pm-mastercard.svg" />
@@ -41,44 +45,51 @@ prices: [1, 5, 10, 25, 50, 100]
 <script src="https://js.stripe.com/v3/"></script>
 <script>
 	stripe = Stripe('{{stripe.publishable}}');
-	var DOMAIN = window.location.origin;
+	const {origin} = window.location;
+	const priceElements = document.querySelectorAll('input[name="prices"]');
+	const customAmountWrapper = document.getElementById('slider-value');
+	const customAmountTrigger = document.getElementById('price-other');
+	const customAmountVisual = document.getElementById('coffee-count');
+	const customAmountInput = document.getElementById("coffee-slider");
+	const donateForm = document.getElementById('donate');
 
-	// Handle slider change
-	var coffeeSlider = document.getElementById("coffee-slider");
-	coffeeSlider.addEventListener("input", function() {
-		document.getElementById("coffee-count").innerText = "$" + coffeeSlider.value;
+	customAmountInput.addEventListener('input', () => {
+		customAmountVisual.textContent = `$${customAmountInput.value}`;
 	});
 
-	// Handle donate button click
-	var donateButton = document.getElementById("donate-button");
-	donateButton.addEventListener("click", function () {
-		var quantity = parseInt(
-			document.getElementById("coffee-slider").value
-		);
-
-		// Make the call to Stripe.js to redirect to the checkout page
-		// with the current quantity
-		stripe
-			.redirectToCheckout({
-				mode: 'payment',
-				lineItems: [{price: '{{stripe.donate}}', quantity: quantity}],
-				successUrl:
-					DOMAIN + "/thank-you?session_id={CHECKOUT_SESSION_ID}",
-				cancelUrl: DOMAIN + "/donate"
-			})
-			.then(handleResult);
+	Array.prototype.forEach.call(priceElements, price => {
+		price.addEventListener('input', syncSliderState);
 	});
 
-	// Show/hide slider when selected
-	function setValue(amount) {
-		if (amount == 0) {
-			document.getElementById('coffee-slider').value = 10;
-			document.getElementById("coffee-count").innerText = "$10";
-			document.getElementById('slider-value').classList.remove("hide");
-			return;
+	donateForm.addEventListener('submit', event => {
+		event.preventDefault();
+		let quantity = Array.prototype.find.call(priceElements, element => element.checked).value;
+		if (quantity === 'other') {
+			quantity = customAmountInput.value;
 		}
-		document.getElementById('coffee-slider').value = amount;
-		document.getElementById('slider-value').classList.add("hide");
+
+		quantity = Number(quantity);
+		console.log(new URL('/thank-you?session_id={CHECKOUT_SESSION_ID}', origin).href);
+		console.log(new URL('/donate', origin).href);
+
+		// Make the call to Stripe.js to redirect to the checkout page with the current quantity
+		stripe.redirectToCheckout({
+			mode: 'payment',
+			lineItems: [{price: '{{stripe.donate}}', quantity: quantity}],
+			successUrl: new URL('/thank-you?session_id={CHECKOUT_SESSION_ID}', origin).href,
+			cancelUrl: new URL('/donate', origin).href
+		});
+	});
+
+	function syncSliderState() {
+		console.log('hello darkness my old friend')
+		if (customAmountTrigger.checked) {
+			customAmountWrapper.classList.remove("hide");
+		} else {
+			customAmountInput.value = 10;
+			customAmountVisual.textContent = '$10';
+			customAmountWrapper.classList.add("hide");
+		}
 	}
 </script>
 {{/block}}

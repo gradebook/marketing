@@ -118,11 +118,12 @@ input[type=range]:hover::-moz-range-thumb {
 
 #slider-value {
 	overflow-y: hidden;
-	transition: opacity 0.2s ease-out, max-height 0.4s ease-in-out;
+	transition: opacity 0.4s ease-out 0.2s, max-height 0.4s ease-in-out;
 	max-height: 110px;
 }
 
 #slider-value.hide {
+	transition: opacity 0.4s ease-out, max-height 0.4s ease-in-out  0.2s;
 	opacity: 0;
 	max-height: 0;
 }
