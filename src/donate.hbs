@@ -15,7 +15,7 @@ prices: [1, 5, 10, 25, 50, 100]
 				<form name="donate" id="donate">
 					<div class="mt-64 switch-field">
 						{{#each prices as |price|}}
-							<input type="radio" name="prices" id="price-{{price}}" value="{{price}}" {{#if @first}}checked{{/if}} />
+							<input type="radio" name="prices" id="price-{{price}}" value="{{price}}" {{#eq 1 @index}}checked{{/eq}} />
 							<label for="price-{{price}}">${{price}}</label>
 						{{/each}}
 						<input type="radio" name="prices" id="price-other" value="other" />
