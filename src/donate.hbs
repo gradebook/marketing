@@ -84,12 +84,11 @@ prices: [1, 5, 10, 25, 50, 100]
 	});
 
 	function syncSliderState() {
-		console.log('hello darkness my old friend')
 		if (customAmountTrigger.checked) {
+			customAmountVisual.textContent = '$10';
+			customAmountInput.value = 10;
 			customAmountWrapper.classList.remove("hide");
 		} else {
-			customAmountInput.value = 10;
-			customAmountVisual.textContent = '$10';
 			customAmountWrapper.classList.add("hide");
 		}
 	}
