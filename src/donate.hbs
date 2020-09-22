@@ -12,13 +12,13 @@ prices: [1, 5, 10, 25, 50, 100]
 			<div class="text-center m-auto">
 				<div class="mt-64 switch-field">
 					{{#each prices as |price|}}
-						<input type="radio" name="prices" id="price-{{price}}" value="{{price}}" />
-						<label for="price-{{price}}">{{price}}</label>
+						<input type="radio" name="prices" id="price-{{price}}" value="{{price}}" {{#if @first}}checked{{/if}} />
+						<label for="price-{{price}}" onclick="setValue({{price}})">${{price}}</label>
 					{{/each}}
 					<input type="radio" name="prices" id="price-other" value="other" />
-					<label for="price-other">Other</label>
+					<label for="price-other" onclick="setValue(0)">Other</label>
 				</div>
-				<div id="slider-value" class="m-auto pb-32">
+				<div id="slider-value" class="m-auto pb-32 hide">
 					<h2 class="mt-16" id="coffee-count">$10</h2>
 					<input id="coffee-slider" class="m-auto" type="range" value="10" min="1" max="100" />
 				</div>
@@ -68,5 +68,17 @@ prices: [1, 5, 10, 25, 50, 100]
 			})
 			.then(handleResult);
 	});
+
+	// Show/hide slider when selected
+	function setValue(amount) {
+		if (amount == 0) {
+			document.getElementById('coffee-slider').value = 10;
+			document.getElementById("coffee-count").innerText = "$10";
+			document.getElementById('slider-value').classList.remove("hide");
+			return;
+		}
+		document.getElementById('coffee-slider').value = amount;
+		document.getElementById('slider-value').classList.add("hide");
+	}
 </script>
 {{/block}}

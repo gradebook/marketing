@@ -115,3 +115,14 @@ input[type=range]:hover::-moz-range-thumb {
 .payment-options img {
 	height: 20px;
 }
+
+#slider-value {
+	overflow-y: hidden;
+	transition: opacity 0.2s ease-out, max-height 0.4s ease-in-out;
+	max-height: 110px;
+}
+
+#slider-value.hide {
+	opacity: 0;
+	max-height: 0;
+}
