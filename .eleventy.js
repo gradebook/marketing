@@ -64,7 +64,8 @@ module.exports = function(config) {
 	}
 
 
-	config.addPassthroughCopy('static');
+	config.addPassthroughCopy('static/images');
+	config.addPassthroughCopy('static/assets');
 
 	/* // Display 404 page in BrowserSnyc
 	config.setBrowserSyncConfig({
