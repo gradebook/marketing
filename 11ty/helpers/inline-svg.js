@@ -5,7 +5,15 @@ const {SafeString} = require('handlebars');
 
 const root = resolve(__dirname, '../../');
 
-module.exports = function (fileName) {
+function process(contents, hash = {}) {
+	if (hash.class) {
+		return new SafeString(contents.replace('<svg', `<svg class="${hash.class}"`));
+	}
+
+	return new SafeString(contents);
+}
+
+module.exports = function (fileName, options = {}) {
 	if (!fileName.startsWith('/')) {
 		console.warn('[warning] Attempted to inline a relative-path SVG; this is not allowed');
 		return '';
@@ -14,10 +22,10 @@ module.exports = function (fileName) {
 	const absolutePath = resolve(root, `.${fileName}`);
 
 	if (Object.hasOwnProperty.call(cache, absolutePath)) {
-		return cache[absolutePath];
+		return process(cache[absolutePath], options.hash);
 	}
 
-	const contents = new SafeString(readFileSync(absolutePath, 'utf-8'));
+	const contents = readFileSync(absolutePath, 'utf-8');
 	cache[absolutePath] = contents;
-	return contents;
+	return process(contents, options.hash);
 }
