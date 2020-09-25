@@ -127,3 +127,19 @@ input[type=range]:hover::-moz-range-thumb {
 	opacity: 0;
 	max-height: 0;
 }
+
+@media (max-width: 650px) {
+	.switch-field {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.switch-field label,
+	.switch-field label:first-of-type,
+	.switch-field label:last-of-type {
+		border-radius: 1.5rem;
+		margin: 0.25rem;
+		width: 100%;
+		max-width: 280px;
+	}
+}
