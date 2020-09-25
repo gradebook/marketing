@@ -1,4 +1,4 @@
-input[type=range]{
+input[type=range] {
 	display: block;
 	width: 90%;
 	max-width: 40rem;
@@ -62,47 +62,47 @@ input[type=range]:hover::-moz-range-thumb {
 }
 
 .switch-field {
-		display: flex;
-		justify-content: center;
-    overflow: hidden;
+	display: flex;
+	justify-content: center;
+	overflow: hidden;
 }
 
 .switch-field input {
-    position: absolute !important;
-    clip: rect(0, 0, 0, 0);
-    height: 1px;
-    width: 1px;
-    border: 0;
-    overflow: hidden;
+	position: absolute !important;
+	clip: rect(0, 0, 0, 0);
+	height: 1px;
+	width: 1px;
+	border: 0;
+	overflow: hidden;
 }
 
 .switch-field label {
-    background-color: var(--color--bg-2);
-    color: rgba(0, 0, 0, 0.6);
-    font-size: 14px;
-    line-height: 1;
-    text-align: center;
-    padding: 16px 32px;
-    margin-right: -1px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    transition: all 0.1s ease-in-out;
+	background-color: var(--color--bg-2);
+	color: rgba(0, 0, 0, 0.6);
+	font-size: 14px;
+	line-height: 1;
+	text-align: center;
+	padding: 16px 32px;
+	margin-right: -1px;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	transition: all 0.1s ease-in-out;
 }
 
 .switch-field label:hover {
-    cursor: pointer;
-}
-
-.switch-field input:checked + label {
-		background-color: var(--color--primary-1);
-		color: var(--color--typography-1i);
+	cursor: pointer;
 }
 
 .switch-field label:first-of-type {
-    border-radius: 32px 0 0 32px;
+	border-radius: 32px 0 0 32px;
 }
 
 .switch-field label:last-of-type {
-    border-radius: 0 32px 32px 0;
+	border-radius: 0 32px 32px 0;
+}
+
+.switch-field input:checked + label {
+	background-color: var(--color--primary-1);
+	color: var(--color--typography-1i);
 }
 
 .payment-options {
