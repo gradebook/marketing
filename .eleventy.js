@@ -45,6 +45,7 @@ module.exports = function(config) {
 	config.addHandlebarsHelper('absolute_url', helpers.absoluteURL);
 	config.addHandlebarsHelper('img_url', helpers.imageURL);
 	config.addHandlebarsHelper('eq', helpers.eq);
+	config.addHandlebarsHelper('inline-svg', helpers.inlineSVG);
 	config.addFilter('asset', helpers.asset);
 	config.addFilter('reading_time', helpers.readingTime);
 	config.addFilter('date', helpers.date);

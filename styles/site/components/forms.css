@@ -112,7 +112,7 @@ input[type=range]:hover::-moz-range-thumb {
 	gap: 0.75rem;
 }
 
-.payment-options img {
+.payment-options svg {
 	height: 1rem;
 }
 
