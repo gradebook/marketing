@@ -51,7 +51,7 @@
 		const payload = {};
 
 		if (notListed) {
-			payload.school = 'www';
+			payload.school = 'the';
 			payload.suggestion = userInputName;
 		} else if (school.value === 'aggie' && isCorpsMember) {
 			payload.school = 'aggiecorps'
