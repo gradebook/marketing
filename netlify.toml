@@ -11,6 +11,19 @@
   from = "/blog/content/*"
   to = "https://blog.gradebook.app/blog/content/:splat"
 
+[[redirects]]
+  from = "/assets/*"
+  to = "https://static.gradebook.app/sYbR9JXKTI/:splat"
+
+[[redirects]]
+  from = "/favicon.ico"
+  to = "https://static.gradebook.app/sYbR9JXKTI/favicon.ico"
+  status = 200 # No need to redirect for this
+
+[[redirects]]
+  from = "/my/:splat"
+  to = "https://the.gradebook.app/:splat"
+
 [[headers]]
     for = "/built/*"
     [headers.values]
