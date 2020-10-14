@@ -21,8 +21,12 @@
   status = 200 # No need to redirect for this
 
 [[redirects]]
+  from = "/my"
+  to = "https://the.gradebook.app/my/"
+
+[[redirects]]
   from = "/my/:splat"
-  to = "https://the.gradebook.app/:splat"
+  to = "https://the.gradebook.app/my/:splat"
 
 [[headers]]
     for = "/built/*"
