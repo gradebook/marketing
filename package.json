@@ -55,7 +55,7 @@
     "svelte": "3.29.0"
   },
   "dependencies": {
-    "@gradebook/external-window": "0.2.1",
+    "@gradebook/external-window": "0.3.0",
     "postcss": "^8.1.1",
     "svelte-select": "3.12.0"
   }
