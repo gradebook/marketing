@@ -6,6 +6,42 @@ description: See what's changed as Gradebook evolves!
 
 # Release Notes
 
+## 3.19.0
+
+_Released November 13, 2020_
+
+### Features
+
+ - Added experimental mode (beta) - play with your grades to see how you'll do without saving your changes!
+
+ - Each page in the app now updates the tab name
+
+### Bug Fixes / Notable Changes
+
+ - Separated 0-credit courses in GPA page (this was reported by a student, thank you!)
+
+ - Improved and updated styling and fonts across the app
+
+ - Disallowed importing a course if the course list is full
+
+ - Fixed points / percentages sometimes not respect your wishes
+
+ - Fixed a crash when relaunching an old version app
+
+ - Improved tour steps based on new Grade Editor
+
+ - Improved accessibility for animated sections of the app
+
+ - Fixed course navigation (bottom bar) not updating after changing the course name
+
+ - Redesigned Create Category dialog
+
+ - Fixed course progress and "What do I need" not updating when creating new category
+
+ - Fixed crash when you have a creating a category with a really long name
+
+ - Fixed login flow breaking when popups are disabled
+
 ## 3.18
 
 _Released September 7, 2020_
