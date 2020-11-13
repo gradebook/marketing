@@ -163,13 +163,15 @@ html,
 }
 
 .gh-excerpt {
-	margin: 1rem 0 0 0;
+	margin: 2.5rem 0 0 0;
 }
 
 .gh-feature-image {
 	grid-column: wide-start / wide-end;
 	width: 100%;
 	margin: 8vmin 0 0;
+	max-height: 25vh;
+	object-fit: contain;
 }
 
 .gh-post-footer {

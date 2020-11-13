@@ -79,6 +79,14 @@
 /* Content & Typography
 /* ---------------------------------------------------------- */
 
+.gh-content {
+	color: var(--color--typography-2);
+}
+
+.gh-content a {
+	color: var(--color-primary);
+}
+
 .gh-content > * + * {
 	margin-top: 4vmin;
 }
@@ -168,7 +176,6 @@
 	text-align: center;
 	color: rgba(0, 0, 0, 0.5);
 	font-weight: 600;
-	font-size: 1.3rem;
 	line-height: 1.4em;
 }
 
@@ -176,7 +183,7 @@
 	color: rgba(0, 0, 0, 0.8);
 }
 
-.gh-canvas :not(pre) code {
+.gh-canvas:not(pre) code {
 	vertical-align: middle;
 	padding: 0.15em 0.4em 0.15em;
 	border: #e1eaef 1px solid;
