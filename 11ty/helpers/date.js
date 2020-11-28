@@ -1,3 +1,4 @@
-module.exports = dateObj => {
-	return new Date(dateObj).toISOString().split('T')[0];
+const dayjs = require('dayjs');
+module.exports = (dateObj, {hash: {format = 'YYYY-MM-DD'} = {}}) => {
+	return dayjs(dateObj).format(format);
 };

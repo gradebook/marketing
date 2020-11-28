@@ -154,12 +154,15 @@ html,
 }
 
 .gh-post-meta {
-	display: block;
-	margin: 0 0 1rem;
-	font-size: 1.4rem;
+	margin: -2rem 0 2.5rem 0;
+	font-size: 1.75rem;
 	letter-spacing: 0.5px;
 	text-transform: uppercase;
-	opacity: 0.8;
+	color: #44626f;
+}
+
+.gh-post-meta .divider {
+	padding: 0 0.75ch;
 }
 
 .gh-excerpt {
