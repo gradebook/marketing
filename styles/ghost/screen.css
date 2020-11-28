@@ -126,16 +126,9 @@ html,
 }
 
 .gh-page-image {
-	margin: 4vmin 0 0 0;
-}
-
-.gh-page-head > p {
-	max-width: 720px;
-	margin: 0.3em auto 0;
-	padding: 0 6vmin;
-	font-size: 1.3em;
-	line-height: 1.4em;
-	opacity: 0.5;
+	margin: 4vmin auto 0 auto;
+	max-height: 45vh;
+	object-fit: contain;
 }
 
 @media (max-width: 700px) {

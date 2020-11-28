@@ -155,6 +155,10 @@ function _generateJSONLD(context) {
 }
 
 function _generateMeta(context, handlebars) {
+	if (!context.permalink) {
+		return;
+	}
+
 	computeProperties(context);
 	return _generateMetaTags(context) + _generateJSONLD(context);
 }
