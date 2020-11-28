@@ -3,7 +3,7 @@ pagination:
   data: collections.github
   size: 1
   alias: post
-addAllPagesToCollections: true
+  addAllPagesToCollections: true
 permalink: '{{ post.url }}/index.html'
 ---
 
