@@ -92,7 +92,7 @@
 
 	.feature-extended .feature-extended-image img,
 	.feature-extended .feature-extended-image svg {
-		width: auto;
+		width: 100%;
 		max-width: 460px;
 		margin-left: 0;
 	}
