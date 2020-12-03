@@ -1,6 +1,9 @@
 // @ts-check
 require('dotenv').config()
+import {writeFileSync} from 'fs';
+import path from 'path';
 import svelte from 'rollup-plugin-svelte';
+import css from 'rollup-plugin-css-only';
 import replace from '@rollup/plugin-replace';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
@@ -76,19 +79,21 @@ export default [...entrypointCompilers, {
 			})
 		}),
 		svelte({
-			// enable run-time checks when not in production
-			dev: !production,
-			// we'll extract any component CSS out into
-			// a separate file - better for performance
-			css: css => {
+			compilerOptions: {
+				// enable run-time checks when not in production
+				dev: !production,
+			}
+		}),
+		css({
+			output(css) {
 				let outputFileName = 'signup.css';
 				if (hashFile.renderChunk) {
 					const ref = {fileName: outputFileName};
-					hashFile.renderChunk(css.code, ref);
+					hashFile.renderChunk(css, ref);
 					outputFileName = ref.fileName;
 				}
 
-				css.write(outputFileName);
+				writeFileSync(path.resolve(__dirname, './dist/built/', outputFileName), css);
 			}
 		}),
 
