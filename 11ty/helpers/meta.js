@@ -155,7 +155,8 @@ function _generateJSONLD(context) {
 }
 
 function _generateMeta(context, handlebars) {
-	if (!context.permalink) {
+	if (!context.permalink && !context.page.url) {
+		console.log('Error: context does not have a url', JSON.stringify(context));
 		return;
 	}
 
