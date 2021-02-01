@@ -57,7 +57,7 @@
   },
   "dependencies": {
     "@gradebook/external-window": "0.3.0",
-    "dayjs": "1.9.8",
+    "dayjs": "1.10.4",
     "postcss": "8.2.2",
     "svelte-select": "3.16.1"
   }
