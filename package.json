@@ -33,7 +33,7 @@
     "@tryghost/schema-org": "0.1.16",
     "autoprefixer": "10.1.0",
     "axios": "0.21.1",
-    "browser-sync": "2.26.13",
+    "browser-sync": "2.26.14",
     "chalk": "4.1.0",
     "cssnano": "4.1.10",
     "dotenv": "8.2.0",
