@@ -319,12 +319,12 @@
     remark "^13.0.0"
     unist-util-find-all-after "^3.0.2"
 
-"@tryghost/content-api@1.4.11":
-  version "1.4.11"
-  resolved "https://registry.yarnpkg.com/@tryghost/content-api/-/content-api-1.4.11.tgz#1b04d586a7cdad6dbcf273414478f0011fab776f"
-  integrity sha512-TpJ0LJPfHCC8nOzcGq8vEgzL2/YDT4KBEUCb6+KmkX+LEdxbFb7TZDFtMUt32U9Hd3JGasjNwlmlBfxYqgkvmQ==
+"@tryghost/content-api@1.4.14":
+  version "1.4.14"
+  resolved "https://registry.yarnpkg.com/@tryghost/content-api/-/content-api-1.4.14.tgz#ba7eed61157435fcd7d43337f995581f09a90abc"
+  integrity sha512-1k+b/Z5G2zrRS/a98dVuvDH0kB1OU1vXlvil37fBseQ7Cohtg+B61YsJu1CdWgyMuiZdW80JInuNRVWdM7IV0Q==
   dependencies:
-    axios "0.21.0"
+    axios "0.21.1"
 
 "@tryghost/helpers@1.1.35":
   version "1.1.35"
@@ -774,13 +774,6 @@ axios@0.19.0:
   dependencies:
     follow-redirects "1.5.10"
     is-buffer "^2.0.2"
-
-axios@0.21.0:
-  version "0.21.0"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.0.tgz#26df088803a2350dff2c27f96fef99fe49442aca"
-  integrity sha512-fmkJBknJKoZwem3/IKSSLpkdNXZeBu5Q7GA/aRsr2btgrptmSCxi2oFjZHqGdK9DoTil9PIHlPIZw2EcRJXRvw==
-  dependencies:
-    follow-redirects "^1.10.0"
 
 axios@0.21.1:
   version "0.21.1"
@@ -5748,8 +5741,6 @@ rollup@2.35.1:
   version "2.35.1"
   resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.35.1.tgz#e6bc8d10893556a638066f89e8c97f422d03968c"
   integrity sha512-q5KxEyWpprAIcainhVy6HfRttD9kutQpHbeqDTWnqAFNJotiojetK6uqmcydNMymBEtC4I8bCYR+J3mTMqeaUA==
-  dependencies:
-    fsevents "~2.1.2"
   optionalDependencies:
     fsevents "~2.1.2"
 
