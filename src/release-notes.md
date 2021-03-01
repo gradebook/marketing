@@ -4,9 +4,9 @@ description: See what's changed as Gradebook evolves!
 ---
 <div class="container content-container">
 
-_Note that we only update our release notes when there is a notable feature or improvement. Between the documented releases here, we can have several smaller releases with bug fixes or improvements 😊_
-
 # Release Notes
+
+_Note that we only update our release notes when there is a notable feature or improvement. Between the documented releases here, we can have several smaller releases with bug fixes or improvements 😊_
 
 ## 3.20.0
 
