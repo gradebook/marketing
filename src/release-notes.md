@@ -4,7 +4,36 @@ description: See what's changed as Gradebook evolves!
 ---
 <div class="container content-container">
 
+_Note that we only update our release notes when there is a notable feature or improvement. Between the documented releases here, we can have several smaller releases with bug fixes or improvements 😊_
+
 # Release Notes
+
+## 3.20.0
+
+_Released February 28, 2021_
+
+### Features
+
+ - 💃 Added a new course creator (in beta)
+ - Added support for decimal cutoffs
+
+### Bug Fixes / Notable Changes
+
+ - Fixed lazy-loaded semester causing inaccurate dashboards
+
+ - Fixed various visual spacing issues
+
+ - Fixed app crash when you don't have a first or last name
+
+ - Updated grade delete confirmation to only show for categories with a name and weight
+
+ - Fixed glitches when modifying a course or category
+
+ - Fixed crash when trying to create a category with more than 40 grades
+
+ - Fixed some other crashes
+
+ - Various performance improvements!
 
 ## 3.19.0
 
