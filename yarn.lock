@@ -6283,10 +6283,10 @@ supports-color@^7.0.0, supports-color@^7.1.0:
   dependencies:
     has-flag "^4.0.0"
 
-svelte-select@3.16.1:
-  version "3.16.1"
-  resolved "https://registry.yarnpkg.com/svelte-select/-/svelte-select-3.16.1.tgz#5234810c6b71d57349f3bfcf09dfa7947216cea2"
-  integrity sha512-y2E1LA50hbOlolaBS0TsWWcWXFIp9TIeCmohMg51pZuJF5ngkPajoKmRjE893P2jIRZDV//qf1gMb6KjrEYIGQ==
+svelte-select@3.17.0:
+  version "3.17.0"
+  resolved "https://registry.yarnpkg.com/svelte-select/-/svelte-select-3.17.0.tgz#6bea0cb8d0c9465d28a2bac562f2de8a61f48a9f"
+  integrity sha512-ITmX/XUiSdkaILmsTviKRkZPaXckM5/FA7Y8BhiUPoamaZG/ZDyOo6ydjFu9fDVFTbwoAUGUi6HBjs+ZdK2AwA==
 
 svelte@3.32.2:
   version "3.32.2"
