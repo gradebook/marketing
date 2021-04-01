@@ -67,8 +67,8 @@
 	--color--bg-3: #e4e8ee;
 	--color--bg-3i: rgba(221, 219, 241, 0.8);
 
-	/* PRIMARY COLORS */
-	--color--primary-1: #7e6ee6;
+	/* PRIMARY COLORS
+	 --color--primary-1: #7e6ee6; */
 	--color--primary-1: #5e3b4d;
 	--color--primary-2: #a59aee;
 	--color--primary-3: #5743df;
