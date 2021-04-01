@@ -34,13 +34,16 @@ const serve = {
 	}
 };
 
+const replaceSingleton = replace({
+	preventAssignment: true,
+	env: JSON.stringify({
+		SITE_URL: process.env.SITE_URL,
+		AUTH_URL: process.env.AUTH_URL
+	})
+});
+
 const plugins = [
-	replace({
-		env: JSON.stringify({
-			SITE_URL: process.env.SITE_URL,
-			AUTH_URL: process.env.AUTH_URL
-		})
-	}),
+	replaceSingleton,
 	resolve({
 		browser: true,
 		dedupe: ['svelte']
@@ -72,12 +75,7 @@ export default [...entrypointCompilers, {
 		file: 'dist/built/signup.js'
 	},
 	plugins: [
-		replace({
-			env: JSON.stringify({
-				SITE_URL: process.env.SITE_URL,
-				AUTH_URL: process.env.AUTH_URL
-			})
-		}),
+		replaceSingleton,
 		svelte({
 			compilerOptions: {
 				// enable run-time checks when not in production
