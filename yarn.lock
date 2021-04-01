@@ -340,10 +340,10 @@
     remark "^13.0.0"
     unist-util-find-all-after "^3.0.2"
 
-"@tryghost/content-api@1.4.14":
-  version "1.4.14"
-  resolved "https://registry.yarnpkg.com/@tryghost/content-api/-/content-api-1.4.14.tgz#ba7eed61157435fcd7d43337f995581f09a90abc"
-  integrity sha512-1k+b/Z5G2zrRS/a98dVuvDH0kB1OU1vXlvil37fBseQ7Cohtg+B61YsJu1CdWgyMuiZdW80JInuNRVWdM7IV0Q==
+"@tryghost/content-api@1.5.2":
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/@tryghost/content-api/-/content-api-1.5.2.tgz#7696e93b773641c07e8d1e69c40927e14cc49af0"
+  integrity sha512-cevjrKgK8QURZPnKMWJjLHgktaIzImhOfv9vAY4Fppd2IJlAiNzuy+FlHrXiC8dKM54rgAKE7tNkT3ZOP2oHYg==
   dependencies:
     axios "0.21.1"
 

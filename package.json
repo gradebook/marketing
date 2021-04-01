@@ -28,7 +28,7 @@
     "@rollup/plugin-commonjs": "17.1.0",
     "@rollup/plugin-node-resolve": "11.2.0",
     "@rollup/plugin-replace": "2.4.1",
-    "@tryghost/content-api": "1.4.14",
+    "@tryghost/content-api": "1.5.2",
     "@tryghost/helpers": "1.1.38",
     "@tryghost/schema-org": "0.1.19",
     "autoprefixer": "10.2.4",
