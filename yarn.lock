@@ -354,13 +354,13 @@
   dependencies:
     lodash-es "^4.17.11"
 
-"@tryghost/schema-org@0.1.19":
-  version "0.1.19"
-  resolved "https://registry.yarnpkg.com/@tryghost/schema-org/-/schema-org-0.1.19.tgz#cb8dd27b00f81f3ffc182dbf9382dbf11e550e33"
-  integrity sha512-tp444lxQPm8bPbQ1D7t+eo8aPWzRSuLl46SaFEwGiE7rNNNAd65YUQtKqUlU79BCzy+Ccn0RL1szylu3Sa9iqg==
+"@tryghost/schema-org@0.1.20":
+  version "0.1.20"
+  resolved "https://registry.yarnpkg.com/@tryghost/schema-org/-/schema-org-0.1.20.tgz#10c6250e12d40766df3384b37d823f0c41dd52f0"
+  integrity sha512-6kCpknk3B/DP40WTxOp6W9XPsIiCzIWgbpQLGiFWtexC3HzKpuLgsfdmdVMUw/eC8VpD63uJqjy4s0mokBV1Jw==
   dependencies:
     glob "^7.1.3"
-    handlebars "4.7.6"
+    handlebars "4.7.7"
     lodash "^4.17.11"
 
 "@types/babel-types@*", "@types/babel-types@^7.0.0":
@@ -2799,19 +2799,7 @@ hamljs@^0.6.2:
   resolved "https://registry.yarnpkg.com/hamljs/-/hamljs-0.6.2.tgz#7b7116cf6dbe7278e42b3f6ef8725a33e177c8e3"
   integrity sha1-e3EWz22+cnjkKz9u+HJaM+F3yOM=
 
-handlebars@4.7.6:
-  version "4.7.6"
-  resolved "https://registry.yarnpkg.com/handlebars/-/handlebars-4.7.6.tgz#d4c05c1baf90e9945f77aa68a7a219aa4a7df74e"
-  integrity sha512-1f2BACcBfiwAfStCKZNrUCgqNZkGsAT7UM3kkYtXuLo0KnaVfjKOyf7PRzB6++aK9STyT1Pd2ZCPe3EGOXleXA==
-  dependencies:
-    minimist "^1.2.5"
-    neo-async "^2.6.0"
-    source-map "^0.6.1"
-    wordwrap "^1.0.0"
-  optionalDependencies:
-    uglify-js "^3.1.4"
-
-handlebars@^4.7.6:
+handlebars@4.7.7, handlebars@^4.7.6:
   version "4.7.7"
   resolved "https://registry.yarnpkg.com/handlebars/-/handlebars-4.7.7.tgz#9ce33416aad02dbd6c8fafa8240d5d98004945a1"
   integrity sha512-aAcXm5OAfE/8IXkcZvCepKU3VzW1/39Fb5ZuqMtgI/hT8X2YgoMvBY5dLhq/cpOvw7Lk1nK/UF71aLG/ZnVYRA==
