@@ -8,6 +8,26 @@ description: See what's changed as Gradebook evolves!
 
 _Note that we only update our release notes when there is a notable feature or improvement. Between the documented releases here, we can have several smaller releases with bug fixes or improvements 😊_
 
+## 3.21.0
+
+### Features
+
+ - Added beta support for collaboration with your advisor (limited to participating organizations)
+
+ - General improvements to user experience in the new course creator
+
+## Bug Fixes / Notable Changes
+
+ - Fixed `delete` button showing up in course settings when experimenting
+
+ - Fixed grades sometimes not being removed when editing a category
+
+ - Removed autocomplete from most input fields
+
+ - Added warning when you are rate-limited
+
+ - Added click-to-refresh support in new version notification
+
 ## 3.20.0
 
 _Released February 28, 2021_
@@ -15,6 +35,7 @@ _Released February 28, 2021_
 ### Features
 
  - 💃 Added a new course creator (in beta)
+
  - Added support for decimal cutoffs
 
 ### Bug Fixes / Notable Changes
