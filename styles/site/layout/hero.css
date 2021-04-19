@@ -33,11 +33,51 @@
 	position: relative; /* To display elements above hero illustrations */
 }
 
+.hero-copy p {
+	margin-bottom: 2.5rem;
+}
+
+.hero-cta {
+	display: inline-flex;
+	align-items: center;
+}
+
+.hero-cta svg {
+	transition: transform 0.25s ease-in-out;
+	height: 3rem;
+	width: 1.5rem;
+}
+
+.hero-cta:hover svg {
+	transform: translateX(0.25rem);
+}
+
+.hero-summary {
+	font-family: serif;
+	font-weight: bold;
+	color: #d7d6dc;
+	font-size: clamp(1rem, 10vmin, 4rem);
+	line-height: clamp(1rem, 10vmin, 4rem);
+}
+
+.hero-paragraph {
+	max-width: 650px;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: clamp(1rem, 5vmin, 1.25rem);
+	line-height: clamp(1rem, 10vmin, 1.4rem);
+}
+
+.login-button::after {
+	content: '';
+	background-image: url('/static/images/arrow-right.svg');
+}
+
 /* media::>medium */
 @media (min-width: 641px) {
 	.hero {
-		padding-top: 160px;
-		padding-bottom: 128px;
+		padding-top: 175px;
+		padding-bottom: 115px;
 	}
 
 	.hero::after {
@@ -47,16 +87,16 @@
 		background-size: 1440px 307px;
 	}
 
-	.hero-paragraph {
+	/* .hero-paragraph {
 		padding-left: 72px;
 		padding-right: 72px;
-	}
+	} */
 }
 
 .has-animations .hero::before,
 .has-animations .hero::after,
 .has-animations .site-header,
-.has-animations .hero-title,
+.has-animations .hero-summary,
 .has-animations .hero-paragraph,
 .has-animations .hero-cta {
 	opacity: 0;
@@ -74,7 +114,7 @@
 	animation: heroFadeIn 0.6s ease forwards 0.3s;
 }
 
-.has-animations.is-loaded .hero-title {
+.has-animations.is-loaded .hero-summary {
 	animation: heroContent 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) forwards 0.15s;
 }
 
