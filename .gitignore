@@ -23,7 +23,7 @@ build/
 .env
 
 # Workspace files are user-specific
-*.sublime-workspace
+*.vscode
 
 # Static built files
 dist/
