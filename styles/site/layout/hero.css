@@ -55,9 +55,11 @@
 .hero-summary {
 	font-family: serif;
 	font-weight: bold;
-	color: #d7d6dc;
+	--stomp-start: #d7d6dd;
+	--stomp-end: var(--color--secondary-4);
 	font-size: clamp(1rem, 10vmin, 4rem);
 	line-height: clamp(1rem, 10vmin, 4rem);
+	margin-bottom: 2rem;
 }
 
 .hero-paragraph {
@@ -123,7 +125,19 @@
 }
 
 .has-animations.is-loaded .hero-cta {
-	animation: heroContent 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) forwards 0.45s;
+	/* This is not a random number! Check the heroLoginButton animation definition for more info */
+	animation: heroLoginButton 4.75s cubic-bezier(0.215, 0.61, 0.355, 1) forwards 0.45s;
+}
+
+.has-animations.is-loaded .hero-summary .word {
+	animation-name: stompIn;
+	animation-duration: 0s;
+	animation-fill-mode: forwards;
+	animation-delay: calc(0.75s + calc(0.5s * var(--delay)));
+}
+
+.uline {
+	text-decoration: underline;
 }
 
 @keyframes heroBg {
@@ -150,6 +164,36 @@
 	}
 }
 
+@keyframes heroLoginButton {
+	from {
+		transform: translateY(-40px);
+		opacity: 0;
+	}
+
+	/*
+	* We have 4 words which each start after 0.75s -> 3s for those animations.
+	* - Add another 0.75s for this delay to get a delay of 3.75s.
+	* - We want the appear animation to play for 0.6s (in parallel of the delay)
+	* - We want the wiggle animation to play for 1s
+	* For a total of 4.75s animation duration
+	* The fade in animation should run for the first 0.6/4.75 = 13% of the animation
+	* The wiggle should start at 3.75/4.75 = 79%
+	*/
+	13%, 79% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+
+	85% {
+		transform: translateY(-10px);
+	}
+
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
 @keyframes heroFadeIn {
 	from {
 		opacity: 0;
@@ -157,5 +201,14 @@
 
 	to {
 		opacity: 1;
+	}
+}
+
+@keyframes stompIn {
+	from {
+		color: var(--stomp-start);
+	}
+	to {
+		color: var(--stomp-end);
 	}
 }

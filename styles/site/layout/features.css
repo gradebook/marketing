@@ -20,10 +20,6 @@
 	z-index: -1;
 }
 
-.features-illustration {
-	margin-bottom: 32px;
-}
-
 .features-wrap {
 	display: flex;
 	flex-wrap: wrap;

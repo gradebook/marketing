@@ -7,24 +7,87 @@ description: Better grades, together. Gradebook is a free app designed by studen
 	<div class="container-sm">
 		<div class="hero-inner">
 			<div class="hero-copy">
-				<p class="hero-summary">Student Oriented Grade&nbsp;Tracking</p>
-				<p class="hero-paragraph">Gradebook is a feature-rich, insightful grade tracker that's designed from the ground up to work for you</p>
-				{{> login-button}}
+				<div class="hero-summary">
+					<div>
+						<span class="word" style="--delay: 1">Grade</span>
+						<span class="word" style="--delay: 1.75">Tracking,&nbsp;</span><wbr>
+					</div>
+					<div>
+						<span class="word" style="--delay: 4">For</span>
+						<span class="word" style="--delay: 5">Students</span>
+					</div>
+				</div>
+				<p class="hero-paragraph">
+					There weren't any good grade management tools, so we built one and decided to share it!
+				</p>
+				{{> login-button style="--delay: 6"}}
 			</div>
 		</div>
 	</div>
 {{/block}}
 
 <section class="features section">
+	<div class="container-sm has-bottom-divider">
+		<h2 class="text-center">We help <span class="uline">you</span> take control of your grades</h2>
+		<p class="section-paragraph mb-0 text-center">
+			Learning is hard, even before factoring in grading.
+		</p>
+		<p class="section-paragraph mb-0 text-center">
+			Add in the unpredictability of your courses, and you've got a recipe for chaos
+		</p>
+		<p class="section-paragraph mt-0 text-center">
+			<strong>Gradebook helps brings order to your chaotic life</strong>
+		</p>
+		<div class="text-center">
+			<img
+				{{!-- js-reveal-feature-illustration --}}
+				class="js-r-fi is-revealing"
+				src="/static/images/index/course.jpg"
+				alt="Gradebook application screenshot"
+			/>
+		</div>
+	</div>
 	<div class="container">
-		<div class="features-inner section-inner has-bottom-divider">
-			<div class="features-header text-center">
-				<div class="container-sm">
-					<p class="section-title mt-0 is-revealing">Gradebook is a free app designed by students to make grade tracking easy.</p>
-					<img class="features-illustration is-revealing" src="/static/images/index/course.jpg"
-						alt="Gradebook application screenshot">
+
+{{!-- 			<div class="features-wrap">
+				<div class="feature text-center is-revealing">
+					<div class="feature-inner">
+						<div class="feature-icon mb-16">
+							<img src="/static/images/feature-03.svg" alt="Feature 3">
+						</div>
+						<div class="feature-content">
+							<h4 class="feature-title mt-0 mb-8">Discover</h4>
+							<p class="text-sm mb-0">A pseudo-Latin text used in web design, layout, and printing in place of things to emphasise design.</p>
+						</div>
+					</div>
 				</div>
+				<div class="feature text-center is-revealing">
+					<div class="feature-inner">
+						<div class="feature-icon mb-16">
+							<img src="/static/images/feature-04.svg" alt="Feature 04">
+						</div>
+						<div class="feature-content">
+							<h4 class="feature-title mt-0 mb-8">Discover</h4>
+							<p class="text-sm mb-0">A pseudo-Latin text used in web design, layout, and printing in place of things to emphasise design.</p>
+						</div>
+					</div>
+				</div>
+			</div> --}}
+		{{!-- </div> --}}
+	</div>
+</section>
+
+<section class="features-extended section">
+	<div class="features-extended-inner section-inner">
+		<div class="features-extended-header text-center">
+			<div class="container-sm">
+				<h2 class="section-title mt-0">How can Gradebook help you?</h2>
+				<p class="section-paragraph">
+					We strive to provide a fast, simple, and intuitive way to track your grades and constantly add features to support this.
+				</p>
 			</div>
+		</div>
+		<div class="features-inner">
 			<div class="features-wrap">
 				<div class="feature text-center is-revealing">
 					<div class="feature-inner">
@@ -33,8 +96,9 @@ description: Better grades, together. Gradebook is a free app designed by studen
 						</div>
 						<div class="feature-content">
 							<h4 class="feature-title mt-0 mb-8">Functional</h4>
-							<p class="text-sm mb-0">Gradebook was designed by students, for students. We focus on providing better
-								insights into your progress so that you can focus on what's most important.</p>
+							<p class="text-sm mb-0">
+								Gradebook was designed by students, for students. We focus on providing better insights into your progress so that you can focus on what's most important.
+							</p>
 						</div>
 					</div>
 				</div>
@@ -45,78 +109,50 @@ description: Better grades, together. Gradebook is a free app designed by studen
 						</div>
 						<div class="feature-content">
 							<h4 class="feature-title mt-0 mb-8">Consolidated</h4>
-							<p class="text-sm mb-0">Gradebook is your one-stop shop to keep track of your grades across all your
-								courses at any school, on all your devices.</p>
+							<p class="text-sm mb-0">
+								Gradebook is your one-stop shop to keep track of your grades across all your courses at any school, on all your devices.
+							</p>
 						</div>
 					</div>
 				</div>
 			</div>
-			<!-- <div class="features-wrap">
-							<div class="feature text-center is-revealing">
-								<div class="feature-inner">
-									<div class="feature-icon mb-16">
-										<img src="/static/images/feature-03.svg" alt="Feature 3">
-									</div>
-									<div class="feature-content">
-										<h4 class="feature-title mt-0 mb-8">Discover</h4>
-										<p class="text-sm mb-0">A pseudo-Latin text used in web design, layout, and printing in place of things to emphasise design.</p>
-									</div>
-								</div>
-							</div>
-							<div class="feature text-center is-revealing">
-								<div class="feature-inner">
-									<div class="feature-icon mb-16">
-										<img src="/static/images/feature-04.svg" alt="Feature 04">
-									</div>
-									<div class="feature-content">
-										<h4 class="feature-title mt-0 mb-8">Discover</h4>
-										<p class="text-sm mb-0">A pseudo-Latin text used in web design, layout, and printing in place of things to emphasise design.</p>
-									</div>
-								</div>
-							</div>
-						</div> -->
-		</div>
-	</div>
-</section>
-
-<section class="features-extended section">
-	<div class="features-extended-inner section-inner">
-		<div class="features-extended-header text-center">
-			<div class="container-sm">
-				<h2 class="section-title mt-0">What makes Gradebook awesome?</h2>
-				<p class="section-paragraph">We strive to provide a fast, simple, and intuitive way to track your grades and
-					constantly add features to support this.</p>
-			</div>
-		</div>
-		<div class="features-extended-wrap">
-			<div class="container">
-				<div class="feature-extended">
-					<div class="feature-extended-image is-revealing">
-						<img src="/static/images/index/semester-dashboard.jpg" alt="Screenshot of a Gradebook Semester dashboard, which contains visual progress bars to show how you're doing in all of your courses">
+			<div class="features-extended-wrap">
+				<div class="container">
+					<div class="feature-extended">
+						<div class="feature-extended-image is-revealing">
+							<img
+								src="/static/images/index/semester-dashboard.jpg"
+								alt="Screenshot of a Gradebook Semester dashboard, which contains visual progress bars to show how you're doing in all of your courses"
+							/>
+						</div>
+						<div class="feature-extended-body is-revealing">
+							<h3 class="mt-0">Simple, visual dashboard</h3>
+							<p class="mb-0"><strong>See</strong> how you're doing across all your courses - all in one place</p>
+							<!--<p class="mb-0">Collect grades, homeworks, labs, and quizzes into categories to accurately track your progress and completion.</p>-->
+						</div>
 					</div>
-					<div class="feature-extended-body is-revealing">
-						<h3 class="mt-0">Simple, visual dashboard</h3>
-						<p class="mb-0">View an overview of all your courses on your home page.</p>
-						<!--<p class="mb-0">Collect grades, homeworks, labs, and quizzes into categories to accurately track your progress and completion.</p>-->
+					<div class="feature-extended">
+						<div class="feature-extended-image is-revealing">
+							<img
+								src="/static/images/index/whats-needed.jpg"
+								alt="Screenshot of the What's Needed section from a Course Dashboard"
+							/>
+						</div>
+						<div class="feature-extended-body is-revealing">
+							<h3 class="mt-0">Superior insights</h3>
+							<p class="mb-0">Understand how you need to do on your remaining assignments to earn each letter grade.</p>
+						</div>
 					</div>
-				</div>
-				<div class="feature-extended">
-					<div class="feature-extended-image is-revealing">
-						<img src="/static/images/index/whats-needed.jpg" alt="Screenshot of the What's Needed section from a Course Dashboard">
-					</div>
-					<div class="feature-extended-body is-revealing">
-						<h3 class="mt-0">Superior insights</h3>
-						<p class="mb-0">Understand how you need to do on your remaining assignments to earn each letter grade.</p>
-					</div>
-				</div>
-				<div class="feature-extended">
-					<div class="feature-extended-image is-revealing">
-						{{inline-svg "/static/inline/index/feedback.svg"}}
-					</div>
-					<div class="feature-extended-body is-revealing">
-						<h3 class="mt-0">Constant improvement</h3>
-						<p class="mb-0">We listen to feedback on current and possible features and act on it to make Gradebook even
-							better.</p>
+					<div class="feature-extended">
+						<div class="feature-extended-image is-revealing">
+							{{inline-svg "/static/inline/index/feedback.svg"}}
+						</div>
+						<div class="feature-extended-body is-revealing">
+							<h3 class="mt-0">Constant improvement</h3>
+							<p class="mb-0">
+								We listen to feedback on current and possible features and act on it to make Gradebook even better.
+							</p>
+						</div>
 					</div>
 				</div>
 			</div>
