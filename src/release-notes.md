@@ -8,7 +8,27 @@ description: See what's changed as Gradebook evolves!
 
 _Note that we only update our release notes when there is a notable feature or improvement. Between the documented releases here, we can have several smaller releases with bug fixes or improvements 😊_
 
+## 3.22.0
+
+_Released April 20, 2021_
+
+### Features
+
+ - Improved "smartness" of GPA insights and suggestions
+
+ - Added course progress bar to course list in GPA insights
+
+ - Added a warning when course weights / cutoffs conflict
+
+## Bug Fixes / Notable Changes
+
+ - Fixed crash when saving course settings on a slow network
+
+ - Performance improvements
+
 ## 3.21.0
+
+_Released April 5, 2021_
 
 ### Features
 
