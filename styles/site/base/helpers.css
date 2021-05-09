@@ -48,53 +48,13 @@
 	padding-right: 0;
 }
 
-/* Text meant only for screen readers. */
-.screen-reader-text {
-	clip: rect(1px, 1px, 1px, 1px);
-	position: absolute !important;
-	height: 1px;
-	width: 1px;
-	overflow: hidden;
-	word-wrap: normal !important; /* Many screen reader and browser combinations announce broken words as they would appear visually. */
-}
-
-.screen-reader-text:focus {
-	border-radius: 2px;
-	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
-	clip: auto !important;
-	display: block;
-	font-size: var(--font-scale-8--size);
-	letter-spacing: var(--font-scale-8--kerning);
-	font-weight: var(--font-weight--semibold);
-	line-height: 16px;
-	text-decoration: none;
-	text-transform: uppercase;
-	background-color: var(--color--bg-1);
-	color: var(--color--primary-1) !important;
-	border: none;
-	height: auto;
-	left: 8px;
-	padding: 16px 40px;
-	top: 8px;
-	width: auto;
-	z-index: 100000;
-}
-
 .list-reset {
 	list-style: none;
 	padding: 0;
 }
 
-.text-left {
-	text-align: left;
-}
-
 .text-center {
 	text-align: center;
-}
-
-.text-right {
-	text-align: right;
 }
 
 .text-primary {
@@ -103,36 +63,6 @@
 
 .text-secondary {
 	color: var(--color--secondary-1);
-}
-
-.has-top-divider {
-	position: relative;
-}
-
-.has-top-divider::before {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	display: block;
-	height: 1px;
-	background: var(--color--bg-3);
-}
-
-.has-bottom-divider {
-	position: relative;
-}
-
-.has-bottom-divider::after {
-	content: '';
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	display: block;
-	height: 1px;
-	background: var(--color--bg-3);
 }
 
 .w-50p {
