@@ -20,6 +20,7 @@
 .site-footer-inner {
 	padding-top: 48px;
 	padding-bottom: 32px;
+	text-align: center;
 }
 
 .footer-brand,
@@ -133,5 +134,11 @@
 	.footer-bottom-links {
 		margin-bottom: 0;
 		order: 1;
+	}
+}
+
+@media (min-width: 1025px) {
+	.sit-footer-inner {
+		text-align: initial;
 	}
 }
