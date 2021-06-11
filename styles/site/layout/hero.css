@@ -62,6 +62,11 @@
 	margin-bottom: 2rem;
 }
 
+.hero-summary--sm {
+	font-size: var(--font-scale-1--size);
+	line-height: var(--font-scale-1--height);
+}
+
 .hero-paragraph {
 	max-width: 650px;
 	margin-left: auto;
