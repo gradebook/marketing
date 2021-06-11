@@ -140,3 +140,33 @@
 		width: 480px;
 	}
 }
+
+.pill {
+	display: inline-block;
+	vertical-align: top;
+	padding: 0 0.55rem;
+	background: var(--color--secondary-1);
+	color: var(--color--typography-2);
+	text-transform: uppercase;
+	margin-left: 0.25rem;
+	border-radius: 25px;
+	font-size: 0.65rem;
+}
+
+.pill:hover {
+	animation: bump 0.5s ease-in;
+}
+
+@keyframes bump {
+	start {
+		transform: translateY(0);
+	}
+
+	60% {
+		transform: translateY(-5px);
+	}
+
+	end {
+		transform: translateY(0);
+	}
+}
