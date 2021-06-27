@@ -68,7 +68,7 @@
 }
 
 .hero-paragraph {
-	max-width: 650px;
+	color: var(--color--typography-4);
 	margin-left: auto;
 	margin-right: auto;
 	font-size: clamp(1rem, 5vmin, 1.25rem);
