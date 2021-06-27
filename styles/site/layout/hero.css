@@ -33,11 +33,58 @@
 	position: relative; /* To display elements above hero illustrations */
 }
 
+.hero-copy p {
+	margin-bottom: 2.5rem;
+}
+
+.hero-cta {
+	display: inline-flex;
+	align-items: center;
+}
+
+.hero-cta svg {
+	transition: transform 0.25s ease-in-out;
+	height: 3rem;
+	width: 1.5rem;
+}
+
+.hero-cta:hover svg {
+	transform: translateX(0.25rem);
+}
+
+.hero-summary {
+	font-family: serif;
+	font-weight: bold;
+	--stomp-start: #d7d6dd;
+	--stomp-end: var(--color--secondary-4);
+	font-size: clamp(1rem, 10vmin, 4rem);
+	line-height: clamp(1rem, 10vmin, 4rem);
+	margin-bottom: 2rem;
+}
+
+.hero-summary--sm {
+	font-size: var(--font-scale-1--size);
+	line-height: var(--font-scale-1--height);
+}
+
+.hero-paragraph {
+	color: var(--color--typography-4);
+	margin-left: auto;
+	margin-right: auto;
+	font-size: clamp(1rem, 5vmin, 1.25rem);
+	line-height: clamp(1rem, 10vmin, 1.4rem);
+}
+
+.login-button::after {
+	content: '';
+	background-image: url('/static/images/arrow-right.svg');
+}
+
 /* media::>medium */
 @media (min-width: 641px) {
 	.hero {
-		padding-top: 160px;
-		padding-bottom: 128px;
+		padding-top: 175px;
+		padding-bottom: 115px;
 	}
 
 	.hero::after {
@@ -47,16 +94,16 @@
 		background-size: 1440px 307px;
 	}
 
-	.hero-paragraph {
+	/* .hero-paragraph {
 		padding-left: 72px;
 		padding-right: 72px;
-	}
+	} */
 }
 
 .has-animations .hero::before,
 .has-animations .hero::after,
 .has-animations .site-header,
-.has-animations .hero-title,
+.has-animations .hero-summary,
 .has-animations .hero-paragraph,
 .has-animations .hero-cta {
 	opacity: 0;
@@ -74,7 +121,7 @@
 	animation: heroFadeIn 0.6s ease forwards 0.3s;
 }
 
-.has-animations.is-loaded .hero-title {
+.has-animations.is-loaded .hero-summary {
 	animation: heroContent 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) forwards 0.15s;
 }
 
@@ -83,7 +130,19 @@
 }
 
 .has-animations.is-loaded .hero-cta {
-	animation: heroContent 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) forwards 0.45s;
+	/* This is not a random number! Check the heroLoginButton animation definition for more info */
+	animation: heroLoginButton 4.75s cubic-bezier(0.215, 0.61, 0.355, 1) forwards 0.45s;
+}
+
+.has-animations.is-loaded .hero-summary .word {
+	animation-name: fadeColorIn;
+	animation-duration: 1.25s;
+	animation-fill-mode: forwards;
+	animation-delay: calc(0.75s + calc(0.4s * var(--delay)));
+}
+
+.uline {
+	text-decoration: underline;
 }
 
 @keyframes heroBg {
@@ -110,6 +169,37 @@
 	}
 }
 
+@keyframes heroLoginButton {
+	from {
+		transform: translateY(-40px);
+		opacity: 0;
+	}
+
+	/*
+	* We have 5 words which each start after 0.4s -> 2s for those animations.
+	* - Add another 0.75s for this delay (fade in) to get a total delay of 2.75s.
+	* - We want the appear animation to play for 0.6s (in parallel of the delay)
+	* - We want the wiggle animation to play for 1s
+	* For a total of 3.75s animation duration
+	* The fade in animation should run for the first 0.6/3.75 = 16% of the animation
+	* The wiggle should start at 2.75/3.75 = 73%. For some reason 79% just works better though
+	* and we still need the duration to be 4.75s
+	*/
+	16%, 79% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+
+	85% {
+		transform: translateY(-10px);
+	}
+
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
 @keyframes heroFadeIn {
 	from {
 		opacity: 0;
@@ -117,5 +207,11 @@
 
 	to {
 		opacity: 1;
+	}
+}
+
+@keyframes fadeColorIn {
+	to {
+		color: var(--stomp-end);
 	}
 }

@@ -1,5 +1,12 @@
+.testimonials {
+	margin-top: 3rem;
+	margin-bottom: 3rem;
+}
+
 .testimonials .section-title {
 	margin-bottom: 48px;
+	position: relative;
+	z-index: 10;
 }
 
 .testimonials-wrap {
@@ -11,19 +18,25 @@
 	margin-top: -12px;
 }
 
-.testimonials-wrap:last-of-type {
-	margin-bottom: -12px;
-}
-
-.testimonials-wrap:not(:last-of-type) {
-	margin-bottom: 12px;
-}
-
 .testimonial {
 	padding: 12px;
 	width: 368px;
 	max-width: 368px;
 	flex-grow: 1;
+	position: relative;
+}
+
+.testimonials .section-title::before {
+	background-image: url('/static/images/features-quote-illustration.svg');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	content: "";
+	height: 85px;
+	left: 0;
+	position: absolute;
+	top: -20px;
+	width: 76px;
+	z-index: -1;
 }
 
 .testimonial-inner {

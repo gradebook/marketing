@@ -1,132 +1,127 @@
 ---
 fullTitle: Gradebook - The Better Grade Tracker
 description: Better grades, together. Gradebook is a free app designed by students to make grade tracking easy.
-hideHeaderLogoText: true
 ---
 
 {{#block "hero"}}
 	<div class="container-sm">
 		<div class="hero-inner">
 			<div class="hero-copy">
-				<img class="hero-title mt-0" src="/static/images/logo-text.png" alt="Gradebook" />
-				<p class="hero-paragraph">Better grades, together.</p>
-				<div class="hero-cta">
-					<a class="js-auth-redirect button button-primary button-wide-mobile login-button"
-						href="{{site.auth}}/api/v0/session/begin?gb-login">Sign in with Google</a>
+				<div class="hero-summary">
+					<div>
+						<span class="word" style="--delay: 0">Take</span>
+						<span class="word" style="--delay: 1">Control</span>
+					</div>
+					<div>
+						<span class="word" style="--delay: 3">Of</span>
+						<span class="word" style="--delay: 4">Your</span>
+						<span class="word" style="--delay: 5">Grades</span>
+					</div>
 				</div>
+				<p class="hero-paragraph">
+					The only free app built by students to simplify grade tracking
+				</p>
+				{{> login-button style="--delay: 5"}}
 			</div>
 		</div>
 	</div>
 {{/block}}
 
 <section class="features section">
-	<div class="container">
-		<div class="features-inner section-inner has-bottom-divider">
-			<div class="features-header text-center">
-				<div class="container-sm">
-					<p class="section-title mt-0 is-revealing">Gradebook is a free app designed by students to make grade tracking easy.</p>
-					<img class="features-illustration is-revealing" src="/static/images/index/course.jpg"
-						alt="Gradebook application screenshot">
-				</div>
-			</div>
-			<div class="features-wrap">
-				<div class="feature text-center is-revealing">
-					<div class="feature-inner">
-						<div class="feature-icon mb-16">
-							<img src="/static/images/feature-04.svg" alt="">
-						</div>
-						<div class="feature-content">
-							<h4 class="feature-title mt-0 mb-8">Functional</h4>
-							<p class="text-sm mb-0">Gradebook was designed by students, for students. We focus on providing better
-								insights into your progress so that you can focus on what's most important.</p>
-						</div>
-					</div>
-				</div>
-				<div class="feature text-center is-revealing">
-					<div class="feature-inner">
-						<div class="feature-icon mb-16">
-							<img src="/static/images/feature-01.svg" alt="">
-						</div>
-						<div class="feature-content">
-							<h4 class="feature-title mt-0 mb-8">Consolidated</h4>
-							<p class="text-sm mb-0">Gradebook is your one-stop shop to keep track of your grades across all your
-								courses at any school, on all your devices.</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- <div class="features-wrap">
-							<div class="feature text-center is-revealing">
-								<div class="feature-inner">
-									<div class="feature-icon mb-16">
-										<img src="/static/images/feature-03.svg" alt="Feature 3">
-									</div>
-									<div class="feature-content">
-										<h4 class="feature-title mt-0 mb-8">Discover</h4>
-										<p class="text-sm mb-0">A pseudo-Latin text used in web design, layout, and printing in place of things to emphasise design.</p>
-									</div>
-								</div>
-							</div>
-							<div class="feature text-center is-revealing">
-								<div class="feature-inner">
-									<div class="feature-icon mb-16">
-										<img src="/static/images/feature-04.svg" alt="Feature 04">
-									</div>
-									<div class="feature-content">
-										<h4 class="feature-title mt-0 mb-8">Discover</h4>
-										<p class="text-sm mb-0">A pseudo-Latin text used in web design, layout, and printing in place of things to emphasise design.</p>
-									</div>
-								</div>
-							</div>
-						</div> -->
+	<div class="container-sm has-bottom-divider">
+		<h2 class="text-center">Grade tracking designed to work for <span class="uline">you</span></h2>
+		<p class="section-paragraph mb-0 text-center">
+			Learning is hard, even before factoring in grading
+		</p>
+		<p class="section-paragraph mb-0 text-center">
+			Add in the unpredictability of your courses, and you've got a recipe for chaos
+		</p>
+		<p class="section-paragraph mt-0 text-center">
+			<strong>Gradebook helps bring order to your chaotic life</strong>
+		</p>
+		<div class="text-center">
+			<img
+				{{!-- js-reveal-feature-illustration --}}
+				class="js-r-fi is-revealing"
+				src="/static/images/index/course.jpg"
+				alt="Gradebook application screenshot"
+			/>
 		</div>
 	</div>
 </section>
-
+<hr class="divider container">
 <section class="features-extended section">
-	<div class="features-extended-inner section-inner">
-		<div class="features-extended-header text-center">
-			<div class="container-sm">
-				<h2 class="section-title mt-0">What makes Gradebook awesome?</h2>
-				<p class="section-paragraph">We strive to provide a fast, simple, and intuitive way to track your grades and
-					constantly add features to support this.</p>
-			</div>
+	<div class="features-extended-header text-center">
+		<div class="container-sm">
+			<h2 class="section-title mt-0">How can Gradebook help you?</h2>
+			<p class="section-paragraph">
+				We provide an easy, intuitive, and featureful way to track your grades
+			</p>
 		</div>
-		<div class="features-extended-wrap">
-			<div class="container">
-				<div class="feature-extended">
-					<div class="feature-extended-image is-revealing">
-						<img src="/static/images/index/semester-dashboard.jpg" alt="Screenshot of a Gradebook Semester dashboard, which contains visual progress bars to show how you're doing in all of your courses">
-					</div>
-					<div class="feature-extended-body is-revealing">
-						<h3 class="mt-0">Simple, visual dashboard</h3>
-						<p class="mb-0">View an overview of all your courses on your home page.</p>
-						<!--<p class="mb-0">Collect grades, homeworks, labs, and quizzes into categories to accurately track your progress and completion.</p>-->
-					</div>
+	</div>
+	<div class="features-extended-wrap">
+		<div class="container">
+			<div class="feature-extended">
+				<div class="feature-extended-image is-revealing">
+					<img
+						src="/static/images/index/semester-dashboard.jpg"
+						alt="Screenshot of a Gradebook Semester dashboard, which contains visual progress bars to show how you're doing in all of your courses"
+					/>
 				</div>
-				<div class="feature-extended">
-					<div class="feature-extended-image is-revealing">
-						<img src="/static/images/index/whats-needed.jpg" alt="Screenshot of the What's Needed section from a Course Dashboard">
-					</div>
-					<div class="feature-extended-body is-revealing">
-						<h3 class="mt-0">Superior insights</h3>
-						<p class="mb-0">Understand how you need to do on your remaining assignments to earn each letter grade.</p>
-					</div>
+				<div class="feature-extended-body is-revealing">
+					<h3 class="mt-0">Visual dashboard</h3>
+					<p class="mb-0">
+						<strong>See</strong> how you're doing across all your courses - all in one place
+					</p>
+					<!--<p class="mb-0">Collect grades, homeworks, labs, and quizzes into categories to accurately track your progress and completion.</p>-->
 				</div>
-				<div class="feature-extended">
-					<div class="feature-extended-image is-revealing">
-						{{inline-svg "/static/inline/index/feedback.svg"}}
-					</div>
-					<div class="feature-extended-body is-revealing">
-						<h3 class="mt-0">Constant improvement</h3>
-						<p class="mb-0">We listen to feedback on current and possible features and act on it to make Gradebook even
-							better.</p>
-					</div>
+			</div>
+			<div class="feature-extended">
+				<div class="feature-extended-image is-revealing">
+					<img
+						src="/static/images/index/whats-needed.jpg"
+						alt="Screenshot of the What's Needed section from a Course Dashboard"
+					/>
+				</div>
+				<div class="feature-extended-body is-revealing">
+					<h3 class="mt-0">No more guessing</h3>
+					<p class="mb-0">
+						Understand what you need to score on your remaining assignments to earn a letter grade
+					</p>
+				</div>
+			</div>
+			<div class="feature-extended">
+				<div class="feature-extended-image is-revealing">
+					<img
+						src="/static/images/index/experiment.jpg"
+						alt="Screenshot of the What's Needed section from a Course Dashboard"
+					/>
+				</div>
+				<div class="feature-extended-body is-revealing">
+					<h3 class="mt-0">Experiment with ease</h3>
+					<p class="mb-0">
+						See how earning different grades across assignments will affect your average
+					</p>
+				</div>
+			</div>
+			<div class="feature-extended">
+				<div class="feature-extended-image is-revealing">
+					<img
+						src="/static/images/index/experiment.jpg"
+						alt="Screenshot of the What's Needed section from a Course Dashboard"
+					/>
+				</div>
+				<div class="feature-extended-body is-revealing">
+					<h3 class="mt-0">GPA Insights <small class="pill" aria-hidden="true">New</small></h3>
+					<p class="mb-0">
+						Harness tailored insights and analysis to maximize your GPA
+					</p>
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
+<hr class="divider container">
 
 <!-- <section class="pricing section text-light">
 				<div class="container">
@@ -198,78 +193,38 @@ hideHeaderLogoText: true
 				</div>
 			</section> -->
 
-<!-- <section class="testimonials section">
-				<div class="container">
-					<div class="testimonials-inner section-inner">
-						<h2 class="section-title mt-0 text-center">Loved by users worldwide</h2>
-						<div class="testimonials-wrap">
-							<div class="testimonial is-revealing">
-								<div class="testimonial-inner">
-									<div class="testimonial-main mb-32">
-										<div class="testimonial-rating mb-24">
-											<img src="/static/images/5-stars.svg" alt="Rating">
-										</div>
-										<div class="testimonial-body">
-											<p class="text-sm m-0">Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.</p>
-										</div>
-									</div>
-									<div class="testimonial-footer">
-										<div class="testimonial-image">
-											<img src="/static/images/testimonial-01.png" alt="Mark Walker">
-										</div>
-										<div class="testimonial-name text-sm">Mark Walker</div>
-									</div>
-								</div>
-							</div>
-							<div class="testimonial is-revealing">
-								<div class="testimonial-inner">
-									<div class="testimonial-main mb-32">
-										<div class="testimonial-rating mb-24">
-											<img src="/static/images/5-stars.svg" alt="Rating">
-										</div>
-										<div class="testimonial-body">
-											<p class="text-sm m-0">Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.</p>
-										</div>
-									</div>
-									<div class="testimonial-footer">
-										<div class="testimonial-image">
-											<img src="/static/images/testimonial-02.png" alt="Marta Smirth">
-										</div>
-										<div class="testimonial-name text-sm">Marta Smirth</div>
-									</div>
-								</div>
-							</div>
-							<div class="testimonial is-revealing">
-								<div class="testimonial-inner">
-									<div class="testimonial-main mb-32">
-										<div class="testimonial-rating mb-24">
-											<img src="/static/images/5-stars.svg" alt="Rating">
-										</div>
-										<div class="testimonial-body">
-											<p class="text-sm m-0">Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.</p>
-										</div>
-									</div>
-									<div class="testimonial-footer">
-										<div class="testimonial-image">
-											<img src="/static/images/testimonial-03.png" alt="Evan Hill">
-										</div>
-										<div class="testimonial-name text-sm">Evan Hill</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section> -->
+<section class="testimonials container section">
+	<h2 class="section-title mt-0 text-center">Don't take our word for it...</h2>
+	<div class="testimonials-wrap">
+		<div class="testimonial is-revealing mb-32">
+			<div class="testimonial-inner">
+				<p class="text-sm m-0">
+					"I absolutely love Gradebook and recommend it to all of my friends that don't know about it."
+				</p>
+			</div>
+		</div>
+		<div class="testimonial is-revealing mb-32">
+			<div class="testimonial-inner">
+				<p class="text-sm m-0">
+					"I love the Visual Progress bar because it helped me see how hard I needed to work in my classes to get the grades I wanted."
+				</p>
+			</div>
+		</div>
+		<div class="testimonial is-revealing mb-32">
+			<div class="testimonial-inner">
+				<p class="text-sm m-0">
+					"Love the design, easy to use, and like that it helps me keep track of my GPA."
+				</p>
+			</div>
+		</div>
+	</div>
+</section>
 
 <section class="cta section text-light">
 	<div class="container">
 		<div class="cta-inner section-inner is-revealing">
 			<h3 class="section-title mt-0">What are you waiting for?</h3>
-			<div>
-				<a class="js-auth-redirect button button-primary button-wide-mobile login-button"
-					href="{{site.auth}}/api/v0/session/begin?gb-login">Sign in with Google</a>
-			</div>
+			{{> login-button}}
 		</div>
 	</div>
 </section>
