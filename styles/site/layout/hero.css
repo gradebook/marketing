@@ -135,8 +135,8 @@
 }
 
 .has-animations.is-loaded .hero-summary .word {
-	animation-name: stompIn;
-	animation-duration: 0s;
+	animation-name: fadeColorIn;
+	animation-duration: 1.25s;
 	animation-fill-mode: forwards;
 	animation-delay: calc(0.75s + calc(0.5s * var(--delay)));
 }
@@ -209,10 +209,7 @@
 	}
 }
 
-@keyframes stompIn {
-	from {
-		color: var(--stomp-start);
-	}
+@keyframes fadeColorIn {
 	to {
 		color: var(--stomp-end);
 	}
