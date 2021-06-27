@@ -138,7 +138,7 @@
 	animation-name: fadeColorIn;
 	animation-duration: 1.25s;
 	animation-fill-mode: forwards;
-	animation-delay: calc(0.75s + calc(0.5s * var(--delay)));
+	animation-delay: calc(0.75s + calc(0.4s * var(--delay)));
 }
 
 .uline {
@@ -176,15 +176,16 @@
 	}
 
 	/*
-	* We have 4 words which each start after 0.75s -> 3s for those animations.
-	* - Add another 0.75s for this delay to get a delay of 3.75s.
+	* We have 5 words which each start after 0.4s -> 2s for those animations.
+	* - Add another 0.75s for this delay (fade in) to get a total delay of 2.75s.
 	* - We want the appear animation to play for 0.6s (in parallel of the delay)
 	* - We want the wiggle animation to play for 1s
-	* For a total of 4.75s animation duration
-	* The fade in animation should run for the first 0.6/4.75 = 13% of the animation
-	* The wiggle should start at 3.75/4.75 = 79%
+	* For a total of 3.75s animation duration
+	* The fade in animation should run for the first 0.6/3.75 = 16% of the animation
+	* The wiggle should start at 2.75/3.75 = 73%. For some reason 79% just works better though
+	* and we still need the duration to be 4.75s
 	*/
-	13%, 79% {
+	16%, 79% {
 		transform: translateY(0);
 		opacity: 1;
 	}
