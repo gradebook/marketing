@@ -105,7 +105,8 @@
 .has-animations .site-header,
 .has-animations .hero-summary,
 .has-animations .hero-paragraph,
-.has-animations .hero-cta {
+.has-animations .hero-cta,
+.has-animations .intro-story {
 	opacity: 0;
 }
 
@@ -132,6 +133,10 @@
 .has-animations.is-loaded .hero-cta {
 	/* This is not a random number! Check the heroLoginButton animation definition for more info */
 	animation: heroLoginButton 4.75s cubic-bezier(0.215, 0.61, 0.355, 1) forwards 0.45s;
+}
+
+.has-animations.is-loaded .intro-story {
+	animation: heroContent 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) forwards 0.35s;
 }
 
 .has-animations.is-loaded .hero-summary .word {
