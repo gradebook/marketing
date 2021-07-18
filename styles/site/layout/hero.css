@@ -75,6 +75,14 @@
 	line-height: clamp(1rem, 10vmin, 1.4rem);
 }
 
+.hero-paragraph--font-normal {
+	font-size: 1rem;
+}
+
+.hero-paragraph--font-lg {
+	font-size: 2.25rem;
+}
+
 .login-button::after {
 	content: '';
 	background-image: url('/static/images/arrow-right.svg');
