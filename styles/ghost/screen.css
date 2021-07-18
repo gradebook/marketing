@@ -73,6 +73,10 @@ html,
 	flex-direction: column;
 }
 
+.gh-card-image-wrap {
+	min-height: 250px;
+}
+
 .gh-card-image {
 	border-top-left-radius: 1.75rem;
 	border-top-right-radius: 1.75rem;
