@@ -56,7 +56,7 @@ permalink: '/{{ post.url }}'
 	</div>
 	<script>
 		const {config} = window;
-		if (typeof config !== 'string') {
+		if (config) {
 			if (!config.feature_image) {
 				document.querySelector('.gh-feature-image').remove();
 			}
@@ -64,6 +64,8 @@ permalink: '/{{ post.url }}'
 			if (!config.custom_excerpt) {
 				document.querySelector('.gh-excerpt').remove();
 			}
+		} else {
+			document.title = document.title.replace('__title__', 'Preview not configured');
 		}
 	</script>
 {{/with}}
