@@ -1,5 +1,5 @@
 // @ts-check
-const {readFile} = require('fs/promises');
+const {readFile} = require('fs').promises;
 const path = require('path');
 const axios = require('axios').default;
 const {API_VERSION} = require('./data-fetchers/ghost-api');
@@ -65,7 +65,7 @@ module.exports = new class PreviewManager {
 
 		let renderedFile = file
 			.replace(textToRemove, '')
-			.replace(/DEC 1969/ig, dateHelper(post.published_at ?? post.updated_at, {hash: {format: 'MMM YYYY'}}))
+			.replace(/DEC 1969/ig, dateHelper(post.published_at || post.updated_at, {hash: {format: 'MMM YYYY'}}))
 			.replace('__config__', JSON.stringify({
 				feature_image: Boolean(post.feature_image),
 				custom_excerpt: Boolean(post.custom_excerpt)
