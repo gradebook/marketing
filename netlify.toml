@@ -28,6 +28,11 @@
   from = "/my/:splat"
   to = "https://the.gradebook.app/my/:splat"
 
+[[redirects]]
+  from = "/blog/p/:splat"
+  to = "/preview-helper/"
+  status = 200 # The preview helper depends on the url to be a preview url
+
 [[headers]]
     for = "/built/*"
     [headers.values]
