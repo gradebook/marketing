@@ -7,6 +7,7 @@ const ghost = require('./11ty/data-fetchers/ghost');
 const github = require('./11ty/data-fetchers/github');
 const time = require('./11ty/data-fetchers/timer');
 const helpers = require('./11ty/helpers');
+const preview = require('./11ty/preview');
 
 module.exports = function(config) {
 	// Assist RSS feed template
@@ -63,7 +64,7 @@ module.exports = function(config) {
 		config.addCollection('github', time(github, 'Fetch Legal', false));
 	}
 
-
+	config.addCollection('preview', preview.getDummyData);
 	config.addPassthroughCopy('static/images');
 	config.addPassthroughCopy('static/assets');
 

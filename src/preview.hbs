@@ -1,0 +1,69 @@
+---
+pagination:
+  data: collections.preview
+  size: 1
+  alias: post
+eleventyExcludeFromCollections: true
+permalink: '/{{ post.url }}'
+---
+{{> "ghost"}}
+{{#block "head"}}
+	<meta name="robots" value="noindex,nofollow" />
+	<style>
+		.article-warning {
+			display: none;
+		}
+
+		/* __marker_start__ */
+		.gh-article {
+			display: none;
+		}
+
+		.article-warning {
+			display: block;
+		}
+
+		/* __marker_end__ */
+	</style>
+	<script>
+		const redirect = localStorage.getItem('preview_domain');
+		const parsedRedirect = redirect ? new URL(redirect) : null;
+
+		if (redirect && window.location.host !== parsedRedirect.host) {
+			parsedRedirect.pathname = window.location.pathname;
+			window.location.href = parsedRedirect.toString();
+		} else {
+			window.setRedirectDomain = host => {
+				const redirect = new URL(host);
+				redirect.pathname = window.location.pathname;
+				localStorage.setItem('preview_domain', host);
+				window.location.href = redirect.toString();
+			}
+		}
+
+		window.config = __config__;
+	</script>
+{{/block}}
+
+{{#with post}}
+	{{> "post"}}
+	<div class="article-warning container">
+		<h1 class="gh-header">Post Preview</h1>
+		<div class="gh-content">
+			<p class="gh-content">Post previews are only available in development environments. Run <code>setRedirectDomain('http://hostname:port');</code> in your console to enable auto-redirects.</p>
+
+		</div>
+	</div>
+	<script>
+		const {config} = window;
+		if (typeof config !== 'string') {
+			if (!config.feature_image) {
+				document.querySelector('.gh-feature-image').remove();
+			}
+
+			if (!config.custom_excerpt) {
+				document.querySelector('.gh-excerpt').remove();
+			}
+		}
+	</script>
+{{/with}}
