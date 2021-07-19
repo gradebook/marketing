@@ -8,7 +8,7 @@ const dateHelper = require('./helpers/date');
 const previewPath = path.resolve(__dirname, '../dist/preview-helper/index.html');
 
 module.exports = new class PreviewManager {
-	ROUTE_MATCHER = '/p'
+	ROUTE_MATCHER = '/blog/p'
 
 	messages = {
 		noAccessToken: [
