@@ -20,7 +20,7 @@ _Released April 20, 2021_
 
  - Added a warning when course weights / cutoffs conflict
 
-## Bug Fixes / Notable Changes
+### Bug Fixes / Notable Changes
 
  - Fixed crash when saving course settings on a slow network
 
@@ -36,7 +36,7 @@ _Released April 5, 2021_
 
  - General improvements to user experience in the new course creator
 
-## Bug Fixes / Notable Changes
+### Bug Fixes / Notable Changes
 
  - Fixed `delete` button showing up in course settings when experimenting
 
