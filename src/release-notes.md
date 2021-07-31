@@ -8,6 +8,38 @@ description: See what's changed as Gradebook evolves!
 
 _Note that we only update our release notes when there is a notable feature or improvement. Between the documented releases here, we can have several smaller releases with bug fixes or improvements_ 😊
 
+## 3.23.0
+
+_Released July 30, 2021_
+
+### Features
+
+ - Added **bonus points** - we know you've been waiting for this feature, and it's finally here!
+
+ - Completely redesigned the new user tour
+
+ - Improve perceived loading performance on slower networks
+
+ - Enabled GPA Insights across all schools
+
+### Bug Fixes / Notable Changes
+
+ - Fixed crash when assignment creation fails
+
+ - Make the new course creator the default
+
+ - Fixed crash when sharing a course with non-latin characters
+
+ - Improved spacing of experimental mode toggle
+
+ - Fixed inconsistencies when category saving fails
+
+ - Improved responsiveness when making lots of changes to a course
+
+ - Fixed course average sometimes showing slightly (0.1%) lower
+
+ - Streamlined GPA configuration callouts
+
 ## 3.22.0
 
 _Released April 20, 2021_
