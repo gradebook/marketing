@@ -1,8 +1,5 @@
+require('dotenv/config');
 const preview = require('./11ty/preview');
-
-if (!process.env.LIVE_RELOAD_PORT) {
-	require('dotenv').config();
-}
 
 /**
  * @type {import('browser-sync').Options}
