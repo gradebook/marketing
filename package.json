@@ -30,7 +30,7 @@
     "@rollup/plugin-replace": "3.0.0",
     "@tryghost/content-api": "1.5.10",
     "@tryghost/helpers": "1.1.49",
-    "@tryghost/schema-org": "0.1.22",
+    "@tryghost/schema-org": "0.1.23",
     "autoprefixer": "10.3.1",
     "axios": "0.21.2",
     "browser-sync": "2.27.4",
