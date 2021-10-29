@@ -159,6 +159,10 @@
 	text-decoration: underline;
 }
 
+.min-h-33 {
+	min-height: 33vh;
+}
+
 @keyframes hero-bg {
 	from {
 		transform: translateY(-100%);
