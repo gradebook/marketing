@@ -27,7 +27,7 @@
 }
 
 .testimonials .section-title::before {
-	background-image: url('/static/images/features-quote-illustration.svg');
+	background-image: url("/static/images/features-quote-illustration.svg");
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 	content: "";

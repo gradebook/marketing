@@ -131,7 +131,7 @@ html,
 }
 
 .gh-page-image {
-	margin: 4vmin auto 0 auto;
+	margin: 4vmin auto 0;
 	max-height: 45vh;
 	object-fit: contain;
 }
@@ -147,12 +147,12 @@ html,
 /* ---------------------------------------------------------- */
 
 .gh-header {
-	padding: 0 0 8vmin 0;
+	padding: 0 0 8vmin;
 	text-align: center;
 }
 
 .gh-post-meta {
-	margin: -2rem 0 2.5rem 0;
+	margin: -2rem 0 2.5rem;
 	font-size: 1.75rem;
 	letter-spacing: 0.5px;
 	text-transform: uppercase;
@@ -164,7 +164,7 @@ html,
 }
 
 .gh-excerpt {
-	margin: 2.5rem 0 0 0;
+	margin: 2.5rem 0 0;
 }
 
 .gh-feature-image {
@@ -193,7 +193,7 @@ html,
 }
 
 .gh-author-meta {
-	margin: 2vmin 0 0 0;
+	margin: 2vmin 0 0;
 	font-size: 1.2em;
 }
 
@@ -217,7 +217,7 @@ html,
 	margin: 0 1.25vmin 0 0;
 	height: 1em;
 	width: 1px;
-	background: rgba(0, 0, 0, 0.3);
+	background: rgb(0 0 0 / 0.3);
 	transform: rotate(20deg);
 }
 

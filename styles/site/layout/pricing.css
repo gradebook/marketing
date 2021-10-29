@@ -74,11 +74,11 @@
 }
 
 .pricing-table-features li::before {
-	content: '';
+	content: "";
 	width: 16px;
 	height: 13px;
 	margin-right: 12px;
-	background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTMiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+ICA8cGF0aCBkPSJNNS42IDhMMi40IDQuOCAwIDcuMmw1LjYgNS42TDE2IDIuNCAxMy42IDB6IiBmaWxsPSIjNUFFMEQyIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz48L3N2Zz4=);
+	background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTMiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+ICA8cGF0aCBkPSJNNS42IDhMMi40IDQuOCAwIDcuMmw1LjYgNS42TDE2IDIuNCAxMy42IDB6IiBmaWxsPSIjNUFFMEQyIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz48L3N2Zz4=");
 	background-repeat: no-repeat;
 }
 

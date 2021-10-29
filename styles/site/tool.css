@@ -14,13 +14,13 @@
 }
 
 .tool-entrypoint:focus-within {
-	box-shadow: 0 1px 6px 0 rgba(87, 67, 223, 0.25), 0 1px 4px 0 rgba(87, 67, 223, 0.1);
+	box-shadow: 0 1px 6px 0 rgba(87 67 223 / 0.25), 0 1px 4px 0 rgba(87 67 223 / 0.1);
 	transform: scale(0.99);
 }
 
 .app-cta {
 	color: var(--color--typography-1);
-	background: rgba(58, 57, 148, 0.3);
+	background: rgba(58 57 148 / 0.3);
 	padding: 1rem;
 	border-radius: 10px;
 }

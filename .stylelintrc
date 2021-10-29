@@ -7,7 +7,10 @@
 		"color-no-invalid-hex": true,
 		"declaration-colon-space-after": "always-single-line",
 		"max-empty-lines": 2,
-		"indentation": "tab"
+		"indentation": "tab",
+		"alpha-value-notation": "number",
+		"custom-property-pattern": null,
+		"selector-class-pattern": null
 	},
 	"extends": "stylelint-config-standard"
 }
