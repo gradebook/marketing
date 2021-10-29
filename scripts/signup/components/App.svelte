@@ -4,7 +4,6 @@
 	import AsyncButton from './async-button.svelte';
 	import items from './schools';
 	import {getUser, logout, approveAccount} from '../services/net';
-	import getUrl from './get-url';
 
 	const STATE = {
 		confirmCreation: 0,
@@ -81,7 +80,7 @@
 		<main class="content">
 			<Select
 				{items}
-				selectedValue={guessedSchool}
+				value={guessedSchool}
 				isDisabled={notListed}
 				on:select={e => {school = e.detail; message = ''}}
 				on:clear={() => {school = null; message = ''}}

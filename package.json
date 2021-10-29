@@ -61,6 +61,6 @@
     "@gradebook/external-window": "0.3.0",
     "dayjs": "1.10.7",
     "postcss": "8.3.11",
-    "svelte-select": "3.17.0"
+    "svelte-select": "4.4.3"
   }
 }
