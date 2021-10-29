@@ -12,7 +12,8 @@
   "license": "MIT",
   "private": true,
   "browserslist": [
-    "last 2 chrome versions"
+    "> 1% in US",
+    "last 2 years"
   ],
   "scripts": {
     "lint": "stylelint styles/**/*",
