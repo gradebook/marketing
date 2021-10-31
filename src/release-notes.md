@@ -8,6 +8,58 @@ description: See what's changed as Gradebook evolves!
 
 _Note that we only update our release notes when there is a notable feature or improvement. Between the documented releases here, we can have several smaller releases with bug fixes or improvements_ 😊
 
+## 3.24.0
+
+_Released October 31, 2021 🎃_
+
+### Features
+
+- Redesigned progress bars to have a unified experience. The visual changes are minor, but a lot of really small issues have been fixed. And it's a bit faster ⚡
+
+- Updated "new category" design
+
+- Increased max course count
+
+### Bug Fixes / Notable Changes
+
+- Allow selecting destination semester for import
+
+- The number of assignments in a category are now surfaced in the grade table
+
+- Fixed grade mode preferences not being remembered
+
+- Improvements to the Course Creator
+
+  - Removed old course creator
+
+  - Allowed deferring assignment creation
+
+  - Allowed opt-out of course creator for assignment creation
+
+  - Reduced file size and increased performance
+
+  - Fixed several issues relating to cutoffs and saving
+
+- Assignments without a weight are now grade-type neutral
+
+- Fix cutoff mismatch after cancelling course settings change
+
+- Improved messaging around network errors
+
+- Fixed GPA calculation for courses with a A-/B-/C-/D- average (this was reported by a student, thank you!)
+
+- Accessibility improvements
+
+- Fixed GPA out-of-date message being hidden behind title
+
+- Removed some dead code
+
+- Improved rendering of percent sign in grade table due to variable widths
+
+- Tamed overzealous scrollbars on Semester Dashboard
+
+- Updater browser support to only modern browsers
+
 ## 3.23.0
 
 _Released July 30, 2021_
