@@ -58,6 +58,7 @@
     "svelte": "3.44.0"
   },
   "dependencies": {
+    "@gradebook/course-serializer": "^0.2.6",
     "@gradebook/external-window": "0.3.0",
     "dayjs": "1.10.7",
     "postcss": "8.3.11",
