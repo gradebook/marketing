@@ -12,6 +12,7 @@ import {terser} from 'rollup-plugin-terser';
 const production = !process.env.ROLLUP_WATCH;
 
 const ENTRYPOINTS = ['popup', 'update-cta', 'main', 'facebook', 'donate'];
+const SVELTE_ENTRYPOINTS = ['signup', 'create-course'];
 const entrypointCompilers = [];
 
 let hashFile = {};
@@ -53,6 +54,61 @@ const plugins = [
 	hashFile
 ];
 
+const svelteHelpers = {
+	core: svelte({
+		compilerOptions: {
+			// enable run-time checks when not in production
+			dev: !production,
+		}
+	}),
+	// If you have external dependencies installed from
+	// npm, you'll most likely need these plugins. In
+	// some cases you'll need additional configuration -
+	// consult the documentation for details:
+	// https://github.com/rollup/plugins/tree/master/packages/commonjs
+	resolve: resolve({
+		browser: true,
+		dedupe: ['svelte']
+	}),
+	commonjs: commonjs(),
+};
+
+const sveltePlugins = componentName => ({
+	input: `scripts/${componentName}/main.js`,
+	output: {
+		sourcemap: true,
+		format: 'iife',
+		name: 'app',
+		file: `dist/built/${componentName}.js`
+	},
+	plugins: [
+		replaceSingleton,
+		svelteHelpers.core,
+		css({
+			output(css) {
+				let outputFileName = `${componentName}.css`;
+				if (hashFile.renderChunk) {
+					const ref = {fileName: outputFileName};
+					hashFile.renderChunk(css, ref);
+					outputFileName = ref.fileName;
+				}
+
+				writeFileSync(path.resolve(__dirname, './dist/built/', outputFileName), css);
+			}
+		}),
+		svelteHelpers.resolve,
+		svelteHelpers.commonjs,
+		!production && serve,
+		// If we're building for production, minify
+		production && terser(),
+		writeHashes,
+		hashFile
+	],
+	watch: {
+		clearScreen: false
+	}
+});
+
 for (const entrypoint of ENTRYPOINTS) {
 	entrypointCompilers.push({
 		input: `scripts/${entrypoint}.js`,
@@ -63,58 +119,12 @@ for (const entrypoint of ENTRYPOINTS) {
 			file: `dist/built/${entrypoint}.js`
 		},
 		plugins
-	})
+	});
 }
 
-export default [...entrypointCompilers, {
-	input: 'scripts/signup/main.js',
-	output: {
-		sourcemap: true,
-		format: 'iife',
-		name: 'app',
-		file: 'dist/built/signup.js'
-	},
-	plugins: [
-		replaceSingleton,
-		svelte({
-			compilerOptions: {
-				// enable run-time checks when not in production
-				dev: !production,
-			}
-		}),
-		css({
-			output(css) {
-				let outputFileName = 'signup.css';
-				if (hashFile.renderChunk) {
-					const ref = {fileName: outputFileName};
-					hashFile.renderChunk(css, ref);
-					outputFileName = ref.fileName;
-				}
+for (const entrypoint of SVELTE_ENTRYPOINTS) {
+	entrypointCompilers.push(sveltePlugins(entrypoint));
+}
 
-				writeFileSync(path.resolve(__dirname, './dist/built/', outputFileName), css);
-			}
-		}),
-
-		// If you have external dependencies installed from
-		// npm, you'll most likely need these plugins. In
-		// some cases you'll need additional configuration -
-		// consult the documentation for details:
-		// https://github.com/rollup/plugins/tree/master/packages/commonjs
-		resolve({
-			browser: true,
-			dedupe: ['svelte']
-		}),
-		commonjs(),
-
-		!production && serve,
-
-		// If we're building for production, minify
-		production && terser(),
-		writeHashes,
-		hashFile
-	],
-	watch: {
-		clearScreen: false
-	}
-}];
+export default entrypointCompilers;
 
