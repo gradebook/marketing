@@ -88,6 +88,11 @@
     "@babel/helper-validator-identifier" "^7.16.7"
     to-fast-properties "^2.0.0"
 
+"@gradebook/course-serializer@^0.2.6":
+  version "0.2.6"
+  resolved "https://registry.yarnpkg.com/@gradebook/course-serializer/-/course-serializer-0.2.6.tgz#2865a47544258686e73b88af2222245edae1c68d"
+  integrity sha512-hm5t2APm0XDI1v9gKYy0dKE2y5bT7cOn57WymAwyZQKSFIiG1phJwFw3MpRIJWLJIpuJARxatXF43nvzuMni1g==
+
 "@gradebook/external-window@0.3.0":
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/@gradebook/external-window/-/external-window-0.3.0.tgz#1540709c9cf0af470951ef9479c41be439512f28"
