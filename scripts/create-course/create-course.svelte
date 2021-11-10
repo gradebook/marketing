@@ -68,7 +68,7 @@ onMount(() => {
 								0 9px 46px 8px rgb(0 0 0 / 12%);
 		--primary: var(--secondary);
 		backdrop-filter: blur(10px);
-		background: transparent;
+		background: rgba(255 255 255 / 0.20);
 	}
 
 	h1 {
