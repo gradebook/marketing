@@ -71,6 +71,11 @@ onMount(() => {
 		background: rgba(255 255 255 / 0.20);
 	}
 
+	button {
+		background-color:rgb(255 255 255 / 50%);
+		border: 1px solid #d8dbdf;
+	}
+
 	h1 {
 		font-size: 1.5rem;
 		font-weight: 600;
@@ -78,7 +83,7 @@ onMount(() => {
 
 	.core {
 		flex: 1;
-		margin-top: 8px;
+		margin-top: 32px;
 	}
 
 	.step {
@@ -93,8 +98,10 @@ onMount(() => {
 <div class="box">
 	<div class="step" class:visible={currentState == 0}>
 		<h1>Select your School</h1>
+		<div class="gb-select"></div>
 		<div class="core">
 			<Select
+				containerStyles="background-color: rgb(255 255 255 / 50%)"
 				items={schools}
 				value={$selectedSchool}
 				on:select={value => $selectedSchool = value.detail.value}
