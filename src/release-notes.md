@@ -8,6 +8,20 @@ description: See what's changed as Gradebook evolves!
 
 _Note that we only update our release notes when there is a notable feature or improvement. Between the documented releases here, we can have several smaller releases with bug fixes or improvements_ 😊
 
+## 3.25.0
+
+_Released November 23, 2021_
+
+### Features
+
+- Added a new system for us to ask for your feedback
+
+### Bug Fixes / Notable Changes
+
+- Fixed "finish creating course" erroring when a semester is full
+
+- Improve the way plus and minus letter grades look
+
 ## 3.24.0
 
 _Released October 31, 2021 🎃_
