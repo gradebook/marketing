@@ -5,11 +5,11 @@ import {onMount} from 'svelte';
 import Select from 'svelte-select';
 import schoolConfig from '../schools.js';
 import {selectedSchool} from './selected-school.js';
+import {serializer} from './serialization.js';
 let currentState = 0;
 
 let courseCreator;
 const schools = Object.keys(schoolConfig);
-let courseResponse;
 
 $: {
 	const school = schoolConfig[$selectedSchool];
@@ -20,18 +20,13 @@ $: {
 	}
 }
 
-$: url = courseResponse
-	? `https://${schoolConfig[$selectedSchool].slug}.gradebook.app/my/import#${serialize(courseResponse)}`
-	: '';
-
-
 onMount(() => {
 	courseCreator.completeFunction = (response, complaintReason) => {
 		if (response === null) {
 			currentState = 0;
 		} else if (response) {
 			currentState = 2;
-			courseResponse = response;
+			serializer.update(schoolConfig[$selectedSchool].slug, response);
 		} else {
 			console.log({response, complaintReason});
 		}
@@ -42,6 +37,14 @@ onMount(() => {
 	courseCreator.allowEscape = false;
 	courseCreator.standalone = true;
 });
+
+const fail = () => {
+	window.alert('not yet implemented');
+};
+
+const openShare = fail;
+const triggerCopy = fail;
+const createShortLink = fail;
 </script>
 
 <style>
@@ -116,6 +119,12 @@ onMount(() => {
 		<gbwc-course-creator bind:this={courseCreator}></gbwc-course-creator>
 	</div>
 	<div class="step" class:visible={currentState == 2}>
-		{url}
+		Share your course!
+		{#if $serializer.image}
+		<img src={$serializer.image} alt="QR code containing course link" />
+		{/if}
+		<button on:click={() => openShare()}>Share</button>
+		<button on:click={() => triggerCopy()}>Copy</button>
+		<button on:click={() => createShortLink()}>Shorten</button>
 	</div>
 </div>
