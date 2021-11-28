@@ -39,7 +39,8 @@ const replaceSingleton = replace({
 	preventAssignment: true,
 	env: JSON.stringify({
 		SITE_URL: process.env.SITE_URL,
-		AUTH_URL: process.env.AUTH_URL
+		AUTH_URL: process.env.AUTH_URL,
+		SHRINK_ENDPOINT: process.env.SHRINK_ENDPOINT,
 	})
 });
 
