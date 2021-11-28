@@ -133,18 +133,19 @@ const createShortLink = fail;
 	<div class="step" class:visible={currentState == 2}>
 		Share your course!
 		{#if $serializer.image}
-		<img src={$serializer.image} alt="QR code containing course link" />
+			<img src={$serializer.image} alt="QR code containing course link" />
 			{#if canShare}
-		<button on:click={() => openShare()}>Share</button>
+				<button on:click={() => openShare()}>Share</button>
 			{/if}
 			{#if canCopy}
-		<button on:click={() => triggerCopy()}>Copy</button>
+				<button on:click={() => triggerCopy()}>Copy</button>
 			{/if}
 			{#if canCreateShortLink}
-		<button on:click={() => createShortLink()}>Shorten</button>
+				<button on:click={() => createShortLink()}>Shorten</button>
 			{/if}
 		{:else}
 			<p>Generating link...</p>
 		{/if}
+		<button on:click={() => currentState--}>Back</button>
 	</div>
 </div>
