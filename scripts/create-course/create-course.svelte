@@ -9,6 +9,7 @@ import {serializer} from './serialization.js';
 let currentState = 0;
 
 let courseCreator;
+let courseName;
 const schools = Object.keys(schoolConfig);
 
 $: {
@@ -27,6 +28,7 @@ onMount(() => {
 		} else if (response) {
 			currentState = 2;
 			serializer.update(schoolConfig[$selectedSchool].slug, response);
+			courseName = response.name;
 		} else {
 			console.log({response, complaintReason});
 		}
@@ -38,12 +40,22 @@ onMount(() => {
 	courseCreator.standalone = true;
 });
 
+const canShare = 'share' in navigator;
+const canCopy = 'clipboard' in navigator
+$: canCreateShortLink = $serializer && serializer.isValid();
+
 const fail = () => {
 	window.alert('not yet implemented');
 };
 
-const openShare = fail;
-const triggerCopy = fail;
+const openShare = () => navigator.share({
+	title: `Gradebook Template for ${courseName}`,
+	text: `Add ${courseName} to Gradebook so you can track your grades!`,
+	url: $serializer.link,
+});
+
+const triggerCopy = () => navigator.clipboard.writeText($serializer.link);
+
 const createShortLink = fail;
 </script>
 
@@ -122,9 +134,17 @@ const createShortLink = fail;
 		Share your course!
 		{#if $serializer.image}
 		<img src={$serializer.image} alt="QR code containing course link" />
-		{/if}
+			{#if canShare}
 		<button on:click={() => openShare()}>Share</button>
+			{/if}
+			{#if canCopy}
 		<button on:click={() => triggerCopy()}>Copy</button>
+			{/if}
+			{#if canCreateShortLink}
 		<button on:click={() => createShortLink()}>Shorten</button>
+			{/if}
+		{:else}
+			<p>Generating link...</p>
+		{/if}
 	</div>
 </div>
