@@ -14,6 +14,8 @@ const schools = Object.keys(schoolConfig);
 $: {
 	const school = schoolConfig[$selectedSchool];
 	document.documentElement.style.setProperty('--body-bg', `url('${school.theme.background}')`);
+	document.documentElement.style.setProperty('--primary', school.theme.primary);
+	document.documentElement.style.setProperty('--secondary', school.theme.hover);
 
 	window.courseCreator.configure({
 		completeFunction: afterCourseCreatorCompletes,
