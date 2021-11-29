@@ -1,28 +1,32 @@
 <script>
 import '@gradebook/course-creator';
 import {serialize} from '@gradebook/course-serializer';
-import {onMount} from 'svelte';
 import Select from 'svelte-select';
 import schoolConfig from '../schools.js';
 import {selectedSchool} from './selected-school.js';
 import {serializer} from './serialization.js';
-let currentState = 0;
 
-let courseCreator;
+let currentState = 0;
 let courseName;
+let shortLink;
 const schools = Object.keys(schoolConfig);
 
 $: {
 	const school = schoolConfig[$selectedSchool];
 	document.documentElement.style.setProperty('--body-bg', `url('${school.theme.background}')`);
-	if (courseCreator) {
-		courseCreator.school = $selectedSchool;
-		courseCreator.defaultCutoffs = school.cutoffs;
-	}
+
+	window.courseCreator.configure({
+		completeFunction: afterCourseCreatorCompletes,
+		school: $selectedSchool,
+		defaultCutoffs: school.cutoffs,
+		maxCredits: 5,
+		escapedCourse: null,
+		allowEscape: false,
+		standalone: true,
+	});
 }
 
-onMount(() => {
-	courseCreator.completeFunction = (response, complaintReason) => {
+function afterCourseCreatorCompletes(response, complaintReason) {
 		if (response === null) {
 			currentState = 0;
 		} else if (response) {
@@ -32,13 +36,7 @@ onMount(() => {
 		} else {
 			console.log({response, complaintReason});
 		}
-	};
-
-	courseCreator.maxCredits = 5;
-	courseCreator.escapedCourse = null;
-	courseCreator.allowEscape = false;
-	courseCreator.standalone = true;
-});
+}
 
 const canShare = 'share' in navigator;
 const canCopy = 'clipboard' in navigator
@@ -128,7 +126,7 @@ const createShortLink = fail;
 		</div>
 	</div>
 	<div class="step" class:visible={currentState == 1}>
-		<gbwc-course-creator bind:this={courseCreator}></gbwc-course-creator>
+		<gbwc-course-creator></gbwc-course-creator>
 	</div>
 	<div class="step" class:visible={currentState == 2}>
 		Share your course!
