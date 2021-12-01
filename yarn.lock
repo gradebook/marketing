@@ -164,10 +164,10 @@
     estree-walker "^1.0.1"
     picomatch "^2.2.2"
 
-"@tryghost/content-api@1.5.13":
-  version "1.5.13"
-  resolved "https://registry.yarnpkg.com/@tryghost/content-api/-/content-api-1.5.13.tgz#c3059e98fb7504c571a4fcce70192e940386bc29"
-  integrity sha512-wH8fj9cixj/Wb4c1BqQTrlY1tbq2RxpKsUzVo6qf+xW1LRwwEN5Z7c4cA07bUoyFrJ70ii1Xqbm2WG11+n09zg==
+"@tryghost/content-api@1.5.16":
+  version "1.5.16"
+  resolved "https://registry.yarnpkg.com/@tryghost/content-api/-/content-api-1.5.16.tgz#04acdbcd68d279add06673d504fe47fb2e3c04ff"
+  integrity sha512-yyXEHATi0Ew0hj9rLbOYFDrO0+y+Bh1yTqrxskUmpD51gmVQWffTM8YlKikyfaw/G29WoV4vvyGmsTf4a8ljFg==
   dependencies:
     axios "^0.21.1"
 
