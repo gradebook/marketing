@@ -2,6 +2,7 @@
 import '@gradebook/course-creator';
 import {serialize} from '@gradebook/course-serializer';
 import Select from 'svelte-select';
+import AsyncButton from '../signup/components/async-button.svelte';
 import schoolConfig from '../schools.js';
 import {selectedSchool} from './selected-school.js';
 import {serializer} from './serialization.js';
@@ -29,24 +30,20 @@ $: {
 }
 
 function afterCourseCreatorCompletes(response, complaintReason) {
-		if (response === null) {
-			currentState = 0;
-		} else if (response) {
-			currentState = 2;
-			serializer.update(schoolConfig[$selectedSchool].slug, response);
-			courseName = response.name;
-		} else {
-			console.log({response, complaintReason});
-		}
+	if (response === null) {
+		currentState = 0;
+	} else if (response) {
+		currentState = 2;
+		serializer.update(schoolConfig[$selectedSchool].slug, response);
+		courseName = response.name;
+	} else {
+		console.log({response, complaintReason});
+	}
 }
 
 const canShare = 'share' in navigator;
 const canCopy = 'clipboard' in navigator
 $: canCreateShortLink = $serializer && serializer.isValid();
-
-const fail = () => {
-	window.alert('not yet implemented');
-};
 
 const openShare = () => navigator.share({
 	title: `Gradebook Template for ${courseName}`,
@@ -56,7 +53,26 @@ const openShare = () => navigator.share({
 
 const triggerCopy = () => navigator.clipboard.writeText($serializer.link);
 
-const createShortLink = fail;
+const createShortLink = () => {
+	const env = env;
+	return fetch(env.SHRINK_ENDPOINT, {
+		method: 'PUT',
+		headers: {
+			'content-type': 'application/json',
+		},
+		body: JSON.stringify({
+			semester: '2021F', // @todo dynamic
+			name: courseName,
+			payload: $serializer.payload
+		})
+	}).then(r => r.json()).then(({slug}) => {
+		const link = new URL(`/${slug}`, env.SHRINK_ENDPOINT);
+		shortLink = link.href;
+	}).catch(error => {
+		console.error(error);
+		window.alert('something went wrong');
+	});
+};
 </script>
 
 <style>
@@ -141,7 +157,11 @@ const createShortLink = fail;
 				<button on:click={() => triggerCopy()}>Copy</button>
 			{/if}
 			{#if canCreateShortLink}
-				<button on:click={() => createShortLink()}>Shorten</button>
+				{#if shortLink}
+				<pre>{shortLink}</pre>
+				{:else}
+				<AsyncButton click={createShortLink} hideLoaderAfterFinish={true}>Shorten</AsyncButton>
+				{/if}
 			{/if}
 		{:else}
 			<p>Generating link...</p>
