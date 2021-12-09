@@ -4,7 +4,7 @@ import {toDataURL} from 'qrcode';
 import {writable} from 'svelte/store';
 const env = env;
 
-const root = writable({link: null, image: null});
+const root = writable({link: null, image: null, payload: null});
 const urlRoot = env.SITE_URL.replace('www', '$$');
 let _unserializedData;
 
@@ -27,7 +27,7 @@ export const serializer = {
 
 		// Generate QR code
 		toDataURL(payload, {errorCorrectionLevel: 'L'}).then(image => {
-			root.set({link, image});
+			root.set({link, image, payload});
 		});
 	},
 
