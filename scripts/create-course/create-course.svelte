@@ -61,7 +61,7 @@ const createShortLink = () => {
 			'content-type': 'application/json',
 		},
 		body: JSON.stringify({
-			semester: '2021F', // @todo dynamic
+			school: $selectedSchool,
 			name: courseName,
 			payload: $serializer.payload
 		})
