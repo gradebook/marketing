@@ -30,7 +30,7 @@
     "@rollup/plugin-node-resolve": "13.1.3",
     "@rollup/plugin-replace": "3.0.1",
     "@tryghost/content-api": "1.5.16",
-    "@tryghost/helpers": "1.1.54",
+    "@tryghost/helpers": "1.1.56",
     "@tryghost/schema-org": "0.1.24",
     "autoprefixer": "10.4.2",
     "axios": "0.24.0",
