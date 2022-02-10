@@ -44,7 +44,7 @@
     "jsonwebtoken": "8.5.1",
     "markdown-it-named-headings": "1.1.0",
     "postcss-color-function": "4.1.0",
-    "postcss-custom-properties": "<12.0.0",
+    "postcss-custom-properties": "11.0.0",
     "postcss-easy-import": "3.0.0",
     "readdirp": "3.6.0",
     "rev-hash": "3.0.0",
