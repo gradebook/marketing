@@ -24,7 +24,7 @@
     "serve": "browser-sync start dist -c ./browser-sync.js"
   },
   "devDependencies": {
-    "@11ty/eleventy": "1.0.0",
+    "@11ty/eleventy": "<1.0.0",
     "@11ty/eleventy-plugin-rss": "1.1.2",
     "@rollup/plugin-commonjs": "21.0.1",
     "@rollup/plugin-node-resolve": "13.1.3",
