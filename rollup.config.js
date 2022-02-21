@@ -11,7 +11,7 @@ import {terser} from 'rollup-plugin-terser';
 
 const production = !process.env.ROLLUP_WATCH;
 
-const ENTRYPOINTS = ['popup', 'update-cta', 'main', 'facebook', 'donate'];
+const ENTRYPOINTS = ['popup', 'update-cta', 'main', 'facebook', 'donate', 'support'];
 const entrypointCompilers = [];
 
 let hashFile = {};

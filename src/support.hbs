@@ -1,0 +1,52 @@
+---
+title: Get in Touch!
+---
+<section class="general section is-revealing">
+	<div class="general-inner section-inner">
+		<div class="container-sm">
+			<h1>{{title}}</h1>
+			{{!-- <p>Explore our guides to make the most of Gradebook</p> --}}
+			<p>Questions? Comments? We'd love to talk!</p>
+		</div>
+		<div class="container-sm">
+			<form class="support-form container-xs section-inner" netlify>
+				<input type="hidden" name="school" value="none" />
+				<p>
+					<label for="name">Name</label>
+					<input autofocus type="text" name="name" required />
+				</p>
+				<p>
+					<label for="email">Email Address</label>
+					<input type="email" name="email" required />
+				</p>
+				<p>
+					<label for="subject" class="inline">What are you looking for?</label>
+					<select name="subject">
+						<option value="support">Get help using Gradebook</option>
+						<option value="bug_report">Report an issue</option>
+						<option value="feature_request">Suggest a feature</option>
+						<option value="partnership">Discuss a partnership</option>
+						<option value="other">Something else</option>
+					</select>
+					<div hidden class="custom_subject">
+						<label for="custom_subject">Let us know what you're looking for:</label>
+						<input type="hidden" name="custom_subject" maxlength="50" />
+					</div>
+				</p>
+				<div class="support-input">
+					<label for="message">Message</label>
+					<textarea class="support-input-message min-h-32" id="message" name="message" required></textarea>
+				</div>
+				<input type="submit" class="support-submit" value="Submit">
+				<p class="support-email pt-40">
+						Or
+						<a class="support-email-link" href="mailto:contact@gradebook.app?subject=Support">send us an email</a>
+				</p>
+			</form>
+		</div>
+	</div>
+</section>
+
+{{#block "footer"}}
+<script src="{{asset "support.js"}}"></script>
+{{/block}}

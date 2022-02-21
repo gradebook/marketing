@@ -8,6 +8,9 @@
 
 .support-form label {
 	color: var(--color--typography-3);
+}
+
+.support-form label:not(.inline) {
 	display: block;
 }
 
