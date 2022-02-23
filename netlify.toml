@@ -33,6 +33,10 @@
   to = "/preview-helper/"
   status = 200 # The preview helper depends on the url to be a preview url
 
+[[redirects]]
+  from = "/corps-support"
+  to = "/support?type=corps"
+
 [[headers]]
     for = "/built/*"
     [headers.values]
