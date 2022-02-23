@@ -129,7 +129,8 @@
 							<!--<li><a href="#">FAQ's</a></li>
                             <li><a href="#">Terms</a></li>-->
 						</ul>
-						<div class="footer-copyright">&copy; 2020 Gradebook</div>
+						{{!-- today evaluates to "undefined" which makes the date helper work 🔮 --}}
+						<div class="footer-copyright">&copy; {{date today format="YYYY"}} Gradebook</div>
 					</div>
 				</div>
 			</div>
