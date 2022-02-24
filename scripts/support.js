@@ -14,7 +14,7 @@ if (search.get('type') === 'aggiecorps') {
 	const prioritizer = document.createElement('input');
 	prioritizer.name = 'type';
 	prioritizer.type = 'hidden';
-	prioritizer.name = 'Corps Support'
+	prioritizer.value = 'Corps Support'
 	form.insertBefore(prioritizer, form.children[0]);
 }
 
