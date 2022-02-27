@@ -72,7 +72,7 @@ function _generateMetaTags(context) {
 	const {post} = context;
 	const tags = new Map();
 
-	let output = `<title>${computedProps.title}</title>`
+	let output = `<title>${computedProps.title}</title>\n`;
 
 	if (context.noMeta) {
 		return output;
@@ -110,7 +110,11 @@ function _generateMetaTags(context) {
 	for (const [key, value] of tags.entries()) {
 		//@TODO @VERY_IMPORTANT Escape!
 		if (value) {
-			output += `<meta name="${key}" content="${value}" />\n`;
+			let attribute = 'name';
+			if (key.includes('og:') || key.includes('al:')) {
+				attribute = 'property';
+			}
+			output += `	<meta ${attribute}="${key}" content="${value}" />\n`;
 		}
 	}
 
