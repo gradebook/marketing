@@ -101,9 +101,7 @@ function _generateMetaTags(context) {
 	tags.set('og:title', computedProps.title);
 	tags.set('twitter:title', computedProps.title);
 
-	// @todo: remove once optional chaining is available
-	// @todo: node 14 node v14
-	if (post.primary_author && post.primary_author.twitter) {
+	if (post.primary_author?.twitter) {
 		tags.set('creator', post.primary_author.twitter);
 	}
 
