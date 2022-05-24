@@ -9,8 +9,15 @@ title: Get in Touch!
 			<p>Questions? Comments? We'd love to talk!</p>
 		</div>
 		<div class="container-sm">
-			<form class="support-form container-xs section-inner" netlify>
+			<form
+				class="support-form container-xs section-inner"
+				name="support"
+				netlify
+				netlify-honeypot="internal_id"
+			>
+				<input type="hidden" name="form-name" value="Get in Touch" />
 				<input type="hidden" name="school" value="none" />
+				<input type="hidden" name="internal_id" />
 				<p>
 					<label for="name">Name</label>
 					<input autofocus type="text" name="name" required />
