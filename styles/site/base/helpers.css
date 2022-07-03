@@ -433,6 +433,15 @@
 	padding-left: 64px;
 }
 
+.shadow {
+	--_shadow-color: var(--box-shadow-color, var(--color-typography-1-raw));
+	--_shadow-opacity: var(--box-shadow-opacity, 16%);
+	box-shadow: 0 20px 48px rgb(var(--_shadow-color) / var(--_shadow-opacity));
+
+	/* Dark Mode!
+	/* box-shadow: 0 20px 48px rgba(166, 166, 166, 0.2); (darken color--bg-1 35%) */
+}
+
 /* Reveal animations */
 .sr .has-animations .is-revealing {
 	visibility: hidden;

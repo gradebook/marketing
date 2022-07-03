@@ -47,9 +47,7 @@
 	padding: 32px 24px;
 	height: 100%;
 
-	/* Dark Mode!
-	/* box-shadow: 0 20px 48px rgba(166, 166, 166, 0.2); (darken color--bg-1 35%) */
-	box-shadow: 0 20px 48px color(var(--color--typography-1) a(16%));
+	@apply .shadow;
 }
 
 .testimonial-inner > * {
