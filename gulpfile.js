@@ -106,9 +106,6 @@ task('css', (cb) => {
 			require('postcss-easy-import'),
 			require('autoprefixer'),
 			require('postcss-custom-properties'),
-			require('postcss-color-function')({
-				preserveCustomProps: false
-			}),
 			require('postcss-extend-rule')({name: 'apply', onUnusedExtend: 'throw'}),
 			... process.env.NODE_ENV === 'production' ? [require('cssnano')] : []
 		]))

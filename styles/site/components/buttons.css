@@ -37,13 +37,13 @@
 	right: 0;
 	bottom: 0;
 	left: 0;
-	box-shadow: 0 8px 16px color(var(--color--typography-1) a(12%));
+	box-shadow: 0 8px 16px rgb(var(--color--typography-1-raw) / 12%);
 	mix-blend-mode: multiply;
 	transition: box-shadow 0.15s ease;
 }
 
 .button-shadow:hover::before {
-	box-shadow: 0 8px 16px color(var(--color--typography-1) a(16%));
+	box-shadow: 0 8px 16px rgb(var(--color--typography-1-raw) / 16%);
 }
 
 .button-sm {
@@ -52,11 +52,11 @@
 }
 
 .button-sm.button-shadow::before {
-	box-shadow: 0 4px 16px color(var(--color--typography-1) a(12%));
+	box-shadow: 0 4px 16px rgb(var(--color--typography-1-raw) / 12%);
 }
 
 .button-sm.button-shadow:hover::before {
-	box-shadow: 0 4px 16px color(var(--color--typography-1) a(16%));
+	box-shadow: 0 4px 16px rgb(var(--color--typography-1-raw) / 16%);
 }
 
 .button-primary,
@@ -76,19 +76,19 @@
 }
 
 .button-primary.button-shadow::before {
-	box-shadow: 0 8px 16px color(var(--color--primary-1) a(24%));
+	box-shadow: 0 8px 16px rgb(var(--color--primary-1-raw) / 24%);
 }
 
 .button-primary.button-shadow:hover::before {
-	box-shadow: 0 8px 16px color(var(--color--primary-1) a(32%));
+	box-shadow: 0 8px 16px rgb(var(--color--primary-1-raw) / 32%);
 }
 
 .button-primary .button-sm.button-shadow::before {
-	box-shadow: 0 4px 16px color(var(--color--primary-1) a(24%));
+	box-shadow: 0 4px 16px rgb(var(--color--primary-1-raw) / 24%);
 }
 
 .button-primary .button-sm.button-shadow:hover::before {
-	box-shadow: 0 4px 16px color(var(--color--primary-1) a(32%));
+	box-shadow: 0 4px 16px rgb(var(--color--primary-1-raw) / 32%);
 }
 
 .button-secondary {
@@ -100,20 +100,20 @@
 }
 
 .button-secondary.button-shadow::before {
-	box-shadow: 0 8px 16px color(var(--color--secondary-1) a(24%));
+	box-shadow: 0 8px 16px rgb(var(--color--secondary-1-raw) / 24%);
 }
 
 .button-secondary.button-shadow:hover::before {
-	box-shadow: 0 8px 16px color(var(--color--secondary-1) a(32%));
+	box-shadow: 0 8px 16px rgb(var(--color--secondary-1-raw) / 32%);
 }
 
 /* stylelint-disable-next-line no-descending-specificity */
 .button-secondary .button-sm.button-shadow::before {
-	box-shadow: 0 4px 16px color(var(--color--secondary-1) a(24%));
+	box-shadow: 0 4px 16px rgb(var(--color--secondary-1-raw) / 24%);
 }
 
 .button-secondary .button-shadow:hover::before {
-	box-shadow: 0 4px 16px color(var(--color--secondary-1) a(32%));
+	box-shadow: 0 4px 16px rgb(var(--color--secondary-1-raw) / 32%);
 }
 
 .button-block {
