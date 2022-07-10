@@ -15,7 +15,7 @@
 }
 
 .enterprise-input--label {
-	color: var(--color--primary-4);
+	color: var(--color--primary-2);
 	display: block;
 }
 
@@ -36,10 +36,10 @@
 }
 
 .enterprise-email {
-	color: var(--color--primary-4);
+	color: var(--color--primary-2);
 }
 
 .enterprise-email-link {
-	color: var(--color--primary-4) !important;
+	color: var(--color--primary-2) !important;
 	text-decoration: underline;
 }
