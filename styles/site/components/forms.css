@@ -44,20 +44,20 @@ input[type="range"]:focus {
 }
 
 input[type="range"]:hover::-webkit-slider-runnable-track {
-	background-color: var(--color--bg-3i);
+	background: rgb(var(--color--typography-1i-raw) / 80%);
 }
 
 input[type="range"]:hover::-moz-range-track {
-	background-color: var(--color--bg-3i);
+	background: rgb(var(--color--typography-1i-raw) / 80%);
 }
 
 input[type="range"]:hover::-webkit-slider-thumb {
-	background: #420420;
+	background: var(--color--primary-1);
 	cursor: pointer;
 }
 
 input[type="range"]:hover::-moz-range-thumb {
-	background: #420420;
+	background: var(--color--primary-1);
 	cursor: pointer;
 }
 
