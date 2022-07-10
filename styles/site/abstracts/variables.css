@@ -74,12 +74,12 @@
 	 --color--primary-1: #7e6ee6; */
 	--color--primary-1-raw: 94 59 77;
 	--color--primary-1: #5e3b4d;
+	--color--primary-1--hover: #420420;
 	--color--primary-2: #a59aee;
 	--color--primary-3: #5743df;
 	--color--primary-4: #e5e1ff;
 
 	/* SECONDARY COLORS */
-	--color--secondary-1-raw: 90 224 210;
 	--color--secondary-1: rgb(90, 224, 210);
 	--color--secondary-1--hover: #67e2d6;
 	--color--secondary-2: #85e8de;

@@ -92,28 +92,29 @@
 }
 
 .button-secondary {
-	background: var(--color--secondary-1);
+	background: var(--color--primary-1);
+	border-radius: 100px;
 }
 
 .button-secondary:hover {
-	background: var(--color--secondary-1--hover);
+	background: var(--color--primary-1--hover);
 }
 
 .button-secondary.button-shadow::before {
-	box-shadow: 0 8px 16px rgb(var(--color--secondary-1-raw) / 24%);
+	box-shadow: 0 8px 16px rgb(var(--color--primary-1-raw) / 24%);
 }
 
 .button-secondary.button-shadow:hover::before {
-	box-shadow: 0 8px 16px rgb(var(--color--secondary-1-raw) / 32%);
+	box-shadow: 0 8px 16px rgb(var(--color--primary-1-raw) / 32%);
 }
 
 /* stylelint-disable-next-line no-descending-specificity */
 .button-secondary .button-sm.button-shadow::before {
-	box-shadow: 0 4px 16px rgb(var(--color--secondary-1-raw) / 24%);
+	box-shadow: 0 4px 16px rgb(var(--color--primary-1-raw) / 24%);
 }
 
 .button-secondary .button-shadow:hover::before {
-	box-shadow: 0 4px 16px rgb(var(--color--secondary-1-raw) / 32%);
+	box-shadow: 0 4px 16px rgb(var(--color--primary-1-raw) / 32%);
 }
 
 .button-block {
