@@ -2,11 +2,6 @@
 	padding: 4rem 0;
 }
 
-.enterprise-contact {
-	display: block;
-	background-color: var(--color--bg-2) !important;
-}
-
 .enterprise-form {
 	width: 60%;
 }
