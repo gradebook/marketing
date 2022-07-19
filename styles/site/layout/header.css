@@ -22,27 +22,3 @@
 	display: inline-block;
 	max-height: 48px;
 }
-
-.header-links {
-	display: inline-flex;
-}
-
-.header-links li {
-	display: inline-flex;
-}
-
-.header-links a:not(.button) {
-	font-size: var(--font-scale-7--size);
-	line-height: var(--font-scale-7--height);
-	letter-spacing: var(--font-scale-7--kerning);
-	font-weight: var(--font-weight--semibold);
-	color: var(--color--typography-2i);
-	text-transform: uppercase;
-	text-decoration: none;
-	padding: 8px 24px;
-}
-
-.header-links a:not(.button):hover,
-.header-links a:not(.button):active {
-	color: var(--color--typography-1i);
-}
