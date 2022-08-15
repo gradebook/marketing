@@ -8,6 +8,20 @@ description: See what's changed as Gradebook evolves!
 
 _Note that we only update our release notes when there is a notable feature or improvement. Between the documented releases here, we can have several smaller releases with bug fixes or improvements_ 😊
 
+## 3.26.0
+
+_Released August 14, 2022_
+
+### Features
+
+- Upcoming semesters can now be created much earlier
+
+- The semester used for GPA will always be the oldest of current semesters. This means during times when the semester is changing, such as from Summer to Fall, the Summer semester will still be used for GPA until it is archived.
+
+### Bug Fixes / Notable Changes
+
+- Fixed crash when getting new announcements fails
+
 ## 3.25.0
 
 _Released November 23, 2021_
