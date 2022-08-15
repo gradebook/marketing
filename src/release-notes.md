@@ -18,9 +18,33 @@ _Released August 14, 2022_
 
 - The semester used for GPA will always be the oldest of current semesters. This means during times when the semester is changing, such as from Summer to Fall, the Summer semester will still be used for GPA until it is archived.
 
+- Enhanced the precision of most numerical calculations
+
+- Add Gradebook Course Search (Only currently available at Texas A&M University)
+
 ### Bug Fixes / Notable Changes
 
 - Fixed crash when getting new announcements fails
+
+- Fixed occasional crash when completing a course
+
+- Fixed crash when determining warning messages on partial courses
+
+- Fixed crash when experimenting with a category
+
+- Fixed bonus points limit not working
+
+- Fixed crash when course creation popup fails to load
+
+- Fixed crash when going back to creating a course in new user welcome popup
+
+- Increased the maximum credit hours to 9
+
+- Fixed crash when creating a category and running into a network error
+
+- Fixed delete course sometimes navigating to the wrong semester
+
+- Added more indicators to show when portions of the site are loading
 
 ## 3.25.0
 
