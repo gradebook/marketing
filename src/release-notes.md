@@ -8,6 +8,28 @@ description: See what's changed as Gradebook evolves!
 
 _Note that we only update our release notes when there is a notable feature or improvement. Between the documented releases here, we can have several smaller releases with bug fixes or improvements_ 😊
 
+## 3.26.2
+
+_Released August 16, 2022_
+
+_Even though there aren't notable features or improvements, we've decided to include the changes from 3.26.0 to 3.26.2 due to reliability issues._
+
+## Bug Fixes
+
+1. Importing a course should now be fully functional
+
+ - Loading the import page will not crash
+
+ - Trying to import a course after logging in will not cause a crash
+
+2. Logging in to Gradebook as a student in a different school will work
+
+ - Previously, the app would try to log you in, fail, and ask you to log in again
+
+3. Account creation after trying to import a course will work now
+ - Previously, you could get a cryptic error
+
+
 ## 3.26.0
 
 _Released August 14, 2022_
@@ -16,35 +38,33 @@ _Released August 14, 2022_
 
 - Upcoming semesters can now be created much earlier
 
-- The semester used for GPA will always be the oldest of current semesters. This means during times when the semester is changing, such as from Summer to Fall, the Summer semester will still be used for GPA until it is archived.
+- The semester used for GPA will always be the oldest of current semesters.
 
-- Enhanced the precision of most numerical calculations
+  - During transition periods, such as between the Fall and Winter semester, the Fall semester will be used for GPA calculations until it is archived.
 
-- Add Gradebook Course Search (Only currently available at Texas A&M University)
+- Added support for using existing course templates (Course Search). Limited to Texas A&M University
 
 ### Bug Fixes / Notable Changes
 
-- Fixed crash when getting new announcements fails
-
-- Fixed occasional crash when completing a course
-
-- Fixed crash when determining warning messages on partial courses
+- Enhanced the precision of most numerical calculations
 
 - Fixed crash when experimenting with a category
 
-- Fixed bonus points limit not working
+- Added support for ✨emojis✨ in assignment names
 
-- Fixed crash when course creation popup fails to load
+- Improved stability of network communication and handling of network errors
 
-- Fixed crash when going back to creating a course in new user welcome popup
+- Added more indicators to show when portions of the site are loading
+
+- Improved validation of bonus points
+
+- Fixed crash in new user welcome screen
 
 - Increased the maximum credit hours to 9
 
-- Fixed crash when creating a category and running into a network error
-
 - Fixed delete course sometimes navigating to the wrong semester
 
-- Added more indicators to show when portions of the site are loading
+- Improved design of the empty semester dashboard
 
 ## 3.25.0
 
