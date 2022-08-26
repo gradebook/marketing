@@ -27,6 +27,7 @@ _Even though there aren't notable features or improvements, we've decided to inc
  - Previously, the app would try to log you in, fail, and ask you to log in again
 
 3. Account creation after trying to import a course will work now
+
  - Previously, you could get a cryptic error
 
 
