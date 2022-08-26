@@ -40,7 +40,7 @@ _Released August 14, 2022_
 
 - The semester used for GPA will always be the oldest of current semesters.
 
-  - During transition periods, such as between the Fall and Winter semester, the Fall semester will be used for GPA calculations until it is archived.
+  - During transition periods, such as between the Fall and Winter semester, the older semester will be used for GPA calculations until it is archived.
 
 - Added support for using existing course templates (Course Search). Limited to Texas A&M University
 
