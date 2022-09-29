@@ -22,7 +22,7 @@ _Even though there aren't notable features or improvements, we've decided to inc
 
  - Trying to import a course after logging in will not cause a crash
 
-2. Logging in to Gradebook as a student in a different school will work
+2. Logging in to a different school on Gradebook will take you to your correct school
 
  - Previously, the app would try to log you in, fail, and ask you to log in again
 
