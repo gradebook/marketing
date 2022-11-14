@@ -23,12 +23,13 @@ title: Course link not found
 		color: var(--color--primary-3);
 		margin-inline: auto;
 		margin-top: 2.5rem;
+		margin-bottom: 5rem;
 		width: 6rem;
 		height: 6rem;
 	}
 
 	.buttons {
-		margin: 2.5rem auto;
+		margin: 1rem auto 0;
 		width: fit-content;
 		text-align: center;
 		display: flex;
@@ -39,12 +40,11 @@ title: Course link not found
 
 <div class="container link-not-found-container text-center">
 
-
-# This is not the course you were looking for
-
 <span aria-hidden="true">
 {{inline-svg "/static/inline/satellite-icon.svg" class="satellite" }}
 </span>
+
+# This is not the course you were looking for
 
 We've searched far and wide, but we can't find this course template!
 
