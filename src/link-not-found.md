@@ -22,8 +22,8 @@ title: Course link not found
 	.satellite {
 		color: var(--color--primary-3);
 		margin-inline: auto;
-		margin-top: 2.5rem;
-		margin-bottom: 5rem;
+		margin-top: 5rem;
+		margin-bottom: 2.5rem;
 		width: 6rem;
 		height: 6rem;
 	}
