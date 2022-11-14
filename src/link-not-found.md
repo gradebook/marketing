@@ -1,5 +1,7 @@
 ---
 title: Course link not found
+eleventyExcludeFromCollections: true
+noMeta: true
 ---
 <style>
 	main {
