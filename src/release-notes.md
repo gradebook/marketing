@@ -6,7 +6,39 @@ description: See what's changed as Gradebook evolves!
 
 # Release Notes
 
-_Note that we only update our release notes when there is a notable feature or improvement. Between the documented releases here, we can have several smaller releases with bug fixes or improvements_ 😊
+_Note that we only update our release notes when there is a notable feature or improvement. Between the documented releases here, we can have several smaller releases with bug fixes or improvements (which are included here)_ 😊
+
+## 3.27.0
+
+_Released January 2, 2022_
+
+### Features
+
+ - Allowed old courses to be edited
+
+   - Semesters that have passed are now considered "archived" instead of "readonly"
+
+### Bug Fixes / Notable Changes
+
+ - Cleaned up various accessibility issues. We strive to make using Gradebook a pleasant experience for everyone.
+
+ - Improved reliability of logging in again
+
+ - Made header sticky
+
+ - Fixed crash when leaving the course dashboard before course data has loaded
+
+ - Improved heuristics around the semester used for GPA calculations
+
+ - Added support for new users to create a course from [Course Search](https://cs.gradebook.app/)
+
+ - Improved networking
+
+   - Fixed request prioritization
+
+   - Updated how what error messages are exposed in the UI
+
+ - Fixed a crash when finishing creating a course that would prevent you from ever finishing it
 
 ## 3.26.2
 
@@ -14,7 +46,7 @@ _Released August 16, 2022_
 
 _Even though there aren't notable features or improvements, we've decided to include the changes from 3.26.0 to 3.26.2 due to reliability issues._
 
-## Bug Fixes
+### Bug Fixes
 
 1. Importing a course should now be fully functional
 
