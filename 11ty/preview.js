@@ -117,7 +117,10 @@ module.exports = new class PreviewManager {
 		const recurse = (nestedDummyData, nestedPostData) => {
 			for (const [key, value] of Object.entries(nestedDummyData)) {
 				if (typeof value !== 'string') {
-					recurse(value, nestedPostData[key]);
+					if (nestedPostData && key in nestedPostData) {
+						recurse(value, nestedPostData[key]);
+					}
+
 					continue;
 				}
 
@@ -129,7 +132,9 @@ module.exports = new class PreviewManager {
 					throw new Error(`Replacement ${value} is used multiple times`);
 				}
 
-				replacements[value] = nestedPostData[key];
+				if (nestedPostData && key in nestedPostData) {
+					replacements[value] = nestedPostData[key];
+				}
 			}
 		};
 
