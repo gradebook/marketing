@@ -136,6 +136,7 @@ pre .h6 {
 
 pre, code, kbd, tt, var {
 	background: var(--color--bg-2);
+	color: var(--color--primary-1);
 }
 
 pre {
