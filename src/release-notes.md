@@ -6,7 +6,7 @@ description: See what's changed as Gradebook evolves!
 
 # Release Notes
 
-_Note that we only update our release notes when there is a notable feature or improvement. Between the documented releases here, we can have several smaller releases with bug fixes or improvements (which are included here)_ 😊
+_Note that we only update our release notes when there is a notable feature or improvement. We often have several smaller releases with bug fixes and improvements that will not be listed until the next time the release notes are updated._ 😊
 
 ## 3.27.0
 
