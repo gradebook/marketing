@@ -37,7 +37,12 @@
   from = "/corps-support"
   to = "/support?type=corps"
 
+[[redirects]]
+  from = "/link-not-found"
+  to = "/link-not-found"
+  status = 404
+
 [[headers]]
-    for = "/built/*"
-    [headers.values]
-    Cache-Control = "public max-age=63072000" # 2 years (thanks, cachebusting!)
+  for = "/built/*"
+  [headers.values]
+  Cache-Control = "public max-age=63072000" # 2 years (thanks, cachebusting!)
