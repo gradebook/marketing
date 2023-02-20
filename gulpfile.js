@@ -3,8 +3,22 @@ require('dotenv').config();
 const {Transform} = require('stream');
 const {join, sep} = require('path');
 const {task, src, dest, parallel, series, watch} = require('gulp');
+const {JSCompilerBackend} = require('./compiler-backend/js.js');
 let eleventy;
-let jsChangedEmitter;
+
+/** @type {JSCompilerBackend} */
+let jsCompilerBackend;
+
+function createJsBackend() {
+	if (!jsCompilerBackend) {
+		jsCompilerBackend = new JSCompilerBackend({
+			watch: process.env.WATCH === 'true',
+			cachebust: process.env.NO_CACHEBUST !== 'true',
+		});
+	}
+
+	return jsCompilerBackend.initAsync();
+}
 
 const IGNORED_CSS_FILES = ['vars.css', 'normalize.css'];
 
@@ -40,61 +54,7 @@ task('enableWatchMode', () => {
 	return Promise.resolve();
 });
 
-task('js', () => new Promise((resolve, reject) => {
-	const {spawn} = require('child_process');
-	const rollupPath = require.resolve('rollup/dist/bin/rollup');
-	let manifest;
-	const isWatch = process.env.WATCH === 'true';
-	const additionalFlags = isWatch ? ['-w'] : [];
-
-	// NOTE: we can't use yarn here because we need ipc
-	const cp = spawn('node', [rollupPath, '-c', ...additionalFlags], {
-		stdio: ['inherit', 'inherit', 'inherit', 'ipc']
-	});
-
-	if (isWatch) {
-		process.on('exit', () => {
-			cp.kill('SIGTERM');
-		});
-
-		let firstTime = true;
-
-		cp.on('message', message => {
-			console.log('GOT MESSAGE', message);
-			// @ts-ignore
-			if (message.bundleWritten === true) {
-				if (firstTime) {
-					resolve();
-					firstTime = false;
-				} else if (jsChangedEmitter) {
-					jsChangedEmitter();
-				}
-			}
-		});
-	} else {
-		cp.on('message', message => {
-			if (process.env.NO_CACHEBUST !== 'true') {
-				manifest = require('./tasks/get-cache');
-				// @ts-ignore
-				for (const key in message) {
-					manifest.store(key, message[key]);
-				}
-			}
-		});
-
-		cp.on('exit', code => {
-			if (code === 0) {
-				if (manifest) {
-					manifest.write().then(() => resolve(code)).catch(reject);
-				} else {
-					resolve();
-				}
-			} else {
-				reject(code);
-			}
-		});
-	}
-}));
+task('js', createJsBackend);
 
 task('css', (cb) => {
 	const FileHasher = require('./tasks/file-hasher');
@@ -145,7 +105,7 @@ task('default', series(parallel(['css', 'js']), 'html'));
 task('dev', series('enableWatchMode', 'default', function devServer() {
 	const liveReload = require('browser-sync');
 	const reload = () => liveReload.reload();
-	jsChangedEmitter = reload;
+	jsCompilerBackend.subscribe(reload);
 	watch('./styles/**/*', series('css')).on('change', reload);
 	watch(['./src/**/*.hbs','./src/**/*.md'], series('html')).on('change', reload);
 
