@@ -49,6 +49,7 @@ const plugins = [
 		dedupe: ['svelte']
 	}),
 	commonjs(),
+	!production && serve,
 	production && terser(),
 	hashFile
 ];
