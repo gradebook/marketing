@@ -17,6 +17,8 @@ module.exports.JSCompilerBackend = class JSCompilerBackend {
 	#manifest;
 	/** @type {Promise<void> | undefined} */
 	#whenReady;
+	/** @type {NodeJS.Timeout | null} */
+	#emitTimer;
 
 	/** @param {CompilerBackendOptions} options */
 	constructor({watch, cachebust}) {
@@ -97,8 +99,8 @@ module.exports.JSCompilerBackend = class JSCompilerBackend {
 		childProcess.on('message', message => {
 			console.log('GOT MESSAGE', message);
 			// @ts-ignore
-			if (message.bundleWritten === true) {
-				this.#emit();
+			if (message.bundleWritten === true && !this.#emitTimer) {
+				this.#emitTimer = setTimeout(() => this.#emit(), 0);
 			}
 		});
 	}
@@ -132,6 +134,7 @@ module.exports.JSCompilerBackend = class JSCompilerBackend {
 
 	/** @param {unknown} [error] */
 	#emit(error) {
+		this.#emitTimer = null;
 		for (const handler of this.#handlers) {
 			handler(error);
 		}
