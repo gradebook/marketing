@@ -1,16 +1,15 @@
 // @ts-check
 const {spawn, ChildProcess} = require('child_process');
+const {addHandler} = require('./_helper.js');
 
 /**
- * @typedef {object} JSCompilerBackendOptions
- * @property {boolean} watch
- * @property {boolean} cachebust
+ * @typedef {import('./abstract.js').CompilerBackend} CompilerBackend
+ * @typedef {import('./abstract.js').CompilerBackendOptions} CompilerBackendOptions
  */
 
+/** @implements {CompilerBackend} */
 module.exports.JSCompilerBackend = class JSCompilerBackend {
-	/** @type {boolean} */
 	#watch;
-	/** @type {boolean} */
 	#cachebust;
 	/** @type {Array<(error?: unknown) => any>} */
 	#handlers;
@@ -19,7 +18,7 @@ module.exports.JSCompilerBackend = class JSCompilerBackend {
 	/** @type {Promise<void> | undefined} */
 	#whenReady;
 
-	/** @param {JSCompilerBackendOptions} options */
+	/** @param {CompilerBackendOptions} options */
 	constructor({watch, cachebust}) {
 		this.#watch = watch;
 		this.#cachebust = cachebust;
@@ -74,15 +73,7 @@ module.exports.JSCompilerBackend = class JSCompilerBackend {
 	 * @param {boolean} [once]
 	 */
 	subscribe(handler, once) {
-		if (once) {
-			const originalHandler = handler;
-			handler = error => {
-				this.#handlers = this.#handlers.filter(maybeMe => maybeMe !== handler);
-				originalHandler(error);
-			}
-		}
-
-		this.#handlers.push(handler);
+		addHandler(this.#handlers, handler, once);
 	}
 
 	#getRollupExec() {
