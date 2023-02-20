@@ -1,13 +1,14 @@
 // @ts-check
 require('dotenv').config();
-const {Transform} = require('stream');
-const {join, sep} = require('path');
 const {task, src, dest, parallel, series, watch} = require('gulp');
+const {GulpCssCompilerBackend} = require('./compiler-backend/gulp-css.js');
 const {JSCompilerBackend} = require('./compiler-backend/js.js');
 let eleventy;
 
 /** @type {JSCompilerBackend} */
 let jsCompilerBackend;
+/** @type {GulpCssCompilerBackend} */
+let gulpCssCompilerBackend;
 
 function createJsBackend() {
 	if (!jsCompilerBackend) {
@@ -20,20 +21,16 @@ function createJsBackend() {
 	return jsCompilerBackend.initAsync();
 }
 
-const IGNORED_CSS_FILES = ['vars.css', 'normalize.css'];
-
-const transformCssFileNames = () => new Transform({
-	objectMode: true,
-	transform: function transformCssFileNames(file, enc, cb) {
-		const finalFileName = file.relative.split(sep).pop();
-		if (!IGNORED_CSS_FILES.includes(finalFileName)) {
-			file.path = join(file.base, finalFileName);
-			this.push(file);
-		}
-
-		cb();
+function createCssBackend() {
+	if (!gulpCssCompilerBackend) {
+		gulpCssCompilerBackend = new GulpCssCompilerBackend({
+			watch: process.env.WATCH === 'true',
+			cachebust: process.env.NO_CACHEBUST !== 'true',
+		});
 	}
-});
+
+	return gulpCssCompilerBackend.initAsync();
+}
 
 task('clean', () => {
 	/** @type {(glob: string) => Promise<void>} */
@@ -56,31 +53,7 @@ task('enableWatchMode', () => {
 
 task('js', createJsBackend);
 
-task('css', (cb) => {
-	const FileHasher = require('./tasks/file-hasher');
-	const postcss = require('gulp-postcss');
-	const hasher = new FileHasher();
-
-	return src('./styles/*/*.css')
-		.pipe(postcss([
-			require('postcss-easy-import'),
-			require('autoprefixer'),
-			require('postcss-custom-properties'),
-			require('postcss-extend-rule')({name: 'apply', onUnusedExtend: 'throw'}),
-			... process.env.NODE_ENV === 'production' ? [require('cssnano')] : []
-		]))
-		.pipe(transformCssFileNames())
-		.pipe(hasher.transform)
-		.pipe(dest('dist/built'))
-		.on('end', () => {
-			if (process.env.NO_CACHEBUST !== 'true') {
-				cb();
-			} else {
-				const manifest = require('./tasks/get-cache');
-				manifest.write().finally(cb);
-			}
-		});
-});
+task('css', createCssBackend);
 
 task('html', async () => {
 	if (!eleventy) {
@@ -106,7 +79,8 @@ task('dev', series('enableWatchMode', 'default', function devServer() {
 	const liveReload = require('browser-sync');
 	const reload = () => liveReload.reload();
 	jsCompilerBackend.subscribe(reload);
-	watch('./styles/**/*', series('css')).on('change', reload);
+	gulpCssCompilerBackend.subscribe(reload)
+	watch('./styles/**/*').on('change', () => gulpCssCompilerBackend.runOnce());
 	watch(['./src/**/*.hbs','./src/**/*.md'], series('html')).on('change', reload);
 
 	liveReload.init(require('./browser-sync.js'));
