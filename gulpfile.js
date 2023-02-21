@@ -76,14 +76,12 @@ task('html:minify', () => {
 task('default', series(parallel(['css', 'js']), 'html'));
 
 task('dev', series('enableWatchMode', 'default', function devServer() {
-	const liveReload = require('browser-sync');
-	const reload = () => liveReload.reload();
+	const server = require('./browser-sync.js').createEleventyDevServer();
+	const reload = () => server.reload({});
 	jsCompilerBackend.subscribe(reload);
 	gulpCssCompilerBackend.subscribe(reload)
 	watch('./styles/**/*').on('change', () => gulpCssCompilerBackend.runOnce());
 	watch(['./src/**/*.hbs','./src/**/*.md'], series('html')).on('change', reload);
-
-	liveReload.init(require('./browser-sync.js'));
 }));
 
 task('build', series(

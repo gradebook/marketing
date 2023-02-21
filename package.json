@@ -20,11 +20,11 @@
     "clean": "gulp clean",
     "build": "gulp build",
     "dev": "gulp dev",
-    "watch": "gulp dev",
-    "serve": "browser-sync start dist -c ./browser-sync.js"
+    "watch": "gulp dev"
   },
   "devDependencies": {
     "@11ty/eleventy": "2.0.0",
+    "@11ty/eleventy-dev-server": "^1.0.3",
     "@11ty/eleventy-plugin-rss": "1.1.2",
     "@rollup/plugin-commonjs": "21.0.1",
     "@rollup/plugin-node-resolve": "13.1.3",
@@ -34,7 +34,6 @@
     "@tryghost/schema-org": "0.1.25",
     "autoprefixer": "10.4.2",
     "axios": "0.25.0",
-    "browser-sync": "2.27.7",
     "chalk": "4.1.2",
     "cssnano": "5.0.17",
     "dotenv": "16.0.0",

@@ -1,20 +1,17 @@
 require('dotenv/config');
 const preview = require('./11ty/preview');
 
-/**
- * @type {import('browser-sync').Options}
- */
-module.exports = {
-	server: {
-		baseDir: './dist/',
-		middleware: [{
-			route: preview.ROUTE_MATCHER,
-			handle: preview.middleware.bind(preview)
-		}]
-	},
-	watch: false,
-	open: false,
-	notify: false,
-	ui: false,
-	port: Number(process.env.LIVE_RELOAD_PORT)
+module.exports.config = {
+	port: Number(process.env.LIVE_RELOAD_PORT),
+	middleware: [preview.middleware.bind(preview)],
+	showAllHosts: true,
+	portReassignmentRetryCount: 0,
+	watch: []
 };
+
+module.exports.createEleventyDevServer = function () {
+	const EleventyDevServer = require('@11ty/eleventy-dev-server');
+	const serverManger = new EleventyDevServer('gb.dev.server', './dist/', module.exports.config);
+	serverManger.server.listen(module.exports.config.port);
+	return serverManger;
+}

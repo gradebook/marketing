@@ -1,5 +1,6 @@
 // @ts-check
 const {readFile} = require('fs').promises;
+const {IncomingMessage, ServerResponse} = require('http');
 const path = require('path');
 const axios = require('axios').default;
 const {API_VERSION} = require('./data-fetchers/ghost-api');
@@ -54,6 +55,7 @@ module.exports = new class PreviewManager {
 		return readFile(previewPath, 'utf-8');
 	}
 
+	/** @param {string} uuid */
 	async render(uuid) {
 		const [post, file] = await Promise.all([this.getPost(uuid), this.getPreviewFile()]);
 		const markerEnd = '__marker_end__';
@@ -78,12 +80,26 @@ module.exports = new class PreviewManager {
 		return renderedFile;
 	}
 
-	async middleware(request, response) {
+	/**
+	 * @param {IncomingMessage & {url: string;}} request
+	 * @param {ServerResponse} response
+	 * @param {() => any} next;
+	 */
+	async middleware(request, response, next) {
+		if (!request.url.startsWith(this.ROUTE_MATCHER)) {
+			next();
+			return;
+		}
+
+		response.setHeader('content-type', 'text/html');
+
 		try {
 			if (!process.env.GHOST_ACCESS_TOKEN) {
 				return this.fatal(response, this.messages.noAccessToken);
 			}
 
+			/** @type {string} */
+			// @ts-expect-error
 			const postUuid = request.url.replace(/\/$/, '').split('/').pop();
 			if (!this.isUuidLike(postUuid)) {
 				return this.fatal(response, this.messages.badId(postUuid));
@@ -102,6 +118,7 @@ module.exports = new class PreviewManager {
 	}
 
 	/**
+	 * @param {ServerResponse} response
 	 * @param {string[]} message
 	 */
 	fatal(response, message) {
