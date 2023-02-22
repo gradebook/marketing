@@ -64,8 +64,7 @@ async function triggerEleventyBuild(fileOrCallback = null) {
 }
 
 task('clean', () => {
-	/** @type {(glob: string) => Promise<void>} */
-	const rimraf = require('util').promisify(require('rimraf'));
+	const rimraf = require('rimraf');
 	const globs = ['dist', '.cachebust-manifest'];
 
 	return Promise.all(globs.map(glob => rimraf(glob)));
