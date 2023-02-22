@@ -1,5 +1,6 @@
 const ghostContentAPI = require('@tryghost/content-api');
 
+module.exports.API_MAJOR = 'v3';
 module.exports.API_VERSION = 'v3.42';
 
 module.exports.api = new ghostContentAPI({

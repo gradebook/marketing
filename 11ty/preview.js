@@ -3,7 +3,7 @@ const {readFile} = require('fs').promises;
 const {IncomingMessage, ServerResponse} = require('http');
 const path = require('path');
 const axios = require('axios').default;
-const {API_VERSION} = require('./data-fetchers/ghost-api');
+const {API_MAJOR} = require('./data-fetchers/ghost-api');
 const dateHelper = require('./helpers/date');
 
 const previewPath = path.resolve(__dirname, '../dist/preview-helper/index.html');
@@ -38,12 +38,12 @@ module.exports = new class PreviewManager {
 				keyid: id,
 				algorithm: 'HS256',
 				expiresIn: '5m',
-				audience: `/${API_VERSION}/admin/`
+				audience: `/${API_MAJOR}/admin/`
 		});
 	}
 
 	async getPost(uuid) {
-		const url = `${process.env.GHOST_API_URL}/ghost/api/${API_VERSION}/admin/posts/?filter=uuid:${uuid}&formats=html`;
+		const url = `${process.env.GHOST_API_URL}/ghost/api/${API_MAJOR}/admin/posts/?filter=uuid:${uuid}&formats=html`;
 		return axios.get(url, {
 			headers: {
 				authorization: `Ghost ${this.tokenToJwt(process.env.GHOST_ACCESS_TOKEN)}`
