@@ -2,7 +2,7 @@
 const {readFile} = require('fs').promises;
 const {IncomingMessage, ServerResponse} = require('http');
 const path = require('path');
-const axios = require('axios').default;
+const {default: fetch} = require('node-fetch')
 const {API_MAJOR} = require('./data-fetchers/ghost-api');
 const dateHelper = require('./helpers/date');
 
@@ -46,11 +46,11 @@ module.exports = new class PreviewManager {
 	/** @param {string} uuid */
 	async getPost(uuid) {
 		const url = `${process.env.GHOST_API_URL}/ghost/api/${API_MAJOR}/admin/posts/?filter=uuid:${uuid}&formats=html`;
-		return axios.get(url, {
+		return fetch(url, {
 			headers: {
 				authorization: `Ghost ${this.tokenToJwt(String(process.env.GHOST_ACCESS_TOKEN))}`
 			}
-		}).then(response => response.data.posts[0]);
+		}).then(response => response.json()).then(response => response.data.posts[0]);
 	}
 
 	async getPreviewFile() {
