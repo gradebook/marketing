@@ -18,18 +18,19 @@ module.exports = new class PreviewManager {
 			'Once you have it, update your .env with the token:',
 			'GHOST_ACCESS_TOKEN=(token)',
 		],
-		badId: id => [`Unable to read request as uuid - got ${id}`],
-		apiError: errorResponse => [
+		badId: /** @param {string} id */ id => [`Unable to read request as uuid - got ${id}`],
+		apiError: /** @param {{data: any}} errorResponse */ errorResponse => [
 			'Request failed',
 			JSON.stringify(errorResponse.data, null, 2)
 		],
-		unknownError: error => [
+		unknownError: /** @param {Error} error */ error => [
 			'An error occurred:',
 			error.message,
-			error.stack.replace(/\n/g, '\n  ')
+			String(error.stack).replace(/\n/g, '\n  ')
 		]
 	}
 
+	/** @param {string} token */
 	tokenToJwt(token) {
 		const jwt = require('jsonwebtoken');
 		const [id, secret] = token.split(':');
@@ -42,11 +43,12 @@ module.exports = new class PreviewManager {
 		});
 	}
 
+	/** @param {string} uuid */
 	async getPost(uuid) {
 		const url = `${process.env.GHOST_API_URL}/ghost/api/${API_MAJOR}/admin/posts/?filter=uuid:${uuid}&formats=html`;
 		return axios.get(url, {
 			headers: {
-				authorization: `Ghost ${this.tokenToJwt(process.env.GHOST_ACCESS_TOKEN)}`
+				authorization: `Ghost ${this.tokenToJwt(String(process.env.GHOST_ACCESS_TOKEN))}`
 			}
 		}).then(response => response.data.posts[0]);
 	}
