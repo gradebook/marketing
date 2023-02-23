@@ -1,8 +1,9 @@
 // @ts-check
 const {readFile} = require('fs').promises;
+const {IncomingMessage, ServerResponse} = require('http');
 const path = require('path');
-const axios = require('axios').default;
-const {API_VERSION} = require('./data-fetchers/ghost-api');
+const {default: fetch} = require('node-fetch')
+const {API_MAJOR} = require('./data-fetchers/ghost-api');
 const dateHelper = require('./helpers/date');
 
 const previewPath = path.resolve(__dirname, '../dist/preview-helper/index.html');
@@ -17,18 +18,19 @@ module.exports = new class PreviewManager {
 			'Once you have it, update your .env with the token:',
 			'GHOST_ACCESS_TOKEN=(token)',
 		],
-		badId: id => [`Unable to read request as uuid - got ${id}`],
-		apiError: errorResponse => [
+		badId: /** @param {string} id */ id => [`Unable to read request as uuid - got ${id}`],
+		apiError: /** @param {{data: any}} errorResponse */ errorResponse => [
 			'Request failed',
 			JSON.stringify(errorResponse.data, null, 2)
 		],
-		unknownError: error => [
+		unknownError: /** @param {Error} error */ error => [
 			'An error occurred:',
 			error.message,
-			error.stack.replace(/\n/g, '\n  ')
+			String(error.stack).replace(/\n/g, '\n  ')
 		]
 	}
 
+	/** @param {string} token */
 	tokenToJwt(token) {
 		const jwt = require('jsonwebtoken');
 		const [id, secret] = token.split(':');
@@ -37,23 +39,25 @@ module.exports = new class PreviewManager {
 				keyid: id,
 				algorithm: 'HS256',
 				expiresIn: '5m',
-				audience: `/${API_VERSION}/admin/`
+				audience: `/${API_MAJOR}/admin/`
 		});
 	}
 
+	/** @param {string} uuid */
 	async getPost(uuid) {
-		const url = `${process.env.GHOST_API_URL}/ghost/api/${API_VERSION}/admin/posts/?filter=uuid:${uuid}&formats=html`;
-		return axios.get(url, {
+		const url = `${process.env.GHOST_API_URL}/ghost/api/${API_MAJOR}/admin/posts/?filter=uuid:${uuid}&formats=html`;
+		return fetch(url, {
 			headers: {
-				authorization: `Ghost ${this.tokenToJwt(process.env.GHOST_ACCESS_TOKEN)}`
+				authorization: `Ghost ${this.tokenToJwt(String(process.env.GHOST_ACCESS_TOKEN))}`
 			}
-		}).then(response => response.data.posts[0]);
+		}).then(response => response.json()).then(response => response.data.posts[0]);
 	}
 
 	async getPreviewFile() {
 		return readFile(previewPath, 'utf-8');
 	}
 
+	/** @param {string} uuid */
 	async render(uuid) {
 		const [post, file] = await Promise.all([this.getPost(uuid), this.getPreviewFile()]);
 		const markerEnd = '__marker_end__';
@@ -78,12 +82,26 @@ module.exports = new class PreviewManager {
 		return renderedFile;
 	}
 
-	async middleware(request, response) {
+	/**
+	 * @param {IncomingMessage & {url: string;}} request
+	 * @param {ServerResponse} response
+	 * @param {() => any} next;
+	 */
+	async middleware(request, response, next) {
+		if (!request.url.startsWith(this.ROUTE_MATCHER)) {
+			next();
+			return;
+		}
+
+		response.setHeader('content-type', 'text/html');
+
 		try {
 			if (!process.env.GHOST_ACCESS_TOKEN) {
 				return this.fatal(response, this.messages.noAccessToken);
 			}
 
+			/** @type {string} */
+			// @ts-expect-error
 			const postUuid = request.url.replace(/\/$/, '').split('/').pop();
 			if (!this.isUuidLike(postUuid)) {
 				return this.fatal(response, this.messages.badId(postUuid));
@@ -102,6 +120,7 @@ module.exports = new class PreviewManager {
 	}
 
 	/**
+	 * @param {ServerResponse} response
 	 * @param {string[]} message
 	 */
 	fatal(response, message) {

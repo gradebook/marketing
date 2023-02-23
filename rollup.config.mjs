@@ -1,5 +1,8 @@
 // @ts-check
-require('dotenv').config()
+import {config} from 'dotenv';
+config();
+
+import {fileURLToPath} from 'url';
 import {writeFileSync} from 'fs';
 import path from 'path';
 import svelte from 'rollup-plugin-svelte';
@@ -8,6 +11,8 @@ import replace from '@rollup/plugin-replace';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import {terser} from 'rollup-plugin-terser';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -18,7 +23,7 @@ let hashFile = {};
 let writeHashes = {};
 
 if (process.env.NO_CACHEBUST !== 'true') {
-	const manifest = require('./tasks/get-cache');
+	const {default: manifest} = await import('./tasks/get-cache.js');
 	hashFile.renderChunk = (code, chunk) => {
 		chunk.fileName = manifest.transform(chunk.fileName, code);
 	};
@@ -49,6 +54,7 @@ const plugins = [
 		dedupe: ['svelte']
 	}),
 	commonjs(),
+	!production && serve,
 	production && terser(),
 	hashFile
 ];

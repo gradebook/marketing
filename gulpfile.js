@@ -1,29 +1,70 @@
 // @ts-check
 require('dotenv').config();
-const {Transform} = require('stream');
-const {join, sep} = require('path');
 const {task, src, dest, parallel, series, watch} = require('gulp');
-let eleventy;
-let jsChangedEmitter;
+const {GulpCssCompilerBackend} = require('./compiler-backend/gulp-css.js');
+const {JSCompilerBackend} = require('./compiler-backend/js.js');
+/** @type {import('@11ty/eleventy/src/Eleventy.js')} */
+let _eleventy;
 
-const IGNORED_CSS_FILES = ['vars.css', 'normalize.css'];
+/** @type {JSCompilerBackend} */
+let jsCompilerBackend;
+/** @type {GulpCssCompilerBackend} */
+let gulpCssCompilerBackend;
 
-const transformCssFileNames = () => new Transform({
-	objectMode: true,
-	transform: function transformCssFileNames(file, enc, cb) {
-		const finalFileName = file.relative.split(sep).pop();
-		if (!IGNORED_CSS_FILES.includes(finalFileName)) {
-			file.path = join(file.base, finalFileName);
-			this.push(file);
-		}
-
-		cb();
+function createJsBackend() {
+	if (!jsCompilerBackend) {
+		jsCompilerBackend = new JSCompilerBackend({
+			watch: process.env.WATCH === 'true',
+			cachebust: process.env.NO_CACHEBUST !== 'true',
+		});
 	}
-});
+
+	return jsCompilerBackend.initAsync();
+}
+
+function createCssBackend() {
+	if (!gulpCssCompilerBackend) {
+		gulpCssCompilerBackend = new GulpCssCompilerBackend({
+			watch: process.env.WATCH === 'true',
+			cachebust: process.env.NO_CACHEBUST !== 'true',
+		});
+	}
+
+	return gulpCssCompilerBackend.initAsync();
+}
+
+async function createEleventyBackend() {
+	if (_eleventy) {
+		await _eleventy.restart();
+	} else {
+		const Eleventy = require('@11ty/eleventy');
+		// @ts-expect-error only the config is publicly exported
+		_eleventy = new Eleventy('./src', './dist');
+	}
+
+	await _eleventy.init();
+	return _eleventy;
+}
+
+/** @param {Function | string | null} [fileOrCallback] */
+async function triggerEleventyBuild(fileOrCallback = null) {
+	const eleventy = await createEleventyBackend();
+
+	if (fileOrCallback && typeof fileOrCallback !== 'function') {
+		// @ts-expect-error we need to trigger `eleventy.resourceModified` on their event bus, and the only way to do that
+		// is to call this private function
+		_eleventy._addFileToWatchQueue(fileOrCallback);
+	}
+
+	await eleventy.write();
+
+	if (typeof fileOrCallback === 'function') {
+		fileOrCallback();
+	}
+}
 
 task('clean', () => {
-	/** @type {(glob: string) => Promise<void>} */
-	const rimraf = require('util').promisify(require('rimraf'));
+	const rimraf = require('rimraf');
 	const globs = ['dist', '.cachebust-manifest'];
 
 	return Promise.all(globs.map(glob => rimraf(glob)));
@@ -40,98 +81,9 @@ task('enableWatchMode', () => {
 	return Promise.resolve();
 });
 
-task('js', () => new Promise((resolve, reject) => {
-	const {spawn} = require('child_process');
-	const rollupPath = require.resolve('rollup/dist/bin/rollup');
-	let manifest;
-	const isWatch = process.env.WATCH === 'true';
-	const additionalFlags = isWatch ? ['-w'] : [];
-
-	// NOTE: we can't use yarn here because we need ipc
-	const cp = spawn('node', [rollupPath, '-c', ...additionalFlags], {
-		stdio: ['inherit', 'inherit', 'inherit', 'ipc']
-	});
-
-	if (isWatch) {
-		process.on('exit', () => {
-			cp.kill('SIGTERM');
-		});
-
-		let firstTime = true;
-
-		cp.on('message', message => {
-			console.log('GOT MESSAGE', message);
-			// @ts-ignore
-			if (message.bundleWritten === true) {
-				if (firstTime) {
-					resolve();
-					firstTime = false;
-				} else if (jsChangedEmitter) {
-					jsChangedEmitter();
-				}
-			}
-		});
-	} else {
-		cp.on('message', message => {
-			if (process.env.NO_CACHEBUST !== 'true') {
-				manifest = require('./tasks/get-cache');
-				// @ts-ignore
-				for (const key in message) {
-					manifest.store(key, message[key]);
-				}
-			}
-		});
-
-		cp.on('exit', code => {
-			if (code === 0) {
-				if (manifest) {
-					manifest.write().then(() => resolve(code)).catch(reject);
-				} else {
-					resolve();
-				}
-			} else {
-				reject(code);
-			}
-		});
-	}
-}));
-
-task('css', (cb) => {
-	const FileHasher = require('./tasks/file-hasher');
-	const postcss = require('gulp-postcss');
-	const hasher = new FileHasher();
-
-	return src('./styles/*/*.css')
-		.pipe(postcss([
-			require('postcss-easy-import'),
-			require('autoprefixer'),
-			require('postcss-custom-properties'),
-			require('postcss-extend-rule')({name: 'apply', onUnusedExtend: 'throw'}),
-			... process.env.NODE_ENV === 'production' ? [require('cssnano')] : []
-		]))
-		.pipe(transformCssFileNames())
-		.pipe(hasher.transform)
-		.pipe(dest('dist/built'))
-		.on('end', () => {
-			if (process.env.NO_CACHEBUST !== 'true') {
-				cb();
-			} else {
-				const manifest = require('./tasks/get-cache');
-				manifest.write().finally(cb);
-			}
-		});
-});
-
-task('html', async () => {
-	if (!eleventy) {
-		const Eleventy = require('@11ty/eleventy');
-		eleventy = new Eleventy('./src', './dist');
-		await eleventy.init();
-	}
-
-	await eleventy.write();
-	eleventy.writer.writeCount = 0;
-});
+task('js', createJsBackend);
+task('css', createCssBackend);
+task('html', triggerEleventyBuild);
 
 task('html:minify', () => {
 	const minify = require('./tasks/minify-html');
@@ -143,13 +95,15 @@ task('html:minify', () => {
 task('default', series(parallel(['css', 'js']), 'html'));
 
 task('dev', series('enableWatchMode', 'default', function devServer() {
-	const liveReload = require('browser-sync');
-	const reload = () => liveReload.reload();
-	jsChangedEmitter = reload;
-	watch('./styles/**/*', series('css')).on('change', reload);
-	watch(['./src/**/*.hbs','./src/**/*.md'], series('html')).on('change', reload);
-
-	liveReload.init(require('./browser-sync.js'));
+	const server = require('./browser-sync.js').createEleventyDevServer();
+	const reload = () => server.reload({});
+	jsCompilerBackend.subscribe(reload);
+	gulpCssCompilerBackend.subscribe(reload)
+	watch('./styles/**/*').on('change', () => gulpCssCompilerBackend.runOnce());
+	watch(['./src/**/*.hbs','./src/**/*.md']).on('change', async file => {
+		await triggerEleventyBuild(file);
+		reload();
+	});
 }));
 
 task('build', series(

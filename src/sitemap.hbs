@@ -8,7 +8,7 @@ layout: null
 	{{#each collections.all as |page|}}
 	<url>
 		{{!-- @todo: image support --}}
-		<loc>{{ absolute_url (url page.url) }}</loc>
+		<loc>{{ absolute_url page.url }}</loc>
 		<lastmod>{{ date page.date }}</lastmod>
 	</url>
 	{{/each}}

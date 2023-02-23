@@ -3,6 +3,8 @@ const {Transform, PassThrough} = require('stream');
 const {join} = require('path');
 
 module.exports = class FileHasher {
+	/** @type {Transform} */
+	transform;
 	constructor() {
 		if (process.env.NO_CACHEBUST === 'true') {
 			this.transform = new PassThrough({
@@ -11,7 +13,7 @@ module.exports = class FileHasher {
 		} else {
 			this.transform = new Transform({
 				objectMode: true,
-				transform: (file, enc, cb) => this._transform(file, null, cb)
+				transform: (file, enc, cb) => this._transform(file, undefined, cb)
 			});
 		}
 	}

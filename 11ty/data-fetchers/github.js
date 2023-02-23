@@ -1,5 +1,5 @@
 const {URL} = require('url');
-const axios = require('axios');
+const {default: fetch} = require('node-fetch');
 
 const cache = {};
 const resources = [
@@ -8,13 +8,14 @@ const resources = [
 	['Security', 'SECURITY', '/security']
 ];
 
+/** @param {[string, string, string]} resource */
 function fetchResource([name, path, dest]) {
 	const url = new URL('/gradebook/legal/master/' + path + '.md', 'https://raw.githubusercontent.com/').href;
 	if (cache[url]) {
 		return cache[url];
 	}
 
-	return axios({method: 'GET', responseType: 'text', url}).then(({data}) => {
+	return fetch(url).then(response => response.text()).then(data => {
 		cache[url] = {
 			markdown: data,
 			title: name,
