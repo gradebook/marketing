@@ -46,3 +46,8 @@
   for = "/built/*"
   [headers.values]
   Cache-Control = "public max-age=63072000" # 2 years (thanks, cachebusting!)
+
+[[headers]]
+  for = "*"
+  [headers.values]
+  X-Frame-Options = "DENY"
