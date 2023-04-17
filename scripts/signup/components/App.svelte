@@ -20,7 +20,7 @@
 	let state = STATE.confirmCreation;
 	let guessedSchool;
 
-	$: disallowSubmission = !Boolean((notListed && userInputName) || (!notListed && school));
+	$: disallowSubmission = !Boolean((notListed && userInputName.trim()) || (!notListed && school));
 	$: showCorpsCheckbox = school && school.value === 'aggie';
 	$: isCorpsMember = showCorpsCheckbox && corpsChecked;
 
@@ -51,7 +51,7 @@
 
 		if (notListed) {
 			payload.school = 'the';
-			payload.suggestion = userInputName;
+			payload.suggestion = userInputName.trim();
 		} else if (school.value === 'aggie' && isCorpsMember) {
 			payload.school = 'aggiecorps'
 		} else {
