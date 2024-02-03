@@ -294,10 +294,10 @@
   dependencies:
     axios "^0.27.0"
 
-"@tryghost/helpers@1.1.75":
-  version "1.1.75"
-  resolved "https://registry.yarnpkg.com/@tryghost/helpers/-/helpers-1.1.75.tgz#acdc2224441d6e9ccd8c94f29723622e3bba5a98"
-  integrity sha512-iUp80FuxSWR2s2/fus7e88u6NSaab5aVxHFc8pyI/yrL9UrXtMgiIxIumMULo7RRE1OjKhP5qsFla1n0b+Oy8w==
+"@tryghost/helpers@1.1.89":
+  version "1.1.89"
+  resolved "https://registry.yarnpkg.com/@tryghost/helpers/-/helpers-1.1.89.tgz#3844dfe9fdbeb094aabe7c069207071fd2835a3d"
+  integrity sha512-VWYEzpUOX9H4gdKKR5MD4DwTeh7WYzK38G5qCBybKpOtOph5NgyYOGNhxfhhXaIBRActc1aNfcWMgG1pEh0w2Q==
   dependencies:
     lodash-es "^4.17.11"
 
