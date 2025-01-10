@@ -8,6 +8,12 @@ description: See what's changed as Gradebook evolves!
 
 _Note that we only update our release notes when there is a notable feature or improvement. We often have several smaller releases with bug fixes and improvements that will not be listed until the next time the release notes are updated._ 😊
 
+## 3.28.0
+
+_Released January 9, 2205_
+
+*taps mic* Is this thing on? We're excited to share the improvements we've made over the last **41** releases! The list is still baking, check back next week?
+
 ## 3.27.0
 
 _Released January 2, 2022_
