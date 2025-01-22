@@ -387,7 +387,7 @@ _Released July 4, 2020 🎇_
 
 ### Features
 
- - Based on your feedback, we've added a toggle to let you choose between entering points-based grades (18/20) and percentage grades (90%). ([blog post](/blog/toggle-percentages-or-points))
+ - Based on your feedback, we've added a toggle to let you choose between entering points-based grades (18/20) and percentage grades (90%). ([blog post](/blog/toggle-percentages-or-points/))
 
  - The app now goes to sleep after you've been gone for a while
 

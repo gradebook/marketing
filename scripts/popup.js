@@ -33,7 +33,7 @@ document.querySelectorAll('.login-button').forEach(node => {
       };
     }).then(user => {
       if (user.isNew) {
-        window.location.href = '/signup';
+        window.location.href = '/signup/';
       } else if (user.school) {
         window.location.href = DASHBOARD_URL;
       }
