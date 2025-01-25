@@ -10,7 +10,7 @@ _Note that we only update our release notes when there is a notable feature or i
 
 ## 3.28.0
 
-_Released January 9, 2205_
+_Released January 9, 2025_
 
 *taps mic* Is this thing on? We're excited to share the improvements we've made over the last **41** releases! The list is still baking, check back next week?
 
