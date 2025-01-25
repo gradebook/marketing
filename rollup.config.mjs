@@ -10,7 +10,7 @@ import css from 'rollup-plugin-css-only';
 import replace from '@rollup/plugin-replace';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
-import {terser} from 'rollup-plugin-terser';
+import terser from '@rollup/plugin-terser';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
