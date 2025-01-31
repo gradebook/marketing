@@ -40,7 +40,7 @@
     "gulp": "4.0.2",
     "gulp-postcss": "9.0.1",
     "html-minifier": "4.0.0",
-    "jsonwebtoken": "9.0.0",
+    "jsonwebtoken": "9.0.2",
     "markdown-it-named-headings": "1.1.0",
     "postcss-custom-properties": "13.1.4",
     "postcss-easy-import": "4.0.0",
