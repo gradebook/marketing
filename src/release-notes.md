@@ -12,7 +12,66 @@ _Note that we only update our release notes when there is a notable feature or i
 
 _Released January 9, 2025_
 
-*taps mic* Is this thing on? We're excited to share the improvements we've made over the last **41** releases! The list is still baking, check back next week?
+*\*taps mic\** is this thing on? 👋
+
+### Features
+
+- 🦘Added a setting to shift seasons for our friends down under
+
+- 🎨 Redesigned user settings page
+
+- ✨ Embedded course search in the course creator (at select schools)
+
+
+### Bug Fixes / Notable Changes
+
+- Added "Report an Issue" button to the profile dropdown
+
+- Fixed issues that caused the semester used for GPA calculations to be incorrect
+
+- Supported "more" for y'all
+
+   - Increase the max allowable GPA credit hours
+
+   - add support for decimal GPA credits (at select schools)
+
+   - Increase the max number of courses per semester
+
+   - Increase the max number of grades in a category
+
+- Fixed various crashes
+
+   - When the course creator takes too long to load
+
+   - When creating/updating a category fails in multiple scenarios
+
+   - When creating an incomplete course
+
+   - When deleting a course fails
+
+   - When relaunching the category editor
+
+   - When deleting an assignment in the course creator
+
+   - The app doesn't get stuck on the loading screen
+
+   - When using Safari Private Browsing
+
+
+- Made minor design enhancements across the app
+
+- Optimized the size of the app
+
+- Improved app stability on flaky networks
+
+   - Added support for trying to re-create a course that was unable to be created
+
+- Fixed "What do I need" sometimes showing on a completed course
+
+- Improved accessibility on the course dashboard
+
+- Surfaced the error message when the app fails to launch
+
 
 ## 3.27.0
 
