@@ -30,7 +30,7 @@
     "@rollup/plugin-node-resolve": "15.0.1",
     "@rollup/plugin-replace": "5.0.7",
     "@rollup/plugin-terser": "0.1.0",
-    "@tryghost/content-api": "1.11.25",
+    "@tryghost/content-api": "1.11.28",
     "@tryghost/helpers": "1.1.94",
     "@tryghost/schema-org": "0.1.40",
     "autoprefixer": "10.4.21",
