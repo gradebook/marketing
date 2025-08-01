@@ -324,10 +324,10 @@
   dependencies:
     lodash-es "^4.17.11"
 
-"@tryghost/schema-org@0.1.40":
-  version "0.1.40"
-  resolved "https://registry.yarnpkg.com/@tryghost/schema-org/-/schema-org-0.1.40.tgz#828825f29ba1d991932370d7ba10a72726d5b89f"
-  integrity sha512-nSScumAEQdIgCEoy2sSEmtsLsLql/xK3w1zQHna+GceRTjGRMsbVf7uD0jwrewUkQSP40eLShevn1j5kNPVxpQ==
+"@tryghost/schema-org@0.1.45":
+  version "0.1.45"
+  resolved "https://registry.yarnpkg.com/@tryghost/schema-org/-/schema-org-0.1.45.tgz#99e379b8f8cd2c534423ae6a3a61d3e004e98cb4"
+  integrity sha512-4gCQTu6VG6aInaEiskFUtrImV3lSJ6Ig6zp9jyRGKYbdK0JBqsQVwyoy4xeaSG0GVevsKNAhMlQTpheO/Rk3Zw==
   dependencies:
     glob "^9.0.0"
     handlebars "^4.7.7"
