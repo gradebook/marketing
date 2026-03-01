@@ -31,7 +31,7 @@
     "@rollup/plugin-replace": "5.0.7",
     "@rollup/plugin-terser": "0.1.0",
     "@tryghost/content-api": "1.11.28",
-    "@tryghost/helpers": "1.1.100",
+    "@tryghost/helpers": "1.1.102",
     "@tryghost/schema-org": "0.1.48",
     "autoprefixer": "10.4.21",
     "chalk": "4.1.2",
