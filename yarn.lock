@@ -333,14 +333,14 @@
   dependencies:
     lodash-es "4.18.1"
 
-"@tryghost/schema-org@0.1.51":
-  version "0.1.51"
-  resolved "https://registry.yarnpkg.com/@tryghost/schema-org/-/schema-org-0.1.51.tgz#6290a266ea18d64864c99c9c2b58c0844e188cad"
-  integrity sha512-A/EMzRCsNuEGFSQRu3MejfukLpCDZb4XWzwaUZfVmtxJLIsdVs6U1442RfMkppZHkjYHghomftNj04rZmYu+ew==
+"@tryghost/schema-org@0.1.52":
+  version "0.1.52"
+  resolved "https://registry.yarnpkg.com/@tryghost/schema-org/-/schema-org-0.1.52.tgz#f809c5746cd1bff71d8ba98ba1040a44d7ab6402"
+  integrity sha512-kMVBjRXz6H+IL5VNKurjpzOQrowXHf6uvL6TS8rdlRSaUhnhxPE2iZv+j9RiZJS8IZlrGIrgiJqDfpHoMzG1Vg==
   dependencies:
     glob "13.0.6"
-    handlebars "4.7.8"
-    lodash "4.17.23"
+    handlebars "4.7.9"
+    lodash "4.18.1"
 
 "@trysound/sax@0.2.0":
   version "0.2.0"
@@ -2290,10 +2290,10 @@ hamljs@^0.6.2:
   resolved "https://registry.yarnpkg.com/hamljs/-/hamljs-0.6.2.tgz#7b7116cf6dbe7278e42b3f6ef8725a33e177c8e3"
   integrity sha512-/chXRp4WpL47I+HX1vCCdSbEXAljEG2FBMmgO7Am0bYsqgnEjreeWzUdX1onXqwZtcfgxbCg5WtEYYvuZ5muBg==
 
-handlebars@4.7.8:
-  version "4.7.8"
-  resolved "https://registry.yarnpkg.com/handlebars/-/handlebars-4.7.8.tgz#41c42c18b1be2365439188c77c6afae71c0cd9e9"
-  integrity sha512-vafaFqs8MZkRrSX7sFVUdo3ap/eNiLnb4IakshzvP56X5Nr1iGKAIqdX6tMlm6HcNRIkr6AxO5jFEoJzzpT8aQ==
+handlebars@4.7.9:
+  version "4.7.9"
+  resolved "https://registry.yarnpkg.com/handlebars/-/handlebars-4.7.9.tgz#6f139082ab58dc4e5a0e51efe7db5ae890d56a0f"
+  integrity sha512-4E71E0rpOaQuJR2A3xDZ+GM1HyWYv1clR58tC8emQNeQe3RH7MAzSbat+V0wG78LQBo6m6bzSG/L4pBuCsgnUQ==
   dependencies:
     minimist "^1.2.5"
     neo-async "^2.6.2"
@@ -3107,10 +3107,10 @@ lodash.words@^4.0.0:
   resolved "https://registry.yarnpkg.com/lodash.words/-/lodash.words-4.2.0.tgz#5ecfeaf8ecf8acaa8e0c8386295f1993c9cf4036"
   integrity sha512-mXxqd8Yx9BGPij3lZKFSdOsjOTbL4krbCCp9slEozaN4EMppA2dFmK/f8HeohodprY6W0vOdiQ5WFgPaTI75xQ==
 
-lodash@4.17.23:
-  version "4.17.23"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.23.tgz#f113b0378386103be4f6893388c73d0bde7f2c5a"
-  integrity sha512-LgVTMpQtIopCi79SJeDiP0TfWi5CNEc/L/aRdTh3yIvmZXTnheWpKjSZhnvMl8iXbC1tFg9gdHHDMLoV7CnG+w==
+lodash@4.18.1:
+  version "4.18.1"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.18.1.tgz#ff2b66c1f6326d59513de2407bf881439812771c"
+  integrity sha512-dMInicTPVE8d1e5otfwmmjlxkZoUpiVLwyeTdUsi/Caj/gfzzblBcCE5sRHV/AsjuCmxWrte2TNGSYuCeCq+0Q==
 
 lodash@^4.17.4:
   version "4.17.21"
