@@ -326,12 +326,12 @@
   dependencies:
     axios "^1.0.0"
 
-"@tryghost/helpers@1.1.103":
-  version "1.1.103"
-  resolved "https://registry.yarnpkg.com/@tryghost/helpers/-/helpers-1.1.103.tgz#a6883b7741f16e1fe27549d2e9a0562db1fa7842"
-  integrity sha512-ako7nvUKySOaTMSZXUXnrg6pVTkxW1ZVKbJj0t0HGG+ndt0pjLBdnzdZW3BMGEj4Qvf0MWxGdUcLrW/OFyHzsg==
+"@tryghost/helpers@1.1.104":
+  version "1.1.104"
+  resolved "https://registry.yarnpkg.com/@tryghost/helpers/-/helpers-1.1.104.tgz#c8be913e412893ad9acfcdb4175404bdd722de7a"
+  integrity sha512-l3qLdrlPneAg8ctH39p9tdNzTOAPEQhqZPW84JtVTyDtFr5fx5It86rahC7bffRi7hURtIV2DSir28untl/oZA==
   dependencies:
-    lodash-es "4.17.23"
+    lodash-es "4.18.1"
 
 "@tryghost/schema-org@0.1.51":
   version "0.1.51"
@@ -3034,10 +3034,10 @@ locate-path@^5.0.0:
   dependencies:
     p-locate "^4.1.0"
 
-lodash-es@4.17.23:
-  version "4.17.23"
-  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.23.tgz#58c4360fd1b5d33afc6c0bbd3d1149349b1138e0"
-  integrity sha512-kVI48u3PZr38HdYz98UmfPnXl2DXrpdctLrFLCd3kOx1xUkOmpFPx7gCWWM5MPkL/fD8zb+Ph0QzjGFs4+hHWg==
+lodash-es@4.18.1:
+  version "4.18.1"
+  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.18.1.tgz#b962eeb80d9d983a900bf342961fb7418ca10b1d"
+  integrity sha512-J8xewKD/Gk22OZbhpOVSwcs60zhd95ESDwezOFuA3/099925PdHJ7OFHNTGtajL3AlZkykD32HykiMo+BIBI8A==
 
 lodash.deburr@^4.0.0, lodash.deburr@^4.1.0:
   version "4.1.0"
