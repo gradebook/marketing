@@ -59,7 +59,7 @@
     "@gradebook/external-window": "0.3.0",
     "dayjs": "1.11.23",
     "node-fetch": "<3",
-    "postcss": "8.5.23",
+    "postcss": "8.5.26",
     "svelte-select": "4.4.7"
   }
 }
