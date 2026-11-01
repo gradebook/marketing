@@ -333,13 +333,13 @@
   dependencies:
     lodash-es "4.18.1"
 
-"@tryghost/schema-org@0.1.54":
-  version "0.1.54"
-  resolved "https://registry.yarnpkg.com/@tryghost/schema-org/-/schema-org-0.1.54.tgz#7ab59096bb68ae6a7dd4f82e496109a04704df21"
-  integrity sha512-02gvKSDQQrFFCGoVvBhjPPDyfrYTuxu85ibgLlazP8eDOngztdAB3EHqfnMDwRP/I7UeUdr9x1gvL6pQS8ZA3w==
+"@tryghost/schema-org@0.1.57":
+  version "0.1.57"
+  resolved "https://registry.yarnpkg.com/@tryghost/schema-org/-/schema-org-0.1.57.tgz#18b113f77506026b54e81d9529244cbf28cc951c"
+  integrity sha512-HSf3C7V9lTJz3lG9ehvJDVJuXAlRchwnpmLFpsy+FwQzLw+iwIH4Ohz0xdPsmNAYa8DSxW6piwMXJ0NXAH/zsA==
   dependencies:
     glob "13.0.6"
-    handlebars "4.7.9"
+    handlebars "4.7.10"
     lodash "4.18.1"
 
 "@trysound/sax@0.2.0":
@@ -2290,12 +2290,12 @@ hamljs@^0.6.2:
   resolved "https://registry.yarnpkg.com/hamljs/-/hamljs-0.6.2.tgz#7b7116cf6dbe7278e42b3f6ef8725a33e177c8e3"
   integrity sha512-/chXRp4WpL47I+HX1vCCdSbEXAljEG2FBMmgO7Am0bYsqgnEjreeWzUdX1onXqwZtcfgxbCg5WtEYYvuZ5muBg==
 
-handlebars@4.7.9:
-  version "4.7.9"
-  resolved "https://registry.yarnpkg.com/handlebars/-/handlebars-4.7.9.tgz#6f139082ab58dc4e5a0e51efe7db5ae890d56a0f"
-  integrity sha512-4E71E0rpOaQuJR2A3xDZ+GM1HyWYv1clR58tC8emQNeQe3RH7MAzSbat+V0wG78LQBo6m6bzSG/L4pBuCsgnUQ==
+handlebars@4.7.10:
+  version "4.7.10"
+  resolved "https://registry.yarnpkg.com/handlebars/-/handlebars-4.7.10.tgz#12419ea1b41391b3ffcf003f2164dcbce090c417"
+  integrity sha512-P5VJMVM7qgBn6vjXMw8WG9uVI+ncf2pi72j4de4yz5ZULLj2RGqLYaKOYGsgyrViQ0tePOVlN1tDCCXXtFqXKg==
   dependencies:
-    minimist "^1.2.5"
+    minimist "^1.2.8"
     neo-async "^2.6.2"
     source-map "^0.6.1"
     wordwrap "^1.0.0"
